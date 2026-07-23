@@ -18,7 +18,7 @@ There is no database, authentication, frontend framework, external CMS, form ser
 ## Requirements
 
 - Node.js 22.12 or newer
-- npm 11 or newer is recommended
+- npm 10.9.8 (pinned in `package.json`)
 
 ## Local development
 
