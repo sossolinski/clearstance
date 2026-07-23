@@ -293,7 +293,23 @@ export const translations = {
       locationLabel: 'Lokalizacja',
       cta: 'kontakt@clearstance.pl',
       note:
-        'Wiadomość może krótko opisywać kontekst, oczekiwany zakres i horyzont czasowy rozmowy.'
+        'Wiadomość może krótko opisywać kontekst, oczekiwany zakres i horyzont czasowy rozmowy.',
+      form: {
+        eyebrow: 'Wiadomość',
+        title: 'Wyślij wiadomość',
+        name: 'Imię i nazwisko',
+        email: 'E-mail',
+        organisation: 'Organizacja (opcjonalnie)',
+        message: 'W czym możemy pomóc?',
+        submit: 'Wyślij wiadomość',
+        sending: 'Wysyłanie…',
+        success: 'Dziękujemy. Wiadomość została wysłana.',
+        failure:
+          'Nie udało się wysłać wiadomości. Możesz napisać bezpośrednio na kontakt@clearstance.pl.',
+        verification: 'Potwierdź weryfikację i spróbuj ponownie.',
+        unavailable:
+          'Formularz jest chwilowo niedostępny. Napisz bezpośrednio na kontakt@clearstance.pl.'
+      }
     },
     insightsPage: {
       metaTitle: 'Insights — ClearStance',
@@ -589,7 +605,23 @@ export const translations = {
       locationLabel: 'Location',
       cta: 'kontakt@clearstance.pl',
       note:
-        'A short note on the context, intended scope and timing is enough to begin the conversation.'
+        'A short note on the context, intended scope and timing is enough to begin the conversation.',
+      form: {
+        eyebrow: 'Enquiry',
+        title: 'Send a message',
+        name: 'Name',
+        email: 'Email',
+        organisation: 'Organisation (optional)',
+        message: 'How can we help?',
+        submit: 'Send message',
+        sending: 'Sending…',
+        success: 'Thank you. Your message has been sent.',
+        failure:
+          'The message could not be sent. You can email kontakt@clearstance.pl directly.',
+        verification: 'Complete the verification and try again.',
+        unavailable:
+          'The form is temporarily unavailable. Please email kontakt@clearstance.pl directly.'
+      }
     },
     insightsPage: {
       metaTitle: 'Insights — ClearStance',

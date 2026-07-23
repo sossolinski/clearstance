@@ -1,0 +1,205 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+#
+# Production setup required:
+# 1. Replace REPLACE_WITH_GITHUB_OWNER with the owner of the production repository.
+# 2. Replace REPLACE_WITH_AUTH_WORKER with the deployed Sveltia CMS Authenticator hostname.
+# See README.md for the complete GitHub OAuth and Cloudflare setup.
+
+backend:
+  name: github
+  repo: REPLACE_WITH_GITHUB_OWNER/clearstance
+  branch: main
+  base_url: https://REPLACE_WITH_AUTH_WORKER.workers.dev
+  auth_methods: [oauth]
+  commit_messages:
+    create: 'Create {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+
+app_title: ClearStance Insights
+
+media_folder: /public/images/insights
+public_folder: /images/insights
+media_libraries:
+  default:
+    config:
+      max_file_size: 5242880
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 84
+          width: 1920
+          height: 1920
+        svg:
+          optimize: true
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: insights_pl
+    label: Insights — PL
+    label_singular: Insight — PL
+    folder: /src/content/insights/pl
+    extension: md
+    format: yaml-frontmatter
+    create: true
+    delete: true
+    identifier_field: slug
+    slug: "{{slug}}"
+    summary: "{{title}} — {{publishedAt | date('YYYY-MM-DD')}}"
+    fields:
+      - label: Tytuł
+        name: title
+        widget: string
+      - label: Opis
+        name: description
+        widget: text
+      - label: Slug
+        name: slug
+        widget: string
+        hint: "Adresowa nazwa materiału i nazwa pliku, np. projektowanie-cwiczen."
+        pattern:
+          - "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          - "Użyj małych liter, cyfr i pojedynczych łączników."
+      - label: Data publikacji
+        name: publishedAt
+        widget: datetime
+        type: date
+        format: YYYY-MM-DD
+      - label: Data aktualizacji
+        name: updatedAt
+        widget: datetime
+        type: date
+        format: YYYY-MM-DD
+        required: false
+      - label: Autor
+        name: author
+        widget: string
+        default: ClearStance
+      - label: Język
+        name: locale
+        widget: hidden
+        default: pl
+      - label: Klucz tłumaczenia
+        name: translationKey
+        widget: string
+        hint: "Ten sam neutralny językowo klucz w wersji PL i EN łączy artykuły. Druga wersja językowa nie jest wymagana."
+        pattern:
+          - "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          - "Użyj małych liter, cyfr i pojedynczych łączników."
+      - label: Kategoria
+        name: category
+        widget: string
+      - label: Tagi
+        name: tags
+        widget: list
+        required: false
+        default: []
+        field:
+          label: Tag
+          name: tag
+          widget: string
+      - label: Wyróżniony materiał
+        name: featured
+        widget: boolean
+        default: false
+      - label: Wersja robocza
+        name: draft
+        widget: boolean
+        default: true
+        hint: "Wersje robocze pozostają poza sitemapą i otrzymują noindex."
+      - label: Tytuł SEO
+        name: seoTitle
+        widget: string
+      - label: Opis SEO
+        name: seoDescription
+        widget: text
+      - label: Treść artykułu
+        name: body
+        widget: richtext
+
+  - name: insights_en
+    label: Insights — EN
+    label_singular: Insight — EN
+    folder: /src/content/insights/en
+    extension: md
+    format: yaml-frontmatter
+    create: true
+    delete: true
+    identifier_field: slug
+    slug: "{{slug}}"
+    summary: "{{title}} — {{publishedAt | date('YYYY-MM-DD')}}"
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+      - label: Slug
+        name: slug
+        widget: string
+        hint: "The URL-safe article name and filename, for example designing-exercises."
+        pattern:
+          - "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          - "Use lowercase letters, numbers and single hyphens."
+      - label: Publication date
+        name: publishedAt
+        widget: datetime
+        type: date
+        format: YYYY-MM-DD
+      - label: Updated date
+        name: updatedAt
+        widget: datetime
+        type: date
+        format: YYYY-MM-DD
+        required: false
+      - label: Author
+        name: author
+        widget: string
+        default: ClearStance
+      - label: Language
+        name: locale
+        widget: hidden
+        default: en
+      - label: Translation key
+        name: translationKey
+        widget: string
+        hint: "Use the same language-neutral value in the PL and EN entries to connect them. A matching translation is not required."
+        pattern:
+          - "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          - "Use lowercase letters, numbers and single hyphens."
+      - label: Category
+        name: category
+        widget: string
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        default: []
+        field:
+          label: Tag
+          name: tag
+          widget: string
+      - label: Featured
+        name: featured
+        widget: boolean
+        default: false
+      - label: Draft
+        name: draft
+        widget: boolean
+        default: true
+        hint: "Draft entries stay out of the sitemap and receive noindex."
+      - label: SEO title
+        name: seoTitle
+        widget: string
+      - label: SEO description
+        name: seoDescription
+        widget: text
+      - label: Article body
+        name: body
+        widget: richtext

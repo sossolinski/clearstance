@@ -13,6 +13,10 @@ const { locale } = Astro.props;
 const t = getTranslations(locale);
 const content = t.contactPage;
 const otherLocale = locale === 'pl' ? 'en' : 'pl';
+const turnstileSiteKey =
+  import.meta.env.PUBLIC_TURNSTILE_SITE_KEY?.trim() ||
+  (import.meta.env.DEV ? '1x00000000000000000000AA' : '');
+const formAvailable = Boolean(turnstileSiteKey);
 ---
 
 <BaseLayout
@@ -33,20 +37,137 @@ const otherLocale = locale === 'pl' ? 'en' : 'pl';
       lead={content.lead}
     />
 
-    <section class="contact-page" aria-labelledby="contact-details-title">
-      <div class="wrap contact-page-grid" data-reveal>
-        <h2 id="contact-details-title" class="sr-only">
-          {locale === 'pl' ? 'Dane kontaktowe' : 'Contact details'}
-        </h2>
-        <div class="contact-detail">
-          <span>{content.emailLabel}</span>
-          <a href={`mailto:${t.site.email}`}>{content.cta}</a>
+    <section class="contact-page" aria-labelledby="contact-form-title">
+      <div class="wrap contact-page-layout" data-reveal>
+        <div class="contact-details">
+          <p class="eyebrow">{content.form.eyebrow}</p>
+          <h2 id="contact-form-title">{content.form.title}</h2>
+          <p class="contact-intro">{content.note}</p>
+
+          <div class="contact-detail">
+            <span>{content.emailLabel}</span>
+            <a href={`mailto:${t.site.email}`}>{content.cta}</a>
+          </div>
+          <div class="contact-detail">
+            <span>{content.locationLabel}</span>
+            <strong>{t.site.location}</strong>
+          </div>
         </div>
-        <div class="contact-detail">
-          <span>{content.locationLabel}</span>
-          <strong>{t.site.location}</strong>
-        </div>
-        <p>{content.note}</p>
+
+        <form
+          class="contact-form"
+          id="contact-form"
+          method="post"
+          action="/api/contact"
+          aria-labelledby="contact-form-title"
+          aria-describedby="contact-form-status"
+          data-success-message={content.form.success}
+          data-failure-message={content.form.failure}
+          data-verification-message={content.form.verification}
+          data-sending-label={content.form.sending}
+          data-submit-label={content.form.submit}
+        >
+          <input type="hidden" name="locale" value={locale} />
+          <input type="hidden" name="source" value={getRoute(locale, 'contact')} data-contact-source />
+
+          <div class="contact-form-trap" aria-hidden="true">
+            <label for="contact-website">Website</label>
+            <input
+              id="contact-website"
+              name="website"
+              type="text"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="contact-form-row">
+            <div class="contact-field">
+              <label for="contact-name">{content.form.name}</label>
+              <input
+                id="contact-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                maxlength="120"
+                required
+              />
+            </div>
+
+            <div class="contact-field">
+              <label for="contact-email">{content.form.email}</label>
+              <input
+                id="contact-email"
+                name="email"
+                type="email"
+                inputmode="email"
+                autocomplete="email"
+                maxlength="254"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-organisation">{content.form.organisation}</label>
+            <input
+              id="contact-organisation"
+              name="organisation"
+              type="text"
+              autocomplete="organization"
+              maxlength="160"
+            />
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-message">{content.form.message}</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              rows="6"
+              minlength="10"
+              maxlength="5000"
+              required
+            ></textarea>
+          </div>
+
+          {
+            turnstileSiteKey && (
+              <div class="contact-turnstile">
+                <div
+                  class="cf-turnstile"
+                  data-sitekey={turnstileSiteKey}
+                  data-action="contact"
+                  data-appearance="interaction-only"
+                  data-size="flexible"
+                  data-theme="light"
+                  data-language={locale}
+                />
+              </div>
+            )
+          }
+
+          <div class="contact-form-footer">
+            <button
+              class="button button--dark"
+              type="submit"
+              disabled={!formAvailable}
+              aria-disabled={formAvailable ? undefined : 'true'}
+            >
+              <span data-contact-submit-label>{content.form.submit}</span>
+              <span aria-hidden="true">↗</span>
+            </button>
+            <p
+              id="contact-form-status"
+              class="contact-form-status"
+              role="status"
+              aria-live="polite"
+              tabindex="-1"
+            >
+              {!formAvailable ? content.form.unavailable : ''}
+            </p>
+          </div>
+        </form>
       </div>
     </section>
 
@@ -68,4 +189,110 @@ const otherLocale = locale === 'pl' ? 'en' : 'pl';
       </div>
     </section>
   </main>
+
+  {
+    turnstileSiteKey && (
+      <script
+        is:inline
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        async
+        defer
+      />
+    )
+  }
+
+  <script is:inline>
+    const initialiseContactForm = () => {
+      const form = document.querySelector('#contact-form');
+
+      if (!(form instanceof HTMLFormElement) || form.dataset.enhanced === 'true') {
+        return;
+      }
+
+      form.dataset.enhanced = 'true';
+
+      const submitButton = form.querySelector('button[type="submit"]');
+      const submitLabel = form.querySelector('[data-contact-submit-label]');
+      const status = form.querySelector('#contact-form-status');
+      const source = form.querySelector('[data-contact-source]');
+
+      if (
+        !(submitButton instanceof HTMLButtonElement) ||
+        !(submitLabel instanceof HTMLElement) ||
+        !(status instanceof HTMLElement)
+      ) {
+        return;
+      }
+
+      if (source instanceof HTMLInputElement) {
+        source.value = window.location.href;
+      }
+
+      const setStatus = (message, state = '') => {
+        status.textContent = message;
+        status.dataset.state = state;
+      };
+
+      const resetTurnstile = () => {
+        if (typeof window.turnstile?.reset === 'function') {
+          window.turnstile.reset();
+        }
+      };
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (!form.reportValidity()) {
+          return;
+        }
+
+        const formData = new FormData(form);
+        const turnstileToken = formData.get('cf-turnstile-response');
+
+        if (typeof turnstileToken !== 'string' || turnstileToken.length === 0) {
+          setStatus(form.dataset.verificationMessage || '', 'error');
+          return;
+        }
+
+        submitButton.disabled = true;
+        form.setAttribute('aria-busy', 'true');
+        submitLabel.textContent = form.dataset.sendingLabel || '';
+        setStatus('');
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json'
+            },
+            body: formData
+          });
+          const result = await response.json().catch(() => ({ ok: false }));
+
+          if (!response.ok || result.ok !== true) {
+            throw new Error('Contact request failed');
+          }
+
+          form.reset();
+          resetTurnstile();
+          setStatus(form.dataset.successMessage || '', 'success');
+          status.focus({ preventScroll: true });
+        } catch {
+          resetTurnstile();
+          setStatus(form.dataset.failureMessage || '', 'error');
+          status.focus({ preventScroll: true });
+        } finally {
+          submitButton.disabled = false;
+          form.removeAttribute('aria-busy');
+          submitLabel.textContent = form.dataset.submitLabel || '';
+        }
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initialiseContactForm, { once: true });
+    } else {
+      initialiseContactForm();
+    }
+  </script>
 </BaseLayout>

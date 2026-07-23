@@ -9,7 +9,12 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "typecheck": "tsc --noEmit",
     "check:links": "node scripts/check-links.mjs",
+    "check:worker": "npm run build && wrangler deploy --dry-run --outdir .wrangler-build",
+    "test:contact": "node --experimental-strip-types --test tests/contact.test.mjs",
+    "dev:cloudflare": "npm run build && wrangler dev",
+    "deploy:cloudflare": "wrangler deploy",
     "optimize:images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
@@ -20,7 +25,8 @@
   "devDependencies": {
     "@astrojs/check": "0.9.9",
     "sharp": "0.35.3",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "wrangler": "4.114.0"
   },
   "engines": {
     "node": ">=22.12.0"

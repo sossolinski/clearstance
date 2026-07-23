@@ -9,6 +9,9 @@ dist/
 .env
 .env.*
 !.env.example
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
 
 # operating system and editor files
 .DS_Store
@@ -22,6 +25,8 @@ Thumbs.db
 coverage/
 playwright-report/
 test-results/
+.wrangler/
+.wrangler-build/
 
 # local hosting archives
 *.tgz

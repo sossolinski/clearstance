@@ -51,6 +51,33 @@ All listed software licences permit free commercial use. No paid font, icon pack
 - Commercial use status: permitted
 - Note: sharp distributes and uses libvips under its applicable open-source licence. Generated images do not require sharp at runtime.
 
+### Wrangler 4.114.0
+
+- Purpose: local validation and deployment of the Cloudflare Worker and static assets
+- Source: https://github.com/cloudflare/workers-sdk
+- Licence: MIT OR Apache-2.0
+- Commercial use status: permitted
+- Runtime status: development and deployment tool only; it is not shipped to site visitors
+
+## Editorial software
+
+### Sveltia CMS
+
+- Purpose: Git-based editorial interface at `/admin/`
+- Source: https://github.com/sveltia/sveltia-cms
+- Licence: MIT
+- Commercial use status: permitted
+- Delivery: loaded from the project’s official UNPKG distribution using the installation pattern in the current Sveltia documentation
+- Data model: content remains as Markdown in this Git repository; no proprietary CMS database is used
+
+### Sveltia CMS Authenticator
+
+- Purpose: optional GitHub OAuth authorization-code flow for non-technical CMS users
+- Source: https://github.com/sveltia/sveltia-cms-auth
+- Licence: MIT
+- Commercial use status: permitted
+- Deployment: isolated Cloudflare Worker; the code is maintained and deployed from the official project rather than copied into the ClearStance site Worker
+
 ## Production assets
 
 ### ClearStance approved homepage photography
@@ -83,4 +110,24 @@ The website uses a local system-font stack. It does not download or redistribute
 
 ## Runtime services
 
-None. The production site is fully static and has no runtime dependency on a paid or proprietary third-party service.
+### Cloudflare Workers with Static Assets
+
+- Purpose: static production hosting and the isolated `/api/contact` endpoint
+- Source: https://developers.cloudflare.com/workers/
+- Commercial use status: supported under Cloudflare’s applicable service terms
+- Free-compatible status: static asset requests are free; the Workers Free plan includes a daily request allowance for the contact endpoint
+
+### Cloudflare Turnstile
+
+- Purpose: bot protection for the contact form, with mandatory server-side token verification
+- Source: https://developers.cloudflare.com/turnstile/
+- Commercial use status: supported under Cloudflare’s applicable service terms
+- Free-compatible status: the Free plan is intended for most production applications and includes unlimited challenges within its widget and hostname limits
+
+### Cloudflare Email Service / Email Routing
+
+- Purpose: forwarding `kontakt@clearstance.pl` and delivering contact-form notifications to a verified private destination
+- Source: https://developers.cloudflare.com/email-service/
+- Commercial use status: supported under Cloudflare’s applicable service terms
+- Free-compatible status: Email Routing is available on the free plan, and sends to verified destination addresses are free on all plans
+- Storage status: the ClearStance application does not store form submissions in a database
