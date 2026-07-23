@@ -276,10 +276,9 @@ export const translations = {
         'Założyciel ClearStance przez kilka lat pracował jako oficer wachtowy na statkach kontenerowych. Odpowiadał za bezpieczne prowadzenie statku i pracował w obszarach bezpieczeństwa operacyjnego oraz ochrony.',
         'Od 2018 roku jest związany z lotnictwem. Doświadczenie obejmuje role analityczne, projektowe i strategiczne, a także zarządzanie kryzysowe.'
       ],
-      perspectiveTitle: 'Jedna perspektywa, dwa poziomy.',
+      perspectiveTitle: 'Perspektywa operacyjna i zarządcza.',
       perspectiveText:
         'ClearStance łączy rozumienie realiów operacyjnych z pracą nad strukturami, procesami i decyzjami zarządczymi. Celem jest przygotowanie, które pozostaje użyteczne pod presją, a nie tylko poprawne na papierze.',
-      quote: 'Clarity when it matters most.',
       cta: 'Skontaktuj się'
     },
     contactPage: {
@@ -566,17 +565,16 @@ export const translations = {
       eyebrow: 'About ClearStance',
       title: 'From the bridge to the boardroom.',
       lead: 'Operational experience. Strategic perspective.',
-      storyTitle: 'An advisory practice grounded in operational responsibility.',
+      storyTitle: 'An advisory practice grounded in operational experience.',
       paragraphs: [
         'ClearStance is an independent advisory practice focused on crisis readiness, exercises, facilitation and decision-making under uncertainty.',
         'It is grounded in experience from two environments where safety, coordination and decision quality have immediate consequences: maritime shipping and aviation.',
         'ClearStance’s founder spent several years as an Officer of the Watch on container ships. He was responsible for safe navigation and worked across operational safety and security.',
         'Since 2018, he has worked in aviation. His background spans analytical, project and strategic roles, as well as crisis management.'
       ],
-      perspectiveTitle: 'One perspective, two levels.',
+      perspectiveTitle: 'Operational insight. Strategic perspective.',
       perspectiveText:
         'ClearStance connects an understanding of operational realities with work on structures, processes and management decisions. The objective is readiness that remains useful under pressure, not merely correct on paper.',
-      quote: 'Clarity when it matters most.',
       cta: 'Get in touch'
     },
     contactPage: {

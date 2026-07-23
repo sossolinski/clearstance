@@ -32,6 +32,7 @@ const otherLocale = locale === 'pl' ? 'en' : 'pl';
       eyebrow={content.eyebrow}
       title={content.title}
       lead={content.lead}
+      variant="about"
     />
 
     <section class="about-story" aria-labelledby="about-story-title">
@@ -71,12 +72,6 @@ const otherLocale = locale === 'pl' ? 'en' : 'pl';
           <h2 id="about-perspective-title">{content.perspectiveTitle}</h2>
           <p>{content.perspectiveText}</p>
         </div>
-      </div>
-    </section>
-
-    <section class="about-quote">
-      <div class="wrap" data-reveal>
-        <blockquote>{content.quote}</blockquote>
       </div>
     </section>
 

@@ -4,12 +4,13 @@ interface Props {
   title: string;
   lead: string;
   titleId?: string;
+  variant?: 'default' | 'about';
 }
 
-const { eyebrow, title, lead, titleId = 'page-title' } = Astro.props;
+const { eyebrow, title, lead, titleId = 'page-title', variant = 'default' } = Astro.props;
 ---
 
-<section class="page-intro" aria-labelledby={titleId}>
+<section class:list={['page-intro', { 'page-intro--about': variant === 'about' }]} aria-labelledby={titleId}>
   <div class="wrap page-intro-grid">
     <div>
       <p class="eyebrow eyebrow--light">{eyebrow}</p>

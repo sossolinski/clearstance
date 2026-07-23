@@ -1112,6 +1112,13 @@ summary:focus-visible {
   line-height: 1.02;
 }
 
+@media (min-width: 761px) {
+  .page-intro--about h1 {
+    max-width: 7.75em;
+    font-size: clamp(50px, 5vw, 70px);
+  }
+}
+
 .page-intro-lead {
   max-width: 590px;
   padding-bottom: 7px;
@@ -1355,20 +1362,6 @@ summary:focus-visible {
   color: rgb(248 246 242 / 63%);
   font-size: 15px;
   line-height: 1.75;
-}
-
-.about-quote {
-  padding: 90px 0 96px;
-  background: #dfe2dc;
-}
-
-.about-quote blockquote {
-  max-width: 980px;
-  font-family: var(--display);
-  font-size: clamp(48px, 6vw, 80px);
-  font-weight: 460;
-  letter-spacing: -0.045em;
-  line-height: 1.01;
 }
 
 /* Contact page */
@@ -2270,8 +2263,7 @@ summary:focus-visible {
   }
 
   .context-section,
-  .about-perspective,
-  .about-quote {
+  .about-perspective {
     padding: 72px 0 78px;
   }
 
@@ -2296,10 +2288,6 @@ summary:focus-visible {
   .about-compass svg {
     width: 220px;
     margin: 0;
-  }
-
-  .about-quote blockquote {
-    font-size: 48px;
   }
 
   .contact-page-grid {
@@ -2427,10 +2415,6 @@ summary:focus-visible {
 
   .detail-copy h3 {
     font-size: 22px;
-  }
-
-  .about-quote blockquote {
-    font-size: 43px;
   }
 
   .contact-detail a {
