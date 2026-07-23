@@ -155,10 +155,14 @@ const contactHref = onHomepage
     }
   });
 
-  const revealItems = document.querySelectorAll('[data-reveal]');
-  if (reduceMotion || !('IntersectionObserver' in window)) {
-    revealItems.forEach((item) => item.classList.add('is-visible'));
-  } else {
+  const initReveals = () => {
+    const revealItems = document.querySelectorAll('[data-reveal]');
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      revealItems.forEach((item) => item.classList.add('is-visible'));
+      return;
+    }
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
@@ -166,6 +170,13 @@ const contactHref = onHomepage
         observer.unobserve(entry.target);
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -24px' });
+
     revealItems.forEach((item) => observer.observe(item));
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initReveals, { once: true });
+  } else {
+    initReveals();
   }
 </script>
