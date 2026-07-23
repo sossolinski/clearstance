@@ -1,0 +1,248 @@
+---
+import type { Locale } from '../../i18n/routes';
+import { getRoute } from '../../i18n/routes';
+import { getTranslations } from '../../i18n/translations';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactBand from './ContactBand.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const content = t.home;
+const otherLocale = locale === 'pl' ? 'en' : 'pl';
+const approachId = locale === 'pl' ? 'podejscie' : 'approach';
+const servicesId = locale === 'pl' ? 'oferta' : 'services';
+const readinessId = locale === 'pl' ? 'gotowosc' : 'readiness';
+const experienceId = locale === 'pl' ? 'doswiadczenie' : 'experience';
+const practiceId = locale === 'pl' ? 'praktyka' : 'practice';
+const professionalServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'ClearStance',
+  url: new URL(getRoute(locale, 'home'), Astro.site).toString(),
+  email: t.site.email,
+  areaServed: {
+    '@type': 'Country',
+    name: locale === 'pl' ? 'Polska' : 'Poland'
+  },
+  knowsAbout: locale === 'pl'
+    ? ['gotowość kryzysowa', 'zarządzanie kryzysowe', 'ćwiczenia i symulacje', 'facylitacja']
+    : ['crisis readiness', 'crisis management', 'exercises and simulations', 'facilitation']
+};
+---
+
+<BaseLayout
+  locale={locale}
+  title={content.meta.title}
+  description={content.meta.description}
+  canonicalPath={getRoute(locale, 'home')}
+  alternatePath={getRoute(otherLocale, 'home')}
+  plPath={getRoute('pl', 'home')}
+  enPath={getRoute('en', 'home')}
+  xDefaultPath={getRoute('pl', 'home')}
+  onHomepage
+  structuredData={professionalServiceSchema}
+>
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <picture class="hero-media">
+        <source srcset="/images/hero-navigation.webp" type="image/webp" />
+        <img
+          src="/images/hero-navigation.jpg"
+          width="1920"
+          height="1080"
+          alt={content.hero.imageAlt}
+          fetchpriority="high"
+        />
+      </picture>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="wrap hero-content">
+        <p class="eyebrow eyebrow--light">{content.hero.eyebrow}</p>
+        <h1 id="hero-title">
+          {content.hero.title}
+          <span>{content.hero.titleAccent}</span>
+        </h1>
+        <p class="hero-copy">{content.hero.copy}</p>
+        <a class="button button--ghost" href={`#${approachId}`}>
+          <span>{content.hero.cta}</span>
+          <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+      <div class="hero-meta">
+        <div class="wrap">
+          <span>Navigation under uncertainty</span>
+          <span aria-hidden="true" class="hero-meta-line"></span>
+          <span>ClearStance</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach-section" id={approachId} aria-labelledby="approach-title">
+      <div class="wrap approach-grid" data-reveal>
+        <div>
+          <p class="eyebrow">{content.approach.eyebrow}</p>
+          <h2 id="approach-title">{content.approach.title}</h2>
+        </div>
+        <div>
+          <p class="section-lead">{content.approach.lead}</p>
+          <p class="section-copy">{content.approach.body}</p>
+          <ol class="principle-list">
+            {
+              content.approach.pillars.map((pillar, index) => (
+                <li>
+                  <span>{String(index + 1).padStart(2, '0')} / {pillar.label}</span>
+                  <h3>{pillar.title}</h3>
+                  <p>{pillar.text}</p>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-section" id={servicesId} aria-labelledby="services-title">
+      <div class="wrap">
+        <div class="services-heading" data-reveal>
+          <div>
+            <p class="eyebrow">{content.services.eyebrow}</p>
+            <h2 id="services-title">{content.services.title}</h2>
+          </div>
+          <p>{content.services.intro}</p>
+        </div>
+        <ol class="service-list" data-reveal>
+          {
+            content.services.items.map((service, index) => (
+              <li>
+                <span class="service-number">{String(index + 1).padStart(2, '0')}</span>
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
+              </li>
+            ))
+          }
+        </ol>
+        <div class="perspective-note" data-reveal>
+          <strong>{content.services.perspectiveLabel}</strong>
+          <p>{content.services.perspective}</p>
+          <a class="text-link" href={getRoute(locale, 'services')}>
+            {content.services.link}
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="readiness-section" id={readinessId} aria-labelledby="readiness-title">
+      <div class="wrap">
+        <div class="readiness-heading" data-reveal>
+          <div>
+            <p class="eyebrow eyebrow--teal">{content.readiness.eyebrow}</p>
+            <h2 id="readiness-title">{content.readiness.title}</h2>
+          </div>
+          <p class="readiness-quote">
+            {
+              content.readiness.quote.map((line, index) => (
+                <span class:list={{ accent: index === 2 }}>{line}</span>
+              ))
+            }
+          </p>
+        </div>
+        <ol class="readiness-steps" data-reveal>
+          {
+            content.readiness.items.map((item, index) => (
+              <li>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section class="experience-section" id={experienceId} aria-labelledby="experience-title">
+      <div class="wrap experience-panel" data-reveal>
+        <picture class="experience-image">
+          <source srcset="/images/operational-briefing.webp" type="image/webp" />
+          <img
+            src="/images/operational-briefing.jpg"
+            width="1920"
+            height="1080"
+            alt={content.experience.imageAlt}
+            loading="lazy"
+          />
+        </picture>
+        <div class="experience-copy">
+          <p class="eyebrow">{content.experience.eyebrow}</p>
+          <h2 id="experience-title">{content.experience.title}</h2>
+          {content.experience.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          <p class="experience-closing">{content.experience.closing}</p>
+          <dl class="experience-tracks">
+            {
+              content.experience.tracks.map((track) => (
+                <div>
+                  <dt>{track.title}</dt>
+                  <dd>{track.text}</dd>
+                </div>
+              ))
+            }
+          </dl>
+          <a class="text-link" href={getRoute(locale, 'about')}>
+            {content.experience.link}
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice-section" id={practiceId} aria-labelledby="practice-title">
+      <div class="wrap practice-grid" data-reveal>
+        <div>
+          <p class="eyebrow">{content.practice.eyebrow}</p>
+          <h2 id="practice-title">{content.practice.title}</h2>
+        </div>
+        <div class="practice-copy">
+          {content.practice.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          <ol class="practice-list">
+            {
+              content.practice.items.map((item, index) => (
+                <li>
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="brand-statement" aria-label={content.statement.source}>
+      <picture class="brand-statement-media">
+        <source srcset="/images/brand-statement.webp" type="image/webp" />
+        <img
+          src="/images/brand-statement.jpg"
+          width="1920"
+          height="1080"
+          alt={content.statement.imageAlt}
+          loading="lazy"
+        />
+      </picture>
+      <div class="brand-statement-overlay" aria-hidden="true"></div>
+      <div class="wrap" data-reveal>
+        <blockquote>
+          {content.statement.first}
+          <span>{content.statement.second}</span>
+        </blockquote>
+        <p>{content.statement.source}</p>
+      </div>
+    </section>
+
+    <ContactBand locale={locale} />
+  </main>
+</BaseLayout>

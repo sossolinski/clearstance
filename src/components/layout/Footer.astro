@@ -1,0 +1,33 @@
+---
+import type { Locale } from '../../i18n/routes';
+import { getRoute } from '../../i18n/routes';
+import { getTranslations } from '../../i18n/translations';
+import Logo from '../ui/Logo.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-primary">
+    <a class="brand-link" href={getRoute(locale, 'home')} aria-label={t.site.homeLabel}>
+      <Logo dark />
+    </a>
+    <p>{t.site.footerTagline}</p>
+    <nav aria-label={locale === 'pl' ? 'Nawigacja w stopce' : 'Footer navigation'}>
+      <a href={getRoute(locale, 'services')}>{t.site.nav.services}</a>
+      <a href={getRoute(locale, 'insights')}>{t.site.nav.insights}</a>
+      <a href={getRoute(locale, 'about')}>{t.site.nav.experience}</a>
+      <a href={getRoute(locale, 'contact')}>{t.site.nav.contact}</a>
+    </nav>
+  </div>
+  <div class="wrap footer-secondary">
+    <span>© {year} {t.site.copyright}</span>
+    <span>{t.site.location}</span>
+  </div>
+</footer>

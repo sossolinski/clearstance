@@ -1,0 +1,115 @@
+---
+import type { Locale } from '../i18n/routes';
+import { getTranslations } from '../i18n/translations';
+import Header from '../components/navigation/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  canonicalPath: string;
+  alternatePath: string;
+  plPath?: string;
+  enPath?: string;
+  xDefaultPath: string;
+  onHomepage?: boolean;
+  currentPage?: 'services' | 'insights' | 'about' | 'contact';
+  ogImage?: string;
+  noindex?: boolean;
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
+  article?: boolean;
+}
+
+const {
+  locale,
+  title,
+  description,
+  canonicalPath,
+  alternatePath,
+  plPath,
+  enPath,
+  xDefaultPath,
+  onHomepage = false,
+  currentPage,
+  ogImage = '/social/clearstance-og.webp',
+  noindex = false,
+  structuredData,
+  article = false
+} = Astro.props;
+
+const t = getTranslations(locale);
+const site = Astro.site ?? new URL('https://clearstance.pl');
+const canonical = new URL(canonicalPath, site);
+const absoluteOgImage = new URL(ogImage, site);
+const organisationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'ClearStance',
+  url: new URL('/', site).toString(),
+  email: t.site.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: locale === 'pl' ? 'Warszawa' : 'Warsaw',
+    addressCountry: 'PL'
+  }
+};
+const schemas: Record<string, unknown>[] = [
+  organisationSchema,
+  ...(structuredData
+    ? Array.isArray(structuredData)
+      ? structuredData
+      : [structuredData]
+    : [])
+];
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#081722" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
+    {plPath && <link rel="alternate" hreflang="pl" href={new URL(plPath, site)} />}
+    {enPath && <link rel="alternate" hreflang="en" href={new URL(enPath, site)} />}
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(xDefaultPath, site)}
+    />
+    <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:site_name" content="ClearStance" />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:locale" content={locale === 'pl' ? 'pl_PL' : 'en_GB'} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={absoluteOgImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteOgImage} />
+    {schemas.map((schema) => <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />)}
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">{t.site.skip}</a>
+    <Header
+      locale={locale}
+      alternatePath={alternatePath}
+      onHomepage={onHomepage}
+      currentPage={currentPage}
+    />
+    <slot />
+    <Footer locale={locale} />
+  </body>
+</html>

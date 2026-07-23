@@ -1,0 +1,30 @@
+---
+import type { Locale } from '../../i18n/routes';
+import { getTranslations } from '../../i18n/translations';
+
+interface Props {
+  locale: Locale;
+  alternatePath: string;
+}
+
+const { locale, alternatePath } = Astro.props;
+const t = getTranslations(locale);
+---
+
+<div class="language-switcher" role="group" aria-label={t.site.languageNavigation}>
+  {
+    locale === 'pl' ? (
+      <>
+        <span aria-current="page" lang="pl">PL</span>
+        <span aria-hidden="true">/</span>
+        <a href={alternatePath} hreflang="en" lang="en" aria-label="English">EN</a>
+      </>
+    ) : (
+      <>
+        <a href={alternatePath} hreflang="pl" lang="pl" aria-label="Polski">PL</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page" lang="en">EN</span>
+      </>
+    )
+  }
+</div>

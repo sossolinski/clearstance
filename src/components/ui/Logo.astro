@@ -1,0 +1,22 @@
+---
+interface Props {
+  dark?: boolean;
+}
+
+const { dark = false } = Astro.props;
+---
+
+<span class:list={['brand-lockup', { 'brand-lockup--dark': dark }]}>
+  <svg aria-hidden="true" class="brand-mark" viewBox="0 0 48 48">
+    <path d="M35 9a18 18 0 1 0 0 30" fill="none" stroke="currentColor" stroke-width="1.3"></path>
+    <path
+      d="M31 15a12 12 0 1 0 0 18"
+      fill="none"
+      opacity=".72"
+      stroke="currentColor"
+      stroke-width="1"
+    ></path>
+    <circle cx="36" cy="24" fill="#c65348" r="2.4"></circle>
+  </svg>
+  <span>CLEARSTANCE</span>
+</span>

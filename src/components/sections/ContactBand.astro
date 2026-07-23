@@ -1,0 +1,33 @@
+---
+import type { Locale } from '../../i18n/routes';
+import { getTranslations } from '../../i18n/translations';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const content = t.home.contact;
+---
+
+<section
+  class="contact-band"
+  id={locale === 'pl' ? 'kontakt' : 'contact'}
+  aria-labelledby="contact-band-title"
+>
+  <div class="wrap contact-band-grid" data-reveal>
+    <div>
+      <p class="eyebrow">{content.eyebrow}</p>
+      <h2 id="contact-band-title">{content.title}</h2>
+    </div>
+    <div class="contact-band-action">
+      <p>{content.text}</p>
+      <a class="button button--dark" href={`mailto:${t.site.email}`}>
+        <span>{content.cta}</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+      <span class="contact-band-meta">{t.site.email} · {t.site.location}</span>
+    </div>
+  </div>
+</section>

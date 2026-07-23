@@ -1,0 +1,21 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  titleId?: string;
+}
+
+const { eyebrow, title, lead, titleId = 'page-title' } = Astro.props;
+---
+
+<section class="page-intro" aria-labelledby={titleId}>
+  <div class="wrap page-intro-grid">
+    <div>
+      <p class="eyebrow eyebrow--light">{eyebrow}</p>
+      <h1 id={titleId}>{title}</h1>
+    </div>
+    <p class="page-intro-lead">{lead}</p>
+  </div>
+  <div class="page-intro-line" aria-hidden="true"></div>
+</section>

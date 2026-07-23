@@ -1,0 +1,111 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { Locale } from '../i18n/routes';
+import { formatDate, getArticlePath, getRoute } from '../i18n/routes';
+import { getTranslations } from '../i18n/translations';
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  entry: CollectionEntry<'insights'>;
+  alternateEntry?: CollectionEntry<'insights'>;
+}
+
+const { entry, alternateEntry } = Astro.props;
+const locale = entry.data.locale as Locale;
+const t = getTranslations(locale);
+const path = getArticlePath(locale, entry.data.slug);
+const alternatePath = alternateEntry
+  ? getArticlePath(alternateEntry.data.locale as Locale, alternateEntry.data.slug)
+  : getRoute(locale === 'pl' ? 'en' : 'pl', 'insights');
+const plPath = locale === 'pl'
+  ? path
+  : alternateEntry?.data.locale === 'pl'
+    ? getArticlePath('pl', alternateEntry.data.slug)
+    : undefined;
+const enPath = locale === 'en'
+  ? path
+  : alternateEntry?.data.locale === 'en'
+    ? getArticlePath('en', alternateEntry.data.slug)
+    : undefined;
+const xDefaultPath = plPath ?? getRoute('pl', 'insights');
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: entry.data.title,
+  description: entry.data.description,
+  datePublished: entry.data.publishedAt.toISOString(),
+  ...(entry.data.updatedAt ? { dateModified: entry.data.updatedAt.toISOString() } : {}),
+  author: {
+    '@type': 'Organization',
+    name: entry.data.author
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'ClearStance'
+  },
+  inLanguage: locale,
+  mainEntityOfPage: new URL(path, Astro.site).toString()
+};
+---
+
+<BaseLayout
+  locale={locale}
+  title={entry.data.seoTitle}
+  description={entry.data.seoDescription}
+  canonicalPath={path}
+  alternatePath={alternatePath}
+  plPath={plPath}
+  enPath={enPath}
+  xDefaultPath={xDefaultPath}
+  currentPage="insights"
+  noindex={entry.data.draft}
+  structuredData={entry.data.draft ? undefined : articleSchema}
+  article
+>
+  <main id="main-content">
+    <article class="article">
+      <header class="article-header">
+        <div class="wrap article-header-inner">
+          <a class="back-link" href={getRoute(locale, 'insights')}>
+            <span aria-hidden="true">←</span>
+            {t.insightsPage.back}
+          </a>
+          {entry.data.draft && <span class="demo-label">{t.insightsPage.demoLabel}</span>}
+          <p class="eyebrow eyebrow--light">{entry.data.category}</p>
+          <h1>{entry.data.title}</h1>
+          <p class="article-deck">{entry.data.description}</p>
+          <dl class="article-meta">
+            <div>
+              <dt>{t.insightsPage.published}</dt>
+              <dd><time datetime={entry.data.publishedAt.toISOString()}>{formatDate(entry.data.publishedAt, locale)}</time></dd>
+            </div>
+            {
+              entry.data.updatedAt && (
+                <div>
+                  <dt>{t.insightsPage.updated}</dt>
+                  <dd><time datetime={entry.data.updatedAt.toISOString()}>{formatDate(entry.data.updatedAt, locale)}</time></dd>
+                </div>
+              )
+            }
+            <div>
+              <dt>{t.insightsPage.author}</dt>
+              <dd>{entry.data.author}</dd>
+            </div>
+          </dl>
+        </div>
+      </header>
+      <div class="wrap article-grid">
+        <aside class="article-aside">
+          <span>{t.insightsPage.category}</span>
+          <strong>{entry.data.category}</strong>
+          <ul aria-label={locale === 'pl' ? 'Tagi artykułu' : 'Article tags'}>
+            {entry.data.tags.map((tag) => <li>{tag}</li>)}
+          </ul>
+        </aside>
+        <div class="article-prose">
+          <slot />
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

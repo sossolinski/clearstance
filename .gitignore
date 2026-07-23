@@ -1,0 +1,28 @@
+# dependencies
+node_modules/
+
+# Astro build output and generated files
+dist/
+.astro/
+
+# local environment files
+.env
+.env.*
+!.env.example
+
+# operating system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# logs and test artifacts
+*.log
+coverage/
+playwright-report/
+test-results/
+
+# local hosting archives
+*.tgz
+*.tar.gz

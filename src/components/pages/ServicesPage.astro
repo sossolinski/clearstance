@@ -1,0 +1,78 @@
+---
+import type { Locale } from '../../i18n/routes';
+import { getRoute } from '../../i18n/routes';
+import { getTranslations } from '../../i18n/translations';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactBand from '../sections/ContactBand.astro';
+import PageIntro from '../sections/PageIntro.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const content = t.servicesPage;
+const otherLocale = locale === 'pl' ? 'en' : 'pl';
+---
+
+<BaseLayout
+  locale={locale}
+  title={content.metaTitle}
+  description={content.metaDescription}
+  canonicalPath={getRoute(locale, 'services')}
+  alternatePath={getRoute(otherLocale, 'services')}
+  plPath={getRoute('pl', 'services')}
+  enPath={getRoute('en', 'services')}
+  xDefaultPath={getRoute('pl', 'services')}
+  currentPage="services"
+>
+  <main id="main-content">
+    <PageIntro
+      eyebrow={content.eyebrow}
+      title={content.title}
+      lead={content.lead}
+    />
+
+    <section class="services-detail" aria-labelledby="services-detail-title">
+      <div class="wrap">
+        <div class="editorial-heading" data-reveal>
+          <h2 id="services-detail-title">{content.introTitle}</h2>
+          <p>{content.intro}</p>
+        </div>
+        <ol class="services-detail-list">
+          {
+            content.services.map((service, index) => (
+              <li data-reveal>
+                <span class="detail-number">{String(index + 1).padStart(2, '0')}</span>
+                <div class="detail-copy">
+                  <h3>{service.title}</h3>
+                  <p>{service.summary}</p>
+                </div>
+                <ul>
+                  {service.points.map((point) => <li>{point}</li>)}
+                </ul>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section class="context-section" aria-labelledby="context-title">
+      <div class="wrap context-grid" data-reveal>
+        <p class="eyebrow eyebrow--teal">{content.closingEyebrow}</p>
+        <div>
+          <h2 id="context-title">{content.closingTitle}</h2>
+          <p>{content.closingText}</p>
+          <a class="button button--light" href={getRoute(locale, 'contact')}>
+            <span>{content.cta}</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <ContactBand locale={locale} />
+  </main>
+</BaseLayout>

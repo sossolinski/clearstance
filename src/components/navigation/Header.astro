@@ -1,0 +1,171 @@
+---
+import type { Locale } from '../../i18n/routes';
+import { getHomeAnchor, getRoute } from '../../i18n/routes';
+import { getTranslations } from '../../i18n/translations';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import Logo from '../ui/Logo.astro';
+
+interface Props {
+  locale: Locale;
+  alternatePath: string;
+  onHomepage?: boolean;
+  currentPage?: 'services' | 'insights' | 'about' | 'contact';
+}
+
+const {
+  locale,
+  alternatePath,
+  onHomepage = false,
+  currentPage
+} = Astro.props;
+const t = getTranslations(locale);
+
+const links = [
+  {
+    label: t.site.nav.approach,
+    href: getHomeAnchor(locale, 'approach', onHomepage)
+  },
+  {
+    label: t.site.nav.services,
+    href: onHomepage
+      ? getHomeAnchor(locale, 'services', true)
+      : getRoute(locale, 'services'),
+    current: currentPage === 'services'
+  },
+  {
+    label: t.site.nav.insights,
+    href: getRoute(locale, 'insights'),
+    current: currentPage === 'insights'
+  },
+  {
+    label: t.site.nav.practice,
+    href: getHomeAnchor(locale, 'practice', onHomepage)
+  },
+  {
+    label: t.site.nav.experience,
+    href: onHomepage
+      ? getHomeAnchor(locale, 'experience', true)
+      : currentPage === 'about'
+        ? getRoute(locale, 'about')
+        : getHomeAnchor(locale, 'experience'),
+    current: currentPage === 'about'
+  }
+];
+
+const contactHref = onHomepage
+  ? getHomeAnchor(locale, 'contact', true)
+  : getRoute(locale, 'contact');
+---
+
+<header class="site-header" data-site-header>
+  <div class="wrap header-inner">
+    <a class="brand-link" href={getRoute(locale, 'home')} aria-label={t.site.homeLabel}>
+      <Logo />
+    </a>
+
+    <nav class="desktop-navigation" aria-label={t.site.mainNavigation}>
+      {
+        links.map((link) => (
+          <a href={link.href} aria-current={link.current ? 'page' : undefined}>
+            {link.label}
+          </a>
+        ))
+      }
+      <LanguageSwitcher locale={locale} alternatePath={alternatePath} />
+      <a
+        class="nav-contact"
+        href={contactHref}
+        aria-current={currentPage === 'contact' ? 'page' : undefined}
+      >
+        {t.site.nav.contact}
+        <span aria-hidden="true">↗</span>
+      </a>
+    </nav>
+
+    <details class="mobile-navigation" data-mobile-navigation>
+      <summary
+        aria-label={t.site.menuOpen}
+        data-open-label={t.site.menuOpen}
+        data-close-label={t.site.menuClose}
+      >
+        <span class="sr-only" data-menu-label>{t.site.menuOpen}</span>
+        <span aria-hidden="true" class="menu-lines">
+          <i></i>
+          <i></i>
+        </span>
+      </summary>
+      <div class="mobile-navigation-panel">
+        <nav aria-label={t.site.mainNavigation}>
+          {
+            links.map((link) => (
+              <a href={link.href} aria-current={link.current ? 'page' : undefined}>
+                {link.label}
+              </a>
+            ))
+          }
+          <a
+            href={contactHref}
+            aria-current={currentPage === 'contact' ? 'page' : undefined}
+          >
+            {t.site.nav.contact}
+          </a>
+        </nav>
+        <LanguageSwitcher locale={locale} alternatePath={alternatePath} />
+        <span class="mobile-location">{t.site.location}</span>
+      </div>
+    </details>
+  </div>
+</header>
+
+<script is:inline>
+  const header = document.querySelector('[data-site-header]');
+  const mobileMenu = document.querySelector('[data-mobile-navigation]');
+  const menuSummary = mobileMenu?.querySelector('summary');
+  const menuLabel = mobileMenu?.querySelector('[data-menu-label]');
+  const menuOpenLabel = menuSummary?.dataset.openLabel || 'Open menu';
+  const menuCloseLabel = menuSummary?.dataset.closeLabel || 'Close menu';
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const updateHeader = () => {
+    header?.classList.toggle('is-scrolled', window.scrollY > 24);
+  };
+
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+
+  mobileMenu?.addEventListener('toggle', () => {
+    const open = mobileMenu.open;
+    document.body.classList.toggle('menu-is-open', open);
+    header?.classList.toggle('menu-is-open', open);
+    menuSummary?.setAttribute(
+      'aria-label',
+      open ? menuCloseLabel : menuOpenLabel
+    );
+    if (menuLabel) menuLabel.textContent = open ? menuCloseLabel : menuOpenLabel;
+  });
+
+  mobileMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => mobileMenu.removeAttribute('open'));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && mobileMenu?.open) {
+      mobileMenu.removeAttribute('open');
+      menuSummary?.focus();
+    }
+  });
+
+  const revealItems = document.querySelectorAll('[data-reveal]');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealItems.forEach((item) => item.classList.add('is-visible'));
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -24px' });
+    revealItems.forEach((item) => observer.observe(item));
+  }
+</script>

@@ -1,0 +1,71 @@
+---
+import type { Locale } from '../../i18n/routes';
+import { getRoute } from '../../i18n/routes';
+import { getTranslations } from '../../i18n/translations';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageIntro from '../sections/PageIntro.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const content = t.contactPage;
+const otherLocale = locale === 'pl' ? 'en' : 'pl';
+---
+
+<BaseLayout
+  locale={locale}
+  title={content.metaTitle}
+  description={content.metaDescription}
+  canonicalPath={getRoute(locale, 'contact')}
+  alternatePath={getRoute(otherLocale, 'contact')}
+  plPath={getRoute('pl', 'contact')}
+  enPath={getRoute('en', 'contact')}
+  xDefaultPath={getRoute('pl', 'contact')}
+  currentPage="contact"
+>
+  <main id="main-content">
+    <PageIntro
+      eyebrow={content.eyebrow}
+      title={content.title}
+      lead={content.lead}
+    />
+
+    <section class="contact-page" aria-labelledby="contact-details-title">
+      <div class="wrap contact-page-grid" data-reveal>
+        <h2 id="contact-details-title" class="sr-only">
+          {locale === 'pl' ? 'Dane kontaktowe' : 'Contact details'}
+        </h2>
+        <div class="contact-detail">
+          <span>{content.emailLabel}</span>
+          <a href={`mailto:${t.site.email}`}>{content.cta}</a>
+        </div>
+        <div class="contact-detail">
+          <span>{content.locationLabel}</span>
+          <strong>{t.site.location}</strong>
+        </div>
+        <p>{content.note}</p>
+      </div>
+    </section>
+
+    <section class="contact-page-statement" aria-label="ClearStance">
+      <picture>
+        <source srcset="/images/brand-statement.webp" type="image/webp" />
+        <img
+          src="/images/brand-statement.jpg"
+          width="1920"
+          height="1080"
+          alt=""
+          loading="lazy"
+        />
+      </picture>
+      <div class="contact-page-overlay" aria-hidden="true"></div>
+      <div class="wrap">
+        <p>ClearStance</p>
+        <strong>Clarity when it matters most.</strong>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
