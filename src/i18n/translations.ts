@@ -31,7 +31,7 @@ export const translations = {
       menuClose: 'Zamknij menu',
       currentLanguage: 'Polski',
       otherLanguage: 'English',
-      email: 'kontakt@clearstance.pl',
+      email: 'contact@clearstance.pl',
       location: 'Warszawa · Polska',
       footerTagline: 'Navigation under uncertainty',
       copyright: 'ClearStance. Wszelkie prawa zastrzeżone.',
@@ -291,7 +291,7 @@ export const translations = {
         'Napisz, jeśli planujesz ćwiczenie, przegląd gotowości albo potrzebujesz uporządkować sposób reagowania i podejmowania decyzji.',
       emailLabel: 'E-mail',
       locationLabel: 'Lokalizacja',
-      cta: 'kontakt@clearstance.pl',
+      cta: 'contact@clearstance.pl',
       note:
         'Wiadomość może krótko opisywać kontekst, oczekiwany zakres i horyzont czasowy rozmowy.',
       form: {
@@ -305,10 +305,10 @@ export const translations = {
         sending: 'Wysyłanie…',
         success: 'Dziękujemy. Wiadomość została wysłana.',
         failure:
-          'Nie udało się wysłać wiadomości. Możesz napisać bezpośrednio na kontakt@clearstance.pl.',
+          'Nie udało się wysłać wiadomości. Możesz napisać bezpośrednio na contact@clearstance.pl.',
         verification: 'Potwierdź weryfikację i spróbuj ponownie.',
         unavailable:
-          'Formularz jest chwilowo niedostępny. Napisz bezpośrednio na kontakt@clearstance.pl.'
+          'Formularz jest chwilowo niedostępny. Napisz bezpośrednio na contact@clearstance.pl.'
       }
     },
     insightsPage: {
@@ -343,7 +343,7 @@ export const translations = {
       menuClose: 'Close menu',
       currentLanguage: 'English',
       otherLanguage: 'Polski',
-      email: 'kontakt@clearstance.pl',
+      email: 'contact@clearstance.pl',
       location: 'Warsaw · Poland',
       footerTagline: 'Navigation under uncertainty',
       copyright: 'ClearStance. All rights reserved.',
@@ -603,7 +603,7 @@ export const translations = {
         'Write to us if you are planning an exercise, reviewing readiness or need to bring greater clarity to response and decision-making.',
       emailLabel: 'Email',
       locationLabel: 'Location',
-      cta: 'kontakt@clearstance.pl',
+      cta: 'contact@clearstance.pl',
       note:
         'A short note on the context, intended scope and timing is enough to begin the conversation.',
       form: {
@@ -617,10 +617,10 @@ export const translations = {
         sending: 'Sending…',
         success: 'Thank you. Your message has been sent.',
         failure:
-          'The message could not be sent. You can email kontakt@clearstance.pl directly.',
+          'The message could not be sent. You can email contact@clearstance.pl directly.',
         verification: 'Complete the verification and try again.',
         unavailable:
-          'The form is temporarily unavailable. Please email kontakt@clearstance.pl directly.'
+          'The form is temporarily unavailable. Please email contact@clearstance.pl directly.'
       }
     },
     insightsPage: {

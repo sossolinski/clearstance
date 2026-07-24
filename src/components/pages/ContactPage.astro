@@ -142,6 +142,10 @@ const formAvailable = Boolean(turnstileSiteKey);
                   data-size="flexible"
                   data-theme="light"
                   data-language={locale}
+                  data-callback="clearstanceTurnstileSuccess"
+                  data-error-callback="clearstanceTurnstileIssue"
+                  data-expired-callback="clearstanceTurnstileIssue"
+                  data-timeout-callback="clearstanceTurnstileIssue"
                 />
               </div>
             )
@@ -201,6 +205,43 @@ const formAvailable = Boolean(turnstileSiteKey);
 
   {
     turnstileSiteKey && (
+      <script is:inline>
+        const updateContactVerificationStatus = (hasIssue) => {
+          const form = document.querySelector('#contact-form');
+          const status = form?.querySelector('#contact-form-status');
+
+          if (!(form instanceof HTMLFormElement) || !(status instanceof HTMLElement)) {
+            return;
+          }
+
+          if (!hasIssue) {
+            if (status.dataset.turnstileIssue === 'true') {
+              status.textContent = '';
+              status.dataset.state = '';
+              delete status.dataset.turnstileIssue;
+            }
+
+            return;
+          }
+
+          status.textContent = form.dataset.verificationMessage || '';
+          status.dataset.state = 'error';
+          status.dataset.turnstileIssue = 'true';
+        };
+
+        window.clearstanceTurnstileSuccess = () => {
+          updateContactVerificationStatus(false);
+        };
+        window.clearstanceTurnstileIssue = () => {
+          updateContactVerificationStatus(true);
+          return true;
+        };
+      </script>
+    )
+  }
+
+  {
+    turnstileSiteKey && (
       <script
         is:inline
         src="https://challenges.cloudflare.com/turnstile/v0/api.js"
@@ -237,9 +278,15 @@ const formAvailable = Boolean(turnstileSiteKey);
         source.value = window.location.href;
       }
 
-      const setStatus = (message, state = '') => {
+      const setStatus = (message, state = '', turnstileIssue = false) => {
         status.textContent = message;
         status.dataset.state = state;
+
+        if (turnstileIssue) {
+          status.dataset.turnstileIssue = 'true';
+        } else {
+          delete status.dataset.turnstileIssue;
+        }
       };
 
       const resetTurnstile = () => {
@@ -259,7 +306,7 @@ const formAvailable = Boolean(turnstileSiteKey);
         const turnstileToken = formData.get('cf-turnstile-response');
 
         if (typeof turnstileToken !== 'string' || turnstileToken.length === 0) {
-          setStatus(form.dataset.verificationMessage || '', 'error');
+          setStatus(form.dataset.verificationMessage || '', 'error', true);
           return;
         }
 

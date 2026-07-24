@@ -126,7 +126,7 @@ The website uses a local system-font stack. It does not download or redistribute
 
 ### Cloudflare Email Service / Email Routing
 
-- Purpose: forwarding `kontakt@clearstance.pl` and delivering contact-form notifications to a verified private destination
+- Purpose: forwarding `contact@clearstance.pl` and delivering contact-form notifications to a verified private destination
 - Source: https://developers.cloudflare.com/email-service/
 - Commercial use status: supported under Cloudflare’s applicable service terms
 - Free-compatible status: Email Routing is available on the free plan, and sends to verified destination addresses are free on all plans

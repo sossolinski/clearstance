@@ -12,10 +12,18 @@
   },
   "send_email": [
     {
-      "name": "EMAIL"
+      "name": "EMAIL",
+      "allowed_sender_addresses": ["website@clearstance.pl"]
     }
   ],
   "vars": {
-    "TURNSTILE_EXPECTED_HOSTNAME": "clearstance.pl"
+    "TURNSTILE_EXPECTED_HOSTNAME": "clearstance.pl",
+    "CONTACT_FROM_EMAIL": "website@clearstance.pl"
+  },
+  "secrets": {
+    "required": [
+      "TURNSTILE_SECRET_KEY",
+      "CONTACT_DESTINATION_EMAIL"
+    ]
   }
 }

@@ -1,8 +1,10 @@
 # Main ClearStance Worker local runtime configuration.
 # The Turnstile value below is Cloudflare's documented always-pass test secret.
 TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA
-TURNSTILE_EXPECTED_HOSTNAME=
 
 # Safe placeholders only. Never commit the private Gmail destination.
 CONTACT_DESTINATION_EMAIL=verified-destination@example.com
-CONTACT_FROM_EMAIL=website@clearstance.pl
+
+# TURNSTILE_EXPECTED_HOSTNAME and CONTACT_FROM_EMAIL are non-secret values
+# committed in wrangler.jsonc. The documented test secret is accepted only for
+# requests served from a local hostname.

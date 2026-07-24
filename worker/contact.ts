@@ -8,6 +8,33 @@ const MIN_MESSAGE_LENGTH = 10;
 const MAX_MESSAGE_LENGTH = 5_000;
 const MAX_SOURCE_LENGTH = 500;
 const MAX_TURNSTILE_TOKEN_LENGTH = 2_048;
+const TURNSTILE_TEST_SECRET_KEYS = new Set([
+  '1x0000000000000000000000000000000AA',
+  '2x0000000000000000000000000000000AA',
+  '3x0000000000000000000000000000000AA'
+]);
+const LOCAL_TEST_HOSTNAMES = new Set([
+  'localhost',
+  '127.0.0.1',
+  '0.0.0.0',
+  '[::1]'
+]);
+const ALLOWED_FORM_FIELDS = new Set([
+  'name',
+  'email',
+  'organisation',
+  'message',
+  'locale',
+  'source',
+  'website',
+  'cf-turnstile-response'
+]);
+const REQUIRED_FORM_FIELDS = [
+  'name',
+  'email',
+  'message',
+  'locale'
+];
 
 interface EmailAddress {
   email: string;
@@ -39,9 +66,6 @@ interface TurnstileResult {
   hostname?: string;
   action?: string;
   'error-codes'?: string[];
-  metadata?: {
-    result_with_testing_key?: boolean;
-  };
 }
 
 interface ContactSubmission {
@@ -58,6 +82,7 @@ interface ContactDependencies {
   fetch: typeof fetch;
   now: () => Date;
   createId: () => string;
+  turnstileTimeoutMs: number;
 }
 
 interface ValidationResult {
@@ -67,8 +92,12 @@ interface ValidationResult {
   status?: number;
 }
 
-const CONTROL_CHARACTERS = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g;
+const SINGLE_LINE_CONTROL_CHARACTERS = /[\p{Cc}\p{Cf}]/gu;
+const MESSAGE_CONTROL_CHARACTERS =
+  /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f-\u009f\u061c\u200e\u200f\u202a-\u202e\u2066-\u2069]/g;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const HOSTNAME_PATTERN =
+  /^(?=.{1,253}$)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$/;
 const ALLOWED_CONTENT_TYPES = new Set([
   'application/x-www-form-urlencoded',
   'multipart/form-data'
@@ -91,7 +120,7 @@ function readString(formData: FormData, name: string) {
 
 function sanitiseSingleLine(value: string) {
   return value
-    .replace(CONTROL_CHARACTERS, '')
+    .replace(SINGLE_LINE_CONTROL_CHARACTERS, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -99,11 +128,35 @@ function sanitiseSingleLine(value: string) {
 function sanitiseMessage(value: string) {
   return value
     .replace(/\r\n?/g, '\n')
-    .replace(CONTROL_CHARACTERS, '')
+    .replace(MESSAGE_CONTROL_CHARACTERS, '')
     .trim();
 }
 
+function formDataShapeIsValid(formData: FormData) {
+  const counts = new Map<string, number>();
+
+  for (const [name, value] of formData.entries()) {
+    if (!ALLOWED_FORM_FIELDS.has(name) || typeof value !== 'string') {
+      return false;
+    }
+
+    const count = (counts.get(name) ?? 0) + 1;
+
+    if (count > 1) {
+      return false;
+    }
+
+    counts.set(name, count);
+  }
+
+  return REQUIRED_FORM_FIELDS.every((name) => counts.get(name) === 1);
+}
+
 function validateFormData(formData: FormData): ValidationResult {
+  if (!formDataShapeIsValid(formData)) {
+    return { ok: false, status: 400, code: 'invalid_request' };
+  }
+
   const honeypot = sanitiseSingleLine(readString(formData, 'website'));
 
   if (honeypot.length > 0) {
@@ -163,14 +216,83 @@ function validateFormData(formData: FormData): ValidationResult {
   };
 }
 
+async function readRequestBody(request: Request) {
+  if (!request.body) {
+    return new ArrayBuffer(0);
+  }
+
+  const reader = request.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let totalBytes = 0;
+
+  while (true) {
+    const { done, value } = await reader.read();
+
+    if (done) {
+      break;
+    }
+
+    totalBytes += value.byteLength;
+
+    if (totalBytes > MAX_REQUEST_BYTES) {
+      await reader.cancel();
+      return null;
+    }
+
+    chunks.push(value);
+  }
+
+  const body = new Uint8Array(totalBytes);
+  let offset = 0;
+
+  for (const chunk of chunks) {
+    body.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+
+  return body.buffer;
+}
+
+function isLocalTurnstileTestMode(request: Request, secret: string) {
+  return (
+    TURNSTILE_TEST_SECRET_KEYS.has(secret) &&
+    LOCAL_TEST_HOSTNAMES.has(new URL(request.url).hostname)
+  );
+}
+
+function readConfiguredEmail(value: string | undefined) {
+  if (!value || value !== value.trim()) {
+    return null;
+  }
+
+  const sanitised = sanitiseSingleLine(value);
+
+  if (
+    sanitised !== value ||
+    sanitised.length > MAX_EMAIL_LENGTH ||
+    !EMAIL_PATTERN.test(sanitised)
+  ) {
+    return null;
+  }
+
+  return sanitised;
+}
+
+function readExpectedHostname(value: string | undefined) {
+  const hostname = value?.trim().toLowerCase() ?? '';
+  return HOSTNAME_PATTERN.test(hostname) ? hostname : null;
+}
+
 async function verifyTurnstile(
   submission: ContactSubmission,
   request: Request,
-  env: ContactEnv,
+  secret: string,
+  expectedHostname: string | null,
+  testMode: boolean,
   dependencies: ContactDependencies
 ) {
   const body = new URLSearchParams({
-    secret: env.TURNSTILE_SECRET_KEY ?? '',
+    secret,
     response: submission.turnstileToken,
     idempotency_key: dependencies.createId()
   });
@@ -181,7 +303,10 @@ async function verifyTurnstile(
   }
 
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 5_000);
+  const timeout = setTimeout(
+    () => controller.abort(),
+    dependencies.turnstileTimeoutMs
+  );
 
   try {
     const response = await dependencies.fetch(TURNSTILE_VERIFY_URL, {
@@ -197,15 +322,17 @@ async function verifyTurnstile(
       return false;
     }
 
-    const result = (await response.json()) as TurnstileResult;
-    const isDocumentedTestResponse =
-      result.metadata?.result_with_testing_key === true;
+    const parsed: unknown = await response.json();
+
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+      console.warn('Turnstile verification returned a malformed response');
+      return false;
+    }
+
+    const result = parsed as TurnstileResult;
     const hostnameMatches =
-      isDocumentedTestResponse ||
-      !env.TURNSTILE_EXPECTED_HOSTNAME ||
-      result.hostname === env.TURNSTILE_EXPECTED_HOSTNAME;
-    const actionMatches =
-      isDocumentedTestResponse || result.action === 'contact';
+      testMode || result.hostname?.toLowerCase() === expectedHostname;
+    const actionMatches = testMode || result.action === 'contact';
     const isValid =
       result.success === true &&
       actionMatches &&
@@ -216,15 +343,14 @@ async function verifyTurnstile(
         action: result.action ?? 'missing',
         errorCodes: result['error-codes'] ?? [],
         hostname: result.hostname ?? 'missing',
-        testResponse: isDocumentedTestResponse
+        testMode
       });
     }
 
     return isValid;
   } catch (error) {
     const name = error instanceof Error ? error.name : 'UnknownError';
-    const message = error instanceof Error ? error.message : 'Unknown failure';
-    console.warn('Turnstile verification request failed', { name, message });
+    console.warn('Turnstile verification request failed', { name });
     return false;
   } finally {
     clearTimeout(timeout);
@@ -291,19 +417,33 @@ export async function handleContactRequest(
     });
   }
 
-  const contentLength = Number(request.headers.get('Content-Length') ?? 0);
+  const contentLengthHeader = request.headers.get('Content-Length');
 
-  if (
-    Number.isFinite(contentLength) &&
-    contentLength > MAX_REQUEST_BYTES
-  ) {
-    return jsonResponse(413, { ok: false, code: 'request_too_large' });
+  if (contentLengthHeader !== null) {
+    if (!/^\d+$/.test(contentLengthHeader)) {
+      return jsonResponse(400, { ok: false, code: 'invalid_request' });
+    }
+
+    if (Number(contentLengthHeader) > MAX_REQUEST_BYTES) {
+      return jsonResponse(413, { ok: false, code: 'request_too_large' });
+    }
   }
 
   let formData: FormData;
 
   try {
-    formData = await request.formData();
+    const body = await readRequestBody(request);
+
+    if (!body) {
+      return jsonResponse(413, { ok: false, code: 'request_too_large' });
+    }
+
+    const formRequest = new Request(request.url, {
+      method: 'POST',
+      headers: request.headers,
+      body
+    });
+    formData = await formRequest.formData();
   } catch {
     return jsonResponse(400, { ok: false, code: 'invalid_request' });
   }
@@ -317,10 +457,21 @@ export async function handleContactRequest(
     });
   }
 
+  const turnstileSecret = env.TURNSTILE_SECRET_KEY?.trim() ?? '';
+  const testMode = isLocalTurnstileTestMode(request, turnstileSecret);
+  const expectedHostname = readExpectedHostname(
+    env.TURNSTILE_EXPECTED_HOSTNAME
+  );
+  const destinationEmail = readConfiguredEmail(
+    env.CONTACT_DESTINATION_EMAIL
+  );
+  const fromEmail = readConfiguredEmail(env.CONTACT_FROM_EMAIL);
+
   if (
-    !env.TURNSTILE_SECRET_KEY ||
-    !env.CONTACT_DESTINATION_EMAIL ||
-    !env.CONTACT_FROM_EMAIL ||
+    !turnstileSecret ||
+    (!testMode && !expectedHostname) ||
+    !destinationEmail ||
+    !fromEmail ||
     !env.EMAIL
   ) {
     return jsonResponse(503, { ok: false, code: 'service_unavailable' });
@@ -329,12 +480,15 @@ export async function handleContactRequest(
   const dependencies: ContactDependencies = {
     fetch: overrides.fetch ?? ((input, init) => fetch(input, init)),
     now: overrides.now ?? (() => new Date()),
-    createId: overrides.createId ?? (() => crypto.randomUUID())
+    createId: overrides.createId ?? (() => crypto.randomUUID()),
+    turnstileTimeoutMs: overrides.turnstileTimeoutMs ?? 5_000
   };
   const turnstileIsValid = await verifyTurnstile(
     validation.submission,
     request,
-    env,
+    turnstileSecret,
+    expectedHostname,
+    testMode,
     dependencies
   );
 
@@ -344,9 +498,9 @@ export async function handleContactRequest(
 
   try {
     await env.EMAIL.send({
-      to: env.CONTACT_DESTINATION_EMAIL,
+      to: destinationEmail,
       from: {
-        email: env.CONTACT_FROM_EMAIL,
+        email: fromEmail,
         name: 'ClearStance website'
       },
       replyTo: {
