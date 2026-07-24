@@ -1,21 +1,21 @@
 ---
-title: "Projektowanie ćwiczenia: pytania przed scenariuszem"
-description: "Demonstracyjny materiał pokazujący format publikacji o projektowaniu ćwiczeń kryzysowych."
+translationKey: crisis-exercise-design
+title: 'Projektowanie ćwiczenia: pytania przed scenariuszem'
+description: Demonstracyjny materiał pokazujący format publikacji o projektowaniu ćwiczeń kryzysowych.
+slug: projektowanie-cwiczen-kryzysowych
 publishedAt: 2026-07-01
 updatedAt: 2026-07-10
-author: "ClearStance - materiał demonstracyjny"
-slug: "projektowanie-cwiczen-kryzysowych"
-locale: "pl"
-translationKey: "crisis-exercise-design"
-category: "Ćwiczenia i symulacje"
+author: ClearStance
+locale: pl
+category: Ćwiczenia i symulacje
 tags:
-  - "ćwiczenia"
-  - "gotowość"
-  - "decyzje"
+  - ćwiczenia
+  - gotowość
+  - decyzje
 featured: true
 draft: true
-seoTitle: "Projektowanie ćwiczenia - materiał demonstracyjny | ClearStance"
-seoDescription: "Demonstracyjny układ artykułu ClearStance o pytaniach poprzedzających projektowanie scenariusza ćwiczenia."
+seoTitle: Projektowanie ćwiczenia - materiał demonstracyjny | ClearStance
+seoDescription: Demonstracyjny układ artykułu ClearStance o pytaniach poprzedzających projektowanie scenariusza ćwiczenia.
 ---
 
 > **Materiał demonstracyjny.** Ten tekst służy wyłącznie do pokazania formatu publikacji i elementów szablonu. Nie jest przedstawiany jako opublikowany Insight ClearStance.
