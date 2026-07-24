@@ -1,15 +1,10 @@
 # yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
-#
-# Production setup required:
-# 1. Replace REPLACE_WITH_GITHUB_OWNER with the owner of the production repository.
-# 2. Replace REPLACE_WITH_AUTH_WORKER with the deployed Sveltia CMS Authenticator hostname.
-# See README.md for the complete GitHub OAuth and Cloudflare setup.
 
 backend:
   name: github
-  repo: REPLACE_WITH_GITHUB_OWNER/clearstance
+  repo: sossolinski/clearstance
   branch: main
-  base_url: https://REPLACE_WITH_AUTH_WORKER.workers.dev
+  base_url: https://sveltia-cms-auth.s-ossolinski.workers.dev
   auth_methods: [oauth]
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
