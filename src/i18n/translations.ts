@@ -320,13 +320,10 @@ export const translations = {
       title: 'Praktyczne spojrzenie na gotowość.',
       lead:
         'Analizy dotyczące struktur, ćwiczeń, pracy zespołów i decyzji podejmowanych w warunkach niepewności.',
-      demoLabel: 'Materiał demonstracyjny',
-      draftNotice:
-        'Poniższy materiał demonstruje format publikacji i nie jest przedstawiany jako opublikowany artykuł ClearStance.',
       read: 'Czytaj materiał',
       empty: 'Pierwsze publikacje pojawią się wkrótce.',
       back: 'Wróć do Insights',
-      published: 'Data demonstracyjna',
+      published: 'Data publikacji',
       updated: 'Aktualizacja',
       category: 'Kategoria',
       author: 'Autor'
@@ -632,13 +629,10 @@ export const translations = {
       title: 'A practical view of readiness.',
       lead:
         'Analysis of structures, exercises, team performance and decisions made under uncertainty.',
-      demoLabel: 'Demonstration material',
-      draftNotice:
-        'The material below demonstrates the publication format and is not presented as a published ClearStance article.',
-      read: 'Read the material',
+      read: 'Read insight',
       empty: 'The first publications will appear here soon.',
       back: 'Back to Insights',
-      published: 'Demonstration date',
+      published: 'Publication date',
       updated: 'Updated',
       category: 'Category',
       author: 'Author'

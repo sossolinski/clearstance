@@ -53,6 +53,15 @@ collections:
       - label: Opis
         name: description
         widget: text
+      - label: Header / zdjęcie artykułu
+        name: headerImage
+        widget: image
+        required: false
+      - label: Tekst alternatywny zdjęcia
+        name: headerImageAlt
+        widget: string
+        required: false
+        hint: "Wymagany i opisowy, gdy artykuł ma zdjęcie."
       - label: Slug
         name: slug
         widget: string
@@ -106,7 +115,7 @@ collections:
         name: draft
         widget: boolean
         default: true
-        hint: "Wersje robocze pozostają poza sitemapą i otrzymują noindex."
+        hint: "Wersje robocze pozostają niewidoczne na publicznej stronie i poza sitemapą."
       - label: Tytuł SEO
         name: seoTitle
         widget: string
@@ -135,6 +144,15 @@ collections:
       - label: Description
         name: description
         widget: text
+      - label: Article header image
+        name: headerImage
+        widget: image
+        required: false
+      - label: Image alternative text
+        name: headerImageAlt
+        widget: string
+        required: false
+        hint: "Required and descriptive when an article has an image."
       - label: Slug
         name: slug
         widget: string
@@ -188,7 +206,7 @@ collections:
         name: draft
         widget: boolean
         default: true
-        hint: "Draft entries stay out of the sitemap and receive noindex."
+        hint: "Draft entries stay off the public site and out of the sitemap."
       - label: SEO title
         name: seoTitle
         widget: string

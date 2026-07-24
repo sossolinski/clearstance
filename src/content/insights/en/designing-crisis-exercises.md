@@ -1,9 +1,9 @@
 ---
 title: "Designing an exercise: the questions before the scenario"
-description: "Demonstration material showing the publication format for an article on crisis exercise design."
+description: "Questions to resolve before beginning work on a crisis exercise scenario."
 publishedAt: 2026-07-01
 updatedAt: 2026-07-10
-author: "ClearStance - demonstration material"
+author: "ClearStance"
 slug: "designing-crisis-exercises"
 locale: "en"
 translationKey: "crisis-exercise-design"
@@ -14,11 +14,9 @@ tags:
   - "decisions"
 featured: true
 draft: true
-seoTitle: "Designing an exercise - demonstration material | ClearStance"
-seoDescription: "A demonstration ClearStance article layout covering the questions that should precede crisis exercise scenario design."
+seoTitle: "Designing an exercise: the questions before the scenario | ClearStance"
+seoDescription: "How to define the objective, roles, decisions and information needed before designing a crisis exercise scenario."
 ---
-
-> **Demonstration material.** This text exists solely to show the publication format and article template. It is not presented as a published ClearStance Insight.
 
 The scenario attracts attention, but it should not be the starting point. Begin by deciding what the organisation needs to test and which decisions the exercise should bring into view.
 
@@ -55,7 +53,3 @@ The debrief should connect observations to concrete changes. Findings can be org
 - what made coordination more difficult,
 - which assumptions need to change,
 - who owns the next action and by when.
-
-#### Editorial note
-
-The template supports long-form articles, lists, tables, quotations and a multi-level heading hierarchy. Final material should receive a separate subject-matter review before its `draft` status changes.

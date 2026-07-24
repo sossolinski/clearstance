@@ -189,12 +189,16 @@ tags:
   - "tag"
 featured: false
 draft: true
+headerImage: "/images/insights/article-image.webp"
+headerImageAlt: "Opisowe znaczenie zdjęcia."
 seoTitle: "Tytuł SEO | ClearStance"
 seoDescription: "Opis SEO."
 ---
 ```
 
-Set `draft: true` while content is not ready for publication. Draft entries are generated as clearly labelled demonstration/review pages with `noindex` metadata and are excluded from `sitemap.xml`.
+`headerImage` and `headerImageAlt` are optional. When an image is used, upload it to `public/images/insights/` and provide meaningful alternative text.
+
+Set `draft: true` while content is not ready for publication. Draft entries remain available in the repository and Sveltia CMS, but are excluded from the public Insights indexes, article routes, and `sitemap.xml`.
 
 ## Adding an English Insight
 
@@ -264,9 +268,9 @@ The admin configuration lives in `public/admin/config.yml` and exposes two separ
 - **Insights — PL** → `src/content/insights/pl/`
 - **Insights — EN** → `src/content/insights/en/`
 
-Each collection matches `src/content.config.ts`: title, description, slug, publication and update dates, author, locale, `translationKey`, category, tags, featured and draft flags, SEO fields, and Markdown body. No second content schema is introduced.
+Each collection matches `src/content.config.ts`: title, description, optional header image and alternative text, slug, publication and update dates, author, locale, `translationKey`, category, tags, featured and draft flags, SEO fields, and Markdown body. No second content schema is introduced.
 
-To create an article, open the correct language collection, complete the fields, and leave `draft` enabled until editorial review is complete. Draft entries remain outside `sitemap.xml` and receive `noindex` metadata. Polish and English articles can be published independently.
+To create an article, open the correct language collection, complete the fields, and leave `draft` enabled until editorial review is complete. Draft entries remain available in CMS but are excluded from public Insights indexes, article routes, and `sitemap.xml`. Polish and English articles can be published independently.
 
 Use the same language-neutral `translationKey` in corresponding PL and EN entries. For example:
 

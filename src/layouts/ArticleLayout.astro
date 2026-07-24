@@ -29,6 +29,9 @@ const enPath = locale === 'en'
     ? getArticlePath('en', alternateEntry.data.slug)
     : undefined;
 const xDefaultPath = plPath ?? getRoute('pl', 'insights');
+const headerImageAlt = entry.data.headerImage
+  ? entry.data.headerImageAlt ?? ''
+  : undefined;
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -44,6 +47,9 @@ const articleSchema = {
     '@type': 'Organization',
     name: 'ClearStance'
   },
+  ...(entry.data.headerImage
+    ? { image: new URL(entry.data.headerImage, Astro.site).toString() }
+    : {}),
   inLanguage: locale,
   mainEntityOfPage: new URL(path, Astro.site).toString()
 };
@@ -59,19 +65,23 @@ const articleSchema = {
   enPath={enPath}
   xDefaultPath={xDefaultPath}
   currentPage="insights"
-  noindex={entry.data.draft}
-  structuredData={entry.data.draft ? undefined : articleSchema}
+  ogImage={entry.data.headerImage}
+  structuredData={articleSchema}
   article
 >
   <main id="main-content">
-    <article class="article">
+    <article
+      class:list={{
+        article: true,
+        'article--with-image': Boolean(entry.data.headerImage)
+      }}
+    >
       <header class="article-header">
         <div class="wrap article-header-inner">
           <a class="back-link" href={getRoute(locale, 'insights')}>
             <span aria-hidden="true">←</span>
             {visible.insightsPage.back}
           </a>
-          {entry.data.draft && <span class="demo-label">{visible.insightsPage.demoLabel}</span>}
           <p class="eyebrow eyebrow--light">{formatVisibleText(entry.data.category, locale)}</p>
           <h1>{formatVisibleText(entry.data.title, locale)}</h1>
           <p class="article-deck">{formatVisibleText(entry.data.description, locale)}</p>
@@ -95,6 +105,18 @@ const articleSchema = {
           </dl>
         </div>
       </header>
+      {
+        entry.data.headerImage && (
+          <div class="wrap article-header-image">
+            <img
+              src={entry.data.headerImage}
+              alt={headerImageAlt}
+              decoding="async"
+              fetchpriority="high"
+            />
+          </div>
+        )
+      }
       <div class="wrap article-grid">
         <aside class="article-aside">
           <span>{visible.insightsPage.category}</span>

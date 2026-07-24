@@ -1,7 +1,7 @@
 ---
 translationKey: crisis-exercise-design
 title: 'Projektowanie ćwiczenia: pytania przed scenariuszem'
-description: Demonstracyjny materiał pokazujący format publikacji o projektowaniu ćwiczeń kryzysowych.
+description: Pytania, które warto rozstrzygnąć przed rozpoczęciem pracy nad scenariuszem ćwiczenia kryzysowego.
 slug: projektowanie-cwiczen-kryzysowych
 publishedAt: 2026-07-01
 updatedAt: 2026-07-10
@@ -14,11 +14,9 @@ tags:
   - decyzje
 featured: true
 draft: true
-seoTitle: Projektowanie ćwiczenia - materiał demonstracyjny | ClearStance
-seoDescription: Demonstracyjny układ artykułu ClearStance o pytaniach poprzedzających projektowanie scenariusza ćwiczenia.
+seoTitle: 'Projektowanie ćwiczenia: pytania przed scenariuszem | ClearStance'
+seoDescription: Jak określić cel, role, decyzje i informacje potrzebne przed rozpoczęciem projektowania scenariusza ćwiczenia kryzysowego.
 ---
-
-> **Materiał demonstracyjny.** Ten tekst służy wyłącznie do pokazania formatu publikacji i elementów szablonu. Nie jest przedstawiany jako opublikowany Insight ClearStance.
 
 Scenariusz przyciąga uwagę, ale nie powinien być punktem wyjścia. Najpierw trzeba ustalić, co organizacja chce sprawdzić i jakie decyzje powinny pojawić się w trakcie ćwiczenia.
 
@@ -55,7 +53,3 @@ Omówienie powinno łączyć obserwacje z konkretnymi zmianami. Wnioski można u
 - co utrudniało koordynację,
 - które założenia wymagają korekty,
 - kto odpowiada za kolejne działanie i w jakim terminie.
-
-#### Uwaga redakcyjna
-
-Szablon obsługuje dłuższe publikacje, listy, tabele, cytaty i wielopoziomową hierarchię nagłówków. Finalne materiały powinny przejść odrębny przegląd merytoryczny przed zmianą statusu `draft`.
