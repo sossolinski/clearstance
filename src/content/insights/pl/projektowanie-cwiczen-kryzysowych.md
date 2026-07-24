@@ -24,6 +24,8 @@ Scenariusz przyciąga uwagę, ale nie powinien być punktem wyjścia. Najpierw t
 
 ## Zacznij od celu
 
+![](/images/insights/screenshot-2026-07-24-at-20-25-18.webp)
+
 Cel ćwiczenia powinien być na tyle konkretny, aby można było obserwować zachowania, przepływ informacji i jakość decyzji. Ogólne sformułowanie „sprawdzić gotowość” nie daje jeszcze podstawy do zaprojektowania użytecznego przebiegu.
 
 Przed pracą nad scenariuszem warto zadać trzy pytania:
