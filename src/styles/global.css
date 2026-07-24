@@ -1592,6 +1592,24 @@ summary:focus-visible {
   min-height: 65px;
 }
 
+@media (min-width: 761px) {
+  .contact-turnstile {
+    height: 0;
+    min-height: 0;
+    align-self: start;
+  }
+
+  .contact-turnstile:has(iframe) {
+    height: auto;
+    min-height: 65px;
+    align-self: stretch;
+  }
+
+  .contact-turnstile:not(:has(iframe)) + .contact-form-footer {
+    margin-top: -31px;
+  }
+}
+
 .contact-form-footer {
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr);
