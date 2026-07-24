@@ -35,6 +35,9 @@ const otherLocale = locale === 'pl' ? 'en' : 'pl';
       eyebrow={content.eyebrow}
       title={content.title}
       lead={content.lead}
+      desktopTitleLines={locale === 'pl'
+        ? ['Gotowość,', 'która działa', 'w\u00a0rzeczywistym', 'środowisku.']
+        : undefined}
     />
 
     <section class="services-detail" aria-labelledby="services-detail-title">

@@ -1203,6 +1203,10 @@ summary:focus-visible {
   line-height: 1.02;
 }
 
+.page-intro-title-line {
+  display: block;
+}
+
 @media (min-width: 761px) {
   .page-intro--about h1 {
     max-width: 7.75em;
@@ -2524,6 +2528,14 @@ summary:focus-visible {
 
   .page-intro h1 {
     font-size: 48px;
+  }
+
+  .page-intro-title-line {
+    display: inline;
+  }
+
+  .page-intro-title-line:not(:last-child)::after {
+    content: " ";
   }
 
   .page-intro-lead {

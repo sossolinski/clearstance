@@ -5,16 +5,38 @@ interface Props {
   lead: string;
   titleId?: string;
   variant?: 'default' | 'about';
+  desktopTitleLines?: readonly string[];
 }
 
-const { eyebrow, title, lead, titleId = 'page-title', variant = 'default' } = Astro.props;
+const {
+  eyebrow,
+  title,
+  lead,
+  titleId = 'page-title',
+  variant = 'default',
+  desktopTitleLines
+} = Astro.props;
 ---
 
 <section class:list={['page-intro', { 'page-intro--about': variant === 'about' }]} aria-labelledby={titleId}>
   <div class="wrap page-intro-grid">
     <div>
       <p class="eyebrow eyebrow--light">{eyebrow}</p>
-      <h1 id={titleId}>{title}</h1>
+      {
+        desktopTitleLines ? (
+          <h1
+            id={titleId}
+            class="page-intro-composed-title"
+            aria-label={title}
+          >
+            {desktopTitleLines.map((line) => (
+              <span class="page-intro-title-line" aria-hidden="true">{line}</span>
+            ))}
+          </h1>
+        ) : (
+          <h1 id={titleId}>{title}</h1>
+        )
+      }
     </div>
     <p class="page-intro-lead">{lead}</p>
   </div>
