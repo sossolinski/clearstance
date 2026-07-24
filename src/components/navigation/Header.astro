@@ -125,6 +125,19 @@ const contactHref = onHomepage
   const menuOpenLabel = menuSummary?.dataset.openLabel || 'Open menu';
   const menuCloseLabel = menuSummary?.dataset.closeLabel || 'Close menu';
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const desktopNavigation = window.matchMedia('(min-width: 1081px)');
+
+  const setPageInert = (inert) => {
+    document.querySelectorAll('main, .site-footer').forEach((region) => {
+      region.toggleAttribute('inert', inert);
+    });
+  };
+
+  const getMenuFocusable = () =>
+    [menuSummary, ...mobileMenu.querySelectorAll('a')].filter((element) => {
+      const styles = window.getComputedStyle(element);
+      return styles.display !== 'none' && styles.visibility !== 'hidden';
+    });
 
   const updateHeader = () => {
     header?.classList.toggle('is-scrolled', window.scrollY > 24);
@@ -137,11 +150,16 @@ const contactHref = onHomepage
     const open = mobileMenu.open;
     document.body.classList.toggle('menu-is-open', open);
     header?.classList.toggle('menu-is-open', open);
+    setPageInert(open);
     menuSummary?.setAttribute(
       'aria-label',
       open ? menuCloseLabel : menuOpenLabel
     );
     if (menuLabel) menuLabel.textContent = open ? menuCloseLabel : menuOpenLabel;
+
+    if (open && !mobileMenu.contains(document.activeElement)) {
+      menuSummary?.focus();
+    }
   });
 
   mobileMenu?.querySelectorAll('a').forEach((link) => {
@@ -149,9 +167,32 @@ const contactHref = onHomepage
   });
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && mobileMenu?.open) {
+    if (!mobileMenu?.open) return;
+
+    if (event.key === 'Escape') {
       mobileMenu.removeAttribute('open');
       menuSummary?.focus();
+      return;
+    }
+
+    if (event.key === 'Tab') {
+      const focusable = getMenuFocusable();
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last?.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first?.focus();
+      }
+    }
+  });
+
+  desktopNavigation.addEventListener('change', (event) => {
+    if (event.matches && mobileMenu?.open) {
+      mobileMenu.removeAttribute('open');
     }
   });
 

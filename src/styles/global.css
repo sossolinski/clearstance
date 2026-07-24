@@ -13,13 +13,21 @@
   --paper: #f2eee7;
   --paper-2: #e8e3db;
   --text: #11202a;
-  --muted: #66757d;
+  --text-secondary-paper: #59676f;
+  --text-secondary-paper-alt: #56656d;
+  --text-secondary-dark: #829496;
+  --muted: var(--text-secondary-paper);
   --teal: #6f8f89;
   --teal-deep: #385e5d;
   --signal: #c65348;
+  --signal-text-paper: #a84239;
+  --signal-text-dark: #d06d63;
   --white: #f8f6f2;
   --line: rgb(18 38 48 / 14%);
   --line-light: rgb(248 246 242 / 16%);
+  --line-interactive: rgb(18 38 48 / 52%);
+  --focus-on-light: #385e5d;
+  --focus-on-dark: #9bb0ab;
   --display:
     "Avenir Next", "Segoe UI Variable Display", "Segoe UI", Helvetica, Arial,
     sans-serif;
@@ -45,9 +53,9 @@ html {
 }
 
 body {
+  --focus-ring: var(--focus-on-light);
   margin: 0;
   min-width: 320px;
-  overflow-x: clip;
   color: var(--text);
   background: var(--paper);
   font-family: var(--body);
@@ -97,6 +105,18 @@ ul {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+dt,
+dd,
+figcaption {
+  overflow-wrap: break-word;
+}
+
 ol,
 ul {
   padding: 0;
@@ -111,8 +131,20 @@ a {
 a:focus-visible,
 button:focus-visible,
 summary:focus-visible {
-  outline: 2px solid #9bb0ab;
+  outline: 2px solid var(--focus-ring);
   outline-offset: 4px;
+}
+
+.site-header,
+.hero,
+.readiness-section,
+.brand-statement,
+.page-intro,
+.context-section,
+.about-perspective,
+.contact-page-statement,
+.article-header {
+  --focus-ring: var(--focus-on-dark);
 }
 
 ::selection {
@@ -123,6 +155,35 @@ summary:focus-visible {
 .wrap {
   width: min(var(--max), calc(100% - 72px));
   margin-inline: auto;
+}
+
+.header-inner > *,
+.approach-grid > *,
+.services-heading > *,
+.service-list > li > *,
+.perspective-note > *,
+.readiness-heading > *,
+.readiness-steps > *,
+.experience-panel > *,
+.experience-tracks > *,
+.practice-grid > *,
+.practice-list > *,
+.contact-band-grid > *,
+.footer-primary > *,
+.page-intro-grid > *,
+.editorial-heading > *,
+.services-detail-list > li > *,
+.context-grid > *,
+.about-story-grid > *,
+.about-perspective-grid > *,
+.contact-page-layout > *,
+.contact-form-row > *,
+.contact-form-footer > *,
+.demo-notice > *,
+.insights-list > *,
+.article-meta > *,
+.article-grid > * {
+  min-width: 0;
 }
 
 .skip-link {
@@ -366,9 +427,9 @@ summary:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: rgb(248 246 242 / 48%);
+  color: var(--text-secondary-dark);
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.08em;
 }
 
@@ -478,7 +539,7 @@ summary:focus-visible {
   gap: 17px;
   color: rgb(255 255 255 / 50%);
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
@@ -571,7 +632,7 @@ summary:focus-visible {
 .readiness-steps > li > span {
   color: var(--teal-deep);
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -614,7 +675,7 @@ summary:focus-visible {
 
 .services-heading > p {
   max-width: 590px;
-  color: #5b6a72;
+  color: var(--text-secondary-paper-alt);
   font-size: 15px;
   line-height: 1.74;
 }
@@ -635,7 +696,7 @@ summary:focus-visible {
 
 .service-number {
   padding-top: 6px;
-  color: #87959a;
+  color: var(--text-secondary-paper-alt);
 }
 
 .service-list h3 {
@@ -649,7 +710,7 @@ summary:focus-visible {
 
 .service-list p {
   max-width: 520px;
-  color: var(--muted);
+  color: var(--text-secondary-paper-alt);
   font-size: 13.5px;
   line-height: 1.64;
 }
@@ -673,7 +734,7 @@ summary:focus-visible {
 
 .perspective-note > p {
   max-width: 680px;
-  color: var(--muted);
+  color: var(--text-secondary-paper-alt);
   font-size: 13px;
   line-height: 1.65;
 }
@@ -762,7 +823,7 @@ summary:focus-visible {
 }
 
 .readiness-steps > li > span {
-  color: rgb(255 255 255 / 37%);
+  color: var(--text-secondary-dark);
 }
 
 .readiness-steps h3 {
@@ -829,7 +890,7 @@ summary:focus-visible {
 .experience-copy > p:not(.eyebrow) {
   max-width: 570px;
   margin-top: 10px;
-  color: #53616a;
+  color: var(--text-secondary-paper-alt);
   font-size: 13.5px;
   line-height: 1.69;
 }
@@ -861,7 +922,7 @@ summary:focus-visible {
 }
 
 .experience-tracks dd {
-  color: #6d7b82;
+  color: var(--text-secondary-paper-alt);
   font-size: 11px;
   line-height: 1.5;
 }
@@ -909,14 +970,14 @@ summary:focus-visible {
 
 .practice-list h3 {
   margin: 10px 0 6px;
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.4;
 }
 
 .practice-list p {
   max-width: 300px;
-  color: var(--muted);
+  color: var(--text-secondary-paper-alt);
   font-size: 12.5px;
   line-height: 1.55;
 }
@@ -1016,7 +1077,7 @@ summary:focus-visible {
   margin-top: 14px;
   color: var(--muted);
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.04em;
 }
 
@@ -1024,7 +1085,7 @@ summary:focus-visible {
 
 .site-footer {
   padding: 0 0 28px;
-  color: #59676f;
+  color: var(--text-secondary-paper);
   background: var(--paper);
 }
 
@@ -1041,7 +1102,7 @@ summary:focus-visible {
 .footer-primary > p {
   color: var(--teal-deep);
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -1065,7 +1126,7 @@ summary:focus-visible {
   justify-content: space-between;
   gap: 30px;
   padding-top: 18px;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.03em;
 }
 
@@ -1180,7 +1241,7 @@ summary:focus-visible {
 
 .detail-number {
   padding-top: 7px;
-  color: #87959a;
+  color: var(--text-secondary-paper);
 }
 
 .detail-copy h3 {
@@ -1195,7 +1256,7 @@ summary:focus-visible {
 
 .detail-copy p {
   max-width: 470px;
-  color: #56656d;
+  color: var(--text-secondary-paper);
   font-size: 14px;
   line-height: 1.7;
 }
@@ -1288,7 +1349,7 @@ summary:focus-visible {
   margin-top: 14px;
   color: var(--teal-deep);
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -1307,7 +1368,7 @@ summary:focus-visible {
 .about-story-copy p {
   max-width: 650px;
   margin-bottom: 21px;
-  color: #53616a;
+  color: var(--text-secondary-paper);
   font-size: 15px;
   line-height: 1.8;
 }
@@ -1458,7 +1519,7 @@ summary:focus-visible {
   width: 100%;
   padding: 10px 0 12px;
   border: 0;
-  border-bottom: 1px solid rgb(18 38 48 / 28%);
+  border-bottom: 1px solid var(--line-interactive);
   border-radius: 0;
   outline: 0;
   color: var(--text);
@@ -1612,8 +1673,8 @@ summary:focus-visible {
 
 .demo-notice span,
 .demo-label {
-  color: var(--signal);
-  font-size: 9px;
+  color: var(--signal-text-paper);
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1645,7 +1706,7 @@ summary:focus-visible {
   margin-bottom: 30px;
   color: var(--muted);
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.07em;
   text-transform: uppercase;
 }
@@ -1735,6 +1796,7 @@ summary:focus-visible {
   display: block;
   width: fit-content;
   margin-bottom: 17px;
+  color: var(--signal-text-dark);
 }
 
 .article-header h1 {
@@ -1770,8 +1832,8 @@ summary:focus-visible {
 }
 
 .article-meta dt {
-  color: rgb(248 246 242 / 40%);
-  font-size: 8px;
+  color: var(--text-secondary-dark);
+  font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
@@ -1801,7 +1863,7 @@ summary:focus-visible {
   display: block;
   margin-bottom: 9px;
   color: var(--teal-deep);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -2052,9 +2114,9 @@ summary:focus-visible {
   .mobile-location {
     display: block;
     margin-top: 15px;
-    color: rgb(248 246 242 / 38%);
+    color: var(--text-secondary-dark);
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .hero {
