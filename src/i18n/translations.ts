@@ -270,7 +270,7 @@ export const translations = {
           illustration: {
             src: '/images/04_przeglady_i_doskonalenie.png',
             width: 1200,
-            height: 309,
+            height: 473,
             alt: 'Szkic przedstawiający przegląd i doskonalenie sposobu działania'
           },
           points: [
@@ -603,7 +603,7 @@ export const translations = {
           illustration: {
             src: '/images/04_przeglady_i_doskonalenie.png',
             width: 1200,
-            height: 309,
+            height: 473,
             alt: 'Sketch illustrating review and improvement of working practices'
           },
           points: [
