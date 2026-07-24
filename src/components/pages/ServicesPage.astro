@@ -58,6 +58,16 @@ const otherLocale = locale === 'pl' ? 'en' : 'pl';
                 <ul>
                   {service.points.map((point) => <li>{point}</li>)}
                 </ul>
+                <div class="service-sketch">
+                  <img
+                    src={service.illustration.src}
+                    width={service.illustration.width}
+                    height={service.illustration.height}
+                    alt={service.illustration.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </li>
             ))
           }

@@ -1267,8 +1267,11 @@ summary:focus-visible {
 
 .services-detail-list > li {
   display: grid;
-  grid-template-columns: 64px 0.95fr 1fr;
-  gap: 30px;
+  grid-template-columns:
+    48px minmax(230px, 0.95fr) minmax(230px, 1fr)
+    minmax(270px, 0.88fr);
+  align-items: start;
+  gap: 26px;
   padding: 42px 0 44px;
   border-bottom: 1px solid var(--line);
 }
@@ -1317,6 +1320,21 @@ summary:focus-visible {
   height: 1px;
   background: var(--teal-deep);
   content: "";
+}
+
+.service-sketch {
+  align-self: center;
+  justify-self: end;
+  width: min(100%, 330px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.service-sketch img {
+  width: 100%;
+  opacity: 0.54;
+  filter: grayscale(1) sepia(0.16) saturate(0.72) contrast(0.9);
+  mix-blend-mode: multiply;
 }
 
 .context-section {
@@ -2285,6 +2303,21 @@ summary:focus-visible {
   .about-perspective-grid {
     gap: 60px;
   }
+
+  .services-detail-list > li {
+    grid-template-columns: 48px minmax(0, 1fr) minmax(250px, 300px);
+    column-gap: 24px;
+  }
+
+  .services-detail-list > li > ul {
+    grid-column: 2;
+  }
+
+  .service-sketch {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    width: min(100%, 290px);
+  }
 }
 
 /* Intermediate editorial layouts */
@@ -2567,6 +2600,13 @@ summary:focus-visible {
 
   .services-detail-list > li > ul {
     grid-column: 2;
+  }
+
+  .service-sketch {
+    grid-column: 2;
+    grid-row: auto;
+    width: min(100%, 230px);
+    margin-top: 8px;
   }
 
   .detail-copy h3 {

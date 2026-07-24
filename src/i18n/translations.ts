@@ -216,6 +216,12 @@ export const translations = {
           title: 'System zarządzania kryzysowego',
           summary:
             'Projektowanie i przegląd sposobu, w jaki organizacja rozpoznaje, eskaluje i koordynuje sytuacje kryzysowe.',
+          illustration: {
+            src: '/images/01_system_zarzadzania_kryzysowego.png',
+            width: 1200,
+            height: 815,
+            alt: 'Szkic przedstawiający pracę nad systemem zarządzania kryzysowego'
+          },
           points: [
             'struktury, role i odpowiedzialność',
             'zasady aktywacji i eskalacji',
@@ -227,6 +233,12 @@ export const translations = {
           title: 'Ćwiczenia i symulacje',
           summary:
             'Scenariusze pozwalające bezpiecznie sprawdzić decyzje, współpracę i komunikację przed rzeczywistym zdarzeniem.',
+          illustration: {
+            src: '/images/02_cwiczenia_i_symulacje.png',
+            width: 1200,
+            height: 771,
+            alt: 'Szkic przedstawiający planowanie ćwiczenia kryzysowego'
+          },
           points: [
             'ćwiczenia typu tabletop i ćwiczenia sztabowe',
             'projektowanie realistycznych scenariuszy',
@@ -238,6 +250,12 @@ export const translations = {
           title: 'Facylitacja',
           summary:
             'Ustrukturyzowana praca z zespołami, kiedy problem wymaga wspólnego obrazu sytuacji i decyzji przekraczających granice funkcji.',
+          illustration: {
+            src: '/images/03_facylitacja.png',
+            width: 1024,
+            height: 525,
+            alt: 'Szkic przedstawiający facylitowaną pracę zespołu'
+          },
           points: [
             'warsztaty i sesje decyzyjne',
             'porządkowanie problemów i zależności',
@@ -249,6 +267,12 @@ export const translations = {
           title: 'Przeglądy i doskonalenie',
           summary:
             'Ocena przygotowania oraz uporządkowanie wniosków z ćwiczeń, zdarzeń i dotychczasowego sposobu działania.',
+          illustration: {
+            src: '/images/04_przeglady_i_doskonalenie.png',
+            width: 1200,
+            height: 309,
+            alt: 'Szkic przedstawiający przegląd i doskonalenie sposobu działania'
+          },
           points: [
             'przeglądy gotowości i identyfikacja luk',
             'After Action Review',
@@ -525,6 +549,12 @@ export const translations = {
           title: 'Crisis management systems',
           summary:
             'Design and review of how an organisation identifies, escalates and coordinates crisis situations.',
+          illustration: {
+            src: '/images/01_system_zarzadzania_kryzysowego.png',
+            width: 1200,
+            height: 815,
+            alt: 'Sketch illustrating work on a crisis management system'
+          },
           points: [
             'structures, roles and accountability',
             'activation and escalation principles',
@@ -536,6 +566,12 @@ export const translations = {
           title: 'Exercises and simulations',
           summary:
             'Scenarios that provide a safe setting to test decisions, collaboration and communication before a real event.',
+          illustration: {
+            src: '/images/02_cwiczenia_i_symulacje.png',
+            width: 1200,
+            height: 771,
+            alt: 'Sketch illustrating crisis exercise planning'
+          },
           points: [
             'tabletop and command-post exercises',
             'realistic scenario design',
@@ -547,6 +583,12 @@ export const translations = {
           title: 'Facilitation',
           summary:
             'Structured work with teams when a challenge requires a shared picture and decisions that cross functional boundaries.',
+          illustration: {
+            src: '/images/03_facylitacja.png',
+            width: 1024,
+            height: 525,
+            alt: 'Sketch illustrating facilitated team work'
+          },
           points: [
             'workshops and decision sessions',
             'clarifying issues and dependencies',
@@ -558,6 +600,12 @@ export const translations = {
           title: 'Reviews and improvement',
           summary:
             'Assessment of preparedness and systematic learning from exercises, events and existing ways of working.',
+          illustration: {
+            src: '/images/04_przeglady_i_doskonalenie.png',
+            width: 1200,
+            height: 309,
+            alt: 'Sketch illustrating review and improvement of working practices'
+          },
           points: [
             'readiness reviews and gap identification',
             'After Action Reviews',
