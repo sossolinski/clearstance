@@ -1,4 +1,5 @@
 import type { Locale } from './routes';
+import { protectPolishVisibleCopy } from './typography.js';
 
 const sharedHome = {
   hero: {
@@ -26,7 +27,7 @@ export const translations = {
       skip: 'Przejdź do treści',
       mainNavigation: 'Główna nawigacja',
       languageNavigation: 'Wybór języka',
-      homeLabel: 'ClearStance — strona główna',
+      homeLabel: 'ClearStance - strona główna',
       menuOpen: 'Otwórz menu',
       menuClose: 'Zamknij menu',
       currentLanguage: 'Polski',
@@ -46,7 +47,7 @@ export const translations = {
     },
     home: {
       meta: {
-        title: 'ClearStance — Clarity when it matters most',
+        title: 'ClearStance - Clarity when it matters most',
         description:
           'ClearStance wspiera organizacje w budowaniu gotowości kryzysowej, projektowaniu systemów reagowania, prowadzeniu ćwiczeń i facylitacji zespołów.'
       },
@@ -200,7 +201,7 @@ export const translations = {
       }
     },
     servicesPage: {
-      metaTitle: 'Oferta — ClearStance',
+      metaTitle: 'Oferta - ClearStance',
       metaDescription:
         'Systemy zarządzania kryzysowego, ćwiczenia i symulacje, facylitacja oraz przeglądy gotowości organizacyjnej.',
       eyebrow: 'Oferta',
@@ -263,7 +264,7 @@ export const translations = {
       cta: 'Porozmawiajmy o zakresie'
     },
     aboutPage: {
-      metaTitle: 'O ClearStance — niezależna praktyka doradcza',
+      metaTitle: 'O ClearStance - niezależna praktyka doradcza',
       metaDescription:
         'ClearStance łączy doświadczenie operacyjne z żeglugi i lotnictwa z perspektywą strategiczną i zarządzaniem kryzysowym.',
       eyebrow: 'O ClearStance',
@@ -282,7 +283,7 @@ export const translations = {
       cta: 'Skontaktuj się'
     },
     contactPage: {
-      metaTitle: 'Kontakt — ClearStance',
+      metaTitle: 'Kontakt - ClearStance',
       metaDescription:
         'Skontaktuj się z ClearStance w sprawie gotowości kryzysowej, ćwiczeń, facylitacji lub przeglądu przygotowania.',
       eyebrow: 'Kontakt',
@@ -312,7 +313,7 @@ export const translations = {
       }
     },
     insightsPage: {
-      metaTitle: 'Insights — ClearStance',
+      metaTitle: 'Insights - ClearStance',
       metaDescription:
         'Analizy i materiały ClearStance o gotowości kryzysowej, ćwiczeniach, facylitacji i decyzjach pod presją.',
       eyebrow: 'Insights',
@@ -338,7 +339,7 @@ export const translations = {
       skip: 'Skip to content',
       mainNavigation: 'Main navigation',
       languageNavigation: 'Language selection',
-      homeLabel: 'ClearStance — home',
+      homeLabel: 'ClearStance - home',
       menuOpen: 'Open menu',
       menuClose: 'Close menu',
       currentLanguage: 'English',
@@ -358,7 +359,7 @@ export const translations = {
     },
     home: {
       meta: {
-        title: 'ClearStance — Clarity when it matters most',
+        title: 'ClearStance - Clarity when it matters most',
         description:
           'ClearStance helps organisations strengthen crisis readiness through response design, exercises, facilitation and preparedness reviews.'
       },
@@ -512,7 +513,7 @@ export const translations = {
       }
     },
     servicesPage: {
-      metaTitle: 'Services — ClearStance',
+      metaTitle: 'Services - ClearStance',
       metaDescription:
         'Crisis management systems, exercises and simulations, facilitation, and organisational readiness reviews.',
       eyebrow: 'Services',
@@ -575,7 +576,7 @@ export const translations = {
       cta: 'Discuss the scope'
     },
     aboutPage: {
-      metaTitle: 'About ClearStance — independent advisory practice',
+      metaTitle: 'About ClearStance - independent advisory practice',
       metaDescription:
         'ClearStance combines operational experience from maritime shipping and aviation with strategic and crisis management perspective.',
       eyebrow: 'About ClearStance',
@@ -594,7 +595,7 @@ export const translations = {
       cta: 'Get in touch'
     },
     contactPage: {
-      metaTitle: 'Contact — ClearStance',
+      metaTitle: 'Contact - ClearStance',
       metaDescription:
         'Contact ClearStance about crisis readiness, exercises, facilitation or a preparedness review.',
       eyebrow: 'Contact',
@@ -624,7 +625,7 @@ export const translations = {
       }
     },
     insightsPage: {
-      metaTitle: 'Insights — ClearStance',
+      metaTitle: 'Insights - ClearStance',
       metaDescription:
         'ClearStance analysis on crisis readiness, exercises, facilitation and decision-making under pressure.',
       eyebrow: 'Insights',
@@ -645,6 +646,15 @@ export const translations = {
   }
 } as const satisfies Record<Locale, unknown>;
 
+const visibleTranslations = {
+  pl: protectPolishVisibleCopy(translations.pl),
+  en: translations.en
+};
+
 export function getTranslations(locale: Locale) {
   return translations[locale];
+}
+
+export function getVisibleTranslations(locale: Locale) {
+  return visibleTranslations[locale];
 }

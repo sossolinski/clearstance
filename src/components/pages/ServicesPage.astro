@@ -1,7 +1,10 @@
 ---
 import type { Locale } from '../../i18n/routes';
 import { getRoute } from '../../i18n/routes';
-import { getTranslations } from '../../i18n/translations';
+import {
+  getTranslations,
+  getVisibleTranslations
+} from '../../i18n/translations';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactBand from '../sections/ContactBand.astro';
 import PageIntro from '../sections/PageIntro.astro';
@@ -12,14 +15,14 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = getTranslations(locale);
-const content = t.servicesPage;
+const content = getVisibleTranslations(locale).servicesPage;
 const otherLocale = locale === 'pl' ? 'en' : 'pl';
 ---
 
 <BaseLayout
   locale={locale}
-  title={content.metaTitle}
-  description={content.metaDescription}
+  title={t.servicesPage.metaTitle}
+  description={t.servicesPage.metaDescription}
   canonicalPath={getRoute(locale, 'services')}
   alternatePath={getRoute(otherLocale, 'services')}
   plPath={getRoute('pl', 'services')}

@@ -3,7 +3,7 @@ title: "Projektowanie ćwiczenia: pytania przed scenariuszem"
 description: "Demonstracyjny materiał pokazujący format publikacji o projektowaniu ćwiczeń kryzysowych."
 publishedAt: 2026-07-01
 updatedAt: 2026-07-10
-author: "ClearStance — materiał demonstracyjny"
+author: "ClearStance - materiał demonstracyjny"
 slug: "projektowanie-cwiczen-kryzysowych"
 locale: "pl"
 translationKey: "crisis-exercise-design"
@@ -14,7 +14,7 @@ tags:
   - "decyzje"
 featured: true
 draft: true
-seoTitle: "Projektowanie ćwiczenia — materiał demonstracyjny | ClearStance"
+seoTitle: "Projektowanie ćwiczenia - materiał demonstracyjny | ClearStance"
 seoDescription: "Demonstracyjny układ artykułu ClearStance o pytaniach poprzedzających projektowanie scenariusza ćwiczenia."
 ---
 
@@ -45,7 +45,7 @@ Przed pracą nad scenariuszem warto zadać trzy pytania:
 
 Dobry scenariusz nie jest opowiadaniem z jedną prawidłową odpowiedzią. Powinien tworzyć warunki, w których uczestnicy muszą porządkować niepełne informacje, rozpoznawać zmiany i uzgadniać kierunek działania.
 
-> Ćwiczenie jest wartościowe wtedy, gdy ujawnia sposób działania organizacji — nie tylko znajomość dokumentów.
+> Ćwiczenie jest wartościowe wtedy, gdy ujawnia sposób działania organizacji - nie tylko znajomość dokumentów.
 
 ### Po ćwiczeniu
 

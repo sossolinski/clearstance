@@ -2,7 +2,8 @@
 import type { CollectionEntry } from 'astro:content';
 import type { Locale } from '../i18n/routes';
 import { formatDate, getArticlePath, getRoute } from '../i18n/routes';
-import { getTranslations } from '../i18n/translations';
+import { getVisibleTranslations } from '../i18n/translations';
+import { formatVisibleText } from '../i18n/typography.js';
 import BaseLayout from './BaseLayout.astro';
 
 interface Props {
@@ -12,7 +13,7 @@ interface Props {
 
 const { entry, alternateEntry } = Astro.props;
 const locale = entry.data.locale as Locale;
-const t = getTranslations(locale);
+const visible = getVisibleTranslations(locale);
 const path = getArticlePath(locale, entry.data.slug);
 const alternatePath = alternateEntry
   ? getArticlePath(alternateEntry.data.locale as Locale, alternateEntry.data.slug)
@@ -68,38 +69,38 @@ const articleSchema = {
         <div class="wrap article-header-inner">
           <a class="back-link" href={getRoute(locale, 'insights')}>
             <span aria-hidden="true">←</span>
-            {t.insightsPage.back}
+            {visible.insightsPage.back}
           </a>
-          {entry.data.draft && <span class="demo-label">{t.insightsPage.demoLabel}</span>}
-          <p class="eyebrow eyebrow--light">{entry.data.category}</p>
-          <h1>{entry.data.title}</h1>
-          <p class="article-deck">{entry.data.description}</p>
+          {entry.data.draft && <span class="demo-label">{visible.insightsPage.demoLabel}</span>}
+          <p class="eyebrow eyebrow--light">{formatVisibleText(entry.data.category, locale)}</p>
+          <h1>{formatVisibleText(entry.data.title, locale)}</h1>
+          <p class="article-deck">{formatVisibleText(entry.data.description, locale)}</p>
           <dl class="article-meta">
             <div>
-              <dt>{t.insightsPage.published}</dt>
+              <dt>{visible.insightsPage.published}</dt>
               <dd><time datetime={entry.data.publishedAt.toISOString()}>{formatDate(entry.data.publishedAt, locale)}</time></dd>
             </div>
             {
               entry.data.updatedAt && (
                 <div>
-                  <dt>{t.insightsPage.updated}</dt>
+                  <dt>{visible.insightsPage.updated}</dt>
                   <dd><time datetime={entry.data.updatedAt.toISOString()}>{formatDate(entry.data.updatedAt, locale)}</time></dd>
                 </div>
               )
             }
             <div>
-              <dt>{t.insightsPage.author}</dt>
-              <dd>{entry.data.author}</dd>
+              <dt>{visible.insightsPage.author}</dt>
+              <dd>{formatVisibleText(entry.data.author, locale)}</dd>
             </div>
           </dl>
         </div>
       </header>
       <div class="wrap article-grid">
         <aside class="article-aside">
-          <span>{t.insightsPage.category}</span>
-          <strong>{entry.data.category}</strong>
+          <span>{visible.insightsPage.category}</span>
+          <strong>{formatVisibleText(entry.data.category, locale)}</strong>
           <ul aria-label={locale === 'pl' ? 'Tagi artykułu' : 'Article tags'}>
-            {entry.data.tags.map((tag) => <li>{tag}</li>)}
+            {entry.data.tags.map((tag) => <li>{formatVisibleText(tag, locale)}</li>)}
           </ul>
         </aside>
         <div class="article-prose">

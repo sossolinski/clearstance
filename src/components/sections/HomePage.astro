@@ -1,7 +1,10 @@
 ---
 import type { Locale } from '../../i18n/routes';
 import { getRoute } from '../../i18n/routes';
-import { getTranslations } from '../../i18n/translations';
+import {
+  getTranslations,
+  getVisibleTranslations
+} from '../../i18n/translations';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactBand from './ContactBand.astro';
 
@@ -11,7 +14,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = getTranslations(locale);
-const content = t.home;
+const content = getVisibleTranslations(locale).home;
 const otherLocale = locale === 'pl' ? 'en' : 'pl';
 const approachId = locale === 'pl' ? 'podejscie' : 'approach';
 const servicesId = locale === 'pl' ? 'oferta' : 'services';
@@ -36,8 +39,8 @@ const professionalServiceSchema = {
 
 <BaseLayout
   locale={locale}
-  title={content.meta.title}
-  description={content.meta.description}
+  title={t.home.meta.title}
+  description={t.home.meta.description}
   canonicalPath={getRoute(locale, 'home')}
   alternatePath={getRoute(otherLocale, 'home')}
   plPath={getRoute('pl', 'home')}
@@ -63,7 +66,7 @@ const professionalServiceSchema = {
           src="/images/hero-navigation.jpg"
           width="1920"
           height="1080"
-          alt={content.hero.imageAlt}
+          alt={t.home.hero.imageAlt}
           fetchpriority="high"
         />
       </picture>
@@ -194,7 +197,7 @@ const professionalServiceSchema = {
             src="/images/operational-briefing.jpg"
             width="1920"
             height="1080"
-            alt={content.experience.imageAlt}
+            alt={t.home.experience.imageAlt}
             loading="lazy"
           />
         </picture>
@@ -244,7 +247,7 @@ const professionalServiceSchema = {
       </div>
     </section>
 
-    <section class="brand-statement" aria-label={content.statement.source}>
+    <section class="brand-statement" aria-label={t.home.statement.source}>
       <picture class="brand-statement-media">
         <source
           srcset="
@@ -260,7 +263,7 @@ const professionalServiceSchema = {
           src="/images/brand-statement.jpg"
           width="1920"
           height="1080"
-          alt={content.statement.imageAlt}
+          alt={t.home.statement.imageAlt}
           loading="lazy"
         />
       </picture>

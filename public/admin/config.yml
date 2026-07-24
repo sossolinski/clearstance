@@ -41,8 +41,8 @@ slug:
 
 collections:
   - name: insights_pl
-    label: Insights — PL
-    label_singular: Insight — PL
+    label: Insights - PL
+    label_singular: Insight - PL
     folder: /src/content/insights/pl
     extension: md
     format: yaml-frontmatter
@@ -50,7 +50,7 @@ collections:
     delete: true
     identifier_field: slug
     slug: "{{slug}}"
-    summary: "{{title}} — {{publishedAt | date('YYYY-MM-DD')}}"
+    summary: "{{title}} - {{publishedAt | date('YYYY-MM-DD')}}"
     fields:
       - label: Tytuł
         name: title
@@ -123,8 +123,8 @@ collections:
         widget: richtext
 
   - name: insights_en
-    label: Insights — EN
-    label_singular: Insight — EN
+    label: Insights - EN
+    label_singular: Insight - EN
     folder: /src/content/insights/en
     extension: md
     format: yaml-frontmatter
@@ -132,7 +132,7 @@ collections:
     delete: true
     identifier_field: slug
     slug: "{{slug}}"
-    summary: "{{title}} — {{publishedAt | date('YYYY-MM-DD')}}"
+    summary: "{{title}} - {{publishedAt | date('YYYY-MM-DD')}}"
     fields:
       - label: Title
         name: title

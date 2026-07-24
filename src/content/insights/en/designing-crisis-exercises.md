@@ -3,7 +3,7 @@ title: "Designing an exercise: the questions before the scenario"
 description: "Demonstration material showing the publication format for an article on crisis exercise design."
 publishedAt: 2026-07-01
 updatedAt: 2026-07-10
-author: "ClearStance — demonstration material"
+author: "ClearStance - demonstration material"
 slug: "designing-crisis-exercises"
 locale: "en"
 translationKey: "crisis-exercise-design"
@@ -14,7 +14,7 @@ tags:
   - "decisions"
 featured: true
 draft: true
-seoTitle: "Designing an exercise — demonstration material | ClearStance"
+seoTitle: "Designing an exercise - demonstration material | ClearStance"
 seoDescription: "A demonstration ClearStance article layout covering the questions that should precede crisis exercise scenario design."
 ---
 

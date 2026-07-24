@@ -1,7 +1,10 @@
 ---
 import type { Locale } from '../../i18n/routes';
 import { getRoute } from '../../i18n/routes';
-import { getTranslations } from '../../i18n/translations';
+import {
+  getTranslations,
+  getVisibleTranslations
+} from '../../i18n/translations';
 import Logo from '../ui/Logo.astro';
 
 interface Props {
@@ -10,6 +13,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = getTranslations(locale);
+const visible = getVisibleTranslations(locale);
 const year = new Date().getFullYear();
 ---
 
@@ -18,16 +22,16 @@ const year = new Date().getFullYear();
     <a class="brand-link" href={getRoute(locale, 'home')} aria-label={t.site.homeLabel}>
       <Logo dark />
     </a>
-    <p>{t.site.footerTagline}</p>
+    <p>{visible.site.footerTagline}</p>
     <nav aria-label={locale === 'pl' ? 'Nawigacja w stopce' : 'Footer navigation'}>
-      <a href={getRoute(locale, 'services')}>{t.site.nav.services}</a>
-      <a href={getRoute(locale, 'insights')}>{t.site.nav.insights}</a>
-      <a href={getRoute(locale, 'about')}>{t.site.nav.experience}</a>
-      <a href={getRoute(locale, 'contact')}>{t.site.nav.contact}</a>
+      <a href={getRoute(locale, 'services')}>{visible.site.nav.services}</a>
+      <a href={getRoute(locale, 'insights')}>{visible.site.nav.insights}</a>
+      <a href={getRoute(locale, 'about')}>{visible.site.nav.experience}</a>
+      <a href={getRoute(locale, 'contact')}>{visible.site.nav.contact}</a>
     </nav>
   </div>
   <div class="wrap footer-secondary">
-    <span>© {year} {t.site.copyright}</span>
-    <span>{t.site.location}</span>
+    <span>© {year} {visible.site.copyright}</span>
+    <span>{visible.site.location}</span>
   </div>
 </footer>

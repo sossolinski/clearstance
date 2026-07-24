@@ -1,7 +1,10 @@
 ---
 import type { Locale } from '../../i18n/routes';
 import { getRoute } from '../../i18n/routes';
-import { getTranslations } from '../../i18n/translations';
+import {
+  getTranslations,
+  getVisibleTranslations
+} from '../../i18n/translations';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactBand from '../sections/ContactBand.astro';
 import PageIntro from '../sections/PageIntro.astro';
@@ -12,14 +15,15 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = getTranslations(locale);
-const content = t.aboutPage;
+const visible = getVisibleTranslations(locale);
+const content = visible.aboutPage;
 const otherLocale = locale === 'pl' ? 'en' : 'pl';
 ---
 
 <BaseLayout
   locale={locale}
-  title={content.metaTitle}
-  description={content.metaDescription}
+  title={t.aboutPage.metaTitle}
+  description={t.aboutPage.metaDescription}
   canonicalPath={getRoute(locale, 'about')}
   alternatePath={getRoute(otherLocale, 'about')}
   plPath={getRoute('pl', 'about')}
@@ -61,7 +65,7 @@ const otherLocale = locale === 'pl' ? 'en' : 'pl';
               loading="eager"
             />
           </picture>
-          <figcaption>{t.home.experience.eyebrow}</figcaption>
+          <figcaption>{visible.home.experience.eyebrow}</figcaption>
         </figure>
         <div class="about-story-copy" data-reveal>
           <h2 id="about-story-title">{content.storyTitle}</h2>

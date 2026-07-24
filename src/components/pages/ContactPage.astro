@@ -1,7 +1,10 @@
 ---
 import type { Locale } from '../../i18n/routes';
 import { getRoute } from '../../i18n/routes';
-import { getTranslations } from '../../i18n/translations';
+import {
+  getTranslations,
+  getVisibleTranslations
+} from '../../i18n/translations';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageIntro from '../sections/PageIntro.astro';
 
@@ -11,7 +14,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = getTranslations(locale);
-const content = t.contactPage;
+const content = getVisibleTranslations(locale).contactPage;
 const otherLocale = locale === 'pl' ? 'en' : 'pl';
 const turnstileSiteKey =
   import.meta.env.PUBLIC_TURNSTILE_SITE_KEY?.trim() ||
@@ -21,8 +24,8 @@ const formAvailable = Boolean(turnstileSiteKey);
 
 <BaseLayout
   locale={locale}
-  title={content.metaTitle}
-  description={content.metaDescription}
+  title={t.contactPage.metaTitle}
+  description={t.contactPage.metaDescription}
   canonicalPath={getRoute(locale, 'contact')}
   alternatePath={getRoute(otherLocale, 'contact')}
   plPath={getRoute('pl', 'contact')}
