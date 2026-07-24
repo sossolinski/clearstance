@@ -49,7 +49,16 @@ const professionalServiceSchema = {
   <main id="main-content">
     <section class="hero" aria-labelledby="hero-title">
       <picture class="hero-media">
-        <source srcset="/images/hero-navigation.webp" type="image/webp" />
+        <source
+          srcset="
+            /images/hero-navigation-640.webp 640w,
+            /images/hero-navigation-960.webp 960w,
+            /images/hero-navigation-1440.webp 1440w,
+            /images/hero-navigation.webp 1920w
+          "
+          sizes="100vw"
+          type="image/webp"
+        />
         <img
           src="/images/hero-navigation.jpg"
           width="1920"
@@ -167,7 +176,20 @@ const professionalServiceSchema = {
     <section class="experience-section" id={experienceId} aria-labelledby="experience-title">
       <div class="wrap experience-panel" data-reveal>
         <picture class="experience-image">
-          <source srcset="/images/operational-briefing.webp" type="image/webp" />
+          <source
+            srcset="
+              /images/operational-briefing-640.webp 640w,
+              /images/operational-briefing-960.webp 960w,
+              /images/operational-briefing-1440.webp 1440w,
+              /images/operational-briefing.webp 1920w
+            "
+            sizes="
+              (max-width: 760px) calc(100vw - 32px),
+              (max-width: 1080px) calc(100vw - 44px),
+              545px
+            "
+            type="image/webp"
+          />
           <img
             src="/images/operational-briefing.jpg"
             width="1920"
@@ -224,7 +246,16 @@ const professionalServiceSchema = {
 
     <section class="brand-statement" aria-label={content.statement.source}>
       <picture class="brand-statement-media">
-        <source srcset="/images/brand-statement.webp" type="image/webp" />
+        <source
+          srcset="
+            /images/brand-statement-640.webp 640w,
+            /images/brand-statement-960.webp 960w,
+            /images/brand-statement-1440.webp 1440w,
+            /images/brand-statement.webp 1920w
+          "
+          sizes="100vw"
+          type="image/webp"
+        />
         <img
           src="/images/brand-statement.jpg"
           width="1920"

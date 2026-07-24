@@ -173,7 +173,16 @@ const formAvailable = Boolean(turnstileSiteKey);
 
     <section class="contact-page-statement" aria-label="ClearStance">
       <picture>
-        <source srcset="/images/brand-statement.webp" type="image/webp" />
+        <source
+          srcset="
+            /images/brand-statement-640.webp 640w,
+            /images/brand-statement-960.webp 960w,
+            /images/brand-statement-1440.webp 1440w,
+            /images/brand-statement.webp 1920w
+          "
+          sizes="100vw"
+          type="image/webp"
+        />
         <img
           src="/images/brand-statement.jpg"
           width="1920"
