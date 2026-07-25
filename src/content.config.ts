@@ -2,13 +2,13 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
-const optionalHeaderImage = z.preprocess(
+const optionalInsightImage = z.preprocess(
   (value) => value === '' ? undefined : value,
   z
     .string()
     .regex(
       /^\/images\/insights\/[^/]+$/,
-      'Header images must be repository-hosted under /public/images/insights.'
+      'Insight images must be repository-hosted under /public/images/insights.'
     )
     .optional()
 );
@@ -36,8 +36,9 @@ const insights = defineCollection({
     tags: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),
-    headerImage: optionalHeaderImage,
+    headerImage: optionalInsightImage,
     headerImageAlt: optionalHeaderImageAlt,
+    socialImage: optionalInsightImage,
     seoTitle: z.string(),
     seoDescription: z.string()
   }).superRefine((data, context) => {

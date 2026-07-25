@@ -1,0 +1,27 @@
+---
+import type { MarkdownHeading } from 'astro';
+import type { Locale } from '../../i18n/routes';
+import { formatVisibleText } from '../../i18n/typography.js';
+
+interface Props {
+  headings: MarkdownHeading[];
+  locale: Locale;
+  label: string;
+}
+
+const { headings, locale, label } = Astro.props;
+---
+
+<nav class="article-toc" aria-label={label}>
+  <ol>
+    {
+      headings.map((heading) => (
+        <li class:list={{ 'article-toc-subheading': heading.depth === 3 }}>
+          <a href={`#${heading.slug}`}>
+            {formatVisibleText(heading.text, locale)}
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</nav>

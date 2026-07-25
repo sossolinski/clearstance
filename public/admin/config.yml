@@ -62,6 +62,11 @@ collections:
         widget: string
         required: false
         hint: "Wymagany i opisowy, gdy artykuł ma zdjęcie."
+      - label: Obraz dla mediów społecznościowych
+        name: socialImage
+        widget: image
+        required: false
+        hint: "Opcjonalny obraz używany w podglądach udostępniania zamiast zdjęcia artykułu."
       - label: Slug
         name: slug
         widget: string
@@ -153,6 +158,11 @@ collections:
         widget: string
         required: false
         hint: "Required and descriptive when an article has an image."
+      - label: Social sharing image
+        name: socialImage
+        widget: image
+        required: false
+        hint: "Optional image used for social previews instead of the article header image."
       - label: Slug
         name: slug
         widget: string

@@ -1,17 +1,25 @@
 ---
+import type { MarkdownHeading } from 'astro';
 import type { CollectionEntry } from 'astro:content';
+import ArticleToc from '../components/insights/ArticleToc.astro';
 import type { Locale } from '../i18n/routes';
 import { formatDate, getArticlePath, getRoute } from '../i18n/routes';
 import { getVisibleTranslations } from '../i18n/translations';
 import { formatVisibleText } from '../i18n/typography.js';
+import {
+  calculateReadingTime,
+  getPublicImageDimensions,
+  resolveInsightSocialImage
+} from '../lib/insights';
 import BaseLayout from './BaseLayout.astro';
 
 interface Props {
   entry: CollectionEntry<'insights'>;
   alternateEntry?: CollectionEntry<'insights'>;
+  headings: MarkdownHeading[];
 }
 
-const { entry, alternateEntry } = Astro.props;
+const { entry, alternateEntry, headings } = Astro.props;
 const locale = entry.data.locale as Locale;
 const visible = getVisibleTranslations(locale);
 const path = getArticlePath(locale, entry.data.slug);
@@ -32,6 +40,11 @@ const xDefaultPath = plPath ?? getRoute('pl', 'insights');
 const headerImageAlt = entry.data.headerImage
   ? entry.data.headerImageAlt ?? ''
   : undefined;
+const readingMinutes = calculateReadingTime(entry.body ?? '');
+const showToc = headings.length >= 3;
+const resolvedSocialImage = resolveInsightSocialImage(entry.data);
+const socialImageDimensions = await getPublicImageDimensions(resolvedSocialImage);
+const site = Astro.site ?? new URL('https://clearstance.pl');
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -47,11 +60,9 @@ const articleSchema = {
     '@type': 'Organization',
     name: 'ClearStance'
   },
-  ...(entry.data.headerImage
-    ? { image: new URL(entry.data.headerImage, Astro.site).toString() }
-    : {}),
+  image: new URL(resolvedSocialImage, site).toString(),
   inLanguage: locale,
-  mainEntityOfPage: new URL(path, Astro.site).toString()
+  mainEntityOfPage: new URL(path, site).toString()
 };
 ---
 
@@ -65,9 +76,13 @@ const articleSchema = {
   enPath={enPath}
   xDefaultPath={xDefaultPath}
   currentPage="insights"
-  ogImage={entry.data.headerImage}
+  ogImage={resolvedSocialImage}
+  ogImageWidth={socialImageDimensions.width}
+  ogImageHeight={socialImageDimensions.height}
   structuredData={articleSchema}
   article
+  articlePublishedTime={entry.data.publishedAt.toISOString()}
+  articleModifiedTime={entry.data.updatedAt?.toISOString()}
 >
   <main id="main-content">
     <article
@@ -99,6 +114,10 @@ const articleSchema = {
               )
             }
             <div>
+              <dt>{visible.insightsPage.readingTime}</dt>
+              <dd>{readingMinutes} {visible.insightsPage.readingTimeUnit}</dd>
+            </div>
+            <div>
               <dt>{visible.insightsPage.author}</dt>
               <dd>{formatVisibleText(entry.data.author, locale)}</dd>
             </div>
@@ -124,8 +143,32 @@ const articleSchema = {
           <ul aria-label={locale === 'pl' ? 'Tagi artykułu' : 'Article tags'}>
             {entry.data.tags.map((tag) => <li>{formatVisibleText(tag, locale)}</li>)}
           </ul>
+          {
+            showToc && (
+              <div class="article-toc-desktop">
+                <p class="article-toc-heading">{visible.insightsPage.contents}</p>
+                <ArticleToc
+                  headings={headings}
+                  locale={locale}
+                  label={visible.insightsPage.contents}
+                />
+              </div>
+            )
+          }
         </aside>
         <div class="article-prose">
+          {
+            showToc && (
+              <details class="article-toc-mobile">
+                <summary>{visible.insightsPage.contents}</summary>
+                <ArticleToc
+                  headings={headings}
+                  locale={locale}
+                  label={visible.insightsPage.contents}
+                />
+              </details>
+            )
+          }
           <slot />
         </div>
       </div>

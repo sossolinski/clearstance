@@ -350,7 +350,10 @@ export const translations = {
       published: 'Data publikacji',
       updated: 'Aktualizacja',
       category: 'Kategoria',
-      author: 'Autor'
+      author: 'Autor',
+      readingTime: 'Czas czytania',
+      readingTimeUnit: 'min czytania',
+      contents: 'Spis treści'
     }
   },
   en: {
@@ -683,7 +686,10 @@ export const translations = {
       published: 'Publication date',
       updated: 'Updated',
       category: 'Category',
-      author: 'Author'
+      author: 'Author',
+      readingTime: 'Reading time',
+      readingTimeUnit: 'min read',
+      contents: 'Contents'
     }
   }
 } as const satisfies Record<Locale, unknown>;
