@@ -5,6 +5,7 @@ import type { Locale } from '../i18n/routes';
 export const DEFAULT_INSIGHTS_SOCIAL_IMAGE = '/social/clearstance-og.webp';
 export const READING_WORDS_PER_MINUTE = 200;
 export const RELATED_INSIGHTS_LIMIT = 3;
+export const HOMEPAGE_INSIGHTS_LIMIT = 3;
 
 export type InsightEntry = CollectionEntry<'insights'>;
 
@@ -109,16 +110,10 @@ function getStableInsightKey(entry: InsightEntry): string {
   return `${entry.data.slug}\u0000${entry.id}`;
 }
 
-/**
- * Return the newest explicitly featured, published Insight for a locale.
- * Equal publication dates use the same stable slug/id key as Related Insights.
- */
-export async function getFeaturedInsight(
-  locale: Locale
-): Promise<InsightEntry | undefined> {
-  const featuredEntries = (await getPublishedInsights(locale)).filter(
-    ({ data }) => data.featured
-  );
+function selectFeaturedInsight(
+  publishedEntries: InsightEntry[]
+): InsightEntry | undefined {
+  const featuredEntries = publishedEntries.filter(({ data }) => data.featured);
   let selected: InsightEntry | undefined;
 
   for (const candidate of featuredEntries) {
@@ -143,6 +138,33 @@ export async function getFeaturedInsight(
   }
 
   return selected;
+}
+
+/**
+ * Return the newest explicitly featured, published Insight for a locale.
+ * Equal publication dates use the same stable slug/id key as Related Insights.
+ */
+export async function getFeaturedInsight(
+  locale: Locale
+): Promise<InsightEntry | undefined> {
+  return selectFeaturedInsight(await getPublishedInsights(locale));
+}
+
+/**
+ * Return the editorial hierarchy used on a localized homepage with one
+ * explicitly featured entry and up to three subsequent publications.
+ */
+export async function getHomepageInsights(locale: Locale): Promise<{
+  featured: InsightEntry | undefined;
+  entries: InsightEntry[];
+}> {
+  const publishedEntries = await getPublishedInsights(locale);
+  const featured = selectFeaturedInsight(publishedEntries);
+  const entries = publishedEntries
+    .filter((entry) => !featured || entry.id !== featured.id)
+    .slice(0, HOMEPAGE_INSIGHTS_LIMIT);
+
+  return { featured, entries };
 }
 
 /**

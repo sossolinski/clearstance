@@ -194,6 +194,13 @@ export const translations = {
         source: 'ClearStance · filozofia gotowości',
         imageAlt: 'Latarnia morska oświetlająca drogę w ciemności'
       },
+      insights: {
+        eyebrow: 'Insights',
+        title: 'Perspektywy i obserwacje',
+        copy:
+          'Materiały dotyczące gotowości kryzysowej, decyzji i działania w warunkach niepewności.',
+        all: 'Wszystkie publikacje'
+      },
       contact: {
         eyebrow: 'Kontakt',
         title: 'Porozmawiajmy o gotowości Twojej organizacji.',
@@ -540,6 +547,13 @@ export const translations = {
         second: 'Chaos need not be.',
         source: 'ClearStance · readiness philosophy',
         imageAlt: 'A lighthouse casting a clear beam through darkness'
+      },
+      insights: {
+        eyebrow: 'Insights',
+        title: 'Perspectives and observations',
+        copy:
+          'Notes on crisis readiness, decision-making and operating under uncertainty.',
+        all: 'All Insights'
       },
       contact: {
         eyebrow: 'Contact',

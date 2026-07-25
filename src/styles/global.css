@@ -545,31 +545,35 @@ summary:focus-visible {
 .hero-featured {
   position: absolute;
   right: 120px;
-  bottom: 24px;
+  bottom: 32px;
   width: 370px;
-  padding: 23px 24px 24px;
-  border: 1px solid rgb(248 246 242 / 16%);
-  border-radius: 4px;
-  background: rgb(4 16 24 / 72%);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  padding: 19px 21px 20px;
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 3px;
+  background: rgb(3 14 25 / 70%);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .hero-featured-label {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  margin-bottom: 16px;
-  padding: 4px 8px 3px;
-  border: 1px solid rgb(155 176 171 / 28%);
-  border-radius: 999px;
-  color: #b8c9c5;
-  background: rgb(111 143 137 / 13%);
+  gap: 9px;
+  margin-bottom: 12px;
+  color: var(--focus-on-dark);
   font-family: var(--mono);
   font-size: var(--type-utility-sm);
   font-weight: 600;
   letter-spacing: 0.18em;
   line-height: var(--type-utility-line);
   text-transform: uppercase;
+}
+
+.hero-featured-label::before {
+  width: 16px;
+  height: 1px;
+  background: var(--teal);
+  content: "";
 }
 
 .hero-featured-link {
@@ -579,7 +583,7 @@ summary:focus-visible {
 
 .hero-featured-title {
   max-width: 13em;
-  margin-bottom: 14px;
+  margin-bottom: 11px;
   font-family: var(--display);
   font-size: 26px;
   font-weight: 470;
@@ -602,7 +606,7 @@ summary:focus-visible {
 .hero-featured-read {
   display: inline-flex;
   align-items: center;
-  margin-top: 18px;
+  margin-top: 14px;
   padding-bottom: 3px;
   gap: 9px;
   border-bottom: 1px solid rgb(248 246 242 / 34%);
@@ -1160,6 +1164,154 @@ summary:focus-visible {
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+}
+
+/* Homepage — Insights */
+
+.home-insights-section {
+  padding: 94px 0 102px;
+  background: var(--paper-2);
+}
+
+.home-insights-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 64px;
+  margin-bottom: 48px;
+}
+
+.home-insights-heading h2 {
+  margin-top: 12px;
+  font-family: var(--display);
+  font-size: clamp(39px, 4vw, 54px);
+  font-weight: 470;
+  letter-spacing: -0.038em;
+  line-height: 1.07;
+}
+
+.home-insights-heading > div > p:last-child {
+  max-width: 660px;
+  margin-top: 18px;
+  color: var(--text-secondary-paper-alt);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.home-insights-heading .text-link {
+  margin-bottom: 5px;
+}
+
+.home-insights-heading .text-link:hover span {
+  transform: translateX(2px);
+}
+
+.home-insights-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px;
+  list-style: none;
+}
+
+.home-insights-list > li {
+  min-width: 0;
+  border-top: 1px solid var(--line);
+}
+
+.home-insight-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 225px;
+  padding: 19px 2px 2px;
+}
+
+.home-insight-number {
+  margin-bottom: 18px;
+  color: var(--teal-deep);
+  font-family: var(--mono);
+  font-size: var(--type-utility-sm);
+  letter-spacing: 0.08em;
+  line-height: var(--type-utility-line);
+}
+
+.home-insight-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  margin-bottom: 17px;
+  color: var(--text-secondary-paper-alt);
+  font-family: var(--mono);
+  font-size: var(--type-utility-sm);
+  letter-spacing: 0.07em;
+  line-height: var(--type-utility-line);
+  text-transform: uppercase;
+}
+
+.home-insight-item h3 {
+  max-width: 360px;
+  font-family: var(--display);
+  font-size: clamp(23px, 2.2vw, 29px);
+  font-weight: 490;
+  letter-spacing: -0.03em;
+  line-height: 1.14;
+}
+
+.home-insight-item h3 a {
+  position: static;
+  background-image: linear-gradient(var(--teal-deep), var(--teal-deep));
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  transition:
+    color 180ms ease,
+    background-size 220ms ease;
+}
+
+.home-insight-item h3 a::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+.home-insight-item h3 a:focus-visible {
+  outline: none;
+}
+
+.home-insight-item h3 a:focus-visible::after {
+  outline: 2px solid var(--focus-on-light);
+  outline-offset: 6px;
+}
+
+.home-insight-read {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: auto;
+  padding-top: 28px;
+  gap: 9px;
+  color: var(--teal-deep);
+  font-family: var(--mono);
+  font-size: var(--type-utility-sm);
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  line-height: var(--type-utility-line);
+  text-transform: uppercase;
+}
+
+.home-insight-read > span {
+  transition: transform 180ms ease;
+}
+
+.home-insight-item:hover h3 a,
+.home-insight-item:focus-within h3 a {
+  color: var(--teal-deep);
+  background-size: 100% 1px;
+}
+
+.home-insight-item:hover .home-insight-read > span,
+.home-insight-item:focus-within .home-insight-read > span {
+  transform: translateX(3px);
 }
 
 /* Contact band */
@@ -2488,9 +2640,18 @@ summary:focus-visible {
 
   .hero-featured {
     right: 60px;
-    bottom: 14px;
+    bottom: 22px;
     width: 320px;
-    padding: 20px 21px 22px;
+    padding: 17px 19px 18px;
+  }
+
+  .home-insights-heading {
+    gap: 42px;
+  }
+
+  .home-insights-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 46px 32px;
   }
 
   .approach-grid,
@@ -2575,6 +2736,21 @@ summary:focus-visible {
     width: 69%;
     margin-top: 40px;
   }
+
+  .home-insights-list {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .home-insight-item {
+    min-height: 0;
+    padding: 22px 0 28px;
+  }
+
+  .home-insight-read {
+    margin-top: 22px;
+    padding-top: 0;
+  }
 }
 
 /* Intermediate editorial layouts */
@@ -2649,7 +2825,25 @@ summary:focus-visible {
 
   .hero-featured {
     margin-top: 36px;
-    padding: 20px;
+    padding: 17px 18px 18px;
+  }
+
+  .home-insights-section {
+    padding: 72px 0 78px;
+  }
+
+  .home-insights-heading {
+    grid-template-columns: 1fr;
+    gap: 27px;
+    margin-bottom: 38px;
+  }
+
+  .home-insights-heading h2 {
+    font-size: clamp(36px, 10vw, 43px);
+  }
+
+  .home-insights-heading > div > p:last-child {
+    font-size: 13.5px;
   }
 
   .hero h1 {

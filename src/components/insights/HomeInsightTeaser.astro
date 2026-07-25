@@ -1,0 +1,46 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { Locale } from '../../i18n/routes';
+import { getArticlePath } from '../../i18n/routes';
+import { formatVisibleText } from '../../i18n/typography.js';
+import { calculateReadingTime } from '../../lib/insights';
+
+interface Props {
+  entry: CollectionEntry<'insights'>;
+  index: number;
+  locale: Locale;
+  readLabel: string;
+  readingTimeUnit: string;
+}
+
+const {
+  entry,
+  index,
+  locale,
+  readLabel,
+  readingTimeUnit
+} = Astro.props;
+const readingMinutes = calculateReadingTime(entry.body ?? '');
+---
+
+<li>
+  <article class="home-insight-item">
+    <span class="home-insight-number" aria-hidden="true">
+      {String(index + 1).padStart(2, '0')}
+    </span>
+    <p class="home-insight-meta">
+      <span>{formatVisibleText(entry.data.category, locale)}</span>
+      <span aria-hidden="true">·</span>
+      <span>{readingMinutes} {readingTimeUnit}</span>
+    </p>
+    <h3>
+      <a href={getArticlePath(locale, entry.data.slug)}>
+        {formatVisibleText(entry.data.title, locale)}
+      </a>
+    </h3>
+    <span class="home-insight-read" aria-hidden="true">
+      {readLabel}
+      <span>→</span>
+    </span>
+  </article>
+</li>

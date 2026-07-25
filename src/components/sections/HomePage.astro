@@ -6,10 +6,11 @@ import {
   getVisibleTranslations
 } from '../../i18n/translations';
 import { formatVisibleText } from '../../i18n/typography.js';
+import HomeInsightTeaser from '../insights/HomeInsightTeaser.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import {
   calculateReadingTime,
-  getFeaturedInsight
+  getHomepageInsights
 } from '../../lib/insights';
 import ContactBand from './ContactBand.astro';
 
@@ -21,7 +22,10 @@ const { locale } = Astro.props;
 const t = getTranslations(locale);
 const visible = getVisibleTranslations(locale);
 const content = visible.home;
-const featuredInsight = await getFeaturedInsight(locale);
+const {
+  featured: featuredInsight,
+  entries: homepageInsights
+} = await getHomepageInsights(locale);
 const featuredReadingMinutes = featuredInsight
   ? calculateReadingTime(featuredInsight.body ?? '')
   : undefined;
@@ -320,6 +324,45 @@ const professionalServiceSchema = {
         <p>{content.statement.source}</p>
       </div>
     </section>
+
+    {
+      homepageInsights.length > 0 && (
+        <section
+          class="home-insights-section"
+          aria-labelledby="home-insights-title"
+        >
+          <div class="wrap">
+            <header class="home-insights-heading" data-reveal>
+              <div>
+                <p class="eyebrow">{content.insights.eyebrow}</p>
+                <h2 id="home-insights-title">{content.insights.title}</h2>
+                <p>{content.insights.copy}</p>
+              </div>
+              <a
+                class="text-link"
+                href={getRoute(locale, 'insights')}
+              >
+                {content.insights.all}
+                <span aria-hidden="true">→</span>
+              </a>
+            </header>
+            <ol class="home-insights-list" data-reveal>
+              {
+                homepageInsights.map((entry, index) => (
+                  <HomeInsightTeaser
+                    entry={entry}
+                    index={index}
+                    locale={locale}
+                    readLabel={visible.insightsPage.read}
+                    readingTimeUnit={visible.insightsPage.readingTimeUnit}
+                  />
+                ))
+              }
+            </ol>
+          </div>
+        </section>
+      )
+    }
 
     <ContactBand locale={locale} />
   </main>
