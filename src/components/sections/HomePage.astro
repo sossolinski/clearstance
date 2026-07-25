@@ -1,11 +1,16 @@
 ---
 import type { Locale } from '../../i18n/routes';
-import { getRoute } from '../../i18n/routes';
+import { getArticlePath, getRoute } from '../../i18n/routes';
 import {
   getTranslations,
   getVisibleTranslations
 } from '../../i18n/translations';
+import { formatVisibleText } from '../../i18n/typography.js';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  calculateReadingTime,
+  getFeaturedInsight
+} from '../../lib/insights';
 import ContactBand from './ContactBand.astro';
 
 interface Props {
@@ -14,7 +19,12 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = getTranslations(locale);
-const content = getVisibleTranslations(locale).home;
+const visible = getVisibleTranslations(locale);
+const content = visible.home;
+const featuredInsight = await getFeaturedInsight(locale);
+const featuredReadingMinutes = featuredInsight
+  ? calculateReadingTime(featuredInsight.body ?? '')
+  : undefined;
 const otherLocale = locale === 'pl' ? 'en' : 'pl';
 const approachId = locale === 'pl' ? 'podejscie' : 'approach';
 const servicesId = locale === 'pl' ? 'oferta' : 'services';
@@ -72,16 +82,50 @@ const professionalServiceSchema = {
       </picture>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="wrap hero-content">
-        <p class="eyebrow eyebrow--light">{content.hero.eyebrow}</p>
-        <h1 id="hero-title">
-          {content.hero.title}
-          <span>{content.hero.titleAccent}</span>
-        </h1>
-        <p class="hero-copy">{content.hero.copy}</p>
-        <a class="button button--ghost" href={`#${approachId}`}>
-          <span>{content.hero.cta}</span>
-          <span aria-hidden="true">↓</span>
-        </a>
+        <div class="hero-primary">
+          <p class="eyebrow eyebrow--light">{content.hero.eyebrow}</p>
+          <h1 id="hero-title">
+            {content.hero.title}
+            <span>{content.hero.titleAccent}</span>
+          </h1>
+          <p class="hero-copy">{content.hero.copy}</p>
+          <a class="button button--ghost" href={`#${approachId}`}>
+            <span>{content.hero.cta}</span>
+            <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+        {
+          featuredInsight && featuredReadingMinutes && (
+            <aside
+              class="hero-featured"
+              aria-labelledby="hero-featured-title"
+            >
+              <p class="hero-featured-label">{content.hero.featured}</p>
+              <a
+                class="hero-featured-link"
+                href={getArticlePath(locale, featuredInsight.data.slug)}
+              >
+                <h2
+                  id="hero-featured-title"
+                  class="hero-featured-title"
+                >
+                  {formatVisibleText(featuredInsight.data.title, locale)}
+                </h2>
+                <p class="hero-featured-meta">
+                  <span>{formatVisibleText(featuredInsight.data.category, locale)}</span>
+                  <span aria-hidden="true">·</span>
+                  <span>
+                    {featuredReadingMinutes} {visible.insightsPage.readingTimeUnit}
+                  </span>
+                </p>
+                <span class="hero-featured-read">
+                  {visible.insightsPage.read}
+                  <span aria-hidden="true">→</span>
+                </span>
+              </a>
+            </aside>
+          )
+        }
       </div>
       <div class="hero-meta">
         <div class="wrap">

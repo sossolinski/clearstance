@@ -56,6 +56,7 @@ export const translations = {
         copy:
           'Pomagamy organizacjom przygotować struktury, zespoły i sposób działania w sytuacjach wymagających szybkich decyzji przy niepełnej informacji.',
         cta: 'Poznaj nasze podejście',
+        featured: 'Wyróżnione',
         imageAlt: 'Latarnia morska wskazująca drogę na wzburzonym morzu'
       },
       approach: {
@@ -402,6 +403,7 @@ export const translations = {
         copy:
           'We help organisations prepare their structures, teams and ways of working for situations that demand timely decisions with incomplete information.',
         cta: 'Explore our approach',
+        featured: 'Featured',
         imageAlt: 'A lighthouse providing orientation in rough seas'
       },
       approach: {

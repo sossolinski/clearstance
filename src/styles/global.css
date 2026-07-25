@@ -508,7 +508,11 @@ summary:focus-visible {
   position: relative;
   z-index: 2;
   width: min(var(--max), calc(100% - 72px));
-  padding: 132px 43% 100px 0;
+  padding: 132px 0 100px;
+}
+
+.hero-primary {
+  width: 57%;
 }
 
 .hero-content .eyebrow {
@@ -536,6 +540,70 @@ summary:focus-visible {
   color: rgb(248 246 242 / 81%);
   font-size: 16px;
   line-height: 1.7;
+}
+
+.hero-featured {
+  position: absolute;
+  right: 120px;
+  bottom: 8px;
+  width: 340px;
+  padding-top: 18px;
+  border-top: 1px solid rgb(248 246 242 / 22%);
+}
+
+.hero-featured-label {
+  margin-bottom: 12px;
+  color: var(--focus-on-dark);
+  font-family: var(--mono);
+  font-size: var(--type-utility-sm);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: var(--type-utility-line);
+  text-transform: uppercase;
+}
+
+.hero-featured-link {
+  display: block;
+}
+
+.hero-featured-title {
+  max-width: 13em;
+  margin-bottom: 13px;
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 470;
+  letter-spacing: -0.025em;
+  line-height: 1.16;
+}
+
+.hero-featured-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  color: var(--text-secondary-dark);
+  font-family: var(--mono);
+  font-size: var(--type-utility-sm);
+  letter-spacing: 0.08em;
+  line-height: var(--type-utility-line);
+  text-transform: uppercase;
+}
+
+.hero-featured-read {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 14px;
+  gap: 9px;
+  color: rgb(248 246 242 / 78%);
+  font-family: var(--mono);
+  font-size: var(--type-utility-sm);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: var(--type-utility-line);
+  text-transform: uppercase;
+}
+
+.hero-featured-link:hover .hero-featured-title {
+  color: #d8e1df;
 }
 
 .hero-meta {
@@ -2382,8 +2450,13 @@ summary:focus-visible {
     min-height: 730px;
   }
 
-  .hero-content {
-    padding-right: 31%;
+  .hero-primary {
+    width: 69%;
+  }
+
+  .hero-featured {
+    right: 120px;
+    width: 300px;
   }
 
   .approach-grid,
@@ -2462,6 +2535,14 @@ summary:focus-visible {
   }
 }
 
+@media (max-width: 900px) {
+  .hero-featured {
+    position: static;
+    width: 69%;
+    margin-top: 40px;
+  }
+}
+
 /* Intermediate editorial layouts */
 
 @media (min-width: 761px) and (max-width: 899px) {
@@ -2525,6 +2606,15 @@ summary:focus-visible {
 
   .hero-content {
     padding: 118px 0 89px;
+  }
+
+  .hero-primary,
+  .hero-featured {
+    width: 100%;
+  }
+
+  .hero-featured {
+    margin-top: 36px;
   }
 
   .hero h1 {

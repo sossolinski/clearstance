@@ -110,6 +110,42 @@ function getStableInsightKey(entry: InsightEntry): string {
 }
 
 /**
+ * Return the newest explicitly featured, published Insight for a locale.
+ * Equal publication dates use the same stable slug/id key as Related Insights.
+ */
+export async function getFeaturedInsight(
+  locale: Locale
+): Promise<InsightEntry | undefined> {
+  const featuredEntries = (await getPublishedInsights(locale)).filter(
+    ({ data }) => data.featured
+  );
+  let selected: InsightEntry | undefined;
+
+  for (const candidate of featuredEntries) {
+    if (!selected) {
+      selected = candidate;
+      continue;
+    }
+
+    const dateDifference =
+      candidate.data.publishedAt.valueOf() -
+      selected.data.publishedAt.valueOf();
+
+    if (
+      dateDifference > 0 ||
+      (
+        dateDifference === 0 &&
+        getStableInsightKey(candidate) < getStableInsightKey(selected)
+      )
+    ) {
+      selected = candidate;
+    }
+  }
+
+  return selected;
+}
+
+/**
  * Return at most three meaningfully related, same-locale published Insights.
  * Category match, shared-tag count, publication date and a stable entry key
  * form the deterministic ranking tuple.
