@@ -1,6 +1,7 @@
 ---
 import type { MarkdownHeading } from 'astro';
 import type { CollectionEntry } from 'astro:content';
+import ArticleShare from '../components/insights/ArticleShare.astro';
 import ArticleToc from '../components/insights/ArticleToc.astro';
 import InsightTeaser from '../components/insights/InsightTeaser.astro';
 import type { Locale } from '../i18n/routes';
@@ -12,6 +13,7 @@ import {
   getPublicImageDimensions,
   resolveInsightSocialImage
 } from '../lib/insights';
+import { getInsightsRssPath } from '../lib/rss';
 import BaseLayout from './BaseLayout.astro';
 
 interface Props {
@@ -52,6 +54,7 @@ const showToc = headings.length >= 3;
 const resolvedSocialImage = resolveInsightSocialImage(entry.data);
 const socialImageDimensions = await getPublicImageDimensions(resolvedSocialImage);
 const site = Astro.site ?? new URL('https://clearstance.pl');
+const canonicalUrl = new URL(path, site).toString();
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -69,7 +72,7 @@ const articleSchema = {
   },
   image: new URL(resolvedSocialImage, site).toString(),
   inLanguage: locale,
-  mainEntityOfPage: new URL(path, site).toString()
+  mainEntityOfPage: canonicalUrl
 };
 ---
 
@@ -90,6 +93,7 @@ const articleSchema = {
   article
   articlePublishedTime={entry.data.publishedAt.toISOString()}
   articleModifiedTime={entry.data.updatedAt?.toISOString()}
+  rssPath={getInsightsRssPath(locale)}
 >
   <main id="main-content">
     <article
@@ -179,6 +183,11 @@ const articleSchema = {
           <slot />
         </div>
       </div>
+      <ArticleShare
+        canonicalUrl={canonicalUrl}
+        title={entry.data.title}
+        locale={locale}
+      />
       {
         relatedEntries.length > 0 && (
           <section

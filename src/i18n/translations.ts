@@ -354,7 +354,16 @@ export const translations = {
       readingTime: 'Czas czytania',
       readingTimeUnit: 'min czytania',
       contents: 'Spis treści',
-      related: 'Powiązane publikacje'
+      related: 'Powiązane publikacje',
+      share: {
+        heading: 'Udostępnij',
+        email: 'E-mail',
+        copy: 'Kopiuj link',
+        copied: 'Link skopiowany',
+        copyFailure: 'Nie udało się skopiować linku',
+        native: 'Udostępnij w systemie',
+        shareFailure: 'Nie udało się udostępnić'
+      }
     }
   },
   en: {
@@ -691,7 +700,16 @@ export const translations = {
       readingTime: 'Reading time',
       readingTimeUnit: 'min read',
       contents: 'Contents',
-      related: 'Related Insights'
+      related: 'Related Insights',
+      share: {
+        heading: 'Share',
+        email: 'E-mail',
+        copy: 'Copy link',
+        copied: 'Link copied',
+        copyFailure: 'Could not copy link',
+        native: 'Share via device',
+        shareFailure: 'Could not share'
+      }
     }
   }
 } as const satisfies Record<Locale, unknown>;

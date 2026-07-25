@@ -7,6 +7,7 @@ import {
   getVisibleTranslations
 } from '../../i18n/translations';
 import { getPublishedInsights } from '../../lib/insights';
+import { getInsightsRssPath } from '../../lib/rss';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageIntro from '../sections/PageIntro.astro';
 
@@ -31,6 +32,7 @@ const entries = await getPublishedInsights(locale);
   enPath={getRoute('en', 'insights')}
   xDefaultPath={getRoute('pl', 'insights')}
   currentPage="insights"
+  rssPath={getInsightsRssPath(locale)}
 >
   <main id="main-content">
     <PageIntro

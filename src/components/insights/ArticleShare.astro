@@ -1,0 +1,145 @@
+---
+import type { Locale } from '../../i18n/routes';
+import { getVisibleTranslations } from '../../i18n/translations';
+
+interface Props {
+  canonicalUrl: string;
+  title: string;
+  locale: Locale;
+}
+
+const { canonicalUrl, title, locale } = Astro.props;
+const labels = getVisibleTranslations(locale).insightsPage.share;
+const linkedInUrl =
+  `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonicalUrl)}`;
+const xUrl = new URL('https://x.com/intent/tweet');
+xUrl.searchParams.set('text', title);
+xUrl.searchParams.set('url', canonicalUrl);
+const emailUrl =
+  `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(`${title}\n${canonicalUrl}`)}`;
+---
+
+<section
+  class="article-share"
+  aria-labelledby="article-share-title"
+  data-article-share
+  data-canonical-url={canonicalUrl}
+  data-title={title}
+  data-copy-success={labels.copied}
+  data-copy-failure={labels.copyFailure}
+  data-share-failure={labels.shareFailure}
+>
+  <div class="wrap article-share-grid">
+    <div class="article-share-content">
+      <h2 id="article-share-title" class="article-share-heading">
+        {labels.heading}
+      </h2>
+      <div class="article-share-actions">
+        <a
+          class="article-share-action"
+          href={linkedInUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a
+          class="article-share-action"
+          href={xUrl.toString()}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          X
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a class="article-share-action" href={emailUrl}>
+          {labels.email}
+        </a>
+        <button
+          class="article-share-action"
+          type="button"
+          data-copy-link
+          hidden
+        >
+          {labels.copy}
+        </button>
+        <button
+          class="article-share-action"
+          type="button"
+          data-native-share
+          hidden
+        >
+          {labels.native}
+        </button>
+      </div>
+      <p
+        class="article-share-status"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        data-share-status
+        hidden
+      ></p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const shareRoot = document.querySelector<HTMLElement>(
+    '[data-article-share]:not([data-share-ready])'
+  );
+
+  if (shareRoot) {
+    shareRoot.dataset.shareReady = '';
+
+    const canonicalUrl = shareRoot.dataset.canonicalUrl ?? '';
+    const title = shareRoot.dataset.title ?? '';
+    const copyButton =
+      shareRoot.querySelector<HTMLButtonElement>('[data-copy-link]');
+    const nativeButton =
+      shareRoot.querySelector<HTMLButtonElement>('[data-native-share]');
+    const status =
+      shareRoot.querySelector<HTMLElement>('[data-share-status]');
+    let statusTimer: number | undefined;
+
+    const announce = (message: string) => {
+      if (!status || !message) return;
+      window.clearTimeout(statusTimer);
+      status.hidden = false;
+      status.textContent = '';
+      window.requestAnimationFrame(() => {
+        status.textContent = message;
+      });
+      statusTimer = window.setTimeout(() => {
+        status.hidden = true;
+        status.textContent = '';
+      }, 2400);
+    };
+
+    if (copyButton && navigator.clipboard?.writeText) {
+      copyButton.hidden = false;
+      copyButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(canonicalUrl);
+          announce(shareRoot.dataset.copySuccess ?? '');
+        } catch {
+          announce(shareRoot.dataset.copyFailure ?? '');
+        }
+      });
+    }
+
+    if (nativeButton && navigator.share) {
+      nativeButton.hidden = false;
+      nativeButton.addEventListener('click', async () => {
+        try {
+          await navigator.share({ title, url: canonicalUrl });
+        } catch (error) {
+          if (!(error instanceof DOMException && error.name === 'AbortError')) {
+            announce(shareRoot.dataset.shareFailure ?? '');
+          }
+        }
+      });
+    }
+  }
+</script>

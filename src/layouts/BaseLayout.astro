@@ -27,6 +27,7 @@ interface Props {
   article?: boolean;
   articlePublishedTime?: string;
   articleModifiedTime?: string;
+  rssPath?: string;
 }
 
 const {
@@ -47,7 +48,8 @@ const {
   structuredData,
   article = false,
   articlePublishedTime,
-  articleModifiedTime
+  articleModifiedTime,
+  rssPath
 } = Astro.props;
 
 const t = getTranslations(locale);
@@ -97,6 +99,16 @@ const schemas: Record<string, unknown>[] = [
     />
     <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest" />
+    {
+      rssPath && (
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="ClearStance Insights"
+          href={new URL(rssPath, site)}
+        />
+      )
+    }
     <meta property="og:site_name" content="ClearStance" />
     <meta property="og:type" content={article ? 'article' : 'website'} />
     <meta property="og:locale" content={locale === 'pl' ? 'pl_PL' : 'en_GB'} />

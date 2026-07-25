@@ -2176,6 +2176,79 @@ summary:focus-visible {
   margin-block: 36px;
 }
 
+.article-share {
+  padding: 0 0 76px;
+}
+
+.article-share-grid {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 720px);
+  justify-content: center;
+  gap: 74px;
+}
+
+.article-share-content {
+  grid-column: 2;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.article-share-heading {
+  margin-bottom: 13px;
+  color: var(--teal-deep);
+  font-family: var(--mono);
+  font-size: var(--type-utility-sm);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: var(--type-utility-line);
+  text-transform: uppercase;
+}
+
+.article-share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 22px;
+}
+
+.article-share-action {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 7px;
+  padding: 0;
+  border: 0;
+  color: var(--text-secondary-paper);
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.45;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition:
+    color 180ms ease,
+    text-decoration-color 180ms ease;
+}
+
+.article-share-action:hover,
+.article-share-action:focus-visible {
+  color: var(--teal-deep);
+  text-decoration-color: currentColor;
+}
+
+.article-share-action[hidden],
+.article-share-status[hidden] {
+  display: none;
+}
+
+.article-share-status {
+  margin-top: 5px;
+  color: var(--teal-deep);
+  font-size: var(--type-utility-md);
+  line-height: var(--type-utility-line);
+}
+
 .related-insights {
   padding: 0 0 108px;
 }
@@ -2854,6 +2927,24 @@ summary:focus-visible {
     display: block;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .article-share {
+    padding-bottom: 60px;
+  }
+
+  .article-share-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .article-share-content {
+    grid-column: 1;
+    padding-top: 22px;
+  }
+
+  .article-share-actions {
+    gap: 4px 18px;
   }
 
   .related-insights {
