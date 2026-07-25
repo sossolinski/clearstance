@@ -2176,6 +2176,19 @@ summary:focus-visible {
   margin-block: 36px;
 }
 
+.related-insights {
+  padding: 0 0 108px;
+}
+
+.related-insights-heading {
+  margin-bottom: 32px;
+  font-family: var(--display);
+  font-size: clamp(32px, 3.4vw, 44px);
+  font-weight: 490;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+
 /* Progressive motion */
 
 .js [data-reveal] {
@@ -2841,6 +2854,15 @@ summary:focus-visible {
     display: block;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .related-insights {
+    padding-bottom: 78px;
+  }
+
+  .related-insights-heading {
+    margin-bottom: 25px;
+    font-size: 32px;
   }
 }
 

@@ -2,6 +2,7 @@
 import type { MarkdownHeading } from 'astro';
 import type { CollectionEntry } from 'astro:content';
 import ArticleToc from '../components/insights/ArticleToc.astro';
+import InsightTeaser from '../components/insights/InsightTeaser.astro';
 import type { Locale } from '../i18n/routes';
 import { formatDate, getArticlePath, getRoute } from '../i18n/routes';
 import { getVisibleTranslations } from '../i18n/translations';
@@ -17,9 +18,15 @@ interface Props {
   entry: CollectionEntry<'insights'>;
   alternateEntry?: CollectionEntry<'insights'>;
   headings: MarkdownHeading[];
+  relatedEntries?: CollectionEntry<'insights'>[];
 }
 
-const { entry, alternateEntry, headings } = Astro.props;
+const {
+  entry,
+  alternateEntry,
+  headings,
+  relatedEntries = []
+} = Astro.props;
 const locale = entry.data.locale as Locale;
 const visible = getVisibleTranslations(locale);
 const path = getArticlePath(locale, entry.data.slug);
@@ -172,6 +179,33 @@ const articleSchema = {
           <slot />
         </div>
       </div>
+      {
+        relatedEntries.length > 0 && (
+          <section
+            class="related-insights"
+            aria-labelledby="related-insights-title"
+          >
+            <div class="wrap">
+              <h2
+                id="related-insights-title"
+                class="related-insights-heading"
+              >
+                {visible.insightsPage.related}
+              </h2>
+              <ol class="insights-list">
+                {relatedEntries.map((relatedEntry, index) => (
+                  <InsightTeaser
+                    entry={relatedEntry}
+                    index={index}
+                    locale={locale}
+                    readLabel={visible.insightsPage.read}
+                  />
+                ))}
+              </ol>
+            </div>
+          </section>
+        )
+      }
     </article>
   </main>
 </BaseLayout>

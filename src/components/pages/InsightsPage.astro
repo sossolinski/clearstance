@@ -1,12 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
+import InsightTeaser from '../insights/InsightTeaser.astro';
 import type { Locale } from '../../i18n/routes';
-import { formatDate, getArticlePath, getRoute } from '../../i18n/routes';
+import { getRoute } from '../../i18n/routes';
 import {
   getTranslations,
   getVisibleTranslations
 } from '../../i18n/translations';
-import { formatVisibleText } from '../../i18n/typography.js';
+import { getPublishedInsights } from '../../lib/insights';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageIntro from '../sections/PageIntro.astro';
 
@@ -18,11 +18,7 @@ const { locale } = Astro.props;
 const t = getTranslations(locale);
 const content = getVisibleTranslations(locale).insightsPage;
 const otherLocale = locale === 'pl' ? 'en' : 'pl';
-const entries = (await getCollection(
-  'insights',
-  ({ data }) => data.locale === locale && !data.draft
-))
-  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const entries = await getPublishedInsights(locale);
 ---
 
 <BaseLayout
@@ -52,46 +48,12 @@ const entries = (await getCollection(
           entries.length > 0 ? (
             <ol class="insights-list">
               {entries.map((entry, index) => (
-                <li data-reveal>
-                  <article
-                    class:list={{
-                      'insight-item': true,
-                      'insight-item--with-image': Boolean(entry.data.headerImage)
-                    }}
-                  >
-                    <div class="insight-item-copy">
-                      <div class="insight-meta">
-                        <span>{String(index + 1).padStart(2, '0')}</span>
-                        <span>{formatVisibleText(entry.data.category, locale)}</span>
-                        <time datetime={entry.data.publishedAt.toISOString()}>
-                          {formatDate(entry.data.publishedAt, locale)}
-                        </time>
-                      </div>
-                      <h3>
-                        <a href={getArticlePath(locale, entry.data.slug)}>
-                          {formatVisibleText(entry.data.title, locale)}
-                        </a>
-                      </h3>
-                      <p>{formatVisibleText(entry.data.description, locale)}</p>
-                      <span class="text-link insight-read" aria-hidden="true">
-                        {content.read}
-                        <span>↗</span>
-                      </span>
-                    </div>
-                    {
-                      entry.data.headerImage && (
-                        <div class="insight-thumbnail" aria-hidden="true">
-                          <img
-                            src={entry.data.headerImage}
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        </div>
-                      )
-                    }
-                  </article>
-                </li>
+                <InsightTeaser
+                  entry={entry}
+                  index={index}
+                  locale={locale}
+                  readLabel={content.read}
+                />
               ))}
             </ol>
           ) : (

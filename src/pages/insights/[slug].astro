@@ -1,12 +1,14 @@
 ---
-import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { render, type CollectionEntry } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import {
+  getAlternateInsight,
+  getPublishedInsights,
+  getRelatedInsights
+} from '../../lib/insights';
 
 export async function getStaticPaths() {
-  const entries = await getCollection(
-    'insights',
-    ({ data }) => data.locale === 'pl' && !data.draft
-  );
+  const entries = await getPublishedInsights('pl');
   return entries.map((entry) => ({
     params: { slug: entry.data.slug },
     props: { entry }
@@ -18,12 +20,9 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const allEntries = await getCollection('insights', ({ data }) => !data.draft);
-const alternateEntry = allEntries.find(
-  (candidate) =>
-    candidate.data.locale === 'en' &&
-    candidate.data.translationKey === entry.data.translationKey
-);
+const publishedEntries = await getPublishedInsights();
+const alternateEntry = getAlternateInsight(entry, publishedEntries);
+const relatedEntries = getRelatedInsights(entry, publishedEntries);
 const { Content, headings } = await render(entry);
 const tocHeadings = headings.filter(
   (heading) => heading.depth === 2 || heading.depth === 3
@@ -34,6 +33,7 @@ const tocHeadings = headings.filter(
   entry={entry}
   alternateEntry={alternateEntry}
   headings={tocHeadings}
+  relatedEntries={relatedEntries}
 >
   <Content />
 </ArticleLayout>

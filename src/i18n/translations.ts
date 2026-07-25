@@ -353,7 +353,8 @@ export const translations = {
       author: 'Autor',
       readingTime: 'Czas czytania',
       readingTimeUnit: 'min czytania',
-      contents: 'Spis treści'
+      contents: 'Spis treści',
+      related: 'Powiązane publikacje'
     }
   },
   en: {
@@ -689,7 +690,8 @@ export const translations = {
       author: 'Author',
       readingTime: 'Reading time',
       readingTimeUnit: 'min read',
-      contents: 'Contents'
+      contents: 'Contents',
+      related: 'Related Insights'
     }
   }
 } as const satisfies Record<Locale, unknown>;
