@@ -13,6 +13,9 @@ backend:
 
 app_title: ClearStance Insights
 
+output:
+  omit_empty_optional_fields: true
+
 media_folder: /public/images/insights
 public_folder: /images/insights
 media_libraries:
@@ -28,6 +31,7 @@ media_libraries:
           height: 1920
         svg:
           optimize: true
+  stock_assets: false
 
 slug:
   encoding: ascii
@@ -57,6 +61,10 @@ collections:
         name: headerImage
         widget: image
         required: false
+        choose_url: false
+        pattern:
+          - "^/images/insights/[^/]+$"
+          - "Wybierz obraz zapisany w bibliotece mediów Insights."
       - label: Tekst alternatywny zdjęcia
         name: headerImageAlt
         widget: string
@@ -66,6 +74,10 @@ collections:
         name: socialImage
         widget: image
         required: false
+        choose_url: false
+        pattern:
+          - "^/images/insights/[^/]+$"
+          - "Wybierz obraz zapisany w bibliotece mediów Insights."
         hint: "Opcjonalny obraz używany w podglądach udostępniania zamiast zdjęcia artykułu."
       - label: Slug
         name: slug
@@ -153,6 +165,10 @@ collections:
         name: headerImage
         widget: image
         required: false
+        choose_url: false
+        pattern:
+          - "^/images/insights/[^/]+$"
+          - "Choose an image stored in the Insights media library."
       - label: Image alternative text
         name: headerImageAlt
         widget: string
@@ -162,6 +178,10 @@ collections:
         name: socialImage
         widget: image
         required: false
+        choose_url: false
+        pattern:
+          - "^/images/insights/[^/]+$"
+          - "Choose an image stored in the Insights media library."
         hint: "Optional image used for social previews instead of the article header image."
       - label: Slug
         name: slug
