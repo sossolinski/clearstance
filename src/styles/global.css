@@ -2196,18 +2196,27 @@ summary:focus-visible {
 }
 
 .article-header-image {
-  margin-top: 64px;
-}
-
-.article-header-image img {
-  width: 100%;
-  aspect-ratio: 2 / 1;
-  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1040px;
+  margin-top: 52px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 3px;
   background: var(--paper-2);
 }
 
+.article-header-image img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 560px;
+  object-fit: contain;
+}
+
 .article--with-image .article-grid {
-  padding-top: 64px;
+  padding-top: 56px;
 }
 
 .article-grid {
@@ -3169,15 +3178,15 @@ summary:focus-visible {
   }
 
   .article-header-image {
-    margin-top: 36px;
+    margin-top: 28px;
   }
 
   .article-header-image img {
-    aspect-ratio: 16 / 9;
+    max-height: none;
   }
 
   .article--with-image .article-grid {
-    padding-top: 46px;
+    padding-top: 38px;
   }
 
   .article-grid {
