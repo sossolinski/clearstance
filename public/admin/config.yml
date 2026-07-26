@@ -62,9 +62,6 @@ collections:
         widget: image
         required: false
         choose_url: false
-        pattern:
-          - "^/images/insights/[^/]+$"
-          - "Wybierz obraz zapisany w bibliotece mediów Insights."
       - label: Tekst alternatywny zdjęcia
         name: headerImageAlt
         widget: string
@@ -75,9 +72,6 @@ collections:
         widget: image
         required: false
         choose_url: false
-        pattern:
-          - "^/images/insights/[^/]+$"
-          - "Wybierz obraz zapisany w bibliotece mediów Insights."
         hint: "Opcjonalny obraz używany w podglądach udostępniania zamiast zdjęcia artykułu."
       - label: Slug
         name: slug
@@ -166,9 +160,6 @@ collections:
         widget: image
         required: false
         choose_url: false
-        pattern:
-          - "^/images/insights/[^/]+$"
-          - "Choose an image stored in the Insights media library."
       - label: Image alternative text
         name: headerImageAlt
         widget: string
@@ -179,9 +170,6 @@ collections:
         widget: image
         required: false
         choose_url: false
-        pattern:
-          - "^/images/insights/[^/]+$"
-          - "Choose an image stored in the Insights media library."
         hint: "Optional image used for social previews instead of the article header image."
       - label: Slug
         name: slug

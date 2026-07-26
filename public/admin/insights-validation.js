@@ -4,6 +4,19 @@
     insights_pl: 'Dodaj opis alternatywny zdjęcia artykułu przed zapisaniem materiału.',
     insights_en: 'Add alternative text for the article image before saving the entry.',
   };
+  const mediaMessages = {
+    insights_pl: 'Wybierz obraz zapisany w bibliotece mediów Insights.',
+    insights_en: 'Choose an image stored in the Insights media library.',
+  };
+  const insightMediaPath = /^\/images\/insights\/[^/]+$/;
+  const mediaFields = ['headerImage', 'socialImage'];
+
+  const throwSavingError = (message) => {
+    const error = new Error('saving_failed');
+
+    error.cause = new Error(message);
+    throw error;
+  };
 
   CMS.registerEventListener({
     name: 'preSave',
@@ -14,6 +27,18 @@
         return undefined;
       }
 
+      mediaFields.forEach((fieldName) => {
+        const value = entry.getIn(['data', fieldName]);
+
+        if (
+          typeof value === 'string' &&
+          value.trim() !== '' &&
+          !insightMediaPath.test(value.trim())
+        ) {
+          throwSavingError(mediaMessages[collection]);
+        }
+      });
+
       const headerImage = entry.getIn(['data', 'headerImage']);
       const headerImageAlt = entry.getIn(['data', 'headerImageAlt']);
       const hasHeaderImage = typeof headerImage === 'string' && headerImage.trim() !== '';
@@ -21,10 +46,7 @@
         typeof headerImageAlt === 'string' && headerImageAlt.trim() !== '';
 
       if (hasHeaderImage && !hasHeaderImageAlt) {
-        const error = new Error('saving_failed');
-
-        error.cause = new Error(altMessages[collection]);
-        throw error;
+        throwSavingError(altMessages[collection]);
       }
 
       if (!hasHeaderImage && hasHeaderImageAlt) {
