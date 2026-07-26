@@ -2,8 +2,6 @@
 translationKey: crisis-exercises-performance
 title: Dobre ćwiczenie kryzysowe nie jest spektaklem
 description: Ćwiczenie nie powinno udowadniać, że organizacja potrafi wykonać przygotowany wcześniej scenariusz. Powinno pokazać, jak naprawdę podejmuje decyzje, gdy informacje są niepełne, czas ograniczony, a odpowiedzialności zaczynają się nakładać.
-headerImage: /images/insights/screenshot-2026-07-26-at-11-30-23.webp
-headerImageAlt: safasgasgfsgsdgsdg
 slug: dobre-cwiczenie-kryzysowe-nie-jest-spektaklem
 publishedAt: 2026-07-10
 author: ClearStance
