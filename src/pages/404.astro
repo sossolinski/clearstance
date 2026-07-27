@@ -1,0 +1,54 @@
+---
+import PageIntro from '../components/sections/PageIntro.astro';
+import { getRoute } from '../i18n/routes';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  locale="pl"
+  title="404 — Strona nie została znaleziona | ClearStance"
+  description="Nie znaleziono wskazanej strony. Page not found."
+  canonicalPath="/404/"
+  alternatePath={getRoute('en', 'home')}
+  xDefaultPath={getRoute('pl', 'home')}
+  noindex
+>
+  <main id="main-content">
+    <PageIntro
+      eyebrow="404"
+      title="Nie znaleziono strony."
+      lead="Page not found. The address may have changed or the page may no longer exist."
+    />
+
+    <section class="error-page" aria-labelledby="error-page-options">
+      <div class="wrap">
+        <h2 id="error-page-options" class="sr-only">Dalsza nawigacja / Continue browsing</h2>
+        <div class="error-page-grid">
+          <div lang="pl">
+            <p class="eyebrow eyebrow--teal">Polski</p>
+            <h3>Wróć do właściwego miejsca.</h3>
+            <p>Sprawdź adres albo przejdź do jednej z głównych części serwisu.</p>
+            <nav aria-label="Nawigacja po błędzie 404">
+              <a class="button button--dark" href={getRoute('pl', 'home')}>Strona główna</a>
+              <a href={getRoute('pl', 'services')}>Oferta</a>
+              <a href={getRoute('pl', 'insights')}>Insights</a>
+              <a href={getRoute('pl', 'contact')}>Kontakt</a>
+            </nav>
+          </div>
+
+          <div lang="en">
+            <p class="eyebrow eyebrow--teal">English</p>
+            <h3>Return to the right place.</h3>
+            <p>Check the address or continue to one of the main sections.</p>
+            <nav aria-label="Navigation after a 404 error">
+              <a class="button button--dark" href={getRoute('en', 'home')}>Home</a>
+              <a href={getRoute('en', 'services')}>Services</a>
+              <a href={getRoute('en', 'insights')}>Insights</a>
+              <a href={getRoute('en', 'contact')}>Contact</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

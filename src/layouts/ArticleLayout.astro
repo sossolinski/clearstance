@@ -188,6 +188,38 @@ const articleSchema = {
         title={entry.data.title}
         locale={locale}
       />
+      <section
+        class="article-publisher"
+        aria-labelledby="article-publisher-title"
+      >
+        <div class="wrap article-publisher-grid">
+          <p class="eyebrow eyebrow--teal">
+            {visible.insightsPage.publisher.eyebrow}
+          </p>
+          <div>
+            <h2 id="article-publisher-title">
+              {visible.insightsPage.publisher.title}
+            </h2>
+            <p>{visible.insightsPage.publisher.text}</p>
+            <nav
+              class="article-publisher-links"
+              aria-label={locale === 'pl'
+                ? 'Więcej informacji o ClearStance'
+                : 'More about ClearStance'}
+            >
+              <a href={getRoute(locale, 'services')}>
+                {visible.insightsPage.publisher.services}
+              </a>
+              <a href={getRoute(locale, 'about')}>
+                {visible.insightsPage.publisher.about}
+              </a>
+              <a href={getRoute(locale, 'contact')}>
+                {visible.insightsPage.publisher.contact}
+              </a>
+            </nav>
+          </div>
+        </div>
+      </section>
       {
         relatedEntries.length > 0 && (
           <section
@@ -208,6 +240,7 @@ const articleSchema = {
                     index={index}
                     locale={locale}
                     readLabel={visible.insightsPage.read}
+                    readingTimeUnit={visible.insightsPage.readingTimeUnit}
                   />
                 ))}
               </ol>

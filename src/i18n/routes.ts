@@ -1,20 +1,25 @@
 export type Locale = 'pl' | 'en';
-export type PageKey = 'home' | 'services' | 'insights' | 'about' | 'contact';
+export type PageKey =
+  | 'home'
+  | 'services'
+  | 'insights'
+  | 'about'
+  | 'contact';
 
 export const routes: Record<Locale, Record<PageKey, string>> = {
   pl: {
     home: '/',
-    services: '/oferta',
-    insights: '/insights',
-    about: '/o-clearstance',
-    contact: '/kontakt'
+    services: '/oferta/',
+    insights: '/insights/',
+    about: '/o-clearstance/',
+    contact: '/kontakt/',
   },
   en: {
     home: '/en/',
-    services: '/en/services',
-    insights: '/en/insights',
-    about: '/en/about',
-    contact: '/en/contact'
+    services: '/en/services/',
+    insights: '/en/insights/',
+    about: '/en/about/',
+    contact: '/en/contact/',
   }
 };
 
@@ -60,7 +65,7 @@ export function getHomeAnchor(
 }
 
 export function getArticlePath(locale: Locale, slug: string): string {
-  return locale === 'pl' ? `/insights/${slug}` : `/en/insights/${slug}`;
+  return locale === 'pl' ? `/insights/${slug}/` : `/en/insights/${slug}/`;
 }
 
 export function formatDate(date: Date, locale: Locale): string {

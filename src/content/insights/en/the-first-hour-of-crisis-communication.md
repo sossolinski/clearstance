@@ -1,6 +1,6 @@
 ---
 title: The first hour of crisis communication
-description: Pressure to communicate usually arrives before the full picture is available. The hardest task is not drafting a statement, but deciding what the organisation can say, who has authority to approve it and how subsequent updates remain consistent.
+description: Pressure to communicate usually arrives before the full picture is available. In the first hour, the organisation must decide what it can say, who has authority to approve it and how subsequent updates will remain consistent.
 publishedAt: 2026-07-16
 updatedAt: 2026-07-20
 author: ClearStance

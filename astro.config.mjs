@@ -6,7 +6,7 @@ import { polishMarkdownTypography } from './src/i18n/typography.js';
 export default defineConfig({
   site: 'https://clearstance.pl',
   output: 'static',
-  trailingSlash: 'ignore',
+  trailingSlash: 'always',
   i18n: {
     locales: ['pl', 'en'],
     defaultLocale: 'pl',

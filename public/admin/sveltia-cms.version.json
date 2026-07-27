@@ -1,0 +1,8 @@
+{
+  "package": "@sveltia/cms",
+  "version": "0.173.0",
+  "source": "https://registry.npmjs.org/@sveltia/cms/-/cms-0.173.0.tgz",
+  "npmIntegrity": "sha512-ssXubMM6hTkwkP8xOTWRMzuV3ZToyatjZma1Pv2cLAoydVscE9ITS1WqGBI6eOV7PnvFJPngjq/WAi5HkokLFQ==",
+  "artifact": "sveltia-cms-0.173.0.js",
+  "sha256": "c40fc3849dc108e33c5eeca09eb1d664bd819820fed675dba9357cfb92a16ece"
+}

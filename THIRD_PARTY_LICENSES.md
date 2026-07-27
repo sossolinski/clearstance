@@ -27,6 +27,13 @@ All listed software licences permit free commercial use. No paid font, icon pack
 - Licence: MIT
 - Commercial use status: permitted
 
+### @astrojs/markdown-satteri 0.3.4
+
+- Purpose: Markdown typography processing used by the Astro content pipeline
+- Source: https://github.com/withastro/astro
+- Licence: MIT
+- Commercial use status: permitted
+
 ## Development dependencies
 
 ### @astrojs/check 0.9.9
@@ -59,15 +66,25 @@ All listed software licences permit free commercial use. No paid font, icon pack
 - Commercial use status: permitted
 - Runtime status: development and deployment tool only; it is not shipped to site visitors
 
+### yaml 2.9.0
+
+- Purpose: parsing Markdown frontmatter and Sveltia configuration in the repository content-contract checker
+- Source: https://github.com/eemeli/yaml
+- Licence: ISC
+- Commercial use status: permitted
+- Runtime status: development and CI tool only; it is not shipped to site visitors
+
 ## Editorial software
 
 ### Sveltia CMS
 
+- Version: 0.173.0
 - Purpose: Git-based editorial interface at `/admin/`
 - Source: https://github.com/sveltia/sveltia-cms
 - Licence: MIT
 - Commercial use status: permitted
-- Delivery: loaded from the project’s official UNPKG distribution using the installation pattern in the current Sveltia documentation
+- Delivery: the exact npm artefact is self-hosted as `public/admin/sveltia-cms-0.173.0.js`; its source integrity and local SHA-256 are recorded in `public/admin/sveltia-cms.version.json`
+- Licence copy: `public/admin/sveltia-cms.LICENSE.txt`
 - Data model: content remains as Markdown in this Git repository; no proprietary CMS database is used
 
 ### Sveltia CMS Authenticator

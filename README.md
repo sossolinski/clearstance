@@ -70,6 +70,25 @@ Run contact endpoint tests:
 npm run test:contact
 ```
 
+Run contact UI and JSON-LD security tests:
+
+```bash
+npm run test:frontend
+```
+
+Validate the Insights, Astro schema, and Sveltia CMS contract:
+
+```bash
+npm run test:content
+```
+
+After building, validate canonical URLs, hreflang, feeds, representative
+routes, 404, local assets, and the self-hosted CMS artefact:
+
+```bash
+npm run test:dist
+```
+
 Validate the Cloudflare Worker bundle:
 
 ```bash
@@ -129,7 +148,9 @@ worker/
 └── index.ts
 
 tests/
-└── contact.test.mjs
+├── contact.test.mjs
+├── contact-form.test.mjs
+└── json-ld.test.mjs
 
 wrangler.jsonc
 ```
@@ -140,22 +161,22 @@ Polish is the default locale and uses unprefixed routes:
 
 ```text
 /
-/oferta
-/insights
-/insights/[slug]
-/o-clearstance
-/kontakt
+/oferta/
+/insights/
+/insights/[slug]/
+/o-clearstance/
+/kontakt/
 ```
 
 English uses the `/en/` prefix:
 
 ```text
 /en/
-/en/services
-/en/insights
-/en/insights/[slug]
-/en/about
-/en/contact
+/en/services/
+/en/insights/
+/en/insights/[slug]/
+/en/about/
+/en/contact/
 ```
 
 Astro’s native i18n configuration is defined in `astro.config.mjs`. Localised route names and homepage anchor mappings live in `src/i18n/routes.ts`. Interface and page copy live in `src/i18n/translations.ts`.
@@ -172,7 +193,8 @@ Create a Markdown file in:
 src/content/insights/pl/
 ```
 
-Use frontmatter matching the schema in `src/content.config.ts`:
+Use frontmatter matching the schema imported by `src/content.config.ts` from
+`src/content/insight-schema.ts`:
 
 ```yaml
 ---
@@ -263,6 +285,13 @@ https://clearstance.pl/admin/
 
 Sveltia CMS is a browser-based Git editor. It does not hold content in a separate database. It reads and writes the existing Markdown files through the GitHub API; each saved change becomes a commit, which then triggers a Cloudflare rebuild through the connected Git repository.
 
+The admin loads the exact, self-hosted Sveltia CMS 0.173.0 artefact from
+`public/admin/sveltia-cms-0.173.0.js`. Its npm source integrity and local
+SHA-256 are recorded in `public/admin/sveltia-cms.version.json` and checked by
+`npm run test:dist`. Updating Sveltia requires deliberately replacing the
+versioned artefact, licence copy, manifest, and script reference; `/admin/`
+does not load an unpinned runtime from a CDN.
+
 The admin configuration lives in `public/admin/config.yml` and exposes two separate collections:
 
 - **Insights — PL** → `src/content/insights/pl/`
@@ -324,7 +353,7 @@ The shared base layout provides:
 
 ## Contact form
 
-The bilingual form is rendered on `/kontakt` and `/en/contact`. It collects only name, email, optional organisation, and message. `contact@clearstance.pl` remains visible as the public alternative.
+The bilingual form is rendered on `/kontakt/` and `/en/contact/`. It collects only name, email, optional organisation, and message. `contact@clearstance.pl` remains visible as the public alternative.
 
 The submission path is:
 

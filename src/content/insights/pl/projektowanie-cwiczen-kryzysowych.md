@@ -18,7 +18,7 @@ seoTitle: 'Projektowanie ćwiczenia: pytania przed scenariuszem | ClearStance'
 seoDescription: Jak określić cel, role, decyzje i informacje potrzebne przed rozpoczęciem projektowania scenariusza ćwiczenia kryzysowego.
 ---
 
-Scenariusz przyciąga uwagę, ale nie powinien być punktem wyjścia. Najpierw trzeba ustalić, co organizacja chce sprawdzić i jakie decyzje powinny pojawić się w trakcie ćwiczenia.
+Projektowanie warto rozpocząć od ustalenia, co organizacja chce sprawdzić i jakie decyzje powinny pojawić się w trakcie ćwiczenia. Scenariusz powstaje na podstawie tych celów.
 
 ## Zacznij od celu
 
@@ -41,9 +41,9 @@ Przed pracą nad scenariuszem warto zadać trzy pytania:
 
 ## Scenariusz ma uruchamiać pracę zespołu
 
-Dobry scenariusz nie jest opowiadaniem z jedną prawidłową odpowiedzią. Powinien tworzyć warunki, w których uczestnicy muszą porządkować niepełne informacje, rozpoznawać zmiany i uzgadniać kierunek działania.
+Użyteczny scenariusz tworzy warunki, w których uczestnicy muszą porządkować niepełne informacje, rozpoznawać zmiany i uzgadniać kierunek działania, bez narzucania jednej prawidłowej odpowiedzi.
 
-> Ćwiczenie jest wartościowe wtedy, gdy ujawnia sposób działania organizacji - nie tylko znajomość dokumentów.
+> Ćwiczenie zyskuje wartość, gdy ujawnia sposób działania organizacji i pokazuje, jak dokumenty wspierają ten proces.
 
 ### Po ćwiczeniu
 

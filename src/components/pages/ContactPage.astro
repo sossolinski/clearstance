@@ -65,6 +65,7 @@ const formAvailable = Boolean(turnstileSiteKey);
           aria-labelledby="contact-form-title"
           aria-describedby="contact-form-status"
           data-success-message={content.form.success}
+          data-timeout-message={content.form.timeout}
           data-failure-message={content.form.failure}
           data-verification-message={content.form.verification}
           data-sending-label={content.form.sending}
@@ -254,104 +255,9 @@ const formAvailable = Boolean(turnstileSiteKey);
     )
   }
 
-  <script is:inline>
-    const initialiseContactForm = () => {
-      const form = document.querySelector('#contact-form');
+  <script>
+    import { initialiseContactForm } from '../../scripts/contact-form';
 
-      if (!(form instanceof HTMLFormElement) || form.dataset.enhanced === 'true') {
-        return;
-      }
-
-      form.dataset.enhanced = 'true';
-
-      const submitButton = form.querySelector('button[type="submit"]');
-      const submitLabel = form.querySelector('[data-contact-submit-label]');
-      const status = form.querySelector('#contact-form-status');
-      const source = form.querySelector('[data-contact-source]');
-
-      if (
-        !(submitButton instanceof HTMLButtonElement) ||
-        !(submitLabel instanceof HTMLElement) ||
-        !(status instanceof HTMLElement)
-      ) {
-        return;
-      }
-
-      if (source instanceof HTMLInputElement) {
-        source.value = window.location.href;
-      }
-
-      const setStatus = (message, state = '', turnstileIssue = false) => {
-        status.textContent = message;
-        status.dataset.state = state;
-
-        if (turnstileIssue) {
-          status.dataset.turnstileIssue = 'true';
-        } else {
-          delete status.dataset.turnstileIssue;
-        }
-      };
-
-      const resetTurnstile = () => {
-        if (typeof window.turnstile?.reset === 'function') {
-          window.turnstile.reset();
-        }
-      };
-
-      form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-
-        if (!form.reportValidity()) {
-          return;
-        }
-
-        const formData = new FormData(form);
-        const turnstileToken = formData.get('cf-turnstile-response');
-
-        if (typeof turnstileToken !== 'string' || turnstileToken.length === 0) {
-          setStatus(form.dataset.verificationMessage || '', 'error', true);
-          return;
-        }
-
-        submitButton.disabled = true;
-        form.setAttribute('aria-busy', 'true');
-        submitLabel.textContent = form.dataset.sendingLabel || '';
-        setStatus('');
-
-        try {
-          const response = await fetch(form.action, {
-            method: 'POST',
-            headers: {
-              Accept: 'application/json'
-            },
-            body: formData
-          });
-          const result = await response.json().catch(() => ({ ok: false }));
-
-          if (!response.ok || result.ok !== true) {
-            throw new Error('Contact request failed');
-          }
-
-          form.reset();
-          resetTurnstile();
-          setStatus(form.dataset.successMessage || '', 'success');
-          status.focus({ preventScroll: true });
-        } catch {
-          resetTurnstile();
-          setStatus(form.dataset.failureMessage || '', 'error');
-          status.focus({ preventScroll: true });
-        } finally {
-          submitButton.disabled = false;
-          form.removeAttribute('aria-busy');
-          submitLabel.textContent = form.dataset.submitLabel || '';
-        }
-      });
-    };
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initialiseContactForm, { once: true });
-    } else {
-      initialiseContactForm();
-    }
+    initialiseContactForm();
   </script>
 </BaseLayout>

@@ -1,5 +1,6 @@
 ---
 import type { Locale } from '../../i18n/routes';
+import { getRoute } from '../../i18n/routes';
 import {
   getTranslations,
   getVisibleTranslations
@@ -26,11 +27,15 @@ const content = getVisibleTranslations(locale).home.contact;
     </div>
     <div class="contact-band-action">
       <p>{content.text}</p>
-      <a class="button button--dark" href={`mailto:${t.site.email}`}>
+      <a class="button button--dark" href={getRoute(locale, 'contact')}>
         <span>{content.cta}</span>
         <span aria-hidden="true">↗</span>
       </a>
-      <span class="contact-band-meta">{t.site.email} · {t.site.location}</span>
+      <span class="contact-band-meta">
+        <a href={`mailto:${t.site.email}`}>{t.site.email}</a>
+        {' · '}
+        {t.site.location}
+      </span>
     </div>
   </div>
 </section>

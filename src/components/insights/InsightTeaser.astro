@@ -3,15 +3,24 @@ import type { CollectionEntry } from 'astro:content';
 import type { Locale } from '../../i18n/routes';
 import { formatDate, getArticlePath } from '../../i18n/routes';
 import { formatVisibleText } from '../../i18n/typography.js';
+import { calculateReadingTime } from '../../lib/insights';
 
 interface Props {
   entry: CollectionEntry<'insights'>;
   index: number;
   locale: Locale;
   readLabel: string;
+  readingTimeUnit: string;
 }
 
-const { entry, index, locale, readLabel } = Astro.props;
+const {
+  entry,
+  index,
+  locale,
+  readLabel,
+  readingTimeUnit
+} = Astro.props;
+const readingMinutes = calculateReadingTime(entry.body ?? '');
 ---
 
 <li data-reveal>
@@ -28,6 +37,7 @@ const { entry, index, locale, readLabel } = Astro.props;
         <time datetime={entry.data.publishedAt.toISOString()}>
           {formatDate(entry.data.publishedAt, locale)}
         </time>
+        <span>{readingMinutes} {readingTimeUnit}</span>
       </div>
       <h3>
         <a href={getArticlePath(locale, entry.data.slug)}>

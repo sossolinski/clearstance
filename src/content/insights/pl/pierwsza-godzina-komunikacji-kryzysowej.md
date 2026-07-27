@@ -1,6 +1,6 @@
 ---
 title: Pierwsza godzina komunikacji kryzysowej
-description: Presja na komunikację pojawia się zwykle wcześniej niż pełny obraz sytuacji. Najtrudniejszym zadaniem nie jest wtedy napisanie komunikatu, lecz ustalenie, co organizacja może powiedzieć, kto podejmuje tę decyzję i jak utrzymać spójność kolejnych aktualizacji.
+description: Presja na komunikację pojawia się zwykle wcześniej niż pełny obraz sytuacji. W pierwszej godzinie trzeba ustalić, co organizacja może powiedzieć, kto podejmuje tę decyzję i jak utrzymać spójność kolejnych aktualizacji.
 publishedAt: 2026-07-16
 updatedAt: 2026-07-20
 author: ClearStance

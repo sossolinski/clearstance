@@ -1,0 +1,55 @@
+name: Quality
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.12.0
+          cache: npm
+
+      - name: Install exact dependencies
+        run: npm ci
+
+      - name: Check Astro
+        run: npm run check
+
+      - name: Check TypeScript
+        run: npm run typecheck
+
+      - name: Test contact Worker
+        run: npm run test:contact
+
+      - name: Test contact UI and JSON-LD
+        run: npm run test:frontend
+
+      - name: Test content and CMS contract
+        run: npm run test:content
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Check generated links
+        run: npm run check:links
+
+      - name: Test generated dist
+        run: npm run test:dist
+
+      - name: Check Worker bundle
+        run: npm run check:worker

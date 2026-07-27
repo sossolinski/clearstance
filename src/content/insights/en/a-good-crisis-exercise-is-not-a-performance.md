@@ -1,6 +1,6 @@
 ---
-title: A good crisis exercise is not a performance
-description: An exercise should not prove that an organisation can follow a prepared scenario. It should reveal how decisions are actually made when information is incomplete, time is limited and responsibilities begin to overlap.
+title: What makes a crisis exercise useful
+description: A well-designed exercise reveals how an organisation makes decisions when information is incomplete, time is limited and responsibilities begin to overlap.
 publishedAt: 2026-07-10
 author: ClearStance
 slug: a-good-crisis-exercise-is-not-a-performance
@@ -14,7 +14,7 @@ tags:
   - lessons-learned
 featured: false
 draft: false
-seoTitle: A good crisis exercise is not a performance | ClearStance
+seoTitle: What makes a crisis exercise useful | ClearStance
 seoDescription: How to design exercises that reveal real decision-making and lead to owned improvement actions.
 ---
 
@@ -78,4 +78,4 @@ The next stage should bring together observations, control records, decisions an
 
 An improvement action needs an owner, an intended result and a review date. A general commitment to update a procedure may be inadequate if the difficulty concerned authority, access to information or coordination across functions. Closure should confirm that the change has been implemented and understood by the people expected to use it.
 
-A good exercise may run calmly or reveal serious difficulties. Its value does not depend on how convincing it appeared from outside the room. What matters is the quality of insight the organisation gains into its own performance and the discipline with which that insight becomes a practical improvement in readiness.
+A good exercise may run calmly or reveal serious difficulties. Its value lies in the quality of insight the organisation gains into its own performance and the discipline with which that insight becomes a practical improvement in readiness.

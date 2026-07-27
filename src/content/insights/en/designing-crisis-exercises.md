@@ -18,7 +18,7 @@ seoTitle: "Designing an exercise: the questions before the scenario | ClearStanc
 seoDescription: "How to define the objective, roles, decisions and information needed before designing a crisis exercise scenario."
 ---
 
-The scenario attracts attention, but it should not be the starting point. Begin by deciding what the organisation needs to test and which decisions the exercise should bring into view.
+Begin by deciding what the organisation needs to test and which decisions the exercise should bring into view. The scenario is then built around those objectives.
 
 ## Begin with the objective
 
@@ -41,9 +41,9 @@ Before writing the scenario, ask three questions:
 
 ## The scenario should activate the team
 
-A useful scenario is not a story with one correct answer. It creates conditions in which participants must organise incomplete information, recognise change and align on a direction of action.
+A useful scenario creates conditions in which participants must organise incomplete information, recognise change and align on a direction of action without being led to one correct answer.
 
-> An exercise becomes valuable when it reveals how the organisation works, not only whether people know the documents.
+> An exercise becomes valuable when it reveals how the organisation works and how its documents support that work.
 
 ### After the exercise
 

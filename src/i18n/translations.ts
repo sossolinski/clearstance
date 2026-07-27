@@ -13,9 +13,6 @@ const sharedHome = {
       'Understand what is changing.',
       'Decide where to go.'
     ]
-  },
-  experience: {
-    eyebrow: 'From the bridge to the boardroom'
   }
 };
 
@@ -41,7 +38,7 @@ export const translations = {
         services: 'Oferta',
         insights: 'Insights',
         practice: 'Jak pracujemy',
-        experience: 'Doświadczenie',
+        experience: 'O ClearStance',
         contact: 'Kontakt'
       }
     },
@@ -63,9 +60,9 @@ export const translations = {
         eyebrow: 'Nasze podejście',
         title: 'Gotowość kryzysowa w praktyce.',
         lead:
-          'Plany i procedury tworzą ramy działania. O rzeczywistym przygotowaniu decyduje również to, czy zespół zna swoje role, potrafi zbudować wspólny obraz sytuacji i działa według uzgodnionych zasad.',
+          'Dobra gotowość opiera się na wspólnym obrazie sytuacji, jasnej odpowiedzialności i zasadach, które zespół potrafi zastosować przy niepełnej informacji.',
         body:
-          'Łączymy projektowanie struktur i procedur z ćwiczeniami, facylitacją i przeglądami gotowości. Pozwala to sprawdzić założenia, zidentyfikować luki i wprowadzić korekty przed rzeczywistym zdarzeniem.',
+          'Dlatego struktury, procedury i scenariusze oceniamy w odniesieniu do rzeczywistego modelu operacyjnego, jego zależności oraz decyzji, które trzeba podjąć.',
         pillars: [
           {
             label: 'Kontekst',
@@ -109,7 +106,7 @@ export const translations = {
         ],
         perspectiveLabel: 'Perspektywa',
         perspective:
-          'Doświadczenie obejmuje również bezpieczeństwo operacyjne, ochronę oraz pracę w środowiskach o wysokich wymaganiach bezpieczeństwa.',
+          'Pracę wspiera doświadczenie z żeglugi morskiej, lotnictwa, bezpieczeństwa operacyjnego, ochrony i zarządzania kryzysowego.',
         link: 'Zobacz pełną ofertę'
       },
       readiness: {
@@ -118,37 +115,35 @@ export const translations = {
         quote: sharedHome.readiness.quote,
         items: [
           {
-            title: 'Zrozumienie',
-            text: 'Porządkujemy informacje, zależności i priorytety, aby zbudować wspólny obraz sytuacji.'
+            title: 'Rozpoznanie',
+            text: 'Ocena ryzyk, zależności i obecnego sposobu reagowania wyznacza punkt wyjścia.'
           },
           {
             title: 'Przygotowanie',
-            text: 'Ustalamy struktury, role, procedury, przepływ informacji i zasady eskalacji.'
+            text: 'Role, uprawnienia, progi eskalacji i przepływ informacji są uzgodnione i zrozumiałe.'
           },
           {
             title: 'Ćwiczenie',
-            text: 'Testujemy założenia i sposób pracy zespołu na realistycznych scenariuszach.'
+            text: 'Realistyczny scenariusz pozwala sprawdzić założenia, decyzje i współpracę zespołu.'
           },
           {
             title: 'Reagowanie',
-            text: 'Przygotowanie ma wspierać skoordynowane działanie: eskalację, przepływ informacji, komunikację i podejmowanie decyzji.'
+            text: 'Podczas zdarzenia zespół potrafi eskalować, aktualizować obraz sytuacji i koordynować decyzje.'
           },
           {
             title: 'Doskonalenie',
-            text: 'Wnioski z ćwiczeń i zdarzeń przekładamy na działania, które wzmacniają przygotowanie organizacji.'
+            text: 'Wnioski z ćwiczeń i zdarzeń mają właścicieli, priorytety i termin ponownego sprawdzenia.'
           }
         ]
       },
       experience: {
-        ...sharedHome.experience,
-        title: 'Doświadczenie operacyjne. Perspektywa strategiczna.',
+        eyebrow: 'Doświadczenie',
+        title: 'Doświadczenie operacyjne i perspektywa strategiczna.',
         paragraphs: [
-          'Podstawą ClearStance jest doświadczenie z dwóch środowisk operacyjnych: żeglugi morskiej i lotnictwa.',
-          'Założyciel ClearStance przez kilka lat pracował jako oficer wachtowy na statkach kontenerowych, odpowiadając za bezpieczne prowadzenie statku i pracując w obszarach bezpieczeństwa operacyjnego (safety) oraz ochrony (security).',
-          'Od 2018 roku jest związany z lotnictwem, gdzie przeszedł od ról analitycznych i projektowych do strategicznych oraz zarządzania kryzysowego.'
+          'ClearStance łączy doświadczenie z żeglugi morskiej i lotnictwa z pracą nad bezpieczeństwem operacyjnym, strategią i zarządzaniem kryzysowym.'
         ],
         closing:
-          'To doświadczenie łączy perspektywę operacyjną z rozumieniem organizacji, procesów i decyzji zarządczych.',
+          'Pełny kontekst tej praktyki oraz droga od odpowiedzialności operacyjnej do pracy doradczej są opisane na stronie O ClearStance.',
         tracks: [
           {
             title: 'Żegluga morska',
@@ -167,39 +162,39 @@ export const translations = {
         title: 'Sposób pracy.',
         paragraphs: [
           'Punktem wyjścia jest rzeczywisty model działania organizacji: role, zależności, przepływ informacji i sposób podejmowania decyzji.',
-          'Pracujemy na scenariuszach i problemach osadzonych w realnym środowisku operacyjnym. Rezultatem są konkretne zmiany w strukturach, procedurach, sposobie pracy lub przygotowaniu zespołu.'
+          'Zakres i sposób pracy dobieramy do konkretnego problemu. Wspólnie z zespołem dochodzimy do ustaleń, które można wykorzystać w strukturach, procedurach, ćwiczeniu lub dalszym doskonaleniu.'
         ],
         items: [
           {
-            title: 'Doświadczenie operacyjne',
-            text: 'Rozwiązania osadzone w realiach działania organizacji.'
+            title: 'Kontekst operacyjny',
+            text: 'Praca odnosi się do rzeczywistych ról, zależności i ograniczeń organizacji.'
           },
           {
-            title: 'Perspektywa międzybranżowa',
-            text: 'Doświadczenia z żeglugi i lotnictwa, uzupełnione praktyką w obszarach bezpieczeństwa i zarządzania kryzysowego.'
+            title: 'Wspólna praca',
+            text: 'Facylitacja angażuje osoby odpowiedzialne za decyzje i wykonanie działań.'
           },
           {
-            title: 'Facylitacja',
-            text: 'Praca z zespołem, decyzjami i zależnościami pomiędzy funkcjami.'
+            title: 'Proporcjonalny zakres',
+            text: 'Metoda i poziom szczegółowości odpowiadają problemowi oraz dojrzałości organizacji.'
           },
           {
-            title: 'Spokój i precyzja',
-            text: 'Jasny język, proporcjonalne rozwiązania i koncentracja na tym, co organizacja rzeczywiście wykorzysta.'
+            title: 'Ustalenia do wykorzystania',
+            text: 'Rezultat wskazuje konkretne decyzje, zmiany lub działania doskonalące.'
           }
         ]
       },
       statement: {
-        first: 'Niepewność jest częścią środowiska.',
-        second: 'Chaos nie musi nią być.',
-        source: 'ClearStance · filozofia gotowości',
+        first: 'Dobra gotowość porządkuje działanie, gdy sytuacja szybko się zmienia.',
+        second: 'Zespół wie, co sprawdzić, kto decyduje i kiedy eskalować.',
+        source: 'ClearStance · gotowość w praktyce',
         imageAlt: 'Latarnia morska oświetlająca drogę w ciemności'
       },
       insights: {
         eyebrow: 'Insights',
-        title: 'Perspektywy i obserwacje',
+        title: 'Analizy z praktyki',
         copy:
-          'Materiały dotyczące gotowości kryzysowej, decyzji i działania w warunkach niepewności.',
-        all: 'Wszystkie publikacje'
+          'Materiały o strukturach reagowania, ćwiczeniach, pracy zespołów i decyzjach podejmowanych przy niepełnej informacji.',
+        all: 'Zobacz wszystkie publikacje'
       },
       contact: {
         eyebrow: 'Kontakt',
@@ -290,10 +285,9 @@ export const translations = {
         }
       ],
       closingEyebrow: 'Punkt wyjścia',
-      closingTitle: 'Najpierw kontekst. Potem rozwiązanie.',
+      closingTitle: 'Zakres dopasowany do rzeczywistego problemu.',
       closingText:
-        'Rozmowę rozpoczynamy od modelu działania organizacji, jej zależności i konkretnego problemu. Dzięki temu zakres pracy pozostaje proporcjonalny i użyteczny.',
-      cta: 'Porozmawiajmy o zakresie'
+        'Rozmowę rozpoczynamy od modelu działania organizacji, jej zależności i konkretnego problemu. Następnie uzgadniamy zakres oraz oczekiwany rezultat: decyzje, role, scenariusz ćwiczenia albo plan usprawnień — zależnie od sytuacji.'
     },
     aboutPage: {
       metaTitle: 'O ClearStance - niezależna praktyka doradcza',
@@ -301,7 +295,7 @@ export const translations = {
         'ClearStance łączy doświadczenie operacyjne z żeglugi i lotnictwa z perspektywą strategiczną i zarządzaniem kryzysowym.',
       eyebrow: 'O ClearStance',
       title: 'From the bridge to the boardroom.',
-      lead: 'Doświadczenie operacyjne. Perspektywa strategiczna.',
+      lead: 'Doświadczenie operacyjne połączone z perspektywą strategiczną.',
       storyTitle: 'Praktyka zbudowana na odpowiedzialności operacyjnej.',
       paragraphs: [
         'ClearStance jest niezależną praktyką doradczą skoncentrowaną na gotowości kryzysowej, ćwiczeniach, facylitacji i decyzjach podejmowanych w warunkach niepewności.',
@@ -309,10 +303,9 @@ export const translations = {
         'Założyciel ClearStance przez kilka lat pracował jako oficer wachtowy na statkach kontenerowych. Odpowiadał za bezpieczne prowadzenie statku i pracował w obszarach bezpieczeństwa operacyjnego oraz ochrony.',
         'Od 2018 roku jest związany z lotnictwem. Doświadczenie obejmuje role analityczne, projektowe i strategiczne, a także zarządzanie kryzysowe.'
       ],
-      perspectiveTitle: 'Perspektywa operacyjna i zarządcza.',
+      perspectiveTitle: 'Perspektywa operacyjna w pracy doradczej.',
       perspectiveText:
-        'ClearStance łączy rozumienie realiów operacyjnych z pracą nad strukturami, procesami i decyzjami zarządczymi. Celem jest przygotowanie, które pozostaje użyteczne pod presją, a nie tylko poprawne na papierze.',
-      cta: 'Skontaktuj się'
+        'ClearStance łączy rozumienie realiów operacyjnych z pracą nad strukturami, procesami i decyzjami zarządczymi. Rozwiązania są osadzane w warunkach działania organizacji, aby zespół mógł wykorzystać je podczas rzeczywistego zdarzenia.'
     },
     contactPage: {
       metaTitle: 'Kontakt - ClearStance',
@@ -337,11 +330,13 @@ export const translations = {
         submit: 'Wyślij wiadomość',
         sending: 'Wysyłanie…',
         success: 'Dziękujemy. Wiadomość została wysłana.',
+        timeout:
+          'Nie udało się potwierdzić wyniku wysyłki. Wiadomość mogła zostać przekazana. Możesz spróbować ponownie lub napisać na contact@clearstance.pl.',
         failure:
           'Nie udało się wysłać wiadomości. Możesz napisać bezpośrednio na contact@clearstance.pl.',
         verification: 'Potwierdź weryfikację i spróbuj ponownie.',
         unavailable:
-          'Formularz jest chwilowo niedostępny. Napisz bezpośrednio na contact@clearstance.pl.'
+          'Formularz jest chwilowo niedostępny. Napisz bezpośrednio na contact@clearstance.pl.',
       }
     },
     insightsPage: {
@@ -363,6 +358,15 @@ export const translations = {
       readingTimeUnit: 'min czytania',
       contents: 'Spis treści',
       related: 'Powiązane publikacje',
+      publisher: {
+        eyebrow: 'O wydawcy',
+        title: 'ClearStance',
+        text:
+          'ClearStance jest niezależną praktyką doradczą zajmującą się gotowością kryzysową, ćwiczeniami, facylitacją i decyzjami podejmowanymi przy niepełnej informacji.',
+        services: 'Zakres wsparcia',
+        about: 'O ClearStance',
+        contact: 'Kontakt'
+      },
       share: {
         heading: 'Udostępnij',
         email: 'E-mail',
@@ -395,7 +399,7 @@ export const translations = {
         services: 'Services',
         insights: 'Insights',
         practice: 'How we work',
-        experience: 'Experience',
+        experience: 'About',
         contact: 'Contact'
       }
     },
@@ -417,9 +421,9 @@ export const translations = {
         eyebrow: 'Our approach',
         title: 'Crisis readiness in practice.',
         lead:
-          'Plans and procedures provide a framework for action. Real readiness also depends on whether a team understands its roles, can establish a shared operating picture and works to agreed principles.',
+          'Good readiness rests on a shared operating picture, clear accountability and principles a team can apply with incomplete information.',
         body:
-          'We combine the design of structures and procedures with exercises, facilitation and readiness reviews. This makes it possible to test assumptions, identify gaps and make corrections before a real event.',
+          'Structures, procedures and scenarios are therefore assessed against the real operating model, its dependencies and the decisions that need to be made.',
         pillars: [
           {
             label: 'Context',
@@ -463,7 +467,7 @@ export const translations = {
         ],
         perspectiveLabel: 'Perspective',
         perspective:
-          'Our experience also covers operational safety, security and work in safety-critical environments.',
+          'The work draws on experience from maritime shipping, aviation, operational safety, security and crisis management.',
         link: 'View all services'
       },
       readiness: {
@@ -472,37 +476,35 @@ export const translations = {
         quote: sharedHome.readiness.quote,
         items: [
           {
-            title: 'Understand',
-            text: 'We organise information, dependencies and priorities to establish a shared operating picture.'
+            title: 'Assess',
+            text: 'An assessment of risks, dependencies and current response arrangements establishes the starting point.'
           },
           {
             title: 'Prepare',
-            text: 'We define structures, roles, procedures, information flows and escalation principles.'
+            text: 'Roles, authority, escalation thresholds and information flows are agreed and understood.'
           },
           {
             title: 'Exercise',
-            text: 'We test assumptions and team performance through realistic scenarios.'
+            text: 'A realistic scenario puts assumptions, decisions and team coordination into practice.'
           },
           {
             title: 'Respond',
-            text: 'Preparation should enable coordinated action: escalation, information flow, communication and decision-making.'
+            text: 'During an event, the team can escalate, update the operating picture and coordinate decisions.'
           },
           {
             title: 'Improve',
-            text: 'We turn lessons from exercises and events into actions that strengthen organisational readiness.'
+            text: 'Lessons from exercises and events have owners, priorities and a date for review.'
           }
         ]
       },
       experience: {
-        ...sharedHome.experience,
-        title: 'Operational experience. Strategic perspective.',
+        eyebrow: 'Experience',
+        title: 'Operational experience with a strategic perspective.',
         paragraphs: [
-          'ClearStance is grounded in experience from two operational environments: maritime shipping and aviation.',
-          'ClearStance’s founder spent several years as an Officer of the Watch on container ships, responsible for safe navigation and working across operational safety and security.',
-          'Since 2018, he has worked in aviation, progressing from analytical and project roles to strategic responsibilities and crisis management.'
+          'ClearStance combines experience from maritime shipping and aviation with work in operational safety, strategy and crisis management.'
         ],
         closing:
-          'This background combines an operational perspective with an understanding of organisations, processes and management decisions.',
+          'The full context behind the practice, from operational responsibility to advisory work, is set out on the About page.',
         tracks: [
           {
             title: 'Maritime shipping',
@@ -521,39 +523,39 @@ export const translations = {
         title: 'Our way of working.',
         paragraphs: [
           'We begin with the organisation’s actual operating model: roles, dependencies, information flows and the way decisions are made.',
-          'We work with scenarios and problems grounded in the real operational environment. The result is a concrete change to structures, procedures, ways of working or team readiness.'
+          'The scope and method reflect the specific challenge. We work with the team to reach agreements that can be used in structures, procedures, an exercise or further improvement.'
         ],
         items: [
           {
-            title: 'Operational experience',
-            text: 'Solutions grounded in the realities of how an organisation operates.'
+            title: 'Operating context',
+            text: 'The work reflects the organisation’s actual roles, dependencies and constraints.'
           },
           {
-            title: 'Cross-sector perspective',
-            text: 'Experience from maritime shipping and aviation, complemented by work in safety, security and crisis management.'
+            title: 'Work with the team',
+            text: 'Facilitation involves the people responsible for decisions and delivery.'
           },
           {
-            title: 'Facilitation',
-            text: 'Structured work with teams, decisions and dependencies across functions.'
+            title: 'Proportionate scope',
+            text: 'The method and level of detail fit the challenge and the organisation’s maturity.'
           },
           {
-            title: 'Calm and precision',
-            text: 'Clear language, proportionate solutions and a focus on what the organisation will actually use.'
+            title: 'Usable outcomes',
+            text: 'The result identifies specific decisions, changes or improvement actions.'
           }
         ]
       },
       statement: {
-        first: 'Uncertainty is part of the operating environment.',
-        second: 'Chaos need not be.',
-        source: 'ClearStance · readiness philosophy',
+        first: 'Good readiness provides structure when events are moving quickly.',
+        second: 'The team knows what to verify, who decides and when to escalate.',
+        source: 'ClearStance · readiness in practice',
         imageAlt: 'A lighthouse casting a clear beam through darkness'
       },
       insights: {
         eyebrow: 'Insights',
-        title: 'Perspectives and observations',
+        title: 'Analysis grounded in practice',
         copy:
-          'Notes on crisis readiness, decision-making and operating under uncertainty.',
-        all: 'All Insights'
+          'Material on response structures, exercises, team performance and decisions made with incomplete information.',
+        all: 'Browse all Insights'
       },
       contact: {
         eyebrow: 'Contact',
@@ -644,10 +646,9 @@ export const translations = {
         }
       ],
       closingEyebrow: 'Starting point',
-      closingTitle: 'Context first. Then the solution.',
+      closingTitle: 'A scope shaped around the actual challenge.',
       closingText:
-        'We begin with the organisation’s operating model, dependencies and specific challenge. This keeps the scope proportionate, relevant and useful.',
-      cta: 'Discuss the scope'
+        'We begin with the organisation’s operating model, dependencies and specific challenge. We then agree the scope and intended result: decisions, roles, an exercise scenario or an improvement plan, depending on the situation.'
     },
     aboutPage: {
       metaTitle: 'About ClearStance - independent advisory practice',
@@ -655,7 +656,7 @@ export const translations = {
         'ClearStance combines operational experience from maritime shipping and aviation with strategic and crisis management perspective.',
       eyebrow: 'About ClearStance',
       title: 'From the bridge to the boardroom.',
-      lead: 'Operational experience. Strategic perspective.',
+      lead: 'Operational experience combined with a strategic perspective.',
       storyTitle: 'An advisory practice grounded in operational experience.',
       paragraphs: [
         'ClearStance is an independent advisory practice focused on crisis readiness, exercises, facilitation and decision-making under uncertainty.',
@@ -663,10 +664,9 @@ export const translations = {
         'ClearStance’s founder spent several years as an Officer of the Watch on container ships. He was responsible for safe navigation and worked across operational safety and security.',
         'Since 2018, he has worked in aviation. His background spans analytical, project and strategic roles, as well as crisis management.'
       ],
-      perspectiveTitle: 'Operational insight. Strategic perspective.',
+      perspectiveTitle: 'Operational perspective in advisory work.',
       perspectiveText:
-        'ClearStance connects an understanding of operational realities with work on structures, processes and management decisions. The objective is readiness that remains useful under pressure, not merely correct on paper.',
-      cta: 'Get in touch'
+        'ClearStance connects an understanding of operational realities with work on structures, processes and management decisions. Solutions are grounded in the organisation’s operating conditions so that the team can use them during a real event.'
     },
     contactPage: {
       metaTitle: 'Contact - ClearStance',
@@ -691,11 +691,13 @@ export const translations = {
         submit: 'Send message',
         sending: 'Sending…',
         success: 'Thank you. Your message has been sent.',
+        timeout:
+          'We could not confirm the result. Your message may have been submitted. You can try again or email contact@clearstance.pl directly.',
         failure:
           'The message could not be sent. You can email contact@clearstance.pl directly.',
         verification: 'Complete the verification and try again.',
         unavailable:
-          'The form is temporarily unavailable. Please email contact@clearstance.pl directly.'
+          'The form is temporarily unavailable. Please email contact@clearstance.pl directly.',
       }
     },
     insightsPage: {
@@ -717,6 +719,15 @@ export const translations = {
       readingTimeUnit: 'min read',
       contents: 'Contents',
       related: 'Related Insights',
+      publisher: {
+        eyebrow: 'About the publisher',
+        title: 'ClearStance',
+        text:
+          'ClearStance is an independent advisory practice focused on crisis readiness, exercises, facilitation and decision-making with incomplete information.',
+        services: 'Explore services',
+        about: 'About ClearStance',
+        contact: 'Contact'
+      },
       share: {
         heading: 'Share',
         email: 'E-mail',

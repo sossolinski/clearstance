@@ -1,7 +1,7 @@
 ---
 translationKey: crisis-exercises-performance
-title: Dobre ćwiczenie kryzysowe nie jest spektaklem
-description: Ćwiczenie nie powinno udowadniać, że organizacja potrafi wykonać przygotowany wcześniej scenariusz. Powinno pokazać, jak naprawdę podejmuje decyzje, gdy informacje są niepełne, czas ograniczony, a odpowiedzialności zaczynają się nakładać.
+title: Co decyduje o wartości ćwiczenia kryzysowego
+description: Dobrze zaprojektowane ćwiczenie ujawnia, jak organizacja podejmuje decyzje, gdy informacje są niepełne, czas ograniczony, a odpowiedzialności zaczynają się nakładać.
 slug: dobre-cwiczenie-kryzysowe-nie-jest-spektaklem
 publishedAt: 2026-07-10
 author: ClearStance
@@ -14,7 +14,7 @@ tags:
   - lessons-learned
 featured: false
 draft: false
-seoTitle: Dobre ćwiczenie kryzysowe nie jest spektaklem | ClearStance
+seoTitle: Co decyduje o wartości ćwiczenia kryzysowego | ClearStance
 seoDescription: Jak projektować ćwiczenia, które ujawniają rzeczywisty sposób podejmowania decyzji i prowadzą do przypisanych działań doskonalących.
 ---
 
@@ -78,4 +78,4 @@ Kolejny etap powinien połączyć obserwacje, zapisy kontroli, decyzje i perspek
 
 Działanie doskonalące powinno mieć właściciela, oczekiwany rezultat i termin przeglądu. Samo „zaktualizowanie procedury” może nie wystarczyć, jeśli problem dotyczył uprawnień, dostępu do informacji albo współpracy między jednostkami. Zamknięcie działania wymaga potwierdzenia, że zmiana została wdrożona i jest zrozumiała dla osób, które będą z niej korzystać.
 
-Dobre ćwiczenie może przebiegać spokojnie albo ujawnić poważne trudności. Jego wartość nie zależy od tego, jak przekonująco wyglądało z zewnątrz. Liczy się jakość wiedzy, którą organizacja uzyskała o swoim działaniu, oraz konsekwencja w przekształceniu tej wiedzy w realną poprawę gotowości.
+Dobre ćwiczenie może przebiegać spokojnie albo ujawnić poważne trudności. O jego wartości świadczy jakość wiedzy, którą organizacja uzyskała o swoim działaniu, oraz konsekwencja w przekształceniu tej wiedzy w realną poprawę gotowości.
