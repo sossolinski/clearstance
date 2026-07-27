@@ -16,13 +16,21 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Use Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22.12.0
           cache: npm
+
+      - name: Use exact npm version
+        run: npm install --global npm@10.9.8
+
+      - name: Verify runtime
+        run: |
+          node --version
+          npm --version
 
       - name: Install exact dependencies
         run: npm ci
