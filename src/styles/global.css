@@ -1412,6 +1412,33 @@ summary:focus-visible {
   line-height: var(--type-utility-line);
 }
 
+.footer-secondary-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-linkedin {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  align-items: center;
+  justify-content: center;
+  margin-block: -13px;
+  text-decoration: none;
+}
+
+.footer-linkedin svg {
+  width: 18px;
+  height: 18px;
+}
+
+.footer-linkedin:hover,
+.footer-linkedin:focus-visible {
+  color: var(--ink);
+}
+
 /* Shared page intro */
 
 .page-intro {
@@ -3128,6 +3155,10 @@ summary:focus-visible {
   .footer-secondary {
     flex-direction: column;
     gap: 7px;
+  }
+
+  .footer-linkedin {
+    margin-block: 0;
   }
 
   .page-intro {
