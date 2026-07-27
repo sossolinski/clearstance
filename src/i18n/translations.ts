@@ -33,6 +33,7 @@ export const translations = {
       location: 'Warszawa · Polska',
       footerTagline: 'Navigation under uncertainty',
       copyright: 'ClearStance. Wszelkie prawa zastrzeżone.',
+      privacy: 'Prywatność i cookies',
       nav: {
         approach: 'Podejście',
         services: 'Oferta',
@@ -394,6 +395,7 @@ export const translations = {
       location: 'Warsaw · Poland',
       footerTagline: 'Navigation under uncertainty',
       copyright: 'ClearStance. All rights reserved.',
+      privacy: 'Privacy & cookies',
       nav: {
         approach: 'Approach',
         services: 'Services',

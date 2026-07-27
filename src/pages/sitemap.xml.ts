@@ -8,7 +8,14 @@ import {
 
 export const prerender = true;
 
-const staticPages: PageKey[] = ['home', 'services', 'insights', 'about', 'contact'];
+const staticPages: PageKey[] = [
+  'home',
+  'services',
+  'insights',
+  'about',
+  'contact',
+  'privacy'
+];
 
 function escapeXml(value: string): string {
   return value

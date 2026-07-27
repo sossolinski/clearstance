@@ -1,0 +1,89 @@
+---
+import type { Locale } from '../../i18n/routes';
+import { getRoute } from '../../i18n/routes';
+import { getTranslations } from '../../i18n/translations';
+import { getPrivacyContent } from '../../content/privacy';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageIntro from '../sections/PageIntro.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const content = getPrivacyContent(locale);
+const otherLocale = locale === 'pl' ? 'en' : 'pl';
+---
+
+<BaseLayout
+  locale={locale}
+  title={content.metaTitle}
+  description={content.metaDescription}
+  canonicalPath={getRoute(locale, 'privacy')}
+  alternatePath={getRoute(otherLocale, 'privacy')}
+  plPath={getRoute('pl', 'privacy')}
+  enPath={getRoute('en', 'privacy')}
+  xDefaultPath={getRoute('pl', 'privacy')}
+>
+  <main id="main-content">
+    <PageIntro
+      eyebrow={content.eyebrow}
+      title={content.title}
+      lead={content.lead}
+    />
+
+    <div class="privacy-page">
+      <article class="wrap privacy-content" aria-labelledby="page-title">
+        <p class="privacy-updated">{content.updated}</p>
+
+        <section
+          class="privacy-section"
+          aria-labelledby="privacy-controller-title"
+        >
+          <h2 id="privacy-controller-title">{content.controller.title}</h2>
+          <p>{content.controller.description}</p>
+          <p>
+            {content.controller.contact}:
+            {' '}
+            <a href={`mailto:${t.site.email}`}>{t.site.email}</a>
+          </p>
+          <p>{content.controller.location}</p>
+        </section>
+
+        {
+          content.sections.map((section) => (
+            <section
+              class="privacy-section"
+              aria-labelledby={`privacy-${section.id}-title`}
+            >
+              <h2 id={`privacy-${section.id}-title`}>{section.title}</h2>
+              {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+              {
+                section.items && (
+                  <ul>
+                    {section.items.map((item) => <li>{item}</li>)}
+                  </ul>
+                )
+              }
+              {
+                section.externalLink && (
+                  <p>
+                    {section.externalLink.before}
+                    <a
+                      href={section.externalLink.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {section.externalLink.label}
+                    </a>.
+                  </p>
+                )
+              }
+            </section>
+          ))
+        }
+      </article>
+    </div>
+  </main>
+</BaseLayout>

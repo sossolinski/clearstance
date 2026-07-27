@@ -4,7 +4,8 @@ export type PageKey =
   | 'services'
   | 'insights'
   | 'about'
-  | 'contact';
+  | 'contact'
+  | 'privacy';
 
 export const routes: Record<Locale, Record<PageKey, string>> = {
   pl: {
@@ -13,6 +14,7 @@ export const routes: Record<Locale, Record<PageKey, string>> = {
     insights: '/insights/',
     about: '/o-clearstance/',
     contact: '/kontakt/',
+    privacy: '/polityka-prywatnosci/'
   },
   en: {
     home: '/en/',
@@ -20,6 +22,7 @@ export const routes: Record<Locale, Record<PageKey, string>> = {
     insights: '/en/insights/',
     about: '/en/about/',
     contact: '/en/contact/',
+    privacy: '/en/privacy/'
   }
 };
 
