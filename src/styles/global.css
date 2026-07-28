@@ -1313,16 +1313,6 @@ summary:focus-visible {
   line-height: 1.72;
 }
 
-.contact-band-meta {
-  display: block;
-  margin-top: 14px;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: var(--type-utility-sm);
-  letter-spacing: 0.04em;
-  line-height: var(--type-utility-line);
-}
-
 /* Footer */
 
 .site-footer {
@@ -1861,7 +1851,7 @@ summary:focus-visible {
 .contact-detail a,
 .contact-detail strong {
   font-family: var(--display);
-  font-size: clamp(25px, 3vw, 38px);
+  font-size: clamp(28px, 2.35vw, 32px);
   font-weight: 480;
   letter-spacing: -0.03em;
   line-height: 1.15;
@@ -3325,7 +3315,7 @@ summary:focus-visible {
 
   .contact-detail a,
   .contact-detail strong {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .contact-form {
@@ -3537,8 +3527,12 @@ summary:focus-visible {
     font-size: 22px;
   }
 
-  .contact-detail a {
+  .contact-detail a,
+  .contact-detail strong {
     font-size: 23px;
+  }
+
+  .contact-detail a {
     overflow-wrap: anywhere;
   }
 

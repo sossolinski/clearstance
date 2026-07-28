@@ -161,12 +161,23 @@ for (const [homeFile, contactPath, contactFile] of [
     report(`${homeFile}: primary contact CTA does not link to ${contactPath}.`);
   }
 
-  if (homeHtml.includes('class="contact-band-meta"')) {
-    report(`${homeFile}: redundant contact metadata is present below the CTA.`);
-  }
-
   if (!contactHtml.includes('href="mailto:contact@clearstance.pl"')) {
     report(`${contactFile}: direct email fallback is missing.`);
+  }
+}
+
+for (const file of [
+  'index.html',
+  'en/index.html',
+  'oferta/index.html',
+  'en/services/index.html',
+  'o-clearstance/index.html',
+  'en/about/index.html'
+]) {
+  const html = await readFile(path.join(dist, file), 'utf8');
+
+  if (html.includes('class="contact-band-meta"')) {
+    report(`${file}: redundant contact metadata is present below the CTA.`);
   }
 }
 

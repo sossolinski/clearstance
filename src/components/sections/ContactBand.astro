@@ -1,18 +1,13 @@
 ---
 import type { Locale } from '../../i18n/routes';
 import { getRoute } from '../../i18n/routes';
-import {
-  getTranslations,
-  getVisibleTranslations
-} from '../../i18n/translations';
+import { getVisibleTranslations } from '../../i18n/translations';
 
 interface Props {
   locale: Locale;
-  showMeta?: boolean;
 }
 
-const { locale, showMeta = true } = Astro.props;
-const t = getTranslations(locale);
+const { locale } = Astro.props;
 const content = getVisibleTranslations(locale).home.contact;
 ---
 
@@ -32,15 +27,6 @@ const content = getVisibleTranslations(locale).home.contact;
         <span>{content.cta}</span>
         <span aria-hidden="true">↗</span>
       </a>
-      {
-        showMeta && (
-          <span class="contact-band-meta">
-            <a href={`mailto:${t.site.email}`}>{t.site.email}</a>
-            {' · '}
-            {t.site.location}
-          </span>
-        )
-      }
     </div>
   </div>
 </section>
