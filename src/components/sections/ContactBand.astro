@@ -8,9 +8,10 @@ import {
 
 interface Props {
   locale: Locale;
+  showMeta?: boolean;
 }
 
-const { locale } = Astro.props;
+const { locale, showMeta = true } = Astro.props;
 const t = getTranslations(locale);
 const content = getVisibleTranslations(locale).home.contact;
 ---
@@ -31,11 +32,15 @@ const content = getVisibleTranslations(locale).home.contact;
         <span>{content.cta}</span>
         <span aria-hidden="true">↗</span>
       </a>
-      <span class="contact-band-meta">
-        <a href={`mailto:${t.site.email}`}>{t.site.email}</a>
-        {' · '}
-        {t.site.location}
-      </span>
+      {
+        showMeta && (
+          <span class="contact-band-meta">
+            <a href={`mailto:${t.site.email}`}>{t.site.email}</a>
+            {' · '}
+            {t.site.location}
+          </span>
+        )
+      }
     </div>
   </div>
 </section>

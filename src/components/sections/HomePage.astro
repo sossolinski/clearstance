@@ -131,13 +131,6 @@ const professionalServiceSchema = {
           )
         }
       </div>
-      <div class="hero-meta">
-        <div class="wrap">
-          <span>Navigation under uncertainty</span>
-          <span aria-hidden="true" class="hero-meta-line"></span>
-          <span>ClearStance</span>
-        </div>
-      </div>
     </section>
 
     <section class="approach-section" id={approachId} aria-labelledby="approach-title">
@@ -295,7 +288,7 @@ const professionalServiceSchema = {
       </div>
     </section>
 
-    <section class="brand-statement" aria-label={t.home.statement.source}>
+    <section class="brand-statement" aria-label={t.home.statement.first}>
       <picture class="brand-statement-media">
         <source
           srcset="
@@ -321,7 +314,6 @@ const professionalServiceSchema = {
           {content.statement.first}
           <span>{content.statement.second}</span>
         </blockquote>
-        <p>{content.statement.source}</p>
       </div>
     </section>
 
@@ -364,6 +356,6 @@ const professionalServiceSchema = {
       )
     }
 
-    <ContactBand locale={locale} />
+    <ContactBand locale={locale} showMeta={false} />
   </main>
 </BaseLayout>

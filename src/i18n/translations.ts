@@ -185,16 +185,16 @@ export const translations = {
         ]
       },
       statement: {
-        first: 'Dobra gotowość porządkuje działanie, gdy sytuacja szybko się zmienia.',
-        second: 'Zespół wie, co sprawdzić, kto decyduje i kiedy eskalować.',
-        source: 'ClearStance · gotowość w praktyce',
+        first: 'Gotowość porządkuje działanie.',
+        second:
+          'Jasne role, decyzje i zasady eskalacji pomagają działać sprawnie pod presją.',
         imageAlt: 'Latarnia morska oświetlająca drogę w ciemności'
       },
       insights: {
-        eyebrow: 'Insights',
-        title: 'Analizy z praktyki',
+        eyebrow: 'INSIGHTS',
+        title: 'ClearStance Insights',
         copy:
-          'Materiały o strukturach reagowania, ćwiczeniach, pracy zespołów i decyzjach podejmowanych przy niepełnej informacji.',
+          'Publikacje o gotowości organizacyjnej, zarządzaniu kryzysowym, ćwiczeniach i decyzjach podejmowanych pod presją.',
         all: 'Zobacz wszystkie publikacje'
       },
       contact: {
@@ -341,16 +341,16 @@ export const translations = {
       }
     },
     insightsPage: {
-      metaTitle: 'Insights - ClearStance',
+      metaTitle: 'ClearStance Insights - gotowość i zarządzanie kryzysowe',
       metaDescription:
-        'Analizy i materiały ClearStance o gotowości kryzysowej, ćwiczeniach, facylitacji i decyzjach pod presją.',
-      eyebrow: 'Insights',
-      title: 'Praktyczne spojrzenie na gotowość.',
+        'ClearStance Insights: publikacje o gotowości organizacyjnej, zarządzaniu kryzysowym, ćwiczeniach i decyzjach pod presją.',
+      eyebrow: 'CLEARSTANCE INSIGHTS',
+      title: 'Publikacje o gotowości i zarządzaniu kryzysowym.',
       lead:
-        'Analizy dotyczące struktur, ćwiczeń, pracy zespołów i decyzji podejmowanych w warunkach niepewności.',
+        'Materiały dotyczące struktur reagowania, ćwiczeń, pracy zespołów i decyzji podejmowanych pod presją.',
       read: 'Czytaj materiał',
       empty: 'Pierwsze publikacje pojawią się wkrótce.',
-      back: 'Wróć do Insights',
+      back: 'ClearStance Insights',
       published: 'Data publikacji',
       updated: 'Aktualizacja',
       category: 'Kategoria',
@@ -547,16 +547,16 @@ export const translations = {
         ]
       },
       statement: {
-        first: 'Good readiness provides structure when events are moving quickly.',
-        second: 'The team knows what to verify, who decides and when to escalate.',
-        source: 'ClearStance · readiness in practice',
+        first: 'Readiness brings structure to response.',
+        second:
+          'Clear roles, decisions and escalation paths help teams operate effectively under pressure.',
         imageAlt: 'A lighthouse casting a clear beam through darkness'
       },
       insights: {
-        eyebrow: 'Insights',
-        title: 'Analysis grounded in practice',
+        eyebrow: 'INSIGHTS',
+        title: 'ClearStance Insights',
         copy:
-          'Material on response structures, exercises, team performance and decisions made with incomplete information.',
+          'Publications on organizational readiness, crisis management, exercises and decision-making under pressure.',
         all: 'Browse all Insights'
       },
       contact: {
@@ -703,16 +703,16 @@ export const translations = {
       }
     },
     insightsPage: {
-      metaTitle: 'Insights - ClearStance',
+      metaTitle: 'ClearStance Insights - readiness and crisis management',
       metaDescription:
-        'ClearStance analysis on crisis readiness, exercises, facilitation and decision-making under pressure.',
-      eyebrow: 'Insights',
-      title: 'A practical view of readiness.',
+        'ClearStance Insights publishes articles on organizational readiness, crisis management, exercises and decision-making under pressure.',
+      eyebrow: 'CLEARSTANCE INSIGHTS',
+      title: 'Publications on readiness and crisis management.',
       lead:
-        'Analysis of structures, exercises, team performance and decisions made under uncertainty.',
+        'Articles and materials on response structures, exercises, how teams work and decision-making under pressure.',
       read: 'Read insight',
       empty: 'The first publications will appear here soon.',
-      back: 'Back to Insights',
+      back: 'ClearStance Insights',
       published: 'Publication date',
       updated: 'Updated',
       category: 'Category',

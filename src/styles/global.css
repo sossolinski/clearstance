@@ -643,36 +643,6 @@ summary:focus-visible {
   transform: translateX(2px);
 }
 
-.hero-meta {
-  position: absolute;
-  z-index: 3;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-top: 1px solid rgb(255 255 255 / 12%);
-  background: rgb(4 16 24 / 48%);
-  backdrop-filter: blur(4px);
-}
-
-.hero-meta .wrap {
-  display: flex;
-  align-items: center;
-  height: 48px;
-  gap: 17px;
-  color: rgb(255 255 255 / 50%);
-  font-family: var(--mono);
-  font-size: var(--type-utility-sm);
-  letter-spacing: 0.15em;
-  line-height: var(--type-utility-line);
-  text-transform: uppercase;
-}
-
-.hero-meta-line {
-  width: 24px;
-  height: 1px;
-  background: var(--teal);
-}
-
 /* Homepage — approach */
 
 .approach-section {
@@ -846,7 +816,6 @@ summary:focus-visible {
   gap: 28px;
   margin-top: 27px;
   padding-top: 22px;
-  border-top: 1px solid var(--line);
 }
 
 .perspective-note > strong {
@@ -3080,11 +3049,6 @@ summary:focus-visible {
   .hero-copy {
     max-width: 560px;
     font-size: 14.5px;
-  }
-
-  .hero-meta .wrap span:last-child,
-  .hero-meta-line {
-    display: none;
   }
 
   .approach-section,

@@ -143,11 +143,12 @@ for (const routeCase of routeCases) {
   await checkHtml(routeCase.file, routeCase);
 }
 
-for (const [homeFile, contactPath] of [
-  ['index.html', '/kontakt/'],
-  ['en/index.html', '/en/contact/']
+for (const [homeFile, contactPath, contactFile] of [
+  ['index.html', '/kontakt/', 'kontakt/index.html'],
+  ['en/index.html', '/en/contact/', 'en/contact/index.html']
 ]) {
   const homeHtml = await readFile(path.join(dist, homeFile), 'utf8');
+  const contactHtml = await readFile(path.join(dist, contactFile), 'utf8');
   const primaryContactLinks = [
     ...homeHtml.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/gu)
   ]
@@ -160,8 +161,12 @@ for (const [homeFile, contactPath] of [
     report(`${homeFile}: primary contact CTA does not link to ${contactPath}.`);
   }
 
-  if (!homeHtml.includes('href="mailto:contact@clearstance.pl"')) {
-    report(`${homeFile}: direct email fallback is missing.`);
+  if (homeHtml.includes('class="contact-band-meta"')) {
+    report(`${homeFile}: redundant contact metadata is present below the CTA.`);
+  }
+
+  if (!contactHtml.includes('href="mailto:contact@clearstance.pl"')) {
+    report(`${contactFile}: direct email fallback is missing.`);
   }
 }
 
