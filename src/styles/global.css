@@ -2818,13 +2818,17 @@ summary:focus-visible {
     min-height: 730px;
   }
 
+  .hero-media img {
+    object-position: right center;
+  }
+
   .hero-primary {
     width: 69%;
   }
 
   .hero-featured {
     right: 60px;
-    bottom: 22px;
+    bottom: -28px;
     width: 320px;
     padding: 17px 19px 18px;
   }
@@ -2989,7 +2993,7 @@ summary:focus-visible {
   }
 
   .hero-media img {
-    object-position: 69% center;
+    object-position: 85% center;
   }
 
   .hero-overlay {

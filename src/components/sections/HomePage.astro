@@ -67,19 +67,57 @@ const professionalServiceSchema = {
     <section class="hero" aria-labelledby="hero-title">
       <picture class="hero-media">
         <source
+          media="(max-width: 760px)"
           srcset="
-            /images/hero-navigation-640.webp 640w,
-            /images/hero-navigation-960.webp 960w,
-            /images/hero-navigation-1440.webp 1440w,
-            /images/hero-navigation.webp 1920w
+            /images/hero-lighthouse-horizon-mobile-640.avif 640w,
+            /images/hero-lighthouse-horizon-mobile-900.avif 900w
           "
           sizes="100vw"
+          width="1024"
+          height="1536"
+          type="image/avif"
+        />
+        <source
+          media="(min-width: 761px)"
+          srcset="
+            /images/hero-lighthouse-horizon-desktop-640.avif 640w,
+            /images/hero-lighthouse-horizon-desktop-960.avif 960w,
+            /images/hero-lighthouse-horizon-desktop-1440.avif 1440w,
+            /images/hero-lighthouse-horizon-desktop-1920.avif 1920w
+          "
+          sizes="100vw"
+          width="1671"
+          height="941"
+          type="image/avif"
+        />
+        <source
+          media="(max-width: 760px)"
+          srcset="
+            /images/hero-lighthouse-horizon-mobile-640.webp 640w,
+            /images/hero-lighthouse-horizon-mobile-900.webp 900w
+          "
+          sizes="100vw"
+          width="1024"
+          height="1536"
+          type="image/webp"
+        />
+        <source
+          media="(min-width: 761px)"
+          srcset="
+            /images/hero-lighthouse-horizon-desktop-640.webp 640w,
+            /images/hero-lighthouse-horizon-desktop-960.webp 960w,
+            /images/hero-lighthouse-horizon-desktop-1440.webp 1440w,
+            /images/hero-lighthouse-horizon-desktop-1920.webp 1920w
+          "
+          sizes="100vw"
+          width="1671"
+          height="941"
           type="image/webp"
         />
         <img
-          src="/images/hero-navigation.jpg"
-          width="1920"
-          height="1080"
+          src="/images/hero-lighthouse-horizon-desktop-master.png"
+          width="1671"
+          height="941"
           alt={t.home.hero.imageAlt}
           fetchpriority="high"
         />

@@ -55,7 +55,7 @@ export const translations = {
           'Pomagamy organizacjom przygotować struktury, zespoły i sposób działania w sytuacjach wymagających szybkich decyzji przy niepełnej informacji.',
         cta: 'Poznaj nasze podejście',
         featured: 'Wyróżnione',
-        imageAlt: 'Latarnia morska wskazująca drogę na wzburzonym morzu'
+        imageAlt: 'Spokojne nadmorskie ujęcie latarni morskiej o zmierzchu.'
       },
       approach: {
         eyebrow: 'Nasze podejście',
@@ -417,7 +417,7 @@ export const translations = {
           'We help organisations prepare their structures, teams and ways of working for situations that demand timely decisions with incomplete information.',
         cta: 'Explore our approach',
         featured: 'Featured',
-        imageAlt: 'A lighthouse providing orientation in rough seas'
+        imageAlt: 'A calm coastal view of a lighthouse at dusk.'
       },
       approach: {
         eyebrow: 'Our approach',
