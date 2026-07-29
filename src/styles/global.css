@@ -474,7 +474,8 @@ summary:focus-visible {
   position: relative;
   display: flex;
   align-items: center;
-  min-height: min(780px, 92svh);
+  min-height: 100vh;
+  min-height: 100svh;
   overflow: hidden;
   color: var(--white);
   background: var(--ink);
@@ -627,7 +628,7 @@ summary:focus-visible {
 /* Homepage — approach */
 
 .approach-section {
-  padding: 48px 0 88px;
+  padding: 84px 0 88px;
   background: var(--paper);
 }
 
@@ -2796,7 +2797,8 @@ summary:focus-visible {
   }
 
   .hero {
-    min-height: 730px;
+    min-height: max(730px, 100vh);
+    min-height: max(730px, 100svh);
   }
 
   .hero-media img {
@@ -2961,7 +2963,8 @@ summary:focus-visible {
   }
 
   .hero {
-    min-height: 690px;
+    min-height: max(690px, 100vh);
+    min-height: max(690px, 100svh);
   }
 
   .hero-media img {
@@ -3045,10 +3048,6 @@ summary:focus-visible {
   .practice-section {
     padding-top: 70px;
     padding-bottom: 76px;
-  }
-
-  .hero + .approach-section {
-    padding-top: 24px;
   }
 
   .approach-grid,
