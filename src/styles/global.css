@@ -627,7 +627,7 @@ summary:focus-visible {
 /* Homepage — approach */
 
 .approach-section {
-  padding: 84px 0 88px;
+  padding: 48px 0 88px;
   background: var(--paper);
 }
 
@@ -3045,6 +3045,10 @@ summary:focus-visible {
   .practice-section {
     padding-top: 70px;
     padding-bottom: 76px;
+  }
+
+  .hero + .approach-section {
+    padding-top: 24px;
   }
 
   .approach-grid,
