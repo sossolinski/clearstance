@@ -8,10 +8,7 @@ import {
 import { formatVisibleText } from '../../i18n/typography.js';
 import HomeInsightTeaser from '../insights/HomeInsightTeaser.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import {
-  calculateReadingTime,
-  getHomepageInsights
-} from '../../lib/insights';
+import { getHomepageInsights } from '../../lib/insights';
 import ContactBand from './ContactBand.astro';
 
 interface Props {
@@ -26,9 +23,6 @@ const {
   featured: featuredInsight,
   entries: homepageInsights
 } = await getHomepageInsights(locale);
-const featuredReadingMinutes = featuredInsight
-  ? calculateReadingTime(featuredInsight.body ?? '')
-  : undefined;
 const otherLocale = locale === 'pl' ? 'en' : 'pl';
 const approachId = locale === 'pl' ? 'podejscie' : 'approach';
 const servicesId = locale === 'pl' ? 'oferta' : 'services';
@@ -136,39 +130,32 @@ const professionalServiceSchema = {
             <span aria-hidden="true">↓</span>
           </a>
         </div>
-        {
-          featuredInsight && featuredReadingMinutes && (
-            <aside
-              class="hero-featured"
-              aria-labelledby="hero-featured-title"
+      </div>
+      {
+        featuredInsight && (
+          <aside
+            class="hero-featured"
+            aria-labelledby="hero-featured-title"
+          >
+            <a
+              class="hero-featured-link"
+              href={getArticlePath(locale, featuredInsight.data.slug)}
             >
-              <p class="hero-featured-label">{content.hero.featured}</p>
-              <a
-                class="hero-featured-link"
-                href={getArticlePath(locale, featuredInsight.data.slug)}
-              >
+              <div class="wrap hero-featured-inner">
+                <p class="hero-featured-signature">ClearStance Insights</p>
+                <span class="hero-featured-divider" aria-hidden="true"></span>
                 <h2
                   id="hero-featured-title"
                   class="hero-featured-title"
                 >
                   {formatVisibleText(featuredInsight.data.title, locale)}
                 </h2>
-                <p class="hero-featured-meta">
-                  <span>{formatVisibleText(featuredInsight.data.category, locale)}</span>
-                  <span aria-hidden="true">·</span>
-                  <span>
-                    {featuredReadingMinutes} {visible.insightsPage.readingTimeUnit}
-                  </span>
-                </p>
-                <span class="hero-featured-read">
-                  {visible.insightsPage.read}
-                  <span aria-hidden="true">→</span>
-                </span>
-              </a>
-            </aside>
-          )
-        }
-      </div>
+                <span class="hero-featured-arrow" aria-hidden="true">→</span>
+              </div>
+            </a>
+          </aside>
+        )
+      }
     </section>
 
     <section class="approach-section" id={approachId} aria-labelledby="approach-title">
