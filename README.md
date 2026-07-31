@@ -1,6 +1,6 @@
 # ClearStance
 
-Production website for ClearStance, an independent advisory practice focused on crisis readiness, crisis management, exercises and simulations, facilitation, and organisational preparedness.
+Production website for ClearStance, an independent advisory practice helping organisations prepare how they will make decisions, communicate and support people during serious incidents.
 
 The implementation is based on the approved ClearStance v10 homepage reference. It preserves the reference’s visual identity, Polish homepage copy, photography, section order, proportions, and restrained motion while extending the design into a complete bilingual website.
 
@@ -325,9 +325,11 @@ No CMS credentials belong in `config.yml`; that file is public by design.
 
 ## Images
 
-The three approved images were extracted from the embedded data URIs in the supplied homepage prototype and saved as normal assets in `public/images/`.
+The legacy approved images were extracted from the embedded data URIs in the supplied homepage prototype and saved as normal assets in `public/images/`.
 
 Optimised WebP versions are used through `<picture>` elements with the extracted JPEGs as fallbacks. The social preview is generated from the approved hero image.
+
+The Experience section uses four AI-generated editorial masters stored outside the public output in `assets/experience/source/`. The image pipeline creates only the approved responsive AVIF and WebP variants in `public/images/experience/`; details, source constraints, alternative text and file sizes are recorded in `docs/experience-assets.md`.
 
 To regenerate the optimised assets:
 
@@ -350,6 +352,10 @@ The shared base layout provides:
 - Article data for published Insights only.
 
 `src/pages/sitemap.xml.ts` generates a static bilingual sitemap. It includes published Insights, excludes drafts, and adds alternates only when a real translated entry exists. `public/robots.txt` points to the sitemap.
+
+## Privacy and client-side storage
+
+If analytics, advertising, marketing pixels or other non-essential client-side storage are added in the future, they must not load before the applicable consent mechanism has been implemented and consent obtained where required.
 
 ## Contact form
 

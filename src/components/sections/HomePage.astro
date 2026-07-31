@@ -9,7 +9,11 @@ import { formatVisibleText } from '../../i18n/typography.js';
 import HomeInsightTeaser from '../insights/HomeInsightTeaser.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getHomepageInsights } from '../../lib/insights';
+import { getServiceIconName } from '../../lib/service-icons';
 import ContactBand from './ContactBand.astro';
+import Icon from '../ui/Icon.astro';
+import BrandStatement from './BrandStatement.astro';
+import ExperienceMedia from '../ui/ExperienceMedia.astro';
 
 interface Props {
   locale: Locale;
@@ -40,8 +44,18 @@ const professionalServiceSchema = {
     name: locale === 'pl' ? 'Polska' : 'Poland'
   },
   knowsAbout: locale === 'pl'
-    ? ['gotowość kryzysowa', 'zarządzanie kryzysowe', 'ćwiczenia i symulacje', 'facylitacja']
-    : ['crisis readiness', 'crisis management', 'exercises and simulations', 'facilitation']
+    ? [
+        'zarządzanie kryzysowe',
+        'ćwiczenia i facylitacja',
+        'komunikacja kryzysowa',
+        'wsparcie osób dotkniętych zdarzeniem i ich bliskich'
+      ]
+    : [
+        'crisis management',
+        'exercises and facilitation',
+        'crisis communication',
+        'affected people and family assistance'
+      ]
 };
 ---
 
@@ -191,17 +205,24 @@ const professionalServiceSchema = {
           </div>
           <p>{content.services.intro}</p>
         </div>
-        <ol class="service-list" data-reveal>
+        <ul class="service-list" data-reveal>
           {
             content.services.items.map((service, index) => (
               <li>
-                <span class="service-number">{String(index + 1).padStart(2, '0')}</span>
-                <h3>{service.title}</h3>
+                <Icon
+                  class="service-icon"
+                  name={getServiceIconName(index)}
+                  size={36}
+                  decorative
+                />
+                <h3 class:list={{ 'service-title--long': index === 3 }}>
+                  {service.title}
+                </h3>
                 <p>{service.text}</p>
               </li>
             ))
           }
-        </ol>
+        </ul>
         <div class="perspective-note" data-reveal>
           <strong>{content.services.perspectiveLabel}</strong>
           <p>{content.services.perspective}</p>
@@ -243,40 +264,32 @@ const professionalServiceSchema = {
     </section>
 
     <section class="experience-section" id={experienceId} aria-labelledby="experience-title">
-      <div class="wrap experience-panel" data-reveal>
-        <picture class="experience-image">
-          <source
-            srcset="
-              /images/operational-briefing-640.webp 640w,
-              /images/operational-briefing-960.webp 960w,
-              /images/operational-briefing-1440.webp 1440w,
-              /images/operational-briefing.webp 1920w
-            "
-            sizes="
-              (max-width: 760px) calc(100vw - 32px),
-              (max-width: 1080px) calc(100vw - 44px),
-              545px
-            "
-            type="image/webp"
-          />
-          <img
-            src="/images/operational-briefing.jpg"
-            width="1920"
-            height="1080"
-            alt={t.home.experience.imageAlt}
-            loading="lazy"
-          />
-        </picture>
-        <div class="experience-copy">
+      <div class="wrap experience-layout" data-reveal>
+        <header class="experience-header">
           <p class="eyebrow">{content.experience.eyebrow}</p>
           <h2 id="experience-title">{content.experience.title}</h2>
+        </header>
+        <ExperienceMedia
+          surface="home"
+          maritimeAlt={t.home.experience.mediaAlt.maritime}
+          aviationAlt={t.home.experience.mediaAlt.aviation}
+        />
+        <div class="experience-body">
           {content.experience.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
           <p class="experience-closing">{content.experience.closing}</p>
           <dl class="experience-tracks">
             {
-              content.experience.tracks.map((track) => (
+              content.experience.tracks.map((track, index) => (
                 <div>
-                  <dt>{track.title}</dt>
+                  <dt>
+                    <Icon
+                      class="experience-domain-icon"
+                      name={index === 0 ? 'compass' : 'maps-arrow-diagonal'}
+                      size={22}
+                      decorative
+                    />
+                    <span>{track.title}</span>
+                  </dt>
                   <dd>{track.text}</dd>
                 </div>
               ))
@@ -298,49 +311,25 @@ const professionalServiceSchema = {
         </div>
         <div class="practice-copy">
           {content.practice.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-          <ol class="practice-list">
+          <ul class="practice-list">
             {
-              content.practice.items.map((item, index) => (
+              content.practice.items.map((item) => (
                 <li>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                 </li>
               ))
             }
-          </ol>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="brand-statement" aria-label={t.home.statement.first}>
-      <picture class="brand-statement-media">
-        <source
-          srcset="
-            /images/brand-statement-640.webp 640w,
-            /images/brand-statement-960.webp 960w,
-            /images/brand-statement-1440.webp 1440w,
-            /images/brand-statement.webp 1920w
-          "
-          sizes="100vw"
-          type="image/webp"
-        />
-        <img
-          src="/images/brand-statement.jpg"
-          width="1920"
-          height="1080"
-          alt={t.home.statement.imageAlt}
-          loading="lazy"
-        />
-      </picture>
-      <div class="brand-statement-overlay" aria-hidden="true"></div>
-      <div class="wrap" data-reveal>
-        <blockquote>
-          {content.statement.first}
-          <span>{content.statement.second}</span>
-        </blockquote>
-      </div>
-    </section>
+    <BrandStatement
+      locale={locale}
+      first={content.statement.first}
+      second={content.statement.second}
+    />
 
     {
       homepageInsights.length > 0 && (
@@ -363,19 +352,18 @@ const professionalServiceSchema = {
                 <span aria-hidden="true">→</span>
               </a>
             </header>
-            <ol class="home-insights-list" data-reveal>
+            <ul class="home-insights-list" data-reveal>
               {
-                homepageInsights.map((entry, index) => (
+                homepageInsights.map((entry) => (
                   <HomeInsightTeaser
                     entry={entry}
-                    index={index}
                     locale={locale}
                     readLabel={visible.insightsPage.read}
                     readingTimeUnit={visible.insightsPage.readingTimeUnit}
                   />
                 ))
               }
-            </ol>
+            </ul>
           </div>
         </section>
       )

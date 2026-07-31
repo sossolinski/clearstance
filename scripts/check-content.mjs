@@ -6,6 +6,7 @@ import {
   INSIGHT_SCHEMA_FIELDS,
   insightSchema
 } from '../src/content/insight-schema.ts';
+import { INSIGHT_VISUAL_THEMES } from '../src/lib/insight-visual-theme.ts';
 import { getTranslations } from '../src/i18n/translations.ts';
 
 const root = process.cwd();
@@ -276,6 +277,7 @@ function normaliseCmsField(field) {
     format: field.format ?? null,
     chooseUrl: field.choose_url ?? null,
     pattern: Array.isArray(field.pattern) ? field.pattern[0] : null,
+    options: Array.isArray(field.options) ? field.options : null,
     child: field.field ? normaliseCmsField(field.field) : null
   };
 }
@@ -327,6 +329,25 @@ function checkCmsParity(config) {
       if ('pattern' in field) {
         error(
           `${collection.name}.${fieldName} must not define pattern; this would break the Sveltia image workaround.`
+        );
+      }
+    }
+
+    const visualTheme = collection.fields.find(
+      ({ name }) => name === 'visualTheme'
+    );
+    if (!visualTheme || visualTheme.widget !== 'select') {
+      error(`${collection.name}.visualTheme must be an optional select widget.`);
+    } else {
+      if (visualTheme.required !== false) {
+        error(`${collection.name}.visualTheme must remain optional.`);
+      }
+      if (
+        JSON.stringify(visualTheme.options) !==
+        JSON.stringify(INSIGHT_VISUAL_THEMES)
+      ) {
+        error(
+          `${collection.name}.visualTheme options must match the production theme allowlist.`
         );
       }
     }

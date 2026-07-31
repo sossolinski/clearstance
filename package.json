@@ -5,25 +5,28 @@
   "type": "module",
   "packageManager": "npm@10.9.8",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "npm run generate:insight-og && astro dev",
+    "build": "npm run generate:insight-og && astro build",
     "preview": "astro preview",
     "check": "astro check",
     "typecheck": "tsc --noEmit",
     "check:links": "node scripts/check-links.mjs",
     "test:dist": "node scripts/check-dist.mjs",
+    "test:release-dom": "node --test tests/release-dom.test.mjs",
     "test:content": "node --experimental-strip-types scripts/check-content.mjs",
     "check:worker": "npm run build && wrangler deploy --dry-run --outdir .wrangler-build",
     "test:contact": "node --experimental-strip-types --test tests/contact.test.mjs",
-    "test:frontend": "node --experimental-strip-types --test tests/contact-form.test.mjs tests/json-ld.test.mjs",
+    "test:frontend": "node --experimental-strip-types --test tests/contact-form.test.mjs tests/insight-visual-theme.test.mjs tests/insights-social-image.test.mjs tests/json-ld.test.mjs tests/service-icons.test.mjs",
     "dev:cloudflare": "npm run build && wrangler dev",
     "deploy:cloudflare": "wrangler deploy",
-    "optimize:images": "node scripts/optimize-images.mjs"
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "generate:insight-og": "node --experimental-strip-types scripts/generate-insight-og.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "0.3.4",
     "@tailwindcss/vite": "4.3.3",
     "astro": "7.1.3",
+    "iconoir": "7.11.1",
     "tailwindcss": "4.3.3"
   },
   "devDependencies": {

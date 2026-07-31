@@ -1,0 +1,47 @@
+{
+  "generated": "2026-07-31T15:35:30.862Z",
+  "skipLink": {
+    "href": "#main-content",
+    "className": "skip-link"
+  },
+  "menuOpen": {
+    "open": true,
+    "bodyLocked": true,
+    "label": "Zamknij menu",
+    "languageHref": "/en/insights/",
+    "panelVisible": true
+  },
+  "menuClosed": {
+    "closed": true,
+    "bodyUnlocked": true,
+    "focusReturned": true
+  },
+  "zoom": {
+    "scale": 2,
+    "hasHorizontalOverflow": false,
+    "brokenImages": 0
+  },
+  "languageSwitch": {
+    "lang": "en",
+    "path": "/en/insights/",
+    "menuClosed": true
+  },
+  "article": {
+    "domOrder": true,
+    "cssOrders": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "visualCount": 1,
+    "canonical": "https://clearstance.pl/insights/kiedy-zespol-kryzysowy-traci-obraz-sytuacji/",
+    "ogImage": "https://clearstance.pl/images/insights/og/pl/kiedy-zespol-kryzysowy-traci-obraz-sytuacji.webp",
+    "hasHorizontalOverflow": false,
+    "reducedMotion": true
+  },
+  "failedRequests": [],
+  "consoleErrors": []
+}

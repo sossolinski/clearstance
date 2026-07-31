@@ -7,7 +7,6 @@ import { calculateReadingTime } from '../../lib/insights';
 
 interface Props {
   entry: CollectionEntry<'insights'>;
-  index: number;
   locale: Locale;
   readLabel: string;
   readingTimeUnit: string;
@@ -15,7 +14,6 @@ interface Props {
 
 const {
   entry,
-  index,
   locale,
   readLabel,
   readingTimeUnit
@@ -25,9 +23,6 @@ const readingMinutes = calculateReadingTime(entry.body ?? '');
 
 <li>
   <article class="home-insight-item">
-    <span class="home-insight-number" aria-hidden="true">
-      {String(index + 1).padStart(2, '0')}
-    </span>
     <p class="home-insight-meta">
       <span>{formatVisibleText(entry.data.category, locale)}</span>
       <span aria-hidden="true">·</span>

@@ -1,0 +1,186 @@
+---
+import type { Locale } from '../../i18n/routes';
+import type { IconName } from '../../lib/icon-map';
+import Icon from '../ui/Icon.astro';
+
+interface Props {
+  locale: Locale;
+  first: string;
+  second: string;
+}
+
+const { locale, first, second } = Astro.props;
+const labels = locale === 'pl'
+  ? ['Role', 'Przepływ informacji', 'Decyzje', 'Eskalacja']
+  : ['Roles', 'Information flow', 'Decisions', 'Escalation'];
+const iconNames = [
+  'group',
+  'data-transfer-both',
+  'check-circle',
+  'arrow-separate-vertical'
+] as const satisfies readonly IconName[];
+const relationLabel = locale === 'pl'
+  ? 'Role prowadzą przez przepływ informacji i decyzje do eskalacji.'
+  : 'Roles lead through information flow and decisions to escalation.';
+---
+
+<section class="brand-statement" aria-label={first}>
+  <div class="wrap">
+    <blockquote>
+      {first}
+      <span>{second}</span>
+    </blockquote>
+
+    <ol class="brand-statement-sequence" aria-label={relationLabel}>
+      {
+        labels.map((label, index) => (
+          <li>
+            <Icon
+              class="brand-statement-icon"
+              name={iconNames[index]}
+              size={34}
+              decorative
+            />
+            <span>{label}</span>
+            {index === 3 && <i aria-hidden="true"></i>}
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .brand-statement {
+    display: flex;
+    min-height: 390px;
+    align-items: center;
+    padding: 72px 0 76px;
+    overflow: hidden;
+    color: var(--white);
+    background: var(--ink);
+  }
+
+  blockquote {
+    max-width: 1040px;
+    font-family: var(--display);
+    font-size: clamp(50px, 4.15vw, 58px);
+    font-weight: 450;
+    letter-spacing: -0.04em;
+    line-height: 1.04;
+  }
+
+  blockquote span {
+    display: block;
+    max-width: 1030px;
+    color: #a7bbb7;
+  }
+
+  .brand-statement-sequence {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 34px;
+    margin-top: 54px;
+    list-style: none;
+  }
+
+  .brand-statement-sequence li {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 14px;
+    padding-top: 18px;
+    border-top: 1px solid rgb(167 187 183 / 34%);
+    color: #a7bbb7;
+  }
+
+  .brand-statement-sequence li::before {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+    content: "";
+  }
+
+  .brand-statement-sequence li > span {
+    color: rgb(248 246 242 / 72%);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    line-height: 1.45;
+    text-transform: uppercase;
+  }
+
+  .brand-statement-sequence li > i {
+    position: absolute;
+    top: -4px;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    background: var(--signal);
+  }
+
+  :global(.brand-statement-icon) {
+    color: #8fa9a4;
+  }
+
+  @media (max-width: 1024px) {
+    .brand-statement {
+      min-height: 380px;
+      padding-block: 66px 70px;
+    }
+
+    .brand-statement-sequence {
+      margin-top: 46px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .brand-statement {
+      min-height: 0;
+      padding: 62px 0 66px;
+    }
+
+    blockquote {
+      max-width: 100%;
+      font-size: 38px;
+      line-height: 1.07;
+    }
+
+    .brand-statement-sequence {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 18px;
+      margin-top: 42px;
+    }
+
+    .brand-statement-sequence li {
+      gap: 11px;
+      padding-top: 14px;
+    }
+
+    :global(.brand-statement-icon) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .brand-statement {
+      padding-block: 56px 60px;
+    }
+
+    blockquote {
+      font-size: 34px;
+    }
+
+    .brand-statement-sequence li > span {
+      font-size: 9px;
+    }
+  }
+</style>

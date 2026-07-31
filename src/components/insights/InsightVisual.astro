@@ -1,0 +1,51 @@
+---
+import situationFieldUrl from '../../assets/visuals/insights/situation-field.svg?url';
+import decisionRouteUrl from '../../assets/visuals/insights/decision-route.svg?url';
+import interfaceMapUrl from '../../assets/visuals/insights/interface-map.svg?url';
+import type { InsightVisualVariant } from '../../lib/insight-visual-theme';
+
+interface Props {
+  variant: InsightVisualVariant;
+  class?: string;
+  decorative?: boolean;
+  label?: string;
+}
+
+const {
+  variant,
+  class: className,
+  decorative = true,
+  label
+} = Astro.props;
+
+if (!decorative && !label?.trim()) {
+  throw new Error('Informative InsightVisual instances require a label.');
+}
+
+const source = variant.startsWith('situation-field')
+  ? situationFieldUrl
+  : variant.startsWith('decision-route')
+    ? decisionRouteUrl
+    : interfaceMapUrl;
+---
+
+<svg
+  class:list={['insight-visual', className]}
+  viewBox="0 0 320 220"
+  fill="none"
+  aria-hidden={decorative ? 'true' : undefined}
+  role={decorative ? undefined : 'img'}
+  aria-label={decorative ? undefined : label}
+  focusable="false"
+>
+  <use href={`${source}#${variant}`}></use>
+</svg>
+
+<style>
+  .insight-visual {
+    width: 100%;
+    height: auto;
+    color: currentColor;
+    display: block;
+  }
+</style>

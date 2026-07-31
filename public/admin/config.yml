@@ -73,6 +73,18 @@ collections:
         required: false
         choose_url: false
         hint: "Opcjonalny obraz używany w podglądach udostępniania zamiast zdjęcia artykułu."
+      - label: Motyw wizualny
+        name: visualTheme
+        widget: select
+        required: false
+        hint: "Opcjonalny wybór ręczny. Bez zdjęcia i wyboru system użyje jawnego mapowania kategorii."
+        options:
+          - situation-field-a
+          - situation-field-b
+          - decision-route-outbound
+          - decision-route-checkpoints
+          - interface-map-a
+          - interface-map-b
       - label: Slug
         name: slug
         widget: string
@@ -171,6 +183,18 @@ collections:
         required: false
         choose_url: false
         hint: "Optional image used for social previews instead of the article header image."
+      - label: Visual theme
+        name: visualTheme
+        widget: select
+        required: false
+        hint: "Optional manual choice. Without an image or selection, the system uses the explicit category mapping."
+        options:
+          - situation-field-a
+          - situation-field-b
+          - decision-route-outbound
+          - decision-route-checkpoints
+          - interface-map-a
+          - interface-map-b
       - label: Slug
         name: slug
         widget: string

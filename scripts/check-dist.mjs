@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
-import { access, readFile } from 'node:fs/promises';
+import { access, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
+import sharp from 'sharp';
 
 const dist = path.resolve('dist');
 const origin = 'https://clearstance.pl';
@@ -62,15 +63,16 @@ function isFinalInternalRoute(value) {
 }
 
 async function checkAsset(reference, owner) {
+  const pathname = reference.split(/[?#]/u)[0];
   if (
     !reference.startsWith('/') ||
     reference.startsWith('//') ||
-    !path.posix.extname(reference.split('?')[0])
+    !path.posix.extname(pathname)
   ) {
     return;
   }
 
-  const file = path.join(dist, reference.split('?')[0].replace(/^\/+/u, ''));
+  const file = path.join(dist, pathname.replace(/^\/+/u, ''));
 
   try {
     await access(file);
@@ -141,6 +143,83 @@ async function checkHtml(file, expected) {
 
 for (const routeCase of routeCases) {
   await checkHtml(routeCase.file, routeCase);
+}
+
+const generatedArticleCases = [];
+for (const [locale, directory] of [
+  ['pl', 'insights'],
+  ['en', 'en/insights']
+]) {
+  const entries = await readdir(path.join(dist, directory), {
+    withFileTypes: true
+  });
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    generatedArticleCases.push({
+      locale,
+      slug: entry.name,
+      file: `${directory}/${entry.name}/index.html`
+    });
+  }
+}
+
+for (const articleCase of generatedArticleCases) {
+  const html = await readFile(path.join(dist, articleCase.file), 'utf8');
+  const expectedPath =
+    `/images/insights/og/${articleCase.locale}/${articleCase.slug}.webp`;
+  const expectedUrl = new URL(expectedPath, origin).toString();
+  const ogImage = html.match(
+    /<meta\s+property="og:image"\s+content="([^"]+)"/u
+  )?.[1];
+  const twitterImage = html.match(
+    /<meta\s+name="twitter:image"\s+content="([^"]+)"/u
+  )?.[1];
+
+  if (ogImage !== expectedUrl) {
+    report(`${articleCase.file}: article-specific og:image is not ${expectedUrl}.`);
+  }
+  if (twitterImage !== expectedUrl) {
+    report(`${articleCase.file}: twitter:image is not ${expectedUrl}.`);
+  }
+  if (!html.includes('class="article-header-visual"')) {
+    report(`${articleCase.file}: production article micro-illustration is missing.`);
+  }
+  if (
+    html.includes('#situation-field-b') ||
+    html.includes('#interface-map-b')
+  ) {
+    report(`${articleCase.file}: a reserve visual variant was assigned automatically.`);
+  }
+
+  const imageFile = path.join(dist, expectedPath.slice(1));
+  try {
+    const metadata = await sharp(imageFile).metadata();
+    if (metadata.width !== 1200 || metadata.height !== 630) {
+      report(`${expectedPath}: expected 1200 × 630, received ${metadata.width} × ${metadata.height}.`);
+    }
+  } catch {
+    report(`${articleCase.file}: generated social image is missing (${expectedPath}).`);
+  }
+}
+
+if (generatedArticleCases.length !== 8) {
+  report(`Expected 8 published Insight article outputs, received ${generatedArticleCases.length}.`);
+}
+
+for (const indexFile of ['insights/index.html', 'en/insights/index.html']) {
+  const html = await readFile(path.join(dist, indexFile), 'utf8');
+  const visualCount =
+    html.match(/class="insight-thumbnail insight-thumbnail--illustration"/gu)?.length ?? 0;
+  if (visualCount !== 4) {
+    report(`${indexFile}: expected 4 production micro-illustrations, received ${visualCount}.`);
+  }
+}
+
+for (const homeFile of ['index.html', 'en/index.html']) {
+  const html = await readFile(path.join(dist, homeFile), 'utf8');
+  if (html.includes('insight-thumbnail--illustration')) {
+    report(`${homeFile}: Home Insights must remain without illustrations.`);
+  }
 }
 
 for (const [homeFile, contactPath, contactFile] of [

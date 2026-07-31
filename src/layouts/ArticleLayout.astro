@@ -4,10 +4,12 @@ import type { CollectionEntry } from 'astro:content';
 import ArticleShare from '../components/insights/ArticleShare.astro';
 import ArticleToc from '../components/insights/ArticleToc.astro';
 import InsightTeaser from '../components/insights/InsightTeaser.astro';
+import InsightVisual from '../components/insights/InsightVisual.astro';
 import type { Locale } from '../i18n/routes';
 import { formatDate, getArticlePath, getRoute } from '../i18n/routes';
 import { getVisibleTranslations } from '../i18n/translations';
 import { formatVisibleText } from '../i18n/typography.js';
+import { resolveInsightEntryVisual } from '../lib/insight-visual-theme';
 import {
   calculateReadingTime,
   getPublicImageDimensions,
@@ -49,6 +51,11 @@ const xDefaultPath = plPath ?? getRoute('pl', 'insights');
 const headerImageAlt = entry.data.headerImage
   ? entry.data.headerImageAlt ?? ''
   : undefined;
+const headerVisual = resolveInsightEntryVisual({
+  headerImage: entry.data.headerImage,
+  visualTheme: entry.data.visualTheme,
+  category: entry.data.category
+});
 const readingMinutes = calculateReadingTime(entry.body ?? '');
 const showToc = headings.length >= 3;
 const resolvedSocialImage = resolveInsightSocialImage(entry.data);
@@ -104,47 +111,64 @@ const articleSchema = {
     <article
       class:list={{
         article: true,
-        'article--with-image': Boolean(entry.data.headerImage)
+        'article--with-image': headerVisual.kind === 'image',
+        'article--with-visual': headerVisual.kind === 'micro-illustration'
       }}
     >
       <header class="article-header">
-        <div class="wrap article-header-inner">
-          <a class="back-link" href={getRoute(locale, 'insights')}>
-            <span aria-hidden="true">←</span>
-            {visible.insightsPage.back}
-          </a>
-          <p class="eyebrow eyebrow--light">{formatVisibleText(entry.data.category, locale)}</p>
-          <h1>{formatVisibleText(entry.data.title, locale)}</h1>
-          <p class="article-deck">{formatVisibleText(entry.data.description, locale)}</p>
-          <dl class="article-meta">
-            <div>
-              <dt>{visible.insightsPage.published}</dt>
-              <dd><time datetime={entry.data.publishedAt.toISOString()}>{formatDate(entry.data.publishedAt, locale)}</time></dd>
-            </div>
-            {
-              entry.data.updatedAt && (
-                <div>
-                  <dt>{visible.insightsPage.updated}</dt>
-                  <dd><time datetime={entry.data.updatedAt.toISOString()}>{formatDate(entry.data.updatedAt, locale)}</time></dd>
-                </div>
-              )
-            }
-            <div>
-              <dt>{visible.insightsPage.readingTime}</dt>
-              <dd>{readingMinutes} {visible.insightsPage.readingTimeUnit}</dd>
-            </div>
-            <div>
-              <dt>{visible.insightsPage.author}</dt>
-              <dd>{formatVisibleText(entry.data.author, locale)}</dd>
-            </div>
-          </dl>
+        <div
+          class:list={{
+            wrap: true,
+            'article-header-inner': true,
+            'article-header-inner--with-visual':
+              headerVisual.kind === 'micro-illustration'
+          }}
+        >
+          <div class="article-header-copy">
+            <a class="back-link" href={getRoute(locale, 'insights')}>
+              <span aria-hidden="true">←</span>
+              {visible.insightsPage.back}
+            </a>
+            <p class="eyebrow eyebrow--light">{formatVisibleText(entry.data.category, locale)}</p>
+            <h1>{formatVisibleText(entry.data.title, locale)}</h1>
+            <p class="article-deck">{formatVisibleText(entry.data.description, locale)}</p>
+            <dl class="article-meta">
+              <div>
+                <dt>{visible.insightsPage.published}</dt>
+                <dd><time datetime={entry.data.publishedAt.toISOString()}>{formatDate(entry.data.publishedAt, locale)}</time></dd>
+              </div>
+              {
+                entry.data.updatedAt && (
+                  <div>
+                    <dt>{visible.insightsPage.updated}</dt>
+                    <dd><time datetime={entry.data.updatedAt.toISOString()}>{formatDate(entry.data.updatedAt, locale)}</time></dd>
+                  </div>
+                )
+              }
+              <div>
+                <dt>{visible.insightsPage.readingTime}</dt>
+                <dd>{readingMinutes} {visible.insightsPage.readingTimeUnit}</dd>
+              </div>
+              <div>
+                <dt>{visible.insightsPage.author}</dt>
+                <dd>{formatVisibleText(entry.data.author, locale)}</dd>
+              </div>
+            </dl>
+          </div>
+          {
+            headerVisual.kind === 'micro-illustration' && (
+              <div class="article-header-visual" aria-hidden="true">
+                <InsightVisual variant={headerVisual.theme} />
+              </div>
+            )
+          }
         </div>
       </header>
       {
-        entry.data.headerImage && (
+        headerVisual.kind === 'image' && (
           <div class="wrap article-header-image">
             <img
-              src={entry.data.headerImage}
+              src={headerVisual.src}
               alt={headerImageAlt}
               decoding="async"
               fetchpriority="high"
@@ -239,11 +263,10 @@ const articleSchema = {
                 {visible.insightsPage.related}
               </h2>
               <ol class="insights-list">
-                {relatedEntries.map((relatedEntry, index) => (
-                  <InsightTeaser
-                    entry={relatedEntry}
-                    index={index}
-                    locale={locale}
+              {relatedEntries.map((relatedEntry) => (
+                <InsightTeaser
+                  entry={relatedEntry}
+                  locale={locale}
                     readLabel={visible.insightsPage.read}
                     readingTimeUnit={visible.insightsPage.readingTimeUnit}
                   />

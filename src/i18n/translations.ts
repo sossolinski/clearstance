@@ -47,7 +47,7 @@ export const translations = {
       meta: {
         title: 'ClearStance - Clarity when it matters most',
         description:
-          'ClearStance wspiera organizacje w budowaniu gotowości kryzysowej, projektowaniu systemów reagowania, prowadzeniu ćwiczeń i facylitacji zespołów.'
+          'ClearStance wspiera organizacje w przygotowaniu sposobu podejmowania decyzji, komunikowania się i wspierania ludzi podczas poważnych zdarzeń.'
       },
       hero: {
         ...sharedHome.hero,
@@ -86,28 +86,28 @@ export const translations = {
         eyebrow: 'Oferta',
         title: 'Wsparcie w budowaniu gotowości kryzysowej.',
         intro:
-          'Zakres prac dobieramy do modelu operacyjnego, ryzyk i poziomu dojrzałości organizacji. Współpraca może obejmować pojedyncze ćwiczenie lub przegląd, a także szersze uporządkowanie systemu zarządzania kryzysowego.',
+          'ClearStance wspiera organizacje w przygotowaniu sposobu podejmowania decyzji, komunikowania się i wspierania ludzi podczas poważnych zdarzeń.',
         items: [
           {
-            title: 'System zarządzania kryzysowego',
-            text: 'Projektowanie i przegląd struktur, ról, odpowiedzialności, planów, procedur, zasad aktywacji oraz przepływu informacji.'
+            title: 'Zarządzanie kryzysowe',
+            text: 'Struktury, role, plany i mechanizmy aktywacji, które pomagają organizacji sprawnie przejść od pierwszego sygnału do skoordynowanego działania.'
           },
           {
-            title: 'Ćwiczenia i symulacje',
-            text: 'Ćwiczenia typu tabletop, ćwiczenia sztabowe i scenariusze sprawdzające decyzje, współpracę, komunikację oraz działanie pod presją czasu.'
+            title: 'Ćwiczenia i facylitacja',
+            text: 'Scenariusze, ćwiczenia i facylitowana praca zespołów, które pozwalają sprawdzić decyzje, współpracę i komunikację w realistycznych warunkach.'
           },
           {
-            title: 'Facylitacja',
-            text: 'Warsztaty, sesje decyzyjne i uporządkowana praca z zespołami nad konkretnymi problemami organizacyjnymi.'
+            title: 'Komunikacja kryzysowa',
+            text: 'Projektowanie i testowanie zespołów, procesów oraz narzędzi potrzebnych do szybkiej, spójnej i odpowiedzialnej komunikacji podczas zdarzenia.'
           },
           {
-            title: 'Przeglądy i doskonalenie',
-            text: 'Ocena przygotowania, identyfikacja luk, przeglądy po ćwiczeniach i zdarzeniach (After Action Review) oraz planowanie działań doskonalących.'
+            title: 'Wsparcie osób dotkniętych zdarzeniem i ich bliskich',
+            text: 'Organizacja zespołów, procedur i rozwiązań wspierających osoby dotknięte zdarzeniem, ich bliskich oraz personel zaangażowany w reakcję.'
           }
         ],
         perspectiveLabel: 'Perspektywa',
         perspective:
-          'Pracę wspiera doświadczenie z żeglugi morskiej, lotnictwa, bezpieczeństwa operacyjnego, ochrony i zarządzania kryzysowego.',
+          'Pracę wspiera doświadczenie z żeglugi morskiej, lotnictwa, bezpieczeństwa operacyjnego, zarządzania kryzysowego, komunikacji oraz organizacji wsparcia osób dotkniętych zdarzeniem.',
         link: 'Zobacz pełną ofertę'
       },
       readiness: {
@@ -155,7 +155,12 @@ export const translations = {
             text: 'analityka · projekty · strategia · zarządzanie kryzysowe'
           }
         ],
-        imageAlt: 'Briefing operacyjny i praca zespołu decyzyjnego',
+        mediaAlt: {
+          maritime:
+            'Dłonie nawigatora pracującego z mapą morską na mostku statku.',
+          aviation:
+            'Fragment płyty lotniska z infrastrukturą obsługi samolotu po deszczu.'
+        },
         link: 'Poznaj ClearStance'
       },
       practice: {
@@ -207,88 +212,106 @@ export const translations = {
     servicesPage: {
       metaTitle: 'Oferta - ClearStance',
       metaDescription:
-        'Systemy zarządzania kryzysowego, ćwiczenia i symulacje, facylitacja oraz przeglądy gotowości organizacyjnej.',
+        'Zarządzanie kryzysowe, ćwiczenia, komunikacja kryzysowa oraz organizacja wsparcia osób dotkniętych zdarzeniem i ich bliskich.',
       eyebrow: 'Oferta',
       title: 'Gotowość, która działa w rzeczywistym środowisku.',
       lead:
         'Zakres wsparcia dopasowujemy do modelu operacyjnego, ekspozycji na ryzyko i aktualnego poziomu przygotowania organizacji.',
       introTitle: 'Cztery obszary wsparcia',
       intro:
-        'Każdy obszar może stanowić odrębne zlecenie albo część szerszego procesu porządkowania gotowości kryzysowej.',
+        'ClearStance wspiera organizacje w przygotowaniu sposobu reagowania na poważne zdarzenia: od uruchomienia zespołu i podejmowania decyzji, przez komunikację, po organizację wsparcia osób dotkniętych zdarzeniem i ich bliskich.',
       services: [
         {
-          title: 'System zarządzania kryzysowego',
+          title: 'Zarządzanie kryzysowe',
           summary:
-            'Projektowanie i przegląd sposobu, w jaki organizacja rozpoznaje, eskaluje i koordynuje sytuacje kryzysowe.',
-          illustration: {
-            src: '/images/01_system_zarzadzania_kryzysowego.png',
-            width: 1200,
-            height: 815,
-            alt: 'Szkic przedstawiający pracę nad systemem zarządzania kryzysowego'
-          },
+            'Przegląd i projektowanie systemu zarządzania kryzysowego, od zasad aktywacji po organizację pracy zespołu zarządzającego.',
           points: [
-            'struktury, role i odpowiedzialność',
-            'zasady aktywacji i eskalacji',
-            'plany, procedury i przepływ informacji',
-            'powiązanie poziomu operacyjnego i strategicznego'
+            'przegląd obecnego modelu i dokumentacji',
+            'struktura zespołu kryzysowego',
+            'role, odpowiedzialności i uprawnienia',
+            'aktywacja, alarmowanie i poziomy eskalacji',
+            'przepływ informacji i dokumentowanie decyzji',
+            'plany, procedury, checklisty i role cards',
+            'przygotowanie CMT i kadry zarządzającej'
           ]
         },
         {
-          title: 'Ćwiczenia i symulacje',
+          title: 'Ćwiczenia i facylitacja',
           summary:
-            'Scenariusze pozwalające bezpiecznie sprawdzić decyzje, współpracę i komunikację przed rzeczywistym zdarzeniem.',
-          illustration: {
-            src: '/images/02_cwiczenia_i_symulacje.png',
-            width: 1200,
-            height: 771,
-            alt: 'Szkic przedstawiający planowanie ćwiczenia kryzysowego'
-          },
+            'Projektowanie i prowadzenie ćwiczeń sprawdzających sposób podejmowania decyzji, współpracę zespołów i działanie pod presją czasu.',
           points: [
-            'ćwiczenia typu tabletop i ćwiczenia sztabowe',
-            'projektowanie realistycznych scenariuszy',
-            'prowadzenie i facylitacja przebiegu',
-            'obserwacja, omówienie i wnioski'
-          ]
-        },
-        {
-          title: 'Facylitacja',
-          summary:
-            'Ustrukturyzowana praca z zespołami, kiedy problem wymaga wspólnego obrazu sytuacji i decyzji przekraczających granice funkcji.',
-          illustration: {
-            src: '/images/03_facylitacja.png',
-            width: 1024,
-            height: 525,
-            alt: 'Szkic przedstawiający facylitowaną pracę zespołu'
-          },
-          points: [
-            'warsztaty i sesje decyzyjne',
-            'porządkowanie problemów i zależności',
-            'uzgadnianie ról oraz kierunku działania',
-            'przekładanie dyskusji na konkretne ustalenia'
-          ]
-        },
-        {
-          title: 'Przeglądy i doskonalenie',
-          summary:
-            'Ocena przygotowania oraz uporządkowanie wniosków z ćwiczeń, zdarzeń i dotychczasowego sposobu działania.',
-          illustration: {
-            src: '/images/04_przeglady_i_doskonalenie.png',
-            width: 1200,
-            height: 473,
-            alt: 'Szkic przedstawiający przegląd i doskonalenie sposobu działania'
-          },
-          points: [
-            'przeglądy gotowości i identyfikacja luk',
+            'tabletop exercises',
+            'ćwiczenia sztabowe i decyzyjne',
+            'projektowanie scenariuszy i injectów',
+            'facylitacja pracy CMT i innych zespołów',
+            'organizacja kontroli i obserwacji ćwiczenia',
             'After Action Review',
-            'priorytetyzacja działań doskonalących',
-            'aktualizacja założeń, planów i sposobu pracy'
+            'identyfikacja luk i obszarów do poprawy',
+            'plany działań doskonalących'
+          ]
+        },
+        {
+          title: 'Komunikacja kryzysowa',
+          summary:
+            'Projektowanie i testowanie systemu komunikacji kryzysowej, z naciskiem na organizację zespołu, zatwierdzanie treści i przepływ informacji.',
+          note:
+            'Usługa dotyczy przygotowania organizacyjnego do komunikacji podczas poważnego zdarzenia. Bieżąca obsługa PR i codzienne prowadzenie relacji z mediami pozostają poza zakresem.',
+          points: [
+            'struktura zespołu komunikacji kryzysowej',
+            'role rzecznika, komunikacji wewnętrznej, social media i monitoringu',
+            'przepływ informacji między CMT a zespołem komunikacji',
+            'proces przygotowania i zatwierdzania komunikatów',
+            'holding statements i szablony komunikatów',
+            'crisis communication toolkit',
+            'przygotowanie organizacyjne dark site',
+            'symulacje presji medialnej i informacyjnej',
+            'analiza komunikacji po zdarzeniu'
+          ]
+        },
+        {
+          title: 'Wsparcie osób dotkniętych zdarzeniem i ich bliskich',
+          summary:
+            'Projektowanie organizacyjnego systemu pomocy osobom dotkniętym poważnym zdarzeniem, ich rodzinom i osobom oczekującym na informację.',
+          note:
+            'ClearStance projektuje organizację, procedury, role, zespoły i ćwiczenia. Pomoc psychologiczna, medyczna i prawna jest realizowana przez odpowiednio wykwalifikowanych specjalistów i partnerów.',
+          points: [
+            'model organizacji zespołu pomocy',
+            'role i zakresy odpowiedzialności',
+            'aktywacja i mobilizacja personelu',
+            'centra pomocy i miejsca przyjęcia rodzin',
+            'infolinia kryzysowa i rejestracja zgłoszeń',
+            'zarządzanie informacją o osobach',
+            'komunikacja z rodzinami i osobami bliskimi',
+            'współpraca z władzami, służbami i partnerami',
+            'zasady ochrony danych i poufności',
+            'organizacja podróży, zakwaterowania i bieżącego wsparcia',
+            'szkolenia dla członków zespołów pomocowych',
+            'ćwiczenia affected people and family assistance',
+            'przygotowanie rozwiązań wspierających personel zaangażowany w reakcję'
           ]
         }
       ],
-      closingEyebrow: 'Punkt wyjścia',
-      closingTitle: 'Zakres dopasowany do rzeczywistego problemu.',
+      closingTitle: 'Zaplecze metodyczne',
       closingText:
-        'Rozmowę rozpoczynamy od modelu działania organizacji, jej zależności i konkretnego problemu. Następnie uzgadniamy zakres oraz oczekiwany rezultat: decyzje, role, scenariusz ćwiczenia albo plan usprawnień — zależnie od sytuacji.'
+        'Projekty mogą uwzględniać odpowiednie standardy zarządzania kryzysowego, ćwiczeń i ciągłości działania oraz wymagania branżowe właściwe dla organizacji. Standardy stanowią punkt odniesienia dla zakresu pracy, a nie osobny produkt.',
+      closingReferences: [
+        {
+          code: 'ISO 22361',
+          description: 'zarządzanie kryzysowe'
+        },
+        {
+          code: 'ISO 22398',
+          description: 'ćwiczenia'
+        },
+        {
+          code: 'ISO 22301',
+          description: 'ciągłość działania'
+        },
+        {
+          label: 'Wytyczne branżowe',
+          description: 'organizacja pomocy osobom i rodzinom po poważnym zdarzeniu'
+        }
+      ]
     },
     aboutPage: {
       metaTitle: 'O ClearStance - niezależna praktyka doradcza',
@@ -299,10 +322,22 @@ export const translations = {
       lead: 'Doświadczenie operacyjne połączone z perspektywą strategiczną.',
       storyTitle: 'Praktyka zbudowana na odpowiedzialności operacyjnej.',
       paragraphs: [
-        'ClearStance jest niezależną praktyką doradczą skoncentrowaną na gotowości kryzysowej, ćwiczeniach, facylitacji i decyzjach podejmowanych w warunkach niepewności.',
+        'ClearStance jest niezależną praktyką doradczą wspierającą organizacje w przygotowaniu sposobu podejmowania decyzji, komunikowania się i wspierania ludzi podczas poważnych zdarzeń.',
         'Jej podstawą jest doświadczenie z dwóch środowisk, w których bezpieczeństwo, koordynacja i jakość decyzji mają bezpośrednie znaczenie: żeglugi morskiej i lotnictwa.',
         'Założyciel ClearStance przez kilka lat pracował jako oficer wachtowy na statkach kontenerowych. Odpowiadał za bezpieczne prowadzenie statku i pracował w obszarach bezpieczeństwa operacyjnego oraz ochrony.',
         'Od 2018 roku jest związany z lotnictwem. Doświadczenie obejmuje role analityczne, projektowe i strategiczne, a także zarządzanie kryzysowe.'
+      ],
+      mediaAlt: {
+        maritime:
+          'Stół nawigacyjny z mapą morską i narzędziami na mostku statku.',
+        aviation:
+          'Podwozie samolotu i światła drogi kołowania na mokrej płycie lotniska.'
+      },
+      experienceAxisLabel: 'Oś doświadczenia',
+      experienceAxis: [
+        'Odpowiedzialność operacyjna na morzu',
+        'Analiza i strategia w lotnictwie',
+        'Doradztwo ClearStance'
       ],
       perspectiveTitle: 'Perspektywa operacyjna w pracy doradczej.',
       perspectiveText:
@@ -338,6 +373,9 @@ export const translations = {
         verification: 'Potwierdź weryfikację i spróbuj ponownie.',
         unavailable:
           'Formularz jest chwilowo niedostępny. Napisz bezpośrednio na contact@clearstance.pl.',
+        privacyPrefix:
+          'Informacje o przetwarzaniu danych znajdziesz w\u00a0',
+        privacyLink: 'Polityce prywatności'
       }
     },
     insightsPage: {
@@ -409,7 +447,7 @@ export const translations = {
       meta: {
         title: 'ClearStance - Clarity when it matters most',
         description:
-          'ClearStance helps organisations strengthen crisis readiness through response design, exercises, facilitation and preparedness reviews.'
+          'ClearStance helps organisations prepare how they will make decisions, communicate and support people during serious incidents.'
       },
       hero: {
         ...sharedHome.hero,
@@ -448,28 +486,28 @@ export const translations = {
         eyebrow: 'Services',
         title: 'Support for stronger crisis readiness.',
         intro:
-          'The scope is shaped around the organisation’s operating model, risks and level of maturity. An engagement may focus on a single exercise or review, or on a broader refinement of the crisis management system.',
+          'ClearStance helps organisations prepare how they will make decisions, communicate and support people during serious incidents.',
         items: [
           {
-            title: 'Crisis management systems',
-            text: 'Design and review of structures, roles, responsibilities, plans, procedures, activation principles and information flows.'
+            title: 'Crisis Management',
+            text: 'Structures, roles, plans and activation mechanisms that help organisations move from the first signal to a coordinated response.'
           },
           {
-            title: 'Exercises and simulations',
-            text: 'Tabletop and command-post exercises designed to test decisions, collaboration, communication and performance under time pressure.'
+            title: 'Exercises & Facilitation',
+            text: 'Scenarios, exercises and facilitated team sessions designed to test decisions, cooperation and communication in realistic conditions.'
           },
           {
-            title: 'Facilitation',
-            text: 'Workshops, decision sessions and structured team work focused on specific organisational challenges.'
+            title: 'Crisis Communication',
+            text: 'Designing and testing the teams, processes and tools needed for timely, consistent and responsible communication during a serious incident.'
           },
           {
-            title: 'Reviews and improvement',
-            text: 'Readiness assessments, gap identification, After Action Reviews following exercises or events, and improvement planning.'
+            title: 'Affected People & Family Assistance',
+            text: 'Designing teams, procedures and arrangements that support affected people, their families and personnel involved in the response.'
           }
         ],
         perspectiveLabel: 'Perspective',
         perspective:
-          'The work draws on experience from maritime shipping, aviation, operational safety, security and crisis management.',
+          'The work is informed by experience in maritime shipping, aviation, operational safety, crisis management, communication and the organisation of support for people affected by serious incidents.',
         link: 'View all services'
       },
       readiness: {
@@ -517,7 +555,12 @@ export const translations = {
             text: 'analysis · projects · strategy · crisis management'
           }
         ],
-        imageAlt: 'An operational briefing with a decision-making team',
+        mediaAlt: {
+          maritime:
+            'A navigator’s hands working with a nautical chart on a ship’s bridge.',
+          aviation:
+            'An airport apron and aircraft ground-handling infrastructure after rain.'
+        },
         link: 'About ClearStance'
       },
       practice: {
@@ -569,88 +612,106 @@ export const translations = {
     servicesPage: {
       metaTitle: 'Services - ClearStance',
       metaDescription:
-        'Crisis management systems, exercises and simulations, facilitation, and organisational readiness reviews.',
+        'Crisis management, exercises, crisis communication and organisational arrangements supporting affected people and their families.',
       eyebrow: 'Services',
       title: 'Readiness designed for the real operating environment.',
       lead:
         'Support is shaped around your operating model, exposure to risk and current level of organisational preparedness.',
       introTitle: 'Four areas of support',
       intro:
-        'Each area can be commissioned independently or form part of a broader programme to strengthen crisis readiness.',
+        'ClearStance helps organisations prepare how they will respond to serious incidents: from activating teams and making decisions to communicating clearly and organising support for affected people and their families.',
       services: [
         {
-          title: 'Crisis management systems',
+          title: 'Crisis Management',
           summary:
-            'Design and review of how an organisation identifies, escalates and coordinates crisis situations.',
-          illustration: {
-            src: '/images/01_system_zarzadzania_kryzysowego.png',
-            width: 1200,
-            height: 815,
-            alt: 'Sketch illustrating work on a crisis management system'
-          },
+            'Reviewing and designing crisis management arrangements, from activation rules to the organisation of the crisis management team.',
           points: [
-            'structures, roles and accountability',
-            'activation and escalation principles',
-            'plans, procedures and information flows',
-            'alignment between operational and strategic levels'
+            'review of the existing operating model and documentation',
+            'crisis management team structure',
+            'roles, responsibilities and authority',
+            'activation, alerting and escalation levels',
+            'information flow and decision logging',
+            'plans, procedures, checklists and role cards',
+            'preparation of the CMT and senior leadership'
           ]
         },
         {
-          title: 'Exercises and simulations',
+          title: 'Exercises & Facilitation',
           summary:
-            'Scenarios that provide a safe setting to test decisions, collaboration and communication before a real event.',
-          illustration: {
-            src: '/images/02_cwiczenia_i_symulacje.png',
-            width: 1200,
-            height: 771,
-            alt: 'Sketch illustrating crisis exercise planning'
-          },
+            'Designing and facilitating exercises that test decision-making, team cooperation and performance under time pressure.',
           points: [
-            'tabletop and command-post exercises',
-            'realistic scenario design',
-            'exercise delivery and facilitation',
-            'observation, debriefing and lessons'
+            'tabletop exercises',
+            'command-post and decision-making exercises',
+            'scenario and inject design',
+            'facilitation of CMT and other response teams',
+            'exercise control and observation',
+            'After Action Review',
+            'identification of gaps and improvement areas',
+            'improvement action plans'
           ]
         },
         {
-          title: 'Facilitation',
+          title: 'Crisis Communication',
           summary:
-            'Structured work with teams when a challenge requires a shared picture and decisions that cross functional boundaries.',
-          illustration: {
-            src: '/images/03_facylitacja.png',
-            width: 1024,
-            height: 525,
-            alt: 'Sketch illustrating facilitated team work'
-          },
+            'Designing and testing crisis communication arrangements, with a focus on team structure, content approval and information flow.',
+          note:
+            'The service focuses on organisational preparedness for communication during a serious incident. Ongoing PR support and day-to-day media relations remain outside its scope.',
           points: [
-            'workshops and decision sessions',
-            'clarifying issues and dependencies',
-            'aligning roles and direction',
-            'turning discussion into concrete agreements'
+            'crisis communication team structure',
+            'spokesperson, internal communication, social media and monitoring roles',
+            'information flow between the CMT and communication team',
+            'message preparation and approval process',
+            'holding statements and message templates',
+            'crisis communication toolkit',
+            'organisational preparation of a dark site',
+            'simulations of media and information pressure',
+            'post-incident communication review'
           ]
         },
         {
-          title: 'Reviews and improvement',
+          title: 'Affected People & Family Assistance',
           summary:
-            'Assessment of preparedness and systematic learning from exercises, events and existing ways of working.',
-          illustration: {
-            src: '/images/04_przeglady_i_doskonalenie.png',
-            width: 1200,
-            height: 473,
-            alt: 'Sketch illustrating review and improvement of working practices'
-          },
+            'Designing the organisational arrangements used to support people affected by a serious incident, their families and those awaiting information.',
+          note:
+            'ClearStance designs organisational arrangements, procedures, roles, teams and exercises. Psychological, medical and legal services are provided by appropriately qualified professionals and specialist partners.',
           points: [
-            'readiness reviews and gap identification',
-            'After Action Reviews',
-            'prioritised improvement actions',
-            'updates to assumptions, plans and ways of working'
+            'assistance team operating model',
+            'roles and responsibilities',
+            'activation and mobilisation of personnel',
+            'assistance centres and family reception locations',
+            'crisis helpline and enquiry registration',
+            'management of information about people',
+            'communication with families and close relatives',
+            'cooperation with authorities, emergency services and partners',
+            'data protection and confidentiality arrangements',
+            'travel, accommodation and ongoing practical support',
+            'training for assistance team members',
+            'affected people and family assistance exercises',
+            'arrangements supporting personnel involved in the response'
           ]
         }
       ],
-      closingEyebrow: 'Starting point',
-      closingTitle: 'A scope shaped around the actual challenge.',
+      closingTitle: 'Methodological reference points',
       closingText:
-        'We begin with the organisation’s operating model, dependencies and specific challenge. We then agree the scope and intended result: decisions, roles, an exercise scenario or an improvement plan, depending on the situation.'
+        'Engagements may draw on relevant standards for crisis management, exercises and business continuity, together with sector-specific requirements applicable to the organisation. These provide reference points for the work rather than separate products.',
+      closingReferences: [
+        {
+          code: 'ISO 22361',
+          description: 'crisis management'
+        },
+        {
+          code: 'ISO 22398',
+          description: 'exercises'
+        },
+        {
+          code: 'ISO 22301',
+          description: 'business continuity'
+        },
+        {
+          label: 'Sector-specific guidance',
+          description: 'organisational arrangements for supporting affected people and their families after a serious incident'
+        }
+      ]
     },
     aboutPage: {
       metaTitle: 'About ClearStance - independent advisory practice',
@@ -661,10 +722,22 @@ export const translations = {
       lead: 'Operational experience combined with a strategic perspective.',
       storyTitle: 'An advisory practice grounded in operational experience.',
       paragraphs: [
-        'ClearStance is an independent advisory practice focused on crisis readiness, exercises, facilitation and decision-making under uncertainty.',
+        'ClearStance is an independent advisory practice helping organisations prepare how they will make decisions, communicate and support people during serious incidents.',
         'It is grounded in experience from two environments where safety, coordination and decision quality have immediate consequences: maritime shipping and aviation.',
         'ClearStance’s founder spent several years as an Officer of the Watch on container ships. He was responsible for safe navigation and worked across operational safety and security.',
         'Since 2018, he has worked in aviation. His background spans analytical, project and strategic roles, as well as crisis management.'
+      ],
+      mediaAlt: {
+        maritime:
+          'A ship’s bridge chart table with a nautical chart and navigation tools.',
+        aviation:
+          'Aircraft landing gear and taxiway lights on a wet airport apron.'
+      },
+      experienceAxisLabel: 'Experience progression',
+      experienceAxis: [
+        'Maritime operational responsibility',
+        'Aviation analysis and strategy',
+        'ClearStance advisory'
       ],
       perspectiveTitle: 'Operational perspective in advisory work.',
       perspectiveText:
@@ -700,6 +773,9 @@ export const translations = {
         verification: 'Complete the verification and try again.',
         unavailable:
           'The form is temporarily unavailable. Please email contact@clearstance.pl directly.',
+        privacyPrefix:
+          'Information about how we process personal data is available in our ',
+        privacyLink: 'Privacy Policy'
       }
     },
     insightsPage: {

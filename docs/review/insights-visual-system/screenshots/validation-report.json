@@ -1,0 +1,138 @@
+{
+  "generated": "2026-07-31T08:26:10.031Z",
+  "report": [
+    {
+      "name": "system-board-1440",
+      "selector": "#system-board",
+      "width": 1440,
+      "documentOverflow": false,
+      "targetWidth": 1440,
+      "targetHeight": 925.72,
+      "useCount": 6,
+      "emptyUses": 0,
+      "consoleErrors": 0,
+      "failedRequests": 0
+    },
+    {
+      "name": "index-pl-1440",
+      "selector": "#index-pl",
+      "width": 1440,
+      "documentOverflow": false,
+      "targetWidth": 1440,
+      "targetHeight": 1674.94,
+      "useCount": 4,
+      "emptyUses": 0,
+      "consoleErrors": 0,
+      "failedRequests": 0
+    },
+    {
+      "name": "index-pl-390",
+      "selector": "#index-pl",
+      "width": 390,
+      "documentOverflow": false,
+      "targetWidth": 390,
+      "targetHeight": 2485.47,
+      "useCount": 4,
+      "emptyUses": 0,
+      "consoleErrors": 0,
+      "failedRequests": 0
+    },
+    {
+      "name": "index-en-1440",
+      "selector": "#index-en",
+      "width": 1440,
+      "documentOverflow": false,
+      "targetWidth": 1440,
+      "targetHeight": 1674.94,
+      "useCount": 4,
+      "emptyUses": 0,
+      "consoleErrors": 0,
+      "failedRequests": 0
+    },
+    {
+      "name": "index-en-390",
+      "selector": "#index-en",
+      "width": 390,
+      "documentOverflow": false,
+      "targetWidth": 390,
+      "targetHeight": 2462.38,
+      "useCount": 4,
+      "emptyUses": 0,
+      "consoleErrors": 0,
+      "failedRequests": 0
+    },
+    {
+      "name": "article-pl-1440",
+      "selector": "#article-pl",
+      "width": 1440,
+      "documentOverflow": false,
+      "targetWidth": 1440,
+      "targetHeight": 778,
+      "useCount": 1,
+      "emptyUses": 0,
+      "consoleErrors": 0,
+      "failedRequests": 0
+    },
+    {
+      "name": "article-pl-390",
+      "selector": "#article-pl",
+      "width": 390,
+      "documentOverflow": false,
+      "targetWidth": 390,
+      "targetHeight": 940.47,
+      "useCount": 1,
+      "emptyUses": 0,
+      "consoleErrors": 0,
+      "failedRequests": 0
+    },
+    {
+      "name": "article-en-1440",
+      "selector": "#article-en",
+      "width": 1440,
+      "documentOverflow": false,
+      "targetWidth": 1440,
+      "targetHeight": 778,
+      "useCount": 1,
+      "emptyUses": 0,
+      "consoleErrors": 0,
+      "failedRequests": 0
+    },
+    {
+      "name": "article-en-390",
+      "selector": "#article-en",
+      "width": 390,
+      "documentOverflow": false,
+      "targetWidth": 390,
+      "targetHeight": 965.22,
+      "useCount": 1,
+      "emptyUses": 0,
+      "consoleErrors": 0,
+      "failedRequests": 0
+    },
+    {
+      "name": "og-pl-1200x630",
+      "selector": "#og-pl .og-card",
+      "width": 1280,
+      "documentOverflow": false,
+      "targetWidth": 1200,
+      "targetHeight": 630,
+      "useCount": 1,
+      "emptyUses": 0,
+      "consoleErrors": 0,
+      "failedRequests": 0
+    },
+    {
+      "name": "og-en-1200x630",
+      "selector": "#og-en .og-card",
+      "width": 1280,
+      "documentOverflow": false,
+      "targetWidth": 1200,
+      "targetHeight": 630,
+      "useCount": 1,
+      "emptyUses": 0,
+      "consoleErrors": 0,
+      "failedRequests": 0
+    }
+  ],
+  "failed": []
+}

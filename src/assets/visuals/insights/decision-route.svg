@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" fill="none">
+  <title>Decision Route — ClearStance Insights source</title>
+  <defs>
+    <symbol id="decision-route-outbound" viewBox="0 0 320 220">
+      <g stroke="var(--insight-visual-line, #385e5d)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M36 169C80 169 74 137 112 137s37-31 75-31 33-48 73-48h25"/>
+        <path opacity=".5" d="M187 106c32 0 32 36 68 36h25M195 86v40"/>
+        <path d="m278 52 8 6-8 6"/>
+      </g>
+      <g fill="var(--insight-visual-paper, #f2eee7)" stroke="var(--insight-visual-muted, #6f8f89)" stroke-width="1.25">
+        <circle cx="36" cy="169" r="5"/>
+        <circle cx="112" cy="137" r="5"/>
+        <circle cx="187" cy="106" r="5"/>
+        <circle cx="260" cy="58" r="5"/>
+        <circle cx="255" cy="142" r="5" opacity=".65"/>
+      </g>
+      <path stroke="var(--insight-visual-muted, #6f8f89)" stroke-width="1.25" stroke-linecap="round" opacity=".5" d="M64 190v-16M139 157v-16M225 84v-16"/>
+      <circle cx="195" cy="106" r="4.5" fill="var(--insight-visual-signal, #c65348)"/>
+    </symbol>
+    <symbol id="decision-route-checkpoints" viewBox="0 0 320 220">
+      <g stroke="var(--insight-visual-line, #385e5d)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M34 151h49c19 0 18-30 38-30h67c19 0 20-34 39-34h59"/>
+        <path opacity=".5" d="M155 121v41c0 14 11 25 25 25h49M219 68v38"/>
+        <path d="m279 81 8 6-8 6"/>
+      </g>
+      <g fill="var(--insight-visual-paper, #f2eee7)" stroke="var(--insight-visual-muted, #6f8f89)" stroke-width="1.25">
+        <circle cx="34" cy="151" r="5"/>
+        <circle cx="83" cy="151" r="5"/>
+        <circle cx="121" cy="121" r="5"/>
+        <circle cx="188" cy="121" r="5"/>
+        <circle cx="227" cy="87" r="5"/>
+        <circle cx="286" cy="87" r="5"/>
+        <circle cx="229" cy="187" r="5" opacity=".65"/>
+      </g>
+      <g stroke="var(--insight-visual-muted, #6f8f89)" stroke-width="1.25" stroke-linecap="round" opacity=".5">
+        <path d="M73 139v24M111 109v24M178 109v24M217 75v24"/>
+      </g>
+      <circle cx="188" cy="121" r="4.5" fill="var(--insight-visual-signal, #c65348)"/>
+    </symbol>
+  </defs>
+  <use href="#decision-route-outbound"/>
+</svg>

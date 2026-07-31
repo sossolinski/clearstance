@@ -53,6 +53,9 @@ jobs:
       - name: Build static site
         run: npm run build
 
+      - name: Test production DOM hierarchy
+        run: npm run test:release-dom
+
       - name: Check generated links
         run: npm run check:links
 

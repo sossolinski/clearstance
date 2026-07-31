@@ -1,0 +1,53 @@
+---
+import {
+  iconAllowlist,
+  type IconName
+} from '../../lib/icon-map';
+
+interface Props {
+  name: IconName;
+  size?: number;
+  class?: string;
+  decorative?: boolean;
+  label?: string;
+}
+
+const {
+  name,
+  size = 24,
+  class: className,
+  decorative = true,
+  label
+} = Astro.props;
+
+const accessibleLabel = label?.trim();
+
+if (!Number.isFinite(size) || size <= 0) {
+  throw new Error('Icon size must be a positive, finite number.');
+}
+
+if (!decorative && !accessibleLabel) {
+  throw new Error('Informative icons require a non-empty label.');
+}
+
+const source = iconAllowlist[name];
+
+if (!source) {
+  throw new Error(`Icon "${name}" is not in the allowlist.`);
+}
+
+const svg = source.replace(
+  '<svg ',
+  '<svg aria-hidden="true" focusable="false" '
+);
+---
+
+<span
+  class:list={['icon', className]}
+  style={`--icon-size: ${size}px`}
+  aria-hidden={decorative ? 'true' : undefined}
+  role={decorative ? undefined : 'img'}
+  aria-label={decorative ? undefined : accessibleLabel}
+>
+  <Fragment set:html={svg} />
+</span>

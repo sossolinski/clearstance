@@ -1,4 +1,5 @@
 import { z } from 'astro/zod';
+import { INSIGHT_VISUAL_THEMES } from '../lib/insight-visual-theme.ts';
 
 export const INSIGHT_IDENTIFIER_PATTERN =
   /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -21,6 +22,11 @@ const optionalHeaderImageAlt = z.preprocess(
   z.string().trim().optional()
 );
 
+const optionalInsightVisualTheme = z.preprocess(
+  (value) => value === '' ? undefined : value,
+  z.enum(INSIGHT_VISUAL_THEMES).optional()
+);
+
 export const insightSchema = z.object({
   title: z.string(),
   description: z.string(),
@@ -37,6 +43,7 @@ export const insightSchema = z.object({
   headerImage: optionalInsightImage,
   headerImageAlt: optionalHeaderImageAlt,
   socialImage: optionalInsightImage,
+  visualTheme: optionalInsightVisualTheme,
   seoTitle: z.string(),
   seoDescription: z.string()
 }).superRefine((data, context) => {

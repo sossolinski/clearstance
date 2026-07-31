@@ -1,0 +1,1747 @@
+{
+  "generated": "2026-07-30T22:27:07.932Z",
+  "routeStatuses": {
+    "/review/experience-a/": 404,
+    "/review/experience-b/": 404,
+    "/en/review/experience-a/": 404,
+    "/en/review/experience-b/": 404
+  },
+  "audit": [
+    {
+      "route": "home-pl",
+      "viewportWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "overflow": false,
+      "sectionHeight": 667.61,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 260.77,
+          "height": 325.95,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "naturalWidth": 250,
+          "naturalHeight": 312,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Dłonie nawigatora pracującego z mapą morską na mostku statku."
+        },
+        {
+          "width": 260.78,
+          "height": 325.97,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "naturalWidth": 250,
+          "naturalHeight": 312,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Fragment płyty lotniska z infrastrukturą obsługi samolotu po deszczu."
+        }
+      ],
+      "axisDisplay": null,
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Przejdź do treści"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 12505
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 15791
+        }
+      ]
+    },
+    {
+      "route": "home-pl",
+      "viewportWidth": 1280,
+      "clientWidth": 1280,
+      "scrollWidth": 1280,
+      "overflow": false,
+      "sectionHeight": 599,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 257.95,
+          "height": 322.44,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "naturalWidth": 250,
+          "naturalHeight": 312,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Dłonie nawigatora pracującego z mapą morską na mostku statku."
+        },
+        {
+          "width": 257.95,
+          "height": 322.44,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "naturalWidth": 250,
+          "naturalHeight": 312,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Fragment płyty lotniska z infrastrukturą obsługi samolotu po deszczu."
+        }
+      ],
+      "axisDisplay": null,
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Przejdź do treści"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 12505
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 15791
+        }
+      ]
+    },
+    {
+      "route": "home-pl",
+      "viewportWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "overflow": false,
+      "sectionHeight": 575.56,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 202.31,
+          "height": 252.89,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "naturalWidth": 170,
+          "naturalHeight": 212,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Dłonie nawigatora pracującego z mapą morską na mostku statku."
+        },
+        {
+          "width": 202.31,
+          "height": 252.89,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "naturalWidth": 170,
+          "naturalHeight": 212,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Fragment płyty lotniska z infrastrukturą obsługi samolotu po deszczu."
+        }
+      ],
+      "axisDisplay": null,
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Przejdź do treści"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 12505
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 15791
+        }
+      ]
+    },
+    {
+      "route": "home-pl",
+      "viewportWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "sectionHeight": 1038.19,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 353,
+          "height": 441.25,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "naturalWidth": 339,
+          "naturalHeight": 423,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Dłonie nawigatora pracującego z mapą morską na mostku statku."
+        },
+        {
+          "width": 353,
+          "height": 441.25,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "naturalWidth": 339,
+          "naturalHeight": 423,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Fragment płyty lotniska z infrastrukturą obsługi samolotu po deszczu."
+        }
+      ],
+      "axisDisplay": null,
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Przejdź do treści"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 12505
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 15791
+        }
+      ]
+    },
+    {
+      "route": "home-pl",
+      "viewportWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "overflow": false,
+      "sectionHeight": 941.53,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 174,
+          "height": 217.5,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "naturalWidth": 173,
+          "naturalHeight": 217,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Dłonie nawigatora pracującego z mapą morską na mostku statku."
+        },
+        {
+          "width": 174,
+          "height": 217.5,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "naturalWidth": 173,
+          "naturalHeight": 217,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Fragment płyty lotniska z infrastrukturą obsługi samolotu po deszczu."
+        }
+      ],
+      "axisDisplay": null,
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Przejdź do treści"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 12505
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 15791
+        }
+      ]
+    },
+    {
+      "route": "home-pl",
+      "viewportWidth": 375,
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "overflow": false,
+      "sectionHeight": 932.16,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 166.5,
+          "height": 208.13,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "naturalWidth": 166,
+          "naturalHeight": 208,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Dłonie nawigatora pracującego z mapą morską na mostku statku."
+        },
+        {
+          "width": 166.5,
+          "height": 208.13,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "naturalWidth": 166,
+          "naturalHeight": 208,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Fragment płyty lotniska z infrastrukturą obsługi samolotu po deszczu."
+        }
+      ],
+      "axisDisplay": null,
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Przejdź do treści"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 12505
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 15791
+        }
+      ]
+    },
+    {
+      "route": "home-pl",
+      "viewportWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "overflow": false,
+      "sectionHeight": 945.94,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 139,
+          "height": 173.75,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "naturalWidth": 139,
+          "naturalHeight": 173,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Dłonie nawigatora pracującego z mapą morską na mostku statku."
+        },
+        {
+          "width": 139,
+          "height": 173.75,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "naturalWidth": 139,
+          "naturalHeight": 173,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Fragment płyty lotniska z infrastrukturą obsługi samolotu po deszczu."
+        }
+      ],
+      "axisDisplay": null,
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Przejdź do treści"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 12505
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 15791
+        }
+      ]
+    },
+    {
+      "route": "home-en",
+      "viewportWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "overflow": false,
+      "sectionHeight": 667.61,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 260.77,
+          "height": 325.95,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "naturalWidth": 250,
+          "naturalHeight": 312,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "A navigator’s hands working with a nautical chart on a ship’s bridge."
+        },
+        {
+          "width": 260.78,
+          "height": 325.97,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "naturalWidth": 250,
+          "naturalHeight": 312,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "An airport apron and aircraft ground-handling infrastructure after rain."
+        }
+      ],
+      "axisDisplay": null,
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 12505
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 15791
+        }
+      ]
+    },
+    {
+      "route": "home-en",
+      "viewportWidth": 1280,
+      "clientWidth": 1280,
+      "scrollWidth": 1280,
+      "overflow": false,
+      "sectionHeight": 599,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 257.95,
+          "height": 322.44,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "naturalWidth": 250,
+          "naturalHeight": 312,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "A navigator’s hands working with a nautical chart on a ship’s bridge."
+        },
+        {
+          "width": 257.95,
+          "height": 322.44,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "naturalWidth": 250,
+          "naturalHeight": 312,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "An airport apron and aircraft ground-handling infrastructure after rain."
+        }
+      ],
+      "axisDisplay": null,
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 12505
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 15791
+        }
+      ]
+    },
+    {
+      "route": "home-en",
+      "viewportWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "overflow": false,
+      "sectionHeight": 575.56,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 202.31,
+          "height": 252.89,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "naturalWidth": 170,
+          "naturalHeight": 212,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "A navigator’s hands working with a nautical chart on a ship’s bridge."
+        },
+        {
+          "width": 202.31,
+          "height": 252.89,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "naturalWidth": 170,
+          "naturalHeight": 212,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "An airport apron and aircraft ground-handling infrastructure after rain."
+        }
+      ],
+      "axisDisplay": null,
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 12505
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 15791
+        }
+      ]
+    },
+    {
+      "route": "home-en",
+      "viewportWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "sectionHeight": 1038.19,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 353,
+          "height": 441.25,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "naturalWidth": 339,
+          "naturalHeight": 423,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "A navigator’s hands working with a nautical chart on a ship’s bridge."
+        },
+        {
+          "width": 353,
+          "height": 441.25,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "naturalWidth": 339,
+          "naturalHeight": 423,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "An airport apron and aircraft ground-handling infrastructure after rain."
+        }
+      ],
+      "axisDisplay": null,
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 12505
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 15791
+        }
+      ]
+    },
+    {
+      "route": "home-en",
+      "viewportWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "overflow": false,
+      "sectionHeight": 904.44,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 174,
+          "height": 217.5,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "naturalWidth": 173,
+          "naturalHeight": 217,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "A navigator’s hands working with a nautical chart on a ship’s bridge."
+        },
+        {
+          "width": 174,
+          "height": 217.5,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "naturalWidth": 173,
+          "naturalHeight": 217,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "An airport apron and aircraft ground-handling infrastructure after rain."
+        }
+      ],
+      "axisDisplay": null,
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 12505
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 15791
+        }
+      ]
+    },
+    {
+      "route": "home-en",
+      "viewportWidth": 375,
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "overflow": false,
+      "sectionHeight": 895.06,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 166.5,
+          "height": 208.13,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "naturalWidth": 166,
+          "naturalHeight": 208,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "A navigator’s hands working with a nautical chart on a ship’s bridge."
+        },
+        {
+          "width": 166.5,
+          "height": 208.13,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "naturalWidth": 166,
+          "naturalHeight": 208,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "An airport apron and aircraft ground-handling infrastructure after rain."
+        }
+      ],
+      "axisDisplay": null,
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 12505
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 15791
+        }
+      ]
+    },
+    {
+      "route": "home-en",
+      "viewportWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "overflow": false,
+      "sectionHeight": 921.86,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 139,
+          "height": 173.75,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "naturalWidth": 139,
+          "naturalHeight": 173,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "A navigator’s hands working with a nautical chart on a ship’s bridge."
+        },
+        {
+          "width": 139,
+          "height": 173.75,
+          "ratio": 0.8,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "naturalWidth": 139,
+          "naturalHeight": 173,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "An airport apron and aircraft ground-handling infrastructure after rain."
+        }
+      ],
+      "axisDisplay": null,
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 12505
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-home-480.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 15791
+        }
+      ]
+    },
+    {
+      "route": "about-pl",
+      "viewportWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "overflow": false,
+      "sectionHeight": 914.83,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 505.11,
+          "height": 315.69,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "naturalWidth": 450,
+          "naturalHeight": 281,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Stół nawigacyjny z mapą morską i narzędziami na mostku statku."
+        },
+        {
+          "width": 505.11,
+          "height": 315.69,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "naturalWidth": 450,
+          "naturalHeight": 281,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Podwozie samolotu i światła drogi kołowania na mokrej płycie lotniska."
+        }
+      ],
+      "axisDisplay": "block",
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Przejdź do treści"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 16089
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 11017
+        }
+      ]
+    },
+    {
+      "route": "about-pl",
+      "viewportWidth": 1280,
+      "clientWidth": 1280,
+      "scrollWidth": 1280,
+      "overflow": false,
+      "sectionHeight": 897.77,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 499.83,
+          "height": 312.39,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "naturalWidth": 450,
+          "naturalHeight": 281,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Stół nawigacyjny z mapą morską i narzędziami na mostku statku."
+        },
+        {
+          "width": 499.83,
+          "height": 312.39,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "naturalWidth": 450,
+          "naturalHeight": 281,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Podwozie samolotu i światła drogi kołowania na mokrej płycie lotniska."
+        }
+      ],
+      "axisDisplay": "block",
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Przejdź do treści"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 16089
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 11017
+        }
+      ]
+    },
+    {
+      "route": "about-pl",
+      "viewportWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "overflow": false,
+      "sectionHeight": 877.38,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 384.58,
+          "height": 240.36,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "naturalWidth": 340,
+          "naturalHeight": 212,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Stół nawigacyjny z mapą morską i narzędziami na mostku statku."
+        },
+        {
+          "width": 384.58,
+          "height": 240.36,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "naturalWidth": 340,
+          "naturalHeight": 212,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Podwozie samolotu i światła drogi kołowania na mokrej płycie lotniska."
+        }
+      ],
+      "axisDisplay": "block",
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Przejdź do treści"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 11017
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 16089
+        }
+      ]
+    },
+    {
+      "route": "about-pl",
+      "viewportWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "sectionHeight": 686.27,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 277.59,
+          "height": 173.48,
+          "ratio": 1.6001,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "naturalWidth": 270,
+          "naturalHeight": 168,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Stół nawigacyjny z mapą morską i narzędziami na mostku statku."
+        },
+        {
+          "width": 277.59,
+          "height": 173.48,
+          "ratio": 1.6001,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "naturalWidth": 270,
+          "naturalHeight": 168,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Podwozie samolotu i światła drogi kołowania na mokrej płycie lotniska."
+        }
+      ],
+      "axisDisplay": "none",
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Przejdź do treści"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 16089
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 11017
+        }
+      ]
+    },
+    {
+      "route": "about-pl",
+      "viewportWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "overflow": false,
+      "sectionHeight": 942.67,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 174,
+          "height": 108.75,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "naturalWidth": 174,
+          "naturalHeight": 108,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Stół nawigacyjny z mapą morską i narzędziami na mostku statku."
+        },
+        {
+          "width": 174,
+          "height": 108.75,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "naturalWidth": 174,
+          "naturalHeight": 108,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Podwozie samolotu i światła drogi kołowania na mokrej płycie lotniska."
+        }
+      ],
+      "axisDisplay": "none",
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Przejdź do treści"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 16089
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 11017
+        }
+      ]
+    },
+    {
+      "route": "about-pl",
+      "viewportWidth": 375,
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "overflow": false,
+      "sectionHeight": 963.5,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 166.5,
+          "height": 104.06,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "naturalWidth": 166,
+          "naturalHeight": 104,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Stół nawigacyjny z mapą morską i narzędziami na mostku statku."
+        },
+        {
+          "width": 166.5,
+          "height": 104.06,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "naturalWidth": 166,
+          "naturalHeight": 104,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Podwozie samolotu i światła drogi kołowania na mokrej płycie lotniska."
+        }
+      ],
+      "axisDisplay": "none",
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Przejdź do treści"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 16089
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 11017
+        }
+      ]
+    },
+    {
+      "route": "about-pl",
+      "viewportWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "overflow": false,
+      "sectionHeight": 1062.33,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 139,
+          "height": 86.88,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "naturalWidth": 139,
+          "naturalHeight": 86,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Stół nawigacyjny z mapą morską i narzędziami na mostku statku."
+        },
+        {
+          "width": 139,
+          "height": 86.88,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "naturalWidth": 139,
+          "naturalHeight": 86,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Podwozie samolotu i światła drogi kołowania na mokrej płycie lotniska."
+        }
+      ],
+      "axisDisplay": "none",
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Przejdź do treści"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 16089
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 11017
+        }
+      ]
+    },
+    {
+      "route": "about-en",
+      "viewportWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "overflow": false,
+      "sectionHeight": 861.42,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 505.11,
+          "height": 315.69,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "naturalWidth": 450,
+          "naturalHeight": 281,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "A ship’s bridge chart table with a nautical chart and navigation tools."
+        },
+        {
+          "width": 505.11,
+          "height": 315.69,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "naturalWidth": 450,
+          "naturalHeight": 281,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Aircraft landing gear and taxiway lights on a wet airport apron."
+        }
+      ],
+      "axisDisplay": "block",
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 16089
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 11017
+        }
+      ]
+    },
+    {
+      "route": "about-en",
+      "viewportWidth": 1280,
+      "clientWidth": 1280,
+      "scrollWidth": 1280,
+      "overflow": false,
+      "sectionHeight": 844.36,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 499.83,
+          "height": 312.39,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "naturalWidth": 450,
+          "naturalHeight": 281,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "A ship’s bridge chart table with a nautical chart and navigation tools."
+        },
+        {
+          "width": 499.83,
+          "height": 312.39,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "naturalWidth": 450,
+          "naturalHeight": 281,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Aircraft landing gear and taxiway lights on a wet airport apron."
+        }
+      ],
+      "axisDisplay": "block",
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 16089
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 11017
+        }
+      ]
+    },
+    {
+      "route": "about-en",
+      "viewportWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "overflow": false,
+      "sectionHeight": 851.86,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 384.58,
+          "height": 240.36,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "naturalWidth": 340,
+          "naturalHeight": 212,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "A ship’s bridge chart table with a nautical chart and navigation tools."
+        },
+        {
+          "width": 384.58,
+          "height": 240.36,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "naturalWidth": 340,
+          "naturalHeight": 212,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Aircraft landing gear and taxiway lights on a wet airport apron."
+        }
+      ],
+      "axisDisplay": "block",
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 16089
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 11017
+        }
+      ]
+    },
+    {
+      "route": "about-en",
+      "viewportWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "sectionHeight": 620.17,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 277.59,
+          "height": 173.48,
+          "ratio": 1.6001,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "naturalWidth": 270,
+          "naturalHeight": 168,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "A ship’s bridge chart table with a nautical chart and navigation tools."
+        },
+        {
+          "width": 277.59,
+          "height": 173.48,
+          "ratio": 1.6001,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "naturalWidth": 270,
+          "naturalHeight": 168,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Aircraft landing gear and taxiway lights on a wet airport apron."
+        }
+      ],
+      "axisDisplay": "none",
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 16089
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 11017
+        }
+      ]
+    },
+    {
+      "route": "about-en",
+      "viewportWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "overflow": false,
+      "sectionHeight": 889.27,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 174,
+          "height": 108.75,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "naturalWidth": 174,
+          "naturalHeight": 108,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "A ship’s bridge chart table with a nautical chart and navigation tools."
+        },
+        {
+          "width": 174,
+          "height": 108.75,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "naturalWidth": 174,
+          "naturalHeight": 108,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Aircraft landing gear and taxiway lights on a wet airport apron."
+        }
+      ],
+      "axisDisplay": "none",
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 16089
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 11017
+        }
+      ]
+    },
+    {
+      "route": "about-en",
+      "viewportWidth": 375,
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "overflow": false,
+      "sectionHeight": 921.67,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 166.5,
+          "height": 104.06,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "naturalWidth": 166,
+          "naturalHeight": 104,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "A ship’s bridge chart table with a nautical chart and navigation tools."
+        },
+        {
+          "width": 166.5,
+          "height": 104.06,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "naturalWidth": 166,
+          "naturalHeight": 104,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Aircraft landing gear and taxiway lights on a wet airport apron."
+        }
+      ],
+      "axisDisplay": "none",
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 16089
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 11017
+        }
+      ]
+    },
+    {
+      "route": "about-en",
+      "viewportWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "overflow": false,
+      "sectionHeight": 1008.92,
+      "pairEqual": true,
+      "images": [
+        {
+          "width": 139,
+          "height": 86.88,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "naturalWidth": 139,
+          "naturalHeight": 86,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "A ship’s bridge chart table with a nautical chart and navigation tools."
+        },
+        {
+          "width": 139,
+          "height": 86.88,
+          "ratio": 1.6,
+          "currentSrc": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "naturalWidth": 139,
+          "naturalHeight": 86,
+          "complete": true,
+          "loading": "lazy",
+          "decoding": "async",
+          "alt": "Aircraft landing gear and taxiway lights on a wet airport apron."
+        }
+      ],
+      "axisDisplay": "none",
+      "brokenImages": [],
+      "skipLinkPresent": true,
+      "reducedMotion": true,
+      "hydrationDirectives": 0,
+      "firstTabTarget": {
+        "tag": "A",
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      "zoomScale": 2,
+      "consoleErrors": 0,
+      "requestFailures": 0,
+      "experienceResponses": [
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-maritime-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 16089
+        },
+        {
+          "url": "http://127.0.0.1:4321/images/experience/experience-aviation-about-640.avif",
+          "mimeType": "image/avif",
+          "status": 200,
+          "transferSize": 11017
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2846 @@
+{
+  "generated": "2026-07-31T09:08:54.107Z",
+  "audit": [
+    {
+      "route": "index-pl",
+      "width": 1440,
+      "kind": "index",
+      "viewportWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "index-pl",
+      "width": 1024,
+      "kind": "index",
+      "viewportWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "index-pl",
+      "width": 768,
+      "kind": "index",
+      "viewportWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "index-pl",
+      "width": 390,
+      "kind": "index",
+      "viewportWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "index-pl",
+      "width": 320,
+      "kind": "index",
+      "viewportWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "index-en",
+      "width": 1440,
+      "kind": "index",
+      "viewportWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "index-en",
+      "width": 1024,
+      "kind": "index",
+      "viewportWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "index-en",
+      "width": 768,
+      "kind": "index",
+      "viewportWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "index-en",
+      "width": 390,
+      "kind": "index",
+      "viewportWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "index-en",
+      "width": 320,
+      "kind": "index",
+      "viewportWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-situation",
+      "width": 1440,
+      "kind": "article",
+      "viewportWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": false,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/kiedy-zespol-kryzysowy-traci-obraz-sytuacji.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-situation",
+      "width": 1024,
+      "kind": "article",
+      "viewportWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": false,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/kiedy-zespol-kryzysowy-traci-obraz-sytuacji.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-situation",
+      "width": 768,
+      "kind": "article",
+      "viewportWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/kiedy-zespol-kryzysowy-traci-obraz-sytuacji.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-situation",
+      "width": 390,
+      "kind": "article",
+      "viewportWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/kiedy-zespol-kryzysowy-traci-obraz-sytuacji.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-situation",
+      "width": 320,
+      "kind": "article",
+      "viewportWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/kiedy-zespol-kryzysowy-traci-obraz-sytuacji.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-communication",
+      "width": 1440,
+      "kind": "article",
+      "viewportWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": false,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/pierwsza-godzina-komunikacji-kryzysowej.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-communication",
+      "width": 1024,
+      "kind": "article",
+      "viewportWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": false,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/pierwsza-godzina-komunikacji-kryzysowej.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-communication",
+      "width": 768,
+      "kind": "article",
+      "viewportWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/pierwsza-godzina-komunikacji-kryzysowej.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-communication",
+      "width": 390,
+      "kind": "article",
+      "viewportWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/pierwsza-godzina-komunikacji-kryzysowej.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-communication",
+      "width": 320,
+      "kind": "article",
+      "viewportWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/pierwsza-godzina-komunikacji-kryzysowej.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-exercises",
+      "width": 1440,
+      "kind": "article",
+      "viewportWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": false,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/dobre-cwiczenie-kryzysowe-nie-jest-spektaklem.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-exercises",
+      "width": 1024,
+      "kind": "article",
+      "viewportWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": false,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/dobre-cwiczenie-kryzysowe-nie-jest-spektaklem.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-exercises",
+      "width": 768,
+      "kind": "article",
+      "viewportWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/dobre-cwiczenie-kryzysowe-nie-jest-spektaklem.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-exercises",
+      "width": 390,
+      "kind": "article",
+      "viewportWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/dobre-cwiczenie-kryzysowe-nie-jest-spektaklem.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-exercises",
+      "width": 320,
+      "kind": "article",
+      "viewportWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/dobre-cwiczenie-kryzysowe-nie-jest-spektaklem.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-continuity",
+      "width": 1440,
+      "kind": "article",
+      "viewportWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": false,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/plany-ciaglosci-zawodza-na-styku-odpowiedzialnosci.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-continuity",
+      "width": 1024,
+      "kind": "article",
+      "viewportWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": false,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/plany-ciaglosci-zawodza-na-styku-odpowiedzialnosci.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-continuity",
+      "width": 768,
+      "kind": "article",
+      "viewportWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/plany-ciaglosci-zawodza-na-styku-odpowiedzialnosci.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-continuity",
+      "width": 390,
+      "kind": "article",
+      "viewportWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/plany-ciaglosci-zawodza-na-styku-odpowiedzialnosci.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-pl-continuity",
+      "width": 320,
+      "kind": "article",
+      "viewportWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/pl/plany-ciaglosci-zawodza-na-styku-odpowiedzialnosci.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-situation",
+      "width": 1440,
+      "kind": "article",
+      "viewportWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": false,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/when-crisis-teams-lose-situational-awareness.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-situation",
+      "width": 1024,
+      "kind": "article",
+      "viewportWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": false,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/when-crisis-teams-lose-situational-awareness.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-situation",
+      "width": 768,
+      "kind": "article",
+      "viewportWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/when-crisis-teams-lose-situational-awareness.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-situation",
+      "width": 390,
+      "kind": "article",
+      "viewportWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/when-crisis-teams-lose-situational-awareness.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-situation",
+      "width": 320,
+      "kind": "article",
+      "viewportWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/when-crisis-teams-lose-situational-awareness.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-communication",
+      "width": 1440,
+      "kind": "article",
+      "viewportWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": false,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/the-first-hour-of-crisis-communication.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-communication",
+      "width": 1024,
+      "kind": "article",
+      "viewportWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": false,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/the-first-hour-of-crisis-communication.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-communication",
+      "width": 768,
+      "kind": "article",
+      "viewportWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/the-first-hour-of-crisis-communication.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-communication",
+      "width": 390,
+      "kind": "article",
+      "viewportWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/the-first-hour-of-crisis-communication.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-communication",
+      "width": 320,
+      "kind": "article",
+      "viewportWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/the-first-hour-of-crisis-communication.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-exercises",
+      "width": 1440,
+      "kind": "article",
+      "viewportWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": false,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/a-good-crisis-exercise-is-not-a-performance.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-exercises",
+      "width": 1024,
+      "kind": "article",
+      "viewportWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": false,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/a-good-crisis-exercise-is-not-a-performance.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-exercises",
+      "width": 768,
+      "kind": "article",
+      "viewportWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/a-good-crisis-exercise-is-not-a-performance.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-exercises",
+      "width": 390,
+      "kind": "article",
+      "viewportWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/a-good-crisis-exercise-is-not-a-performance.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-exercises",
+      "width": 320,
+      "kind": "article",
+      "viewportWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/a-good-crisis-exercise-is-not-a-performance.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-continuity",
+      "width": 1440,
+      "kind": "article",
+      "viewportWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": false,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/business-continuity-fails-at-the-interfaces.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-continuity",
+      "width": 1024,
+      "kind": "article",
+      "viewportWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": false,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/business-continuity-fails-at-the-interfaces.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-continuity",
+      "width": 768,
+      "kind": "article",
+      "viewportWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        },
+        {
+          "aspect": 1.5,
+          "share": 0.3591,
+          "visualBeforeMeta": false
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/business-continuity-fails-at-the-interfaces.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-continuity",
+      "width": 390,
+      "kind": "article",
+      "viewportWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5001,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/business-continuity-fails-at-the-interfaces.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "article-en-continuity",
+      "width": 320,
+      "kind": "article",
+      "viewportWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 4,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [
+        "/_astro/interface-map.BF7Dv25K.svg#interface-map-a",
+        "/_astro/situation-field.YQEru7a3.svg#situation-field-a",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-outbound",
+        "/_astro/decision-route.CNK6YgGg.svg#decision-route-checkpoints"
+      ],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        },
+        {
+          "aspect": 1.5,
+          "share": 1,
+          "visualBeforeMeta": true
+        }
+      ],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": "1px",
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/images/insights/og/en/business-continuity-fails-at-the-interfaces.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "home-pl",
+      "width": 1440,
+      "kind": "home",
+      "viewportWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 0,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "home-pl",
+      "width": 1024,
+      "kind": "home",
+      "viewportWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 0,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "home-pl",
+      "width": 768,
+      "kind": "home",
+      "viewportWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 0,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "home-pl",
+      "width": 390,
+      "kind": "home",
+      "viewportWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 0,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "home-pl",
+      "width": 320,
+      "kind": "home",
+      "viewportWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 0,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "home-en",
+      "width": 1440,
+      "kind": "home",
+      "viewportWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 0,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "home-en",
+      "width": 1024,
+      "kind": "home",
+      "viewportWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 0,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "home-en",
+      "width": 768,
+      "kind": "home",
+      "viewportWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 0,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "home-en",
+      "width": 390,
+      "kind": "home",
+      "viewportWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 0,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    },
+    {
+      "route": "home-en",
+      "width": 320,
+      "kind": "home",
+      "viewportWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "firstFocusable": "#main-content",
+      "reducedMotion": true,
+      "visualCount": 0,
+      "emptyUses": 0,
+      "hydrationCount": 0,
+      "hrefs": [],
+      "expectedThemePresent": true,
+      "reserveThemePresent": false,
+      "indexRatios": [],
+      "indexOrderValid": true,
+      "indexShareValid": true,
+      "articleOrder": true,
+      "articleDesktopSplit": true,
+      "articleMobileAfterMeta": true,
+      "articleRule": true,
+      "homeHasVisual": false,
+      "ogImage": "https://clearstance.pl/social/clearstance-og.webp",
+      "badResponses": 0,
+      "failedRequests": 0,
+      "consoleErrors": 0
+    }
+  ],
+  "failed": []
+}

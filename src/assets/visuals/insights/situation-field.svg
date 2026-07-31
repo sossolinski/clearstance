@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" fill="none">
+  <title>Situation Field — ClearStance Insights source</title>
+  <defs>
+    <symbol id="situation-field-a" viewBox="0 0 320 220">
+      <g stroke="var(--insight-visual-muted, #6f8f89)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+        <path opacity=".48" d="M38 58h40l26 22M30 111h48l27 3M51 172h38l24-24M169 25v29M274 50h-34l-18 18M279 154h-35l-22-18"/>
+        <circle cx="38" cy="58" r="3.5"/>
+        <circle cx="30" cy="111" r="3.5"/>
+        <circle cx="51" cy="172" r="3.5"/>
+        <circle cx="169" cy="25" r="3.5"/>
+        <circle cx="274" cy="50" r="3.5"/>
+        <circle cx="279" cy="154" r="3.5"/>
+      </g>
+      <g stroke="var(--insight-visual-line, #385e5d)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="90" y="68" width="120" height="104" rx="2"/>
+        <rect x="108" y="52" width="122" height="103" rx="2" opacity=".58"/>
+        <path d="M119 91h80v46h-80z"/>
+        <path opacity=".55" d="M108 114h11M199 114h31M159 91V68M159 137v35"/>
+      </g>
+      <circle cx="219" cy="75" r="4.5" fill="var(--insight-visual-signal, #c65348)"/>
+    </symbol>
+    <symbol id="situation-field-b" viewBox="0 0 320 220">
+      <g stroke="var(--insight-visual-muted, #6f8f89)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+        <path opacity=".48" d="M43 43h42l25 23M27 91h50l26 17M39 166h47l25-17M279 69h-40l-19 18M290 128h-49l-23-7M258 181h-36l-22-25"/>
+        <circle cx="43" cy="43" r="3.5"/>
+        <circle cx="27" cy="91" r="3.5"/>
+        <circle cx="39" cy="166" r="3.5"/>
+        <circle cx="279" cy="69" r="3.5"/>
+        <circle cx="290" cy="128" r="3.5"/>
+        <circle cx="258" cy="181" r="3.5"/>
+      </g>
+      <g stroke="var(--insight-visual-line, #385e5d)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="98" y="60" width="118" height="108" rx="2"/>
+        <rect x="116" y="76" width="120" height="106" rx="2" opacity=".58"/>
+        <path d="M126 91h80v48h-80z"/>
+        <path opacity=".55" d="M98 115h28M206 115h30M166 60v31M166 139v43"/>
+      </g>
+      <circle cx="106" cy="145" r="4.5" fill="var(--insight-visual-signal, #c65348)"/>
+    </symbol>
+  </defs>
+  <use href="#situation-field-a"/>
+</svg>

@@ -2,7 +2,7 @@ import type { CollectionEntry } from 'astro:content';
 import sharp from 'sharp';
 import type { Locale } from '../i18n/routes';
 
-export const DEFAULT_INSIGHTS_SOCIAL_IMAGE = '/social/clearstance-og.webp';
+export const INSIGHTS_OG_IMAGE_ROOT = '/images/insights/og';
 export const READING_WORDS_PER_MINUTE = 200;
 export const RELATED_INSIGHTS_LIMIT = 3;
 export const HOMEPAGE_INSIGHTS_LIMIT = 3;
@@ -21,7 +21,8 @@ export interface InsightTaxonomyMatch {
 
 interface InsightSocialImageFields {
   socialImage?: string;
-  headerImage?: string;
+  locale: Locale;
+  slug: string;
 }
 
 export interface PublicImageDimensions {
@@ -228,11 +229,17 @@ export function getRelatedInsights(
 export function resolveInsightSocialImage(
   insight: InsightSocialImageFields
 ): string {
-  return (
-    insight.socialImage ??
-    insight.headerImage ??
-    DEFAULT_INSIGHTS_SOCIAL_IMAGE
+  return insight.socialImage ?? getGeneratedInsightSocialImagePath(
+    insight.locale,
+    insight.slug
   );
+}
+
+export function getGeneratedInsightSocialImagePath(
+  locale: Locale,
+  slug: string
+): string {
+  return `${INSIGHTS_OG_IMAGE_ROOT}/${locale}/${slug}.webp`;
 }
 
 /**

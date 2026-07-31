@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" fill="none">
+  <title>Interface Map — ClearStance Insights source</title>
+  <defs>
+    <symbol id="interface-map-a" viewBox="0 0 320 220">
+      <path d="M160 31v49m0 60v49" stroke="var(--insight-visual-muted, #6f8f89)" stroke-width="1.25" stroke-linecap="round" opacity=".55"/>
+      <g stroke="var(--insight-visual-line, #385e5d)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M42 69h43l31 38h44M42 151h45l28-31h45M160 107h44l28-35h47M160 120h43l31 34h45"/>
+        <path opacity=".5" d="M116 107v13M204 107v13"/>
+        <path d="m270 66 9 6-9 6"/>
+      </g>
+      <g fill="var(--insight-visual-paper, #f2eee7)" stroke="var(--insight-visual-muted, #6f8f89)" stroke-width="1.25">
+        <circle cx="42" cy="69" r="5"/>
+        <circle cx="42" cy="151" r="5"/>
+        <circle cx="85" cy="69" r="4"/>
+        <circle cx="87" cy="151" r="4"/>
+        <circle cx="232" cy="72" r="4"/>
+        <circle cx="234" cy="154" r="4"/>
+        <circle cx="279" cy="72" r="5"/>
+        <circle cx="279" cy="154" r="5"/>
+      </g>
+      <circle cx="160" cy="113.5" r="4.5" fill="var(--insight-visual-signal, #c65348)"/>
+    </symbol>
+    <symbol id="interface-map-b" viewBox="0 0 320 220">
+      <path d="M143 29v55m0 56v51" stroke="var(--insight-visual-muted, #6f8f89)" stroke-width="1.25" stroke-linecap="round" opacity=".55"/>
+      <g stroke="var(--insight-visual-line, #385e5d)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M35 76h46l27 30h35M35 155h48l26-35h34M143 106h48l28-29h65M143 120h49l29 37h63"/>
+        <path opacity=".5" d="M108 106v14M191 106v14"/>
+        <path d="m44 149-9 6 9 6"/>
+      </g>
+      <g fill="var(--insight-visual-paper, #f2eee7)" stroke="var(--insight-visual-muted, #6f8f89)" stroke-width="1.25">
+        <circle cx="35" cy="76" r="5"/>
+        <circle cx="35" cy="155" r="5"/>
+        <circle cx="81" cy="76" r="4"/>
+        <circle cx="83" cy="155" r="4"/>
+        <circle cx="219" cy="77" r="4"/>
+        <circle cx="221" cy="157" r="4"/>
+        <circle cx="284" cy="77" r="5"/>
+        <circle cx="284" cy="157" r="5"/>
+      </g>
+      <circle cx="143" cy="113" r="4.5" fill="var(--insight-visual-signal, #c65348)"/>
+    </symbol>
+  </defs>
+  <use href="#interface-map-a"/>
+</svg>

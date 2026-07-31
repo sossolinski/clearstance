@@ -1,0 +1,114 @@
+---
+interface Props {
+  surface: 'home' | 'about';
+  maritimeAlt: string;
+  aviationAlt: string;
+}
+
+const { surface, maritimeAlt, aviationAlt } = Astro.props;
+const isHome = surface === 'home';
+const widths = isHome ? [480, 720, 960] : [640, 960, 1280];
+const width = isHome ? 960 : 1280;
+const height = isHome ? 1200 : 800;
+const sizes = isHome
+  ? '(max-width: 430px) calc((100vw - 42px) / 2), (max-width: 760px) calc((100vw - 54px) / 2), (max-width: 900px) calc((100vw - 90px) / 2), (max-width: 1080px) 170px, 250px'
+  : '(max-width: 430px) calc((100vw - 42px) / 2), (max-width: 760px) calc((100vw - 54px) / 2), (max-width: 900px) 270px, (max-width: 1080px) 340px, 450px';
+const images = [
+  {
+    domain: 'maritime',
+    alt: maritimeAlt,
+    basename: `experience-maritime-${surface}`
+  },
+  {
+    domain: 'aviation',
+    alt: aviationAlt,
+    basename: `experience-aviation-${surface}`
+  }
+];
+---
+
+<div class:list={['experience-media', `experience-media--${surface}`]}>
+  {
+    images.map((image) => (
+      <picture class={`experience-media-picture experience-media-picture--${image.domain}`}>
+        <source
+          srcset={widths
+            .map(
+              (candidateWidth) =>
+                `/images/experience/${image.basename}-${candidateWidth}.avif ${candidateWidth}w`
+            )
+            .join(', ')}
+          sizes={sizes}
+          type="image/avif"
+        />
+        <source
+          srcset={widths
+            .map(
+              (candidateWidth) =>
+                `/images/experience/${image.basename}-${candidateWidth}.webp ${candidateWidth}w`
+            )
+            .join(', ')}
+          sizes={sizes}
+          type="image/webp"
+        />
+        <img
+          src={`/images/experience/${image.basename}-${width}.webp`}
+          width={width}
+          height={height}
+          alt={image.alt}
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+    ))
+  }
+</div>
+
+<style>
+  .experience-media {
+    display: grid;
+    width: 100%;
+    gap: 18px;
+  }
+
+  .experience-media--home {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .experience-media--about {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-media-picture {
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    background: #d5d9d8;
+  }
+
+  .experience-media--home .experience-media-picture {
+    aspect-ratio: 4 / 5;
+  }
+
+  .experience-media--about .experience-media-picture {
+    aspect-ratio: 16 / 10;
+  }
+
+  .experience-media-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 760px) {
+    .experience-media--about {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 430px) {
+    .experience-media {
+      gap: 10px;
+    }
+  }
+</style>

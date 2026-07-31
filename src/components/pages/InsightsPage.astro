@@ -48,17 +48,16 @@ const entries = await getPublishedInsights(locale);
         </h2>
         {
           entries.length > 0 ? (
-            <ol class="insights-list">
-              {entries.map((entry, index) => (
+            <ul class="insights-list">
+              {entries.map((entry) => (
                 <InsightTeaser
                   entry={entry}
-                  index={index}
                   locale={locale}
                   readLabel={content.read}
                   readingTimeUnit={content.readingTimeUnit}
                 />
               ))}
-            </ol>
+            </ul>
           ) : (
             <p class="insights-empty">{content.empty}</p>
           )

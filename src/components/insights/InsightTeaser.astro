@@ -3,11 +3,12 @@ import type { CollectionEntry } from 'astro:content';
 import type { Locale } from '../../i18n/routes';
 import { formatDate, getArticlePath } from '../../i18n/routes';
 import { formatVisibleText } from '../../i18n/typography.js';
+import { resolveInsightEntryVisual } from '../../lib/insight-visual-theme';
 import { calculateReadingTime } from '../../lib/insights';
+import InsightVisual from './InsightVisual.astro';
 
 interface Props {
   entry: CollectionEntry<'insights'>;
-  index: number;
   locale: Locale;
   readLabel: string;
   readingTimeUnit: string;
@@ -15,24 +16,27 @@ interface Props {
 
 const {
   entry,
-  index,
   locale,
   readLabel,
   readingTimeUnit
 } = Astro.props;
 const readingMinutes = calculateReadingTime(entry.body ?? '');
+const visual = resolveInsightEntryVisual({
+  headerImage: entry.data.headerImage,
+  visualTheme: entry.data.visualTheme,
+  category: entry.data.category
+});
 ---
 
 <li data-reveal>
   <article
     class:list={{
       'insight-item': true,
-      'insight-item--with-image': Boolean(entry.data.headerImage)
+      'insight-item--with-visual': visual.kind !== 'typographic'
     }}
   >
     <div class="insight-item-copy">
       <div class="insight-meta">
-        <span>{String(index + 1).padStart(2, '0')}</span>
         <span>{formatVisibleText(entry.data.category, locale)}</span>
         <time datetime={entry.data.publishedAt.toISOString()}>
           {formatDate(entry.data.publishedAt, locale)}
@@ -51,14 +55,24 @@ const readingMinutes = calculateReadingTime(entry.body ?? '');
       </span>
     </div>
     {
-      entry.data.headerImage && (
-        <div class="insight-thumbnail" aria-hidden="true">
+      visual.kind === 'image' && (
+        <div class="insight-thumbnail insight-thumbnail--image" aria-hidden="true">
           <img
-            src={entry.data.headerImage}
+            src={visual.src}
             alt=""
             loading="lazy"
             decoding="async"
           />
+        </div>
+      )
+    }
+    {
+      visual.kind === 'micro-illustration' && (
+        <div
+          class="insight-thumbnail insight-thumbnail--illustration"
+          aria-hidden="true"
+        >
+          <InsightVisual variant={visual.theme} />
         </div>
       )
     }

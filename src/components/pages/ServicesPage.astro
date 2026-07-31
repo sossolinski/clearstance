@@ -5,9 +5,11 @@ import {
   getTranslations,
   getVisibleTranslations
 } from '../../i18n/translations';
+import { getServiceIconName } from '../../lib/service-icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactBand from '../sections/ContactBand.astro';
 import PageIntro from '../sections/PageIntro.astro';
+import Icon from '../ui/Icon.astro';
 
 interface Props {
   locale: Locale;
@@ -50,24 +52,29 @@ const otherLocale = locale === 'pl' ? 'en' : 'pl';
           {
             content.services.map((service, index) => (
               <li data-reveal>
-                <span class="detail-number">{String(index + 1).padStart(2, '0')}</span>
+                <div class="detail-marker">
+                  <span class="detail-number">{String(index + 1).padStart(2, '0')}</span>
+                  <Icon
+                    class="detail-icon"
+                    name={getServiceIconName(index)}
+                    size={40}
+                    decorative
+                  />
+                </div>
                 <div class="detail-copy">
-                  <h3>{service.title}</h3>
+                  <h3 class:list={{ 'service-title--long': index === 3 }}>
+                    {service.title}
+                  </h3>
                   <p>{service.summary}</p>
+                  {
+                    'note' in service && service.note && (
+                      <p class="service-scope-note">{service.note}</p>
+                    )
+                  }
                 </div>
                 <ul>
                   {service.points.map((point) => <li>{point}</li>)}
                 </ul>
-                <div class="service-sketch">
-                  <img
-                    src={service.illustration.src}
-                    width={service.illustration.width}
-                    height={service.illustration.height}
-                    alt={service.illustration.alt}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
               </li>
             ))
           }
@@ -77,11 +84,35 @@ const otherLocale = locale === 'pl' ? 'en' : 'pl';
 
     <section class="context-section" aria-labelledby="context-title">
       <div class="wrap context-grid" data-reveal>
-        <p class="eyebrow eyebrow--teal">{content.closingEyebrow}</p>
-        <div>
+        <div class="context-heading">
+          <Icon
+            class="context-heading-icon"
+            name="book"
+            size={20}
+            decorative
+          />
           <h2 id="context-title">{content.closingTitle}</h2>
-          <p>{content.closingText}</p>
         </div>
+        <p class="context-copy">{content.closingText}</p>
+        <ul class="context-references">
+          {
+            content.closingReferences.map((reference) => (
+              <li class:list={{
+                'context-reference--guidance': 'label' in reference
+              }}>
+                {'code' in reference ? (
+                  <strong class="context-reference-code">{reference.code}</strong>
+                ) : (
+                  <strong class="context-reference-label">{reference.label}</strong>
+                )}
+                <span class="context-reference-separator" aria-hidden="true"> — </span>
+                <span class="context-reference-description">
+                  {reference.description}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
       </div>
     </section>
 

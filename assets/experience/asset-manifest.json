@@ -1,0 +1,36 @@
+{
+  "project": "ClearStance experience section",
+  "created": "2026-07-31",
+  "source": "AI-generated editorial imagery created for ClearStance",
+  "usage_note": "Use as editorial website imagery. Do not describe these images as documentary records of specific ClearStance, airline, airport, vessel, client, organisation, or operational activities.",
+  "assets": [
+    {
+      "file": "source/experience-maritime-home-master.png",
+      "role": "Home — maritime",
+      "orientation": "portrait 4:5",
+      "alt_pl": "Dłonie nawigatora pracującego z mapą morską na mostku statku.",
+      "alt_en": "A navigator’s hands working with a nautical chart on a ship’s bridge."
+    },
+    {
+      "file": "source/experience-aviation-home-master.png",
+      "role": "Home — aviation",
+      "orientation": "portrait 4:5",
+      "alt_pl": "Fragment płyty lotniska z infrastrukturą obsługi samolotu po deszczu.",
+      "alt_en": "An airport apron and aircraft ground-handling infrastructure after rain."
+    },
+    {
+      "file": "source/experience-maritime-about-master.png",
+      "role": "About — maritime",
+      "orientation": "landscape 16:10",
+      "alt_pl": "Stół nawigacyjny z mapą morską i narzędziami na mostku statku.",
+      "alt_en": "A ship’s bridge chart table with a nautical chart and navigation tools."
+    },
+    {
+      "file": "source/experience-aviation-about-master.png",
+      "role": "About — aviation",
+      "orientation": "landscape 16:10",
+      "alt_pl": "Podwozie samolotu i światła drogi kołowania na mokrej płycie lotniska.",
+      "alt_en": "Aircraft landing gear and taxiway lights on a wet airport apron."
+    }
+  ]
+}

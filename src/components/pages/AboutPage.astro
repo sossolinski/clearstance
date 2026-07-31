@@ -8,6 +8,8 @@ import {
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactBand from '../sections/ContactBand.astro';
 import PageIntro from '../sections/PageIntro.astro';
+import ExperienceMedia from '../ui/ExperienceMedia.astro';
+import Icon from '../ui/Icon.astro';
 
 interface Props {
   locale: Locale;
@@ -41,35 +43,40 @@ const otherLocale = locale === 'pl' ? 'en' : 'pl';
 
     <section class="about-story" aria-labelledby="about-story-title">
       <div class="wrap about-story-grid">
-        <figure data-reveal>
-          <picture>
-            <source
-              srcset="
-                /images/operational-briefing-640.webp 640w,
-                /images/operational-briefing-960.webp 960w,
-                /images/operational-briefing-1440.webp 1440w,
-                /images/operational-briefing.webp 1920w
-              "
-              sizes="
-                (max-width: 760px) calc(100vw - 32px),
-                (max-width: 1080px) 47vw,
-                540px
-              "
-              type="image/webp"
-            />
-            <img
-              src="/images/operational-briefing.jpg"
-              width="1920"
-              height="1080"
-              alt={t.home.experience.imageAlt}
-              loading="eager"
-            />
-          </picture>
-          <figcaption>{visible.home.experience.eyebrow}</figcaption>
-        </figure>
-        <div class="about-story-copy" data-reveal>
+        <header class="about-story-header" data-reveal>
+          <p class="eyebrow">{content.eyebrow}</p>
           <h2 id="about-story-title">{content.storyTitle}</h2>
+        </header>
+        <ExperienceMedia
+          surface="about"
+          maritimeAlt={t.aboutPage.mediaAlt.maritime}
+          aviationAlt={t.aboutPage.mediaAlt.aviation}
+        />
+        <div class="about-story-copy" data-reveal>
           {content.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          <ol
+            class="about-experience-axis"
+            aria-label={content.experienceAxisLabel}
+          >
+            {
+              content.experienceAxis.map((item, index) => (
+                <li>
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <strong>
+                    {index < 2 && (
+                      <Icon
+                        class="experience-domain-icon"
+                        name={index === 0 ? 'compass' : 'maps-arrow-diagonal'}
+                        size={22}
+                        decorative
+                      />
+                    )}
+                    {item}
+                  </strong>
+                </li>
+              ))
+            }
+          </ol>
         </div>
       </div>
     </section>
