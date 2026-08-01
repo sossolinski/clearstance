@@ -626,7 +626,8 @@ const main = async () => {
               ),
               readinessNumberCount: document.querySelectorAll('.readiness-steps > li > span').length,
               detailNumberCount: document.querySelectorAll('.detail-number').length,
-              aboutAxisNumberCount: document.querySelectorAll('.about-experience-axis li > span').length
+              aboutAxisNumberCount: document.querySelectorAll('.about-experience-axis li > span').length,
+              aboutAxisIconCount: document.querySelectorAll('.about-experience-axis .experience-domain-icon').length
             };
           })()`
         );
@@ -803,7 +804,8 @@ const main = async () => {
       !item.mobileInsightVisualFirst ||
       (item.route.startsWith('home-') && item.readinessNumberCount !== 5) ||
       (item.route.startsWith('services-') && item.detailNumberCount !== 4) ||
-      (item.route.startsWith('about-') && item.width > 900 && item.aboutAxisNumberCount !== 3) ||
+      (item.route.startsWith('about-') && item.aboutAxisNumberCount !== 0) ||
+      (item.route.startsWith('about-') && item.width > 900 && item.aboutAxisIconCount !== 3) ||
       item.consoleErrors > 0 ||
       item.requestFailures > 0
     );

@@ -1752,18 +1752,8 @@ summary:focus-visible {
 }
 
 .about-experience-axis li {
-  display: grid;
-  grid-template-columns: 40px minmax(0, 1fr);
-  gap: 12px;
   padding: 15px 0;
   border-bottom: 1px solid var(--line);
-}
-
-.about-experience-axis li > span {
-  color: var(--teal-deep);
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 0.1em;
 }
 
 .about-experience-axis strong {

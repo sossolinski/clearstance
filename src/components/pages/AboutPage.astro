@@ -61,16 +61,19 @@ const otherLocale = locale === 'pl' ? 'en' : 'pl';
             {
               content.experienceAxis.map((item, index) => (
                 <li>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
                   <strong>
-                    {index < 2 && (
-                      <Icon
-                        class="experience-domain-icon"
-                        name={index === 0 ? 'compass' : 'maps-arrow-diagonal'}
-                        size={22}
-                        decorative
-                      />
-                    )}
+                    <Icon
+                      class="experience-domain-icon"
+                      name={
+                        index === 0
+                          ? 'compass'
+                          : index === 1
+                            ? 'maps-arrow-diagonal'
+                            : 'network'
+                      }
+                      size={22}
+                      decorative
+                    />
                     {item}
                   </strong>
                 </li>
