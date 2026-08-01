@@ -347,6 +347,10 @@ const main = async () => {
             const sectionIntro = section.querySelector('.services-heading > p');
             const offerCta = section.querySelector('.services-cta-rail');
             const offerCtaStyle = offerCta ? getComputedStyle(offerCta) : null;
+            const sectionDescription = rows[0]?.querySelector('p');
+            const sectionTitle = rows[0]?.querySelector('h3');
+            const lastService = rows.at(-1);
+            const ctaText = offerCta?.querySelector('.services-cta-text');
             return {
               width: ${width},
               clientWidth: document.documentElement.clientWidth,
@@ -431,11 +435,30 @@ const main = async () => {
                 : 'true'},
               homeOfferCtaEditorial: ${definition.ctaText
                 ? `offerCtaStyle?.display === 'grid' &&
-                  offerCtaStyle.borderTopWidth === '1px' &&
-                  offerCtaStyle.borderBottomWidth === '1px' &&
+                  offerCtaStyle.borderTopWidth === '0px' &&
+                  offerCtaStyle.borderBottomWidth === '0px' &&
                   offerCtaStyle.borderRadius === '0px' &&
                   offerCtaStyle.boxShadow === 'none' &&
-                  offerCtaStyle.backgroundColor === 'rgba(0, 0, 0, 0)'`
+                  offerCtaStyle.backgroundColor === 'rgba(0, 0, 0, 0)' &&
+                  getComputedStyle(lastService).borderBottomWidth === '1px'`
+                : 'true'},
+              homeIntroDescriptionAligned: ${definition.ctaText
+                ? `${width} <= 760 || Math.abs(
+                  sectionIntro.getBoundingClientRect().left -
+                  sectionDescription.getBoundingClientRect().left
+                ) <= 0.5`
+                : 'true'},
+              homeCtaTitleAligned: ${definition.ctaText
+                ? `${width} <= 760 || Math.abs(
+                  ctaText.getBoundingClientRect().left -
+                  sectionTitle.getBoundingClientRect().left
+                ) <= 0.5`
+                : 'true'},
+              homeCtaUsesServiceSeparator: ${definition.ctaText
+                ? `Math.abs(
+                  offerCta.getBoundingClientRect().top -
+                  lastService.getBoundingClientRect().bottom
+                ) <= 0.5`
                 : 'true'},
               homeOfferCtaFocusVisible: true
             };
@@ -723,6 +746,9 @@ const main = async () => {
       !item.perspectiveAbsent ||
       !item.homeOfferCtaValid ||
       !item.homeOfferCtaEditorial ||
+      !item.homeIntroDescriptionAligned ||
+      !item.homeCtaTitleAligned ||
+      !item.homeCtaUsesServiceSeparator ||
       !item.homeOfferCtaFocusVisible ||
       !item.hoverValid ||
       item.consoleErrors > 0 ||
