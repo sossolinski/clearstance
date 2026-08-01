@@ -742,7 +742,7 @@ summary:focus-visible {
 /* Homepage — services */
 
 .services-section {
-  padding: 95px 0 80px;
+  padding: 95px 0 42px;
   background: var(--paper-2);
 }
 
@@ -810,10 +810,12 @@ summary:focus-visible {
 
 .services-cta-rail {
   display: grid;
-  grid-template-columns: 48px minmax(0, 1fr) auto;
+  grid-template-columns: 145px minmax(0, 1fr) auto;
   align-items: center;
-  gap: 18px;
-  padding: 29px 0 4px;
+  gap: 28px;
+  padding: 30px 0;
+  background: color-mix(in srgb, var(--paper-2) 60%, var(--paper) 40%);
+  transition: background-color 180ms ease;
 }
 
 .services-cta-label {
@@ -824,6 +826,7 @@ summary:focus-visible {
   letter-spacing: 0.15em;
   line-height: var(--type-utility-line);
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .services-cta-text {
@@ -845,6 +848,10 @@ summary:focus-visible {
 
 .services-cta-rail:hover .services-cta-text {
   color: var(--teal-deep);
+}
+
+.services-cta-rail:hover {
+  background: color-mix(in srgb, var(--paper-2) 42%, var(--paper) 58%);
 }
 
 .services-cta-rail:hover .services-cta-arrow {
@@ -3284,7 +3291,11 @@ summary:focus-visible {
       "text arrow";
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 13px 18px;
-    padding: 27px 0 2px;
+    padding: 27px 0;
+  }
+
+  .services-section {
+    padding-bottom: 38px;
   }
 
   .services-cta-label {

@@ -347,10 +347,12 @@ const main = async () => {
             const sectionIntro = section.querySelector('.services-heading > p');
             const offerCta = section.querySelector('.services-cta-rail');
             const offerCtaStyle = offerCta ? getComputedStyle(offerCta) : null;
+            const sectionStyle = getComputedStyle(section);
             const sectionDescription = rows[0]?.querySelector('p');
-            const sectionTitle = rows[0]?.querySelector('h3');
             const lastService = rows.at(-1);
             const ctaText = offerCta?.querySelector('.services-cta-text');
+            const ctaLabel = offerCta?.querySelector('.services-cta-label');
+            const ctaArrow = offerCta?.querySelector('.services-cta-arrow');
             return {
               width: ${width},
               clientWidth: document.documentElement.clientWidth,
@@ -439,7 +441,8 @@ const main = async () => {
                   offerCtaStyle.borderBottomWidth === '0px' &&
                   offerCtaStyle.borderRadius === '0px' &&
                   offerCtaStyle.boxShadow === 'none' &&
-                  offerCtaStyle.backgroundColor === 'rgba(0, 0, 0, 0)' &&
+                  offerCtaStyle.backgroundColor !== 'rgba(0, 0, 0, 0)' &&
+                  offerCtaStyle.backgroundColor !== sectionStyle.backgroundColor &&
                   getComputedStyle(lastService).borderBottomWidth === '1px'`
                 : 'true'},
               homeIntroDescriptionAligned: ${definition.ctaText
@@ -448,11 +451,17 @@ const main = async () => {
                   sectionDescription.getBoundingClientRect().left
                 ) <= 0.5`
                 : 'true'},
-              homeCtaTitleAligned: ${definition.ctaText
-                ? `${width} <= 760 || Math.abs(
-                  ctaText.getBoundingClientRect().left -
-                  sectionTitle.getBoundingClientRect().left
-                ) <= 0.5`
+              homeCtaHierarchyValid: ${definition.ctaText
+                ? `getComputedStyle(ctaLabel).whiteSpace === 'nowrap' &&
+                  Math.abs(ctaLabel.getBoundingClientRect().height -
+                    Number.parseFloat(getComputedStyle(ctaLabel).lineHeight)) <= 1 &&
+                  Number.parseFloat(getComputedStyle(ctaText).fontSize) >= 20 &&
+                  Number.parseFloat(getComputedStyle(ctaArrow).fontSize) >= 22 &&
+                  (${width} <= 760 || (
+                    offerCta.getBoundingClientRect().height >= 87 &&
+                    offerCta.getBoundingClientRect().height <= 104 &&
+                    ctaLabel.getBoundingClientRect().right < ctaText.getBoundingClientRect().left
+                  ))`
                 : 'true'},
               homeCtaUsesServiceSeparator: ${definition.ctaText
                 ? `Math.abs(
@@ -487,6 +496,10 @@ const main = async () => {
               return style.outlineStyle !== 'none' && Number.parseFloat(style.outlineWidth) >= 2;
             })()`
           );
+          const idleBackground = await evaluate(
+            client,
+            `getComputedStyle(document.querySelector('.services-cta-rail')).backgroundColor`
+          );
           const ctaRect = await evaluate(
             client,
             `(() => {
@@ -507,7 +520,9 @@ const main = async () => {
             `(() => {
               const cta = document.querySelector('.services-cta-rail');
               const arrow = cta.querySelector('.services-cta-arrow');
-              return cta.matches(':hover') && getComputedStyle(arrow).transform !== 'none';
+              return cta.matches(':hover') &&
+                getComputedStyle(cta).backgroundColor !== ${JSON.stringify(idleBackground)} &&
+                getComputedStyle(arrow).transform !== 'none';
             })()`
           );
         }
@@ -747,7 +762,7 @@ const main = async () => {
       !item.homeOfferCtaValid ||
       !item.homeOfferCtaEditorial ||
       !item.homeIntroDescriptionAligned ||
-      !item.homeCtaTitleAligned ||
+      !item.homeCtaHierarchyValid ||
       !item.homeCtaUsesServiceSeparator ||
       !item.homeOfferCtaFocusVisible ||
       !item.hoverValid ||
