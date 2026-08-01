@@ -349,10 +349,12 @@ const main = async () => {
             const offerCtaStyle = offerCta ? getComputedStyle(offerCta) : null;
             const sectionStyle = getComputedStyle(section);
             const sectionDescription = rows[0]?.querySelector('p');
+            const sectionTitle = rows[0]?.querySelector('h3');
             const lastService = rows.at(-1);
             const ctaText = offerCta?.querySelector('.services-cta-text');
             const ctaLabel = offerCta?.querySelector('.services-cta-label');
             const ctaArrow = offerCta?.querySelector('.services-cta-arrow');
+            const offerWrap = offerCta?.parentElement;
             return {
               width: ${width},
               clientWidth: document.documentElement.clientWidth,
@@ -459,9 +461,26 @@ const main = async () => {
                   Number.parseFloat(getComputedStyle(ctaArrow).fontSize) >= 22 &&
                   (${width} <= 760 || (
                     offerCta.getBoundingClientRect().height >= 87 &&
-                    offerCta.getBoundingClientRect().height <= 104 &&
-                    ctaLabel.getBoundingClientRect().right < ctaText.getBoundingClientRect().left
+                    offerCta.getBoundingClientRect().height <= 104
                   ))`
+                : 'true'},
+              homeCtaGeometryValid: ${definition.ctaText
+                ? `(() => {
+                  const ctaRect = offerCta.getBoundingClientRect();
+                  const wrapRect = offerWrap.getBoundingClientRect();
+                  const textRect = ctaText.getBoundingClientRect();
+                  const labelRect = ctaLabel.getBoundingClientRect();
+                  const arrowRect = ctaArrow.getBoundingClientRect();
+                  const expectedMargin = ${width} <= 760 ? 8 : 24;
+                  const expectedPadding = ${width} <= 760 ? 16 : 18;
+                  return Math.abs(ctaRect.left - wrapRect.left - expectedMargin) <= 0.5 &&
+                    Math.abs(wrapRect.right - ctaRect.right - expectedMargin) <= 0.5 &&
+                    Math.abs(ctaRect.right - arrowRect.right - expectedPadding) <= 0.5 &&
+                    labelRect.bottom < textRect.top &&
+                    (${width} <= 760 || Math.abs(
+                      textRect.left - sectionTitle.getBoundingClientRect().left
+                    ) <= 0.5);
+                })()`
                 : 'true'},
               homeCtaUsesServiceSeparator: ${definition.ctaText
                 ? `Math.abs(
@@ -763,6 +782,7 @@ const main = async () => {
       !item.homeOfferCtaEditorial ||
       !item.homeIntroDescriptionAligned ||
       !item.homeCtaHierarchyValid ||
+      !item.homeCtaGeometryValid ||
       !item.homeCtaUsesServiceSeparator ||
       !item.homeOfferCtaFocusVisible ||
       !item.hoverValid ||
