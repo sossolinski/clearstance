@@ -230,6 +230,7 @@ function checkBilingualCopyContract(entries) {
 
   const requiredCtas = [
     ['home.hero.cta', polish.home.hero.cta, english.home.hero.cta],
+    ['home.services.linkLabel', polish.home.services.linkLabel, english.home.services.linkLabel],
     ['home.services.link', polish.home.services.link, english.home.services.link],
     ['home.experience.link', polish.home.experience.link, english.home.experience.link],
     ['home.insights.all', polish.home.insights.all, english.home.insights.all],

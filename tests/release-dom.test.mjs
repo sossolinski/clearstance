@@ -50,6 +50,37 @@ test('non-sequential Home and Insights collections render without record numbers
   }
 });
 
+test('Home offer uses the final intro and editorial CTA rail without Perspective', () => {
+  const expected = [
+    {
+      home: homePl,
+      intro: 'Pomagamy organizacjom przygotować sposób podejmowania decyzji, komunikacji i wsparcia ludzi podczas poważnych zdarzeń.',
+      label: 'Pełna oferta',
+      link: 'Zobacz pełną ofertę',
+      href: '/oferta/'
+    },
+    {
+      home: homeEn,
+      intro: 'We help organisations prepare how decisions are made, communication is managed and people are supported during serious incidents.',
+      label: 'Full offer',
+      link: 'Explore the full offer',
+      href: '/en/services/'
+    }
+  ];
+
+  for (const item of expected) {
+    const home = item.home.replaceAll('\u00a0', ' ');
+    assert.ok(home.includes(item.intro));
+    assert.ok(home.includes(`class="services-cta-label">${item.label}</span>`));
+    assert.ok(home.includes(`class="services-cta-text">${item.link}</span>`));
+    assert.match(
+      home,
+      new RegExp(`class="services-cta-rail" href="${item.href}" aria-label="${item.link}"`, 'u')
+    );
+    assert.doesNotMatch(home, /perspective-note|>Perspektywa<|>Perspective</u);
+  }
+});
+
 test('numbers remain on the readiness cycle, detailed Services and About timeline', () => {
   for (const home of [homePl, homeEn]) {
     assert.equal(count(home, /<span>0[1-5]<\/span><h3>/gu), 5);

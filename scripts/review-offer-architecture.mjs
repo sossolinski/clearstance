@@ -9,8 +9,8 @@ const chromePath =
   '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const baseUrl = process.env.REVIEW_BASE_URL ?? 'http://127.0.0.1:4321';
 const outputDirectory = 'docs/review/offer-architecture';
-const widths = [1440, 1280, 1024, 768, 390, 320];
-const releaseWidths = [1440, 1280, 1024, 900, 768, 390, 375, 320];
+const widths = [1920, 1440, 1280, 1024, 768, 430, 390, 375, 320];
+const releaseWidths = [1920, 1440, 1280, 1024, 900, 768, 430, 390, 375, 320];
 const releaseRoutes = [
   ['home-pl', '/'],
   ['home-en', '/en/'],
@@ -37,6 +37,10 @@ const routes = [
       'Wsparcie osób dotkniętych zdarzeniem i ich bliskich'
     ],
     metaDescription: 'ClearStance wspiera organizacje w przygotowaniu sposobu podejmowania decyzji, komunikowania się i wspierania ludzi podczas poważnych zdarzeń.',
+    intro: 'Pomagamy organizacjom przygotować sposób podejmowania decyzji, komunikacji i wsparcia ludzi podczas poważnych zdarzeń.',
+    ctaLabel: 'Pełna oferta',
+    ctaText: 'Zobacz pełną ofertę',
+    ctaHref: '/oferta/',
     schemaAreas: [
       'zarządzanie kryzysowe',
       'ćwiczenia i facylitacja',
@@ -56,6 +60,10 @@ const routes = [
       'Affected People & Family Assistance'
     ],
     metaDescription: 'ClearStance helps organisations prepare how they will make decisions, communicate and support people during serious incidents.',
+    intro: 'We help organisations prepare how decisions are made, communication is managed and people are supported during serious incidents.',
+    ctaLabel: 'Full offer',
+    ctaText: 'Explore the full offer',
+    ctaHref: '/en/services/',
     schemaAreas: [
       'crisis management',
       'exercises and facilitation',
@@ -336,6 +344,9 @@ const main = async () => {
             const contextBookSvg = contextBook?.querySelector('svg');
             const contextIsoCodes = [...(contextSection?.querySelectorAll('.context-reference-code') ?? [])];
             const contextGuidanceLabel = contextSection?.querySelector('.context-reference-label');
+            const sectionIntro = section.querySelector('.services-heading > p');
+            const offerCta = section.querySelector('.services-cta-rail');
+            const offerCtaStyle = offerCta ? getComputedStyle(offerCta) : null;
             return {
               width: ${width},
               clientWidth: document.documentElement.clientWidth,
@@ -405,13 +416,83 @@ const main = async () => {
                 'Crisis management system',
                 'Exercises and simulations',
                 'Reviews and improvement'
-              ].some((title) => titles.includes(title))
+              ].some((title) => titles.includes(title)),
+              homeOfferExpected: ${Boolean(definition.ctaText)},
+              homeIntroValid: ${definition.intro
+                ? `sectionIntro?.textContent.trim().replaceAll('\u00a0', ' ') === ${JSON.stringify(definition.intro)}`
+                : 'true'},
+              perspectiveAbsent: !section.querySelector('.perspective-note'),
+              homeOfferCtaValid: ${definition.ctaText
+                ? `Boolean(offerCta) &&
+                  offerCta.getAttribute('href') === ${JSON.stringify(definition.ctaHref)} &&
+                  offerCta.getAttribute('aria-label') === ${JSON.stringify(definition.ctaText)} &&
+                  offerCta.querySelector('.services-cta-label')?.textContent.trim() === ${JSON.stringify(definition.ctaLabel)} &&
+                  offerCta.querySelector('.services-cta-text')?.textContent.trim() === ${JSON.stringify(definition.ctaText)}`
+                : 'true'},
+              homeOfferCtaEditorial: ${definition.ctaText
+                ? `offerCtaStyle?.display === 'grid' &&
+                  offerCtaStyle.borderTopWidth === '1px' &&
+                  offerCtaStyle.borderBottomWidth === '1px' &&
+                  offerCtaStyle.borderRadius === '0px' &&
+                  offerCtaStyle.boxShadow === 'none' &&
+                  offerCtaStyle.backgroundColor === 'rgba(0, 0, 0, 0)'`
+                : 'true'},
+              homeOfferCtaFocusVisible: true
             };
           })()`
         );
+        let hoverValid = true;
+        let focusVisible = true;
+        if (definition.ctaText) {
+          await Promise.all([
+            client.send('DOM.enable'),
+            client.send('CSS.enable')
+          ]);
+          const { root } = await client.send('DOM.getDocument');
+          const { nodeId } = await client.send('DOM.querySelector', {
+            nodeId: root.nodeId,
+            selector: '.services-cta-rail'
+          });
+          await client.send('CSS.forcePseudoState', {
+            nodeId,
+            forcedPseudoClasses: ['focus', 'focus-visible']
+          });
+          focusVisible = await evaluate(
+            client,
+            `(() => {
+              const style = getComputedStyle(document.querySelector('.services-cta-rail'));
+              return style.outlineStyle !== 'none' && Number.parseFloat(style.outlineWidth) >= 2;
+            })()`
+          );
+          const ctaRect = await evaluate(
+            client,
+            `(() => {
+              const cta = document.querySelector('.services-cta-rail');
+              cta.scrollIntoView({ block: 'center' });
+              const rect = cta.getBoundingClientRect();
+              return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+            })()`
+          );
+          await client.send('Input.dispatchMouseEvent', {
+            type: 'mouseMoved',
+            x: ctaRect.x,
+            y: ctaRect.y
+          });
+          await delay(220);
+          hoverValid = await evaluate(
+            client,
+            `(() => {
+              const cta = document.querySelector('.services-cta-rail');
+              const arrow = cta.querySelector('.services-cta-arrow');
+              return cta.matches(':hover') && getComputedStyle(arrow).transform !== 'none';
+            })()`
+          );
+        }
         audit.push({
           route: definition.name,
           ...result,
+          homeOfferCtaFocusVisible: focusVisible,
+          hoverValid,
           expectedNotes: definition.notes,
           consoleErrors: consoleErrors.length,
           requestFailures: requestFailures.length
@@ -501,8 +582,12 @@ const main = async () => {
       }
     }
 
+    let screenshotCount = 0;
     for (const definition of routes) {
-      for (const width of [1440, 390]) {
+      const screenshotWidths = definition.name.startsWith('home-')
+        ? widths
+        : [1440, 390];
+      for (const width of screenshotWidths) {
         const client = await createPage(port);
         await openRoute(client, definition.route, width);
         await captureSection(
@@ -510,6 +595,7 @@ const main = async () => {
           definition.selector,
           join(outputDirectory, `${definition.name}-${width}.png`)
         );
+        screenshotCount += 1;
         client.close();
       }
     }
@@ -523,6 +609,7 @@ const main = async () => {
           '.context-section',
           join(outputDirectory, `${definition.name}-method-${width}.png`)
         );
+        screenshotCount += 1;
         client.close();
       }
     }
@@ -601,6 +688,7 @@ const main = async () => {
       join(outputDirectory, 'icon-comparison.png'),
       Buffer.from(comparison.data, 'base64')
     );
+    screenshotCount += 1;
     comparisonClient.close();
 
     const failures = audit.filter((item) =>
@@ -631,6 +719,12 @@ const main = async () => {
       !item.skipLinkPresent ||
       item.hydrationCount > 0 ||
       item.oldPrimaryTitlesPresent ||
+      !item.homeIntroValid ||
+      !item.perspectiveAbsent ||
+      !item.homeOfferCtaValid ||
+      !item.homeOfferCtaEditorial ||
+      !item.homeOfferCtaFocusVisible ||
+      !item.hoverValid ||
       item.consoleErrors > 0 ||
       item.requestFailures > 0
     );
@@ -662,7 +756,7 @@ const main = async () => {
         `Release review failed: ${failures.length} offer cases, ${releaseFailures.length} route cases, ${failedAnchors.length} anchors.`
       );
     }
-    console.log(`Release review passed: ${audit.length} offer cases, ${releaseAudit.length} route cases, ${anchorAudit.length} anchors, 19 screenshots.`);
+    console.log(`Release review passed: ${audit.length} offer cases, ${releaseAudit.length} route cases, ${anchorAudit.length} anchors, ${screenshotCount} screenshots.`);
   } finally {
     chrome.kill('SIGTERM');
     await rm(profileDirectory, { recursive: true, force: true });

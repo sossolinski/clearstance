@@ -86,7 +86,7 @@ export const translations = {
         eyebrow: 'Oferta',
         title: 'Wsparcie w budowaniu gotowości kryzysowej.',
         intro:
-          'ClearStance wspiera organizacje w przygotowaniu sposobu podejmowania decyzji, komunikowania się i wspierania ludzi podczas poważnych zdarzeń.',
+          'Pomagamy organizacjom przygotować sposób podejmowania decyzji, komunikacji i wsparcia ludzi podczas poważnych zdarzeń.',
         items: [
           {
             title: 'Zarządzanie kryzysowe',
@@ -105,9 +105,7 @@ export const translations = {
             text: 'Organizacja zespołów, procedur i rozwiązań wspierających osoby dotknięte zdarzeniem, ich bliskich oraz personel zaangażowany w reakcję.'
           }
         ],
-        perspectiveLabel: 'Perspektywa',
-        perspective:
-          'Pracę wspiera doświadczenie z żeglugi morskiej, lotnictwa, bezpieczeństwa operacyjnego, zarządzania kryzysowego, komunikacji oraz organizacji wsparcia osób dotkniętych zdarzeniem.',
+        linkLabel: 'Pełna oferta',
         link: 'Zobacz pełną ofertę'
       },
       readiness: {
@@ -486,7 +484,7 @@ export const translations = {
         eyebrow: 'Services',
         title: 'Support for stronger crisis readiness.',
         intro:
-          'ClearStance helps organisations prepare how they will make decisions, communicate and support people during serious incidents.',
+          'We help organisations prepare how decisions are made, communication is managed and people are supported during serious incidents.',
         items: [
           {
             title: 'Crisis Management',
@@ -505,10 +503,8 @@ export const translations = {
             text: 'Designing teams, procedures and arrangements that support affected people, their families and personnel involved in the response.'
           }
         ],
-        perspectiveLabel: 'Perspective',
-        perspective:
-          'The work is informed by experience in maritime shipping, aviation, operational safety, crisis management, communication and the organisation of support for people affected by serious incidents.',
-        link: 'View all services'
+        linkLabel: 'Full offer',
+        link: 'Explore the full offer'
       },
       readiness: {
         eyebrow: 'Readiness cycle',

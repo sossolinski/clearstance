@@ -178,7 +178,7 @@ summary:focus-visible {
 .approach-grid > *,
 .services-heading > *,
 .service-list > li > *,
-.perspective-note > *,
+.services-cta-rail > *,
 .readiness-heading > *,
 .readiness-steps > *,
 .experience-layout > *,
@@ -803,27 +803,59 @@ summary:focus-visible {
   line-height: 1.64;
 }
 
-.perspective-note {
+.services-cta-rail {
   display: grid;
   grid-template-columns: 145px 1fr auto;
-  align-items: start;
+  align-items: center;
   gap: 28px;
-  margin-top: 27px;
-  padding-top: 22px;
+  margin-top: 38px;
+  padding: 24px 0 25px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  transition: border-color 180ms ease;
 }
 
-.perspective-note > strong {
+.services-cta-label {
   color: var(--teal-deep);
-  font-size: 10px;
+  font-family: var(--mono);
+  font-size: var(--type-utility-sm);
+  font-weight: 650;
   letter-spacing: 0.15em;
+  line-height: var(--type-utility-line);
   text-transform: uppercase;
 }
 
-.perspective-note > p {
-  max-width: 680px;
-  color: var(--text-secondary-paper-alt);
-  font-size: 13px;
-  line-height: 1.65;
+.services-cta-text {
+  color: var(--ink-2);
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 540;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  transition: color 180ms ease;
+}
+
+.services-cta-arrow {
+  color: var(--teal-deep);
+  font-size: 25px;
+  line-height: 1;
+  transition: transform 180ms ease;
+}
+
+.services-cta-rail:hover {
+  border-color: var(--line-interactive);
+}
+
+.services-cta-rail:hover .services-cta-text {
+  color: var(--teal-deep);
+}
+
+.services-cta-rail:hover .services-cta-arrow {
+  transform: translateX(3px);
+}
+
+.services-cta-rail:focus-visible {
+  outline-offset: 6px;
 }
 
 /* Homepage — readiness */
@@ -3239,13 +3271,27 @@ summary:focus-visible {
     grid-column: 2 / -1;
   }
 
-  .perspective-note {
-    grid-template-columns: 1fr;
-    gap: 9px;
+  .services-cta-rail {
+    grid-template-areas:
+      "label label"
+      "text arrow";
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 13px 18px;
+    margin-top: 31px;
+    padding: 20px 0 22px;
   }
 
-  .perspective-note .text-link {
-    margin-top: 10px;
+  .services-cta-label {
+    grid-area: label;
+  }
+
+  .services-cta-text {
+    grid-area: text;
+    font-size: 20px;
+  }
+
+  .services-cta-arrow {
+    grid-area: arrow;
   }
 
   .readiness-section {
