@@ -443,8 +443,10 @@ const main = async () => {
                   offerCtaStyle.borderBottomWidth === '0px' &&
                   offerCtaStyle.borderRadius === '0px' &&
                   offerCtaStyle.boxShadow === 'none' &&
-                  offerCtaStyle.backgroundColor !== 'rgba(0, 0, 0, 0)' &&
-                  offerCtaStyle.backgroundColor !== sectionStyle.backgroundColor &&
+                  (${width} <= 760
+                    ? offerCtaStyle.backgroundColor !== 'rgba(0, 0, 0, 0)' &&
+                      offerCtaStyle.backgroundColor !== sectionStyle.backgroundColor
+                    : offerCtaStyle.backgroundColor === 'rgba(0, 0, 0, 0)') &&
                   getComputedStyle(lastService).borderBottomWidth === '1px'`
                 : 'true'},
               homeIntroDescriptionAligned: ${definition.ctaText
@@ -458,11 +460,7 @@ const main = async () => {
                   Math.abs(ctaLabel.getBoundingClientRect().height -
                     Number.parseFloat(getComputedStyle(ctaLabel).lineHeight)) <= 1 &&
                   Number.parseFloat(getComputedStyle(ctaText).fontSize) >= 20 &&
-                  Number.parseFloat(getComputedStyle(ctaArrow).fontSize) >= 22 &&
-                  (${width} <= 760 || (
-                    offerCta.getBoundingClientRect().height >= 87 &&
-                    offerCta.getBoundingClientRect().height <= 104
-                  ))`
+                  Number.parseFloat(getComputedStyle(ctaArrow).fontSize) >= 22`
                 : 'true'},
               homeCtaGeometryValid: ${definition.ctaText
                 ? `(() => {
@@ -471,11 +469,12 @@ const main = async () => {
                   const textRect = ctaText.getBoundingClientRect();
                   const labelRect = ctaLabel.getBoundingClientRect();
                   const arrowRect = ctaArrow.getBoundingClientRect();
-                  const expectedMargin = ${width} <= 760 ? 8 : 24;
-                  const expectedPadding = ${width} <= 760 ? 16 : 18;
-                  return Math.abs(ctaRect.left - wrapRect.left - expectedMargin) <= 0.5 &&
-                    Math.abs(wrapRect.right - ctaRect.right - expectedMargin) <= 0.5 &&
-                    Math.abs(ctaRect.right - arrowRect.right - expectedPadding) <= 0.5 &&
+                  return (${width} <= 760
+                    ? Math.abs(ctaRect.left - wrapRect.left - 8) <= 0.5 &&
+                      Math.abs(wrapRect.right - ctaRect.right - 8) <= 0.5 &&
+                      Math.abs(ctaRect.right - arrowRect.right - 16) <= 0.5
+                    : Math.abs(ctaRect.left - wrapRect.left - 66) <= 0.5 &&
+                      Math.abs(arrowRect.left - textRect.right - 18) <= 0.5) &&
                     labelRect.bottom < textRect.top &&
                     (${width} <= 760 || Math.abs(
                       textRect.left - sectionTitle.getBoundingClientRect().left
@@ -540,7 +539,8 @@ const main = async () => {
               const cta = document.querySelector('.services-cta-rail');
               const arrow = cta.querySelector('.services-cta-arrow');
               return cta.matches(':hover') &&
-                getComputedStyle(cta).backgroundColor !== ${JSON.stringify(idleBackground)} &&
+                (${width} > 760 ||
+                  getComputedStyle(cta).backgroundColor !== ${JSON.stringify(idleBackground)}) &&
                 getComputedStyle(arrow).transform !== 'none';
             })()`
           );

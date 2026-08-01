@@ -811,15 +811,15 @@ summary:focus-visible {
 .services-cta-rail {
   display: grid;
   grid-template-areas:
-    "label label label"
-    ". text arrow";
-  grid-template-columns: 12px minmax(0, 1fr) auto;
+    "label label"
+    "text arrow";
+  width: fit-content;
   align-items: center;
-  gap: 8px 12px;
-  margin-inline: 24px;
-  padding: 20px 18px;
-  background: color-mix(in srgb, var(--paper-2) 60%, var(--paper) 40%);
-  transition: background-color 180ms ease;
+  grid-template-columns: max-content auto;
+  gap: 8px 18px;
+  margin-left: 66px;
+  padding: 22px 0 6px;
+  background: transparent;
 }
 
 .services-cta-label {
@@ -858,7 +858,7 @@ summary:focus-visible {
 }
 
 .services-cta-rail:hover {
-  background: color-mix(in srgb, var(--paper-2) 42%, var(--paper) 58%);
+  background: transparent;
 }
 
 .services-cta-rail:hover .services-cta-arrow {
@@ -3298,12 +3298,19 @@ summary:focus-visible {
       "text arrow";
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 13px 18px;
+    width: auto;
     margin-inline: 8px;
     padding: 27px 16px;
+    background: color-mix(in srgb, var(--paper-2) 60%, var(--paper) 40%);
+    transition: background-color 180ms ease;
   }
 
   .services-section {
     padding-bottom: 26px;
+  }
+
+  .services-cta-rail:hover {
+    background: color-mix(in srgb, var(--paper-2) 42%, var(--paper) 58%);
   }
 
   .services-cta-text {
