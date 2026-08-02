@@ -91,14 +91,8 @@ const otherLocale = locale === 'pl' ? 'en' : 'pl';
           <ul class="context-references">
             {
               content.closingReferences.map((reference) => (
-                <li class:list={{
-                  'context-reference--guidance': 'label' in reference
-                }}>
-                  {'code' in reference ? (
-                    <strong class="context-reference-code">{reference.code}</strong>
-                  ) : (
-                    <strong class="context-reference-label">{reference.label}</strong>
-                  )}
+                <li>
+                  <strong class="context-reference-code">{reference.code}</strong>
                   <span class="context-reference-separator" aria-hidden="true"> — </span>
                   <span class="context-reference-description">
                     {reference.description}

@@ -93,18 +93,21 @@ test('numbers remain on the readiness cycle and are absent from Services and Abo
   assert.equal(count(aboutPl, /<span>0[1-3]<\/span>/gu), 0);
 });
 
-test('methodological references distinguish three ISO codes from guidance', () => {
+test('methodological references contain only the three ISO codes', () => {
   const expected = [
-    ['ISO 22361', 'ISO 22398', 'ISO 22301', 'Wytyczne branżowe'],
-    ['ISO 22361', 'ISO 22398', 'ISO 22301', 'Sector-specific guidance']
+    ['ISO 22361', 'ISO 22398', 'ISO 22301'],
+    ['ISO 22361', 'ISO 22398', 'ISO 22301']
   ];
 
   for (const [index, services] of [servicesPl, servicesEn].entries()) {
     for (const value of expected[index]) assert.ok(services.includes(value));
     assert.equal(count(services, /class="context-reference-code"/gu), 3);
-    assert.equal(count(services, /class="context-reference--guidance"/gu), 1);
-    assert.equal(count(services, /class="context-reference-label"/gu), 1);
+    assert.equal(count(services, /class="context-reference--guidance"/gu), 0);
+    assert.equal(count(services, /class="context-reference-label"/gu), 0);
   }
+
+  assert.doesNotMatch(servicesPl, /Wytyczne branżowe/u);
+  assert.doesNotMatch(servicesEn, /Sector-specific guidance/u);
 
   assert.doesNotMatch(servicesPl, /sektorowe/iu);
   assert.doesNotMatch(

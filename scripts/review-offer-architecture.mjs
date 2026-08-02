@@ -88,8 +88,7 @@ const routes = [
     methodReferences: [
       'ISO 22361 — zarządzanie kryzysowe',
       'ISO 22398 — ćwiczenia',
-      'ISO 22301 — ciągłość działania',
-      'Wytyczne branżowe — organizacja pomocy osobom i rodzinom po poważnym zdarzeniu'
+      'ISO 22301 — ciągłość działania'
     ],
     notes: 2
   },
@@ -109,8 +108,7 @@ const routes = [
     methodReferences: [
       'ISO 22361 — crisis management',
       'ISO 22398 — exercises',
-      'ISO 22301 — business continuity',
-      'Sector-specific guidance — organisational arrangements for supporting affected people and their families after a serious incident'
+      'ISO 22301 — business continuity'
     ],
     notes: 2
   }
@@ -344,7 +342,6 @@ const main = async () => {
               ? getComputedStyle(document.querySelector('.services-detail')).backgroundColor
               : null;
             const contextIsoCodes = [...(contextSection?.querySelectorAll('.context-reference-code') ?? [])];
-            const contextGuidanceLabel = contextSection?.querySelector('.context-reference-label');
             const sectionIntro = section.querySelector('.services-heading > p');
             const offerCta = section.querySelector('.services-cta-rail');
             const offerCtaStyle = offerCta ? getComputedStyle(offerCta) : null;
@@ -401,11 +398,6 @@ const main = async () => {
               contextIconCount: contextSection?.querySelectorAll('.icon, svg').length ?? 0,
               contextIsoCodeCount: contextIsoCodes.length,
               contextGuidanceCount: contextSection?.querySelectorAll('.context-reference--guidance').length ?? 0,
-              contextGuidanceFontDistinct: !contextSection || (
-                contextIsoCodes.length === 3 &&
-                contextGuidanceLabel &&
-                getComputedStyle(contextIsoCodes[0]).fontFamily !== getComputedStyle(contextGuidanceLabel).fontFamily
-              ),
               forbiddenSectorowePresent: /sektorowe/iu.test(contextSection?.textContent ?? ''),
               forbiddenPositioningPresent: /\\b(?:NIS2|DORA|CER|compliance|cyberbezpieczeństwo)\\b/iu.test(mainText),
               brokenImages: [...section.querySelectorAll('img')]
@@ -767,8 +759,7 @@ const main = async () => {
       !item.contextRuleValid ||
       (item.methodExpected && item.contextIconCount !== 0) ||
       (item.methodExpected && item.contextIsoCodeCount !== 3) ||
-      (item.methodExpected && item.contextGuidanceCount !== 1) ||
-      !item.contextGuidanceFontDistinct ||
+      (item.methodExpected && item.contextGuidanceCount !== 0) ||
       item.forbiddenSectorowePresent ||
       item.forbiddenPositioningPresent ||
       item.brokenImages.length > 0 ||

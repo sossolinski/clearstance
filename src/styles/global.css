@@ -1663,20 +1663,11 @@ summary:focus-visible {
   list-style: none;
 }
 
-.context-reference--guidance {
-  flex-basis: 100%;
-}
-
 .context-reference-code {
   color: var(--teal-deep);
   font-family: var(--mono);
   font-weight: 650;
   letter-spacing: 0.045em;
-}
-
-.context-reference-label {
-  color: var(--text-secondary-paper-alt);
-  font-weight: 650;
 }
 
 .context-reference-description {
@@ -3470,23 +3461,6 @@ summary:focus-visible {
 
   .context-references > li {
     flex-basis: 100%;
-  }
-
-  .context-reference--guidance {
-    margin-top: 3px;
-  }
-
-  .context-reference--guidance .context-reference-label,
-  .context-reference--guidance .context-reference-description {
-    display: block;
-  }
-
-  .context-reference--guidance .context-reference-separator {
-    display: none;
-  }
-
-  .context-reference--guidance .context-reference-description {
-    margin-top: 2px;
   }
 
   .about-story-grid {

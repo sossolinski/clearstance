@@ -301,10 +301,6 @@ export const translations = {
         {
           code: 'ISO 22301',
           description: 'ciągłość działania'
-        },
-        {
-          label: 'Wytyczne branżowe',
-          description: 'organizacja pomocy osobom i rodzinom po poważnym zdarzeniu'
         }
       ]
     },
@@ -696,10 +692,6 @@ export const translations = {
         {
           code: 'ISO 22301',
           description: 'business continuity'
-        },
-        {
-          label: 'Sector-specific guidance',
-          description: 'organisational arrangements for supporting affected people and their families after a serious incident'
         }
       ]
     },
