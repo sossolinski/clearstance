@@ -714,7 +714,6 @@ summary:focus-visible {
   border-right: 0;
 }
 
-.detail-number,
 .readiness-steps > li > span {
   color: var(--teal-deep);
   font-family: var(--mono);
@@ -1553,7 +1552,7 @@ summary:focus-visible {
 
 .services-detail-list > li {
   display: grid;
-  grid-template-columns: 76px minmax(260px, 0.92fr) minmax(300px, 1fr);
+  grid-template-columns: 52px minmax(260px, 0.92fr) minmax(300px, 1fr);
   align-items: start;
   gap: 34px;
   padding: 48px 0 50px;
@@ -1561,13 +1560,7 @@ summary:focus-visible {
 }
 
 .detail-marker {
-  display: grid;
-  gap: 18px;
-  padding-top: 7px;
-}
-
-.detail-number {
-  color: var(--text-secondary-paper);
+  padding-top: 3px;
 }
 
 .detail-icon {
@@ -2991,7 +2984,7 @@ summary:focus-visible {
   }
 
   .services-detail-list > li {
-    grid-template-columns: 68px minmax(0, 0.95fr) minmax(260px, 1fr);
+    grid-template-columns: 52px minmax(0, 0.95fr) minmax(260px, 1fr);
     column-gap: 24px;
   }
 

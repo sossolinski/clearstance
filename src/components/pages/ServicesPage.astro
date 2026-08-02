@@ -53,7 +53,6 @@ const otherLocale = locale === 'pl' ? 'en' : 'pl';
             content.services.map((service, index) => (
               <li data-reveal>
                 <div class="detail-marker">
-                  <span class="detail-number">{String(index + 1).padStart(2, '0')}</span>
                   <Icon
                     class="detail-icon"
                     name={getServiceIconName(index)}

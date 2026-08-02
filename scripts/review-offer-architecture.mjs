@@ -805,7 +805,7 @@ const main = async () => {
       !item.mobileInsightVisualFirst ||
       (item.route.startsWith('home-') && item.approachLabelCount !== 0) ||
       (item.route.startsWith('home-') && item.readinessNumberCount !== 5) ||
-      (item.route.startsWith('services-') && item.detailNumberCount !== 4) ||
+      (item.route.startsWith('services-') && item.detailNumberCount !== 0) ||
       (item.route.startsWith('about-') && item.aboutAxisNumberCount !== 0) ||
       (item.route.startsWith('about-') && item.width > 900 && item.aboutAxisIconCount !== 3) ||
       item.consoleErrors > 0 ||

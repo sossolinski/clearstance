@@ -81,16 +81,16 @@ test('Home offer uses the final intro and editorial CTA rail without Perspective
   }
 });
 
-test('numbers remain on the readiness cycle, detailed Services and About timeline', () => {
+test('numbers remain on the readiness cycle and are absent from Services and About', () => {
   for (const home of [homePl, homeEn]) {
     assert.equal(count(home, /<span>0[1-5]<\/span><h3>/gu), 5);
   }
 
   for (const services of [servicesPl, servicesEn]) {
-    assert.equal(count(services, /class="detail-number">0[1-4]<\/span>/gu), 4);
+    assert.equal(count(services, /class="detail-number">0[1-4]<\/span>/gu), 0);
   }
 
-  assert.equal(count(aboutPl, /<span>0[1-3]<\/span>/gu), 3);
+  assert.equal(count(aboutPl, /<span>0[1-3]<\/span>/gu), 0);
 });
 
 test('methodological references distinguish three ISO codes from guidance', () => {
