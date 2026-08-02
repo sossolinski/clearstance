@@ -714,7 +714,6 @@ summary:focus-visible {
   border-right: 0;
 }
 
-.principle-list span,
 .detail-number,
 .readiness-steps > li > span {
   color: var(--teal-deep);
@@ -726,7 +725,7 @@ summary:focus-visible {
 }
 
 .principle-list h3 {
-  margin: 10px 0 6px;
+  margin: 0 0 6px;
   font-family: var(--display);
   font-size: 16px;
   font-weight: 560;

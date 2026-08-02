@@ -183,9 +183,8 @@ const professionalServiceSchema = {
           <p class="section-copy">{content.approach.body}</p>
           <ol class="principle-list">
             {
-              content.approach.pillars.map((pillar, index) => (
+              content.approach.pillars.map((pillar) => (
                 <li>
-                  <span>{String(index + 1).padStart(2, '0')} / {pillar.label}</span>
                   <h3>{pillar.title}</h3>
                   <p>{pillar.text}</p>
                 </li>

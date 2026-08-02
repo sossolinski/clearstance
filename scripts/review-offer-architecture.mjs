@@ -624,6 +624,7 @@ const main = async () => {
               mobileInsightVisualFirst: !firstInsight || ${width} > 760 || (
                 thumbnail.getBoundingClientRect().top < copy.getBoundingClientRect().top
               ),
+              approachLabelCount: document.querySelectorAll('.principle-list > li > span').length,
               readinessNumberCount: document.querySelectorAll('.readiness-steps > li > span').length,
               detailNumberCount: document.querySelectorAll('.detail-number').length,
               aboutAxisNumberCount: document.querySelectorAll('.about-experience-axis li > span').length,
@@ -802,6 +803,7 @@ const main = async () => {
       !item.practiceFirstIsHeading ||
       !item.insightMetaStartsWithCategory ||
       !item.mobileInsightVisualFirst ||
+      (item.route.startsWith('home-') && item.approachLabelCount !== 0) ||
       (item.route.startsWith('home-') && item.readinessNumberCount !== 5) ||
       (item.route.startsWith('services-') && item.detailNumberCount !== 4) ||
       (item.route.startsWith('about-') && item.aboutAxisNumberCount !== 0) ||

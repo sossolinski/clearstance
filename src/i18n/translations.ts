@@ -66,17 +66,14 @@ export const translations = {
           'Dlatego struktury, procedury i scenariusze oceniamy w odniesieniu do rzeczywistego modelu operacyjnego, jego zależności oraz decyzji, które trzeba podjąć.',
         pillars: [
           {
-            label: 'Kontekst',
             title: 'Zrozumienie sytuacji',
             text: 'Ryzyka, zależności, priorytety i ograniczenia operacyjne.'
           },
           {
-            label: 'Decyzje',
             title: 'Jasne role i odpowiedzialność',
             text: 'Informacja, eskalacja i sposób podejmowania decyzji.'
           },
           {
-            label: 'Działanie',
             title: 'Sprawdzenie w praktyce',
             text: 'Scenariusze, ćwiczenia, presja czasu i współpraca.'
           }
@@ -464,17 +461,14 @@ export const translations = {
           'Structures, procedures and scenarios are therefore assessed against the real operating model, its dependencies and the decisions that need to be made.',
         pillars: [
           {
-            label: 'Context',
             title: 'Understand the situation',
             text: 'Risks, dependencies, priorities and operational constraints.'
           },
           {
-            label: 'Decisions',
             title: 'Clear roles and accountability',
             text: 'Information, escalation and the way decisions are made.'
           },
           {
-            label: 'Action',
             title: 'Test it in practice',
             text: 'Scenarios, exercises, time pressure and collaboration.'
           }
