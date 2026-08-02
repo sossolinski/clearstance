@@ -1618,9 +1618,13 @@ summary:focus-visible {
 }
 
 .context-section {
-  padding: 0 0 42px;
+  padding: 0 0 24px;
   color: var(--text);
   background: var(--paper);
+}
+
+.context-section + .contact-band {
+  padding-top: 52px;
 }
 
 .context-grid {
@@ -1647,9 +1651,9 @@ summary:focus-visible {
 }
 
 .context-references {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 9px 34px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px 30px;
   margin-top: 22px;
   padding-top: 19px;
   border-top: 1px solid var(--line);
@@ -1660,7 +1664,7 @@ summary:focus-visible {
 }
 
 .context-reference--guidance {
-  grid-column: 1 / -1;
+  flex-basis: 100%;
 }
 
 .context-reference-code {
@@ -3445,7 +3449,7 @@ summary:focus-visible {
   }
 
   .context-section {
-    padding: 0 0 50px;
+    padding: 0 0 36px;
   }
 
   .context-grid {
@@ -3460,13 +3464,15 @@ summary:focus-visible {
   }
 
   .context-references {
-    grid-template-columns: 1fr;
     margin-top: 20px;
     padding-top: 17px;
   }
 
+  .context-references > li {
+    flex-basis: 100%;
+  }
+
   .context-reference--guidance {
-    grid-column: auto;
     margin-top: 3px;
   }
 
