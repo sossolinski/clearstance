@@ -1520,7 +1520,7 @@ summary:focus-visible {
 /* Services page */
 
 .services-detail {
-  padding: 90px 0 106px;
+  padding: 90px 0 0;
   background: var(--paper);
 }
 
@@ -1618,54 +1618,49 @@ summary:focus-visible {
 }
 
 .context-section {
-  padding: 50px 0 58px;
+  padding: 0 0 42px;
   color: var(--text);
-  background: var(--paper-2);
+  background: var(--paper);
 }
 
 .context-grid {
   display: grid;
-  grid-template-columns: minmax(180px, 0.62fr) minmax(320px, 1.15fr) minmax(280px, 0.9fr);
+  grid-template-columns: minmax(190px, 0.52fr) minmax(0, 1.48fr);
   align-items: start;
-  gap: 48px;
-  padding-top: 27px;
-  border-top: 1px solid var(--line);
+  gap: 72px;
+  padding-top: 38px;
 }
 
 .context-grid h2 {
   max-width: 260px;
-  font-size: 21px;
+  font-size: 23px;
   font-weight: 540;
   letter-spacing: -0.022em;
   line-height: 1.24;
 }
 
-.context-heading {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.context-heading-icon {
-  flex: 0 0 auto;
-  margin-top: 2px;
-  color: var(--teal-deep);
-}
-
 .context-copy {
-  max-width: 510px;
+  max-width: 700px;
   color: var(--text-secondary-paper-alt);
-  font-size: 13.5px;
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 1.72;
 }
 
 .context-references {
   display: grid;
-  gap: 7px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px 34px;
+  margin-top: 22px;
+  padding-top: 19px;
+  border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: 12px;
   line-height: 1.52;
   list-style: none;
+}
+
+.context-reference--guidance {
+  grid-column: 1 / -1;
 }
 
 .context-reference-code {
@@ -2989,8 +2984,8 @@ summary:focus-visible {
   }
 
   .context-grid {
-    grid-template-columns: minmax(170px, 0.55fr) minmax(280px, 1fr) minmax(250px, 0.95fr);
-    gap: 32px;
+    grid-template-columns: minmax(170px, 0.5fr) minmax(0, 1.5fr);
+    gap: 42px;
   }
 
 }
@@ -3059,11 +3054,7 @@ summary:focus-visible {
 
   .context-grid {
     grid-template-columns: minmax(170px, 0.5fr) minmax(0, 1.5fr);
-    gap: 20px 34px;
-  }
-
-  .context-references {
-    grid-column: 2;
+    gap: 34px;
   }
 }
 
@@ -3454,13 +3445,13 @@ summary:focus-visible {
   }
 
   .context-section {
-    padding: 40px 0 46px;
+    padding: 0 0 50px;
   }
 
   .context-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
-    padding-top: 23px;
+    gap: 15px;
+    padding-top: 28px;
   }
 
   .context-grid h2 {
@@ -3469,12 +3460,14 @@ summary:focus-visible {
   }
 
   .context-references {
-    grid-column: auto;
-    margin-top: 4px;
+    grid-template-columns: 1fr;
+    margin-top: 20px;
+    padding-top: 17px;
   }
 
   .context-reference--guidance {
-    margin-top: 4px;
+    grid-column: auto;
+    margin-top: 3px;
   }
 
   .context-reference--guidance .context-reference-label,

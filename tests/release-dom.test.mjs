@@ -117,12 +117,10 @@ test('methodological references distinguish three ISO codes from guidance', () =
   );
 });
 
-test('the Iconoir book is decorative and cannot receive focus', () => {
+test('the methodological note stays textual without a decorative icon', () => {
   for (const services of [servicesPl, servicesEn]) {
-    assert.match(
-      services,
-      /class="icon context-heading-icon"[^>]*aria-hidden="true"[^>]*>[\s\S]*?<svg aria-hidden="true" focusable="false"/u
-    );
+    assert.doesNotMatch(services, /context-heading-icon/u);
+    assert.match(services, /class="context-body">/u);
   }
 });
 

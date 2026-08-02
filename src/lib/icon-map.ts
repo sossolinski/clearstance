@@ -1,5 +1,4 @@
 import arrowSeparateVertical from 'iconoir/icons/arrow-separate-vertical.svg?raw';
-import book from 'iconoir/icons/book.svg?raw';
 import checkCircle from 'iconoir/icons/check-circle.svg?raw';
 import community from 'iconoir/icons/community.svg?raw';
 import compass from 'iconoir/icons/compass.svg?raw';
@@ -12,7 +11,6 @@ import taskList from 'iconoir/icons/task-list.svg?raw';
 
 export const iconAllowlist = {
   'arrow-separate-vertical': arrowSeparateVertical,
-  book,
   'check-circle': checkCircle,
   community,
   compass,

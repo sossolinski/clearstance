@@ -340,8 +340,9 @@ const main = async () => {
             const contextBackground = contextSection
               ? getComputedStyle(contextSection).backgroundColor
               : null;
-            const contextBook = contextSection?.querySelector('.context-heading-icon');
-            const contextBookSvg = contextBook?.querySelector('svg');
+            const servicesDetailBackground = document.querySelector('.services-detail')
+              ? getComputedStyle(document.querySelector('.services-detail')).backgroundColor
+              : null;
             const contextIsoCodes = [...(contextSection?.querySelectorAll('.context-reference-code') ?? [])];
             const contextGuidanceLabel = contextSection?.querySelector('.context-reference-label');
             const sectionIntro = section.querySelector('.services-heading > p');
@@ -395,13 +396,9 @@ const main = async () => {
               contextHeadingScaleValid: !contextHeading || Number.parseFloat(getComputedStyle(contextHeading).fontSize) <= 24,
               contextBackground,
               contextLightBackground: !contextSection || !['rgb(8, 23, 34)', 'rgb(13, 32, 43)'].includes(contextBackground),
-              contextRuleValid: !contextGrid || getComputedStyle(contextGrid).borderTopWidth === '1px',
+              contextIntegratedBackground: !contextSection || contextBackground === servicesDetailBackground,
+              contextRuleValid: !contextGrid || getComputedStyle(contextGrid).borderTopWidth === '0px',
               contextIconCount: contextSection?.querySelectorAll('.icon, svg').length ?? 0,
-              contextBookValid: !contextSection || (
-                contextBook?.getAttribute('aria-hidden') === 'true' &&
-                contextBookSvg?.getAttribute('aria-hidden') === 'true' &&
-                contextBookSvg?.getAttribute('focusable') === 'false'
-              ),
               contextIsoCodeCount: contextIsoCodes.length,
               contextGuidanceCount: contextSection?.querySelectorAll('.context-reference--guidance').length ?? 0,
               contextGuidanceFontDistinct: !contextSection || (
@@ -766,9 +763,9 @@ const main = async () => {
       !item.contextDesktopHeightValid ||
       !item.contextHeadingScaleValid ||
       !item.contextLightBackground ||
+      !item.contextIntegratedBackground ||
       !item.contextRuleValid ||
-      (item.methodExpected && item.contextIconCount !== 2) ||
-      !item.contextBookValid ||
+      (item.methodExpected && item.contextIconCount !== 0) ||
       (item.methodExpected && item.contextIsoCodeCount !== 3) ||
       (item.methodExpected && item.contextGuidanceCount !== 1) ||
       !item.contextGuidanceFontDistinct ||

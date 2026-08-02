@@ -84,34 +84,30 @@ const otherLocale = locale === 'pl' ? 'en' : 'pl';
     <section class="context-section" aria-labelledby="context-title">
       <div class="wrap context-grid" data-reveal>
         <div class="context-heading">
-          <Icon
-            class="context-heading-icon"
-            name="book"
-            size={20}
-            decorative
-          />
           <h2 id="context-title">{content.closingTitle}</h2>
         </div>
-        <p class="context-copy">{content.closingText}</p>
-        <ul class="context-references">
-          {
-            content.closingReferences.map((reference) => (
-              <li class:list={{
-                'context-reference--guidance': 'label' in reference
-              }}>
-                {'code' in reference ? (
-                  <strong class="context-reference-code">{reference.code}</strong>
-                ) : (
-                  <strong class="context-reference-label">{reference.label}</strong>
-                )}
-                <span class="context-reference-separator" aria-hidden="true"> — </span>
-                <span class="context-reference-description">
-                  {reference.description}
-                </span>
-              </li>
-            ))
-          }
-        </ul>
+        <div class="context-body">
+          <p class="context-copy">{content.closingText}</p>
+          <ul class="context-references">
+            {
+              content.closingReferences.map((reference) => (
+                <li class:list={{
+                  'context-reference--guidance': 'label' in reference
+                }}>
+                  {'code' in reference ? (
+                    <strong class="context-reference-code">{reference.code}</strong>
+                  ) : (
+                    <strong class="context-reference-label">{reference.label}</strong>
+                  )}
+                  <span class="context-reference-separator" aria-hidden="true"> — </span>
+                  <span class="context-reference-description">
+                    {reference.description}
+                  </span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       </div>
     </section>
 
