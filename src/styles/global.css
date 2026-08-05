@@ -1,14 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-clear-ink: #081722;
+  --color-clear-ink: var(--cs-navy);
   --color-clear-paper: #f2eee7;
-  --color-clear-teal: #6f8f89;
-  --color-clear-signal: #c65348;
+  --color-clear-teal: var(--cs-teal);
+  --color-clear-signal: var(--cs-coral);
 }
 
 :root {
-  --ink: #081722;
+  --cs-navy: #081722;
+  --cs-ivory: #F8F6F2;
+  --cs-teal: #6F8F89;
+  --cs-coral: #C65348;
+  --ink: var(--cs-navy);
   --ink-2: #0f2430;
   --paper: #f2eee7;
   --paper-2: #e8e3db;
@@ -17,12 +21,12 @@
   --text-secondary-paper-alt: #56656d;
   --text-secondary-dark: #829496;
   --muted: var(--text-secondary-paper);
-  --teal: #6f8f89;
+  --teal: var(--cs-teal);
   --teal-deep: #385e5d;
-  --signal: #c65348;
+  --signal: var(--cs-coral);
   --signal-text-paper: #a84239;
   --signal-text-dark: #d06d63;
-  --white: #f8f6f2;
+  --white: var(--cs-ivory);
   --line: rgb(18 38 48 / 14%);
   --line-light: rgb(248 246 242 / 16%);
   --line-interactive: rgb(18 38 48 / 52%);

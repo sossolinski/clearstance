@@ -122,10 +122,10 @@ function renderOgSvg(entry, theme) {
   return `
     <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
       <rect width="1200" height="630" fill="#081722"/>
-      <g transform="translate(64 48) scale(.75)" fill="none" stroke="#a7bbb7">
+      <g transform="translate(64 48) scale(.75)" fill="none" stroke="#F8F6F2">
         <path d="M35 9a18 18 0 1 0 0 30" stroke-width="1.3"/>
-        <path d="M31 15a12 12 0 1 0 0 18" opacity=".72" stroke-width="1"/>
-        <circle cx="36" cy="24" r="2.4" fill="#c65348" stroke="none"/>
+        <path d="M31 15a12 12 0 1 0 0 18" stroke-width="1"/>
+        <circle cx="36" cy="24" r="2.4" fill="#C65348" stroke="none"/>
       </g>
       <text x="110" y="75" fill="#f8f6f2" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="3">CLEARSTANCE</text>
       ${visual}
