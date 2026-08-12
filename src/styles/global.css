@@ -4175,15 +4175,18 @@ summary:focus-visible {
 
 .experience-grid {
   display: grid;
-  grid-template-columns: minmax(230px, 0.72fr) minmax(340px, 0.85fr) minmax(320px, 1fr);
+  grid-template-columns: minmax(360px, 0.9fr) minmax(340px, 0.85fr) minmax(320px, 1fr);
   align-items: start;
   gap: 52px;
 }
 
 .experience-grid h2 {
   margin-top: 13px;
-  font-size: clamp(39px, 3.8vw, 54px);
+  overflow-wrap: normal;
+  font-size: clamp(39px, 3.35vw, 48px);
+  hyphens: none;
   line-height: 1.06;
+  word-break: normal;
 }
 
 .experience-copy > p {
@@ -4212,6 +4215,17 @@ summary:focus-visible {
   color: var(--text-secondary-paper-alt);
   font-size: 11px;
   line-height: 1.5;
+}
+
+@media (max-width: 1199px) {
+  .experience-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 34px;
+  }
+
+  .experience-grid > div:first-child {
+    grid-column: 1 / -1;
+  }
 }
 
 .commercial-insights {
@@ -4808,11 +4822,6 @@ summary:focus-visible {
 }
 
 @media (max-width: 1080px) {
-  .experience-grid {
-    grid-template-columns: minmax(220px, 0.7fr) minmax(300px, 0.9fr) 1fr;
-    gap: 34px;
-  }
-
   .capability-detail-list > li {
     grid-template-columns: 1fr 0.9fr 0.9fr;
     gap: 28px;
@@ -5074,6 +5083,10 @@ summary:focus-visible {
 }
 
 @media (max-width: 430px) {
+  .experience-grid h2 {
+    font-size: 35px;
+  }
+
   .commercial-section-heading h2,
   .readiness-approach-heading h2,
   .commercial-insights-heading h2,
