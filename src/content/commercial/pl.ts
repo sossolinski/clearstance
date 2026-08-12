@@ -124,8 +124,8 @@ export const commercialPl: CommercialContent = {
       }
     },
     engagements: {
-      eyebrow: 'Określony punkt wyjścia',
-      title: 'Dwa jasno zdefiniowane zakresy.',
+      eyebrow: 'Punkt wyjścia',
+      title: 'Od czego możemy zacząć.',
       intro: 'Współpracę można rozpocząć od ograniczonego przeglądu istniejącej gotowości albo od ćwiczenia zaprojektowanego wokół konkretnych celów.',
       review: {
         type: 'Doradztwo · przegląd',

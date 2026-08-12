@@ -72,10 +72,10 @@ const professionalServiceSchema = {
 
     <section class="ways-section" id={ids.ways} aria-labelledby="ways-title"><div class="wrap" data-reveal>
       <div class="commercial-section-heading"><p class="eyebrow">{content.ways.eyebrow}</p><h2 id="ways-title">{content.ways.title}</h2><p>{content.ways.intro}</p></div>
-      <div class="ways-grid">{[
-        { ...content.ways.advisory, href: getRoute(locale, 'services'), icon: 'task-list' as const },
-        { ...content.ways.exercises, href: getRoute(locale, 'exercises'), icon: 'data-transfer-both' as const }
-      ].map((item) => <article class="way-card"><Icon name={item.icon} size={34} decorative /><h3>{item.title}</h3><p>{item.text}</p><a class="text-link" href={item.href}>{item.link} <span aria-hidden="true">→</span></a></article>)}</div>
+      <ol class="ways-list">{[
+        { ...content.ways.advisory, href: getRoute(locale, 'services') },
+        { ...content.ways.exercises, href: getRoute(locale, 'exercises') }
+      ].map((item, index) => <li><span class="ways-marker" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h3>{item.title}</h3><p>{item.text}</p><a class="text-link" href={item.href}>{item.link} <span aria-hidden="true">→</span></a></li>)}</ol>
     </div></section>
 
     <section class="engagements-section" id={ids.engagements} aria-labelledby="engagements-title"><div class="wrap" data-reveal>

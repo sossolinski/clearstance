@@ -3906,28 +3906,50 @@ summary:focus-visible {
   padding: 94px 0 102px;
 }
 
-.ways-grid {
+.ways-list {
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.ways-list > li {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 26px;
+  grid-template-columns: 44px minmax(180px, 0.55fr) minmax(300px, 1fr) auto;
+  align-items: start;
+  gap: 18px 28px;
+  padding: 31px 0 33px;
+  border-bottom: 1px solid var(--line);
 }
 
-.way-card {
-  display: flex;
-  min-height: 330px;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 36px;
-  border: 1px solid var(--line);
-  background: rgb(255 255 255 / 18%);
-}
-
-.way-card .icon {
-  margin-bottom: 52px;
+.ways-marker {
+  padding-top: 5px;
   color: var(--teal-deep);
+  font-family: var(--mono);
+  font-size: var(--type-utility-sm);
+  letter-spacing: 0.12em;
+  line-height: var(--type-utility-line);
 }
 
-.way-card h3,
+.ways-list h3 {
+  padding-top: 1px;
+  font-family: var(--display);
+  font-size: clamp(24px, 2.2vw, 31px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.ways-list p {
+  max-width: 600px;
+  color: var(--text-secondary-paper-alt);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.ways-list .text-link {
+  align-self: center;
+  white-space: nowrap;
+}
+
 .engagement-card h3,
 .format-card h3 {
   margin-bottom: 16px;
@@ -3938,7 +3960,6 @@ summary:focus-visible {
   line-height: 1.1;
 }
 
-.way-card p,
 .engagement-card > p:not(.engagement-type),
 .format-card > p {
   max-width: 520px;
@@ -3948,7 +3969,6 @@ summary:focus-visible {
   line-height: 1.7;
 }
 
-.way-card .text-link,
 .engagement-card .text-link,
 .format-card .text-link {
   margin-top: auto;
@@ -4810,6 +4830,25 @@ summary:focus-visible {
     grid-row: auto;
   }
 
+  .ways-list > li {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 28px 0 31px;
+  }
+
+  .ways-marker {
+    margin-bottom: 6px;
+  }
+
+  .ways-list p {
+    max-width: 680px;
+  }
+
+  .ways-list .text-link {
+    align-self: start;
+    margin-top: 8px;
+  }
+
   .experience-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -4872,7 +4911,6 @@ summary:focus-visible {
 
 @media (max-width: 760px) {
   .hero-actions,
-  .ways-grid,
   .engagement-grid,
   .format-grid,
   .deliverable-split,
@@ -4921,14 +4959,12 @@ summary:focus-visible {
     grid-column: 2;
   }
 
-  .way-card,
   .engagement-card,
   .format-card {
     min-height: 0;
     padding: 28px;
   }
 
-  .way-card .icon,
   .engagement-type,
   .format-card > span {
     margin-bottom: 30px;
@@ -5034,7 +5070,6 @@ summary:focus-visible {
     font-size: 36px;
   }
 
-  .way-card,
   .engagement-card,
   .format-card,
   .deliverable-split article,

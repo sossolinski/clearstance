@@ -31,10 +31,17 @@ test('homepage renders the accepted Release 1 section architecture in both langu
       previous = position;
     }
     assert.equal(count(home, /<li><span class="icon service-icon"/gu), 3);
+    assert.equal(count(home, /<ol class="ways-list">/gu), 1);
+    assert.equal(count(home, /<span class="ways-marker" aria-hidden="true">0[12]<\/span>/gu), 2);
+    assert.doesNotMatch(home, /ways-grid|way-card/u);
     assert.match(home, /Crisis Readiness Review/u);
     assert.match(home, /Executive Tabletop Exercise/u);
     assert.doesNotMatch(home, /practice-section|BrandStatement/u);
   }
+  assert.match(homePl, /Punkt wyjścia/u);
+  assert.match(homePl, /Od czego możemy zacząć\./u);
+  assert.match(homeEn, /A place to start/u);
+  assert.match(homeEn, /Where we can begin\./u);
 });
 
 test('advisory separates engagement activity from client outcomes', () => {

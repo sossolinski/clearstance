@@ -57,7 +57,7 @@ export const commercialEn: CommercialContent = {
       exercises: { title: 'Exercises', text: 'We design and facilitate exercises that reveal decisions, coordination, escalation and information flow. Findings are structured through an After Action Review and improvement actions.', link: 'Explore Exercises' }
     },
     engagements: {
-      eyebrow: 'A defined starting point', title: 'Two clearly scoped engagements.', intro: 'Work can begin with a bounded review of existing readiness or with an exercise designed around specific objectives.',
+      eyebrow: 'A place to start', title: 'Where we can begin.', intro: 'Work can begin with a bounded review of existing readiness or with an exercise designed around specific objectives.',
       review: { type: 'Advisory · review', title: 'Crisis Readiness Review', text: 'A structured, clearly bounded review of existing arrangements. It combines document review, selected interviews and a workshop, concluding with a concise executive report and prioritised actions.', link: 'Explore the review' },
       tabletop: { type: 'Exercises · flagship', title: 'Executive Tabletop Exercise', text: 'A facilitated exercise for senior leadership and the CMT, designed around agreed objectives, decisions and interfaces. It includes preparation, the exercise session, observation, hot debrief and After Action Review.', link: 'See how the exercise works' }
     },
