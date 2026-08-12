@@ -4026,10 +4026,9 @@ summary:focus-visible {
 }
 
 .readiness-approach-section {
-  --focus-ring: var(--focus-on-dark);
-  padding: 100px 0 108px;
-  color: var(--white);
-  background: #10232e;
+  padding: 88px 0 94px;
+  color: var(--text);
+  background: var(--paper);
 }
 
 .readiness-approach-heading {
@@ -4037,7 +4036,11 @@ summary:focus-visible {
   grid-template-columns: 1.1fr 0.9fr;
   align-items: end;
   gap: 70px;
-  margin-bottom: 72px;
+  margin-bottom: 64px;
+}
+
+.readiness-approach-section .eyebrow--light {
+  color: var(--teal-deep);
 }
 
 .readiness-approach-heading h2 {
@@ -4049,7 +4052,7 @@ summary:focus-visible {
 .readiness-approach-heading blockquote {
   display: grid;
   gap: 7px;
-  color: #a8bbb7;
+  color: var(--teal-deep);
   font-family: var(--display);
   font-size: clamp(20px, 2vw, 28px);
   font-weight: 450;
@@ -4086,7 +4089,7 @@ summary:focus-visible {
 }
 
 .readiness-stage-list span {
-  color: #91aaa5;
+  color: var(--teal-deep);
   font-family: var(--mono);
   font-size: 10px;
 }
@@ -4112,7 +4115,7 @@ summary:focus-visible {
 .readiness-note {
   max-width: 920px;
   margin-top: 32px;
-  color: #a7b5b5;
+  color: var(--text-secondary-paper-alt);
   font-size: 13px;
   line-height: 1.7;
 }
@@ -4121,9 +4124,9 @@ summary:focus-visible {
   display: grid;
   grid-template-columns: 0.86fr 1.14fr;
   gap: 72px;
-  margin-top: 74px;
-  padding-top: 52px;
-  border-top: 1px solid var(--line-light);
+  margin-top: 64px;
+  padding-top: 46px;
+  border-top: 1px solid var(--line);
 }
 
 .approach-panel h3 {
@@ -4136,7 +4139,7 @@ summary:focus-visible {
 
 .approach-panel > div > p,
 .approach-panel li p {
-  color: var(--text-secondary-dark);
+  color: var(--text-secondary-paper-alt);
   font-size: 13.5px;
   line-height: 1.7;
 }
@@ -4150,7 +4153,19 @@ summary:focus-visible {
 
 .approach-panel li {
   padding: 19px 0 22px;
-  border-top: 1px solid var(--line-light);
+  border-top: 1px solid var(--line);
+}
+
+.readiness-stage-list {
+  border-top-color: var(--line);
+}
+
+.readiness-stage-list li {
+  border-right-color: var(--line);
+}
+
+.readiness-stage-list p {
+  color: var(--text-secondary-paper-alt);
 }
 
 .approach-panel h4 {
@@ -4867,6 +4882,10 @@ summary:focus-visible {
   .numbered-process li,
   .phase-list li {
     border-bottom: 1px solid var(--line-light);
+  }
+
+  .readiness-stage-list li {
+    border-bottom-color: var(--line);
   }
 
   .numbered-process li,
