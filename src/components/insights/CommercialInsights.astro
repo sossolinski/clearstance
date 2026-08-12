@@ -1,0 +1,46 @@
+---
+import type { Locale } from '../../i18n/routes';
+import { getRoute } from '../../i18n/routes';
+import { getVisibleTranslations } from '../../i18n/translations';
+import type { InsightEntry } from '../../lib/insights';
+import HomeInsightTeaser from './HomeInsightTeaser.astro';
+
+interface Props {
+  locale: Locale;
+  entries: InsightEntry[];
+  eyebrow: string;
+  title: string;
+  copy: string;
+  showAll?: boolean;
+}
+
+const { locale, entries, eyebrow, title, copy, showAll = false } = Astro.props;
+const labels = getVisibleTranslations(locale).insightsPage;
+---
+
+<section class="commercial-insights" aria-labelledby="commercial-insights-title">
+  <div class="wrap">
+    <div class="commercial-insights-heading" data-reveal>
+      <div>
+        <p class="eyebrow">{eyebrow}</p>
+        <h2 id="commercial-insights-title">{title}</h2>
+      </div>
+      <p>{copy}</p>
+    </div>
+    <ul class="home-insights-list" data-reveal>
+      {entries.map((entry) => (
+        <HomeInsightTeaser
+          entry={entry}
+          locale={locale}
+          readLabel={labels.read}
+          readingTimeUnit={labels.readingTimeUnit}
+        />
+      ))}
+    </ul>
+    {showAll && (
+      <a class="text-link commercial-insights-all" href={getRoute(locale, 'insights')}>
+        {locale === 'pl' ? 'Zobacz wszystkie publikacje' : 'View all insights'} <span aria-hidden="true">→</span>
+      </a>
+    )}
+  </div>
+</section>

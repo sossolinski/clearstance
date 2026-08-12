@@ -23,6 +23,7 @@ const ALLOWED_FORM_FIELDS = new Set([
   'name',
   'email',
   'organisation',
+  'topic',
   'message',
   'locale',
   'source',
@@ -72,6 +73,7 @@ interface ContactSubmission {
   name: string;
   email: string;
   organisation: string;
+  topic: ContactTopic;
   message: string;
   locale: 'pl' | 'en';
   source: string;
@@ -168,6 +170,8 @@ function validateFormData(formData: FormData): ValidationResult {
   const organisation = sanitiseSingleLine(
     readString(formData, 'organisation')
   );
+  const topicValue = sanitiseSingleLine(readString(formData, 'topic'));
+  const topic: ContactTopic = topicValue === '' ? 'general' : isContactTopic(topicValue) ? topicValue : 'general';
   const message = sanitiseMessage(readString(formData, 'message'));
   const locale = sanitiseSingleLine(readString(formData, 'locale'));
   const source = sanitiseSingleLine(readString(formData, 'source'));
@@ -186,6 +190,10 @@ function validateFormData(formData: FormData): ValidationResult {
     organisation.length <= MAX_ORGANISATION_LENGTH &&
     message.length <= MAX_MESSAGE_LENGTH &&
     source.length <= MAX_SOURCE_LENGTH;
+
+  if (topicValue !== '' && !isContactTopic(topicValue)) {
+    return { ok: false, status: 422, code: 'validation_failed' };
+  }
 
   if (
     !requiredFieldsAreValid ||
@@ -208,6 +216,7 @@ function validateFormData(formData: FormData): ValidationResult {
       name,
       email,
       organisation,
+      topic,
       message,
       locale,
       source: source || '—',
@@ -362,6 +371,7 @@ export function buildNotification(
   timestamp: Date
 ) {
   const organisation = submission.organisation || '—';
+  const topicLabel = getContactTopicLabel(submission.locale, submission.topic);
 
   return [
     'New enquiry from clearstance.pl',
@@ -371,6 +381,9 @@ export function buildNotification(
     '',
     'Organisation:',
     organisation,
+    '',
+    'Topic:',
+    `${topicLabel} (${submission.topic})`,
     '',
     'Email:',
     submission.email,
@@ -507,7 +520,7 @@ export async function handleContactRequest(
         email: validation.submission.email,
         name: validation.submission.name
       },
-      subject: 'ClearStance — new website enquiry',
+      subject: `[ClearStance] ${getContactTopicLabel(validation.submission.locale, validation.submission.topic)}`,
       text: buildNotification(validation.submission, dependencies.now())
     });
   } catch (error) {
@@ -524,3 +537,8 @@ export async function handleContactRequest(
 
   return jsonResponse(200, { ok: true });
 }
+import {
+  getContactTopicLabel,
+  isContactTopic,
+  type ContactTopic
+} from '../src/lib/contact-topics.ts';

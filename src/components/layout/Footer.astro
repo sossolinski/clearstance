@@ -26,7 +26,8 @@ const linkedInLabel =
     </a>
     <p>{visible.site.footerTagline}</p>
     <nav aria-label={locale === 'pl' ? 'Nawigacja w stopce' : 'Footer navigation'}>
-      <a href={getRoute(locale, 'services')}>{visible.site.nav.services}</a>
+      <a href={getRoute(locale, 'services')}>{locale === 'pl' ? 'Doradztwo' : 'Advisory'}</a>
+      <a href={getRoute(locale, 'exercises')}>{locale === 'pl' ? 'Ćwiczenia' : 'Exercises'}</a>
       <a href={getRoute(locale, 'insights')}>{visible.site.nav.insights}</a>
       <a href={getRoute(locale, 'about')}>{visible.site.nav.experience}</a>
       <a href={getRoute(locale, 'contact')}>{visible.site.nav.contact}</a>

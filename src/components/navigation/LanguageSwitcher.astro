@@ -17,11 +17,11 @@ const t = getTranslations(locale);
       <>
         <span aria-current="page" lang="pl">PL</span>
         <span aria-hidden="true">/</span>
-        <a href={alternatePath} hreflang="en" lang="en" aria-label="English">EN</a>
+        <a href={alternatePath} hreflang="en" lang="en" aria-label="English" data-language-switch>EN</a>
       </>
     ) : (
       <>
-        <a href={alternatePath} hreflang="pl" lang="pl" aria-label="Polski">PL</a>
+        <a href={alternatePath} hreflang="pl" lang="pl" aria-label="Polski" data-language-switch>PL</a>
         <span aria-hidden="true">/</span>
         <span aria-current="page" lang="en">EN</span>
       </>

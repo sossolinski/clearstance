@@ -6,6 +6,13 @@ import {
   getVisibleTranslations
 } from '../../i18n/translations';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  CONTACT_TOPICS,
+  getContactPathWithTopic,
+  getContactTopicLabel,
+  isContactTopic,
+  resolveContactTopic
+} from '../../lib/contact-topics';
 import PageIntro from '../sections/PageIntro.astro';
 
 interface Props {
@@ -16,6 +23,12 @@ const { locale } = Astro.props;
 const t = getTranslations(locale);
 const content = getVisibleTranslations(locale).contactPage;
 const otherLocale = locale === 'pl' ? 'en' : 'pl';
+const requestedTopic = Astro.url.searchParams.get('topic');
+const topic = resolveContactTopic(requestedTopic);
+const preserveTopic = isContactTopic(requestedTopic);
+const alternatePath = preserveTopic
+  ? getContactPathWithTopic(otherLocale, topic)
+  : getRoute(otherLocale, 'contact');
 const turnstileSiteKey =
   import.meta.env.PUBLIC_TURNSTILE_SITE_KEY?.trim() ||
   (import.meta.env.DEV ? '1x00000000000000000000AA' : '');
@@ -27,7 +40,7 @@ const formAvailable = Boolean(turnstileSiteKey);
   title={t.contactPage.metaTitle}
   description={t.contactPage.metaDescription}
   canonicalPath={getRoute(locale, 'contact')}
-  alternatePath={getRoute(otherLocale, 'contact')}
+  alternatePath={alternatePath}
   plPath={getRoute('pl', 'contact')}
   enPath={getRoute('en', 'contact')}
   xDefaultPath={getRoute('pl', 'contact')}
@@ -70,6 +83,7 @@ const formAvailable = Boolean(turnstileSiteKey);
           data-verification-message={content.form.verification}
           data-sending-label={content.form.sending}
           data-submit-label={content.form.submit}
+          data-contact-topics={CONTACT_TOPICS.join(',')}
         >
           <input type="hidden" name="locale" value={locale} />
           <input type="hidden" name="source" value={getRoute(locale, 'contact')} data-contact-source />
@@ -121,6 +135,17 @@ const formAvailable = Boolean(turnstileSiteKey);
               autocomplete="organization"
               maxlength="160"
             />
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-topic">{locale === 'pl' ? 'Temat rozmowy' : 'Enquiry topic'}</label>
+            <select id="contact-topic" name="topic" required data-contact-topic>
+              {CONTACT_TOPICS.map((value) => (
+                <option value={value} selected={value === topic}>
+                  {getContactTopicLabel(locale, value)}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div class="contact-field">
@@ -247,6 +272,32 @@ const formAvailable = Boolean(turnstileSiteKey);
 
   <script>
     import { initialiseContactForm } from '../../scripts/contact-form';
+
+    const form = document.querySelector('#contact-form');
+    const topicSelect = form?.querySelector('[data-contact-topic]');
+    const allowedTopics = new Set((form?.getAttribute('data-contact-topics') || '').split(',').filter(Boolean));
+    const requestedTopic = new URLSearchParams(window.location.search).get('topic');
+
+    const updateLanguageLinks = (topic: string) => {
+      document.querySelectorAll('[data-language-switch]').forEach((link) => {
+        if (!(link instanceof HTMLAnchorElement)) return;
+        const target = new URL(link.href, window.location.origin);
+        target.searchParams.set('topic', topic);
+        link.href = `${target.pathname}${target.search}${target.hash}`;
+      });
+    };
+
+    if (topicSelect instanceof HTMLSelectElement) {
+      if (requestedTopic && allowedTopics.has(requestedTopic)) {
+        topicSelect.value = requestedTopic;
+        topicSelect.querySelectorAll('option').forEach((option) => {
+          option.defaultSelected = option.value === requestedTopic;
+        });
+      }
+
+      updateLanguageLinks(topicSelect.value);
+      topicSelect.addEventListener('change', () => updateLanguageLinks(topicSelect.value));
+    }
 
     initialiseContactForm();
   </script>

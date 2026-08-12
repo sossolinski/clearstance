@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '../../i18n/routes';
-import { getHomeAnchor, getRoute } from '../../i18n/routes';
+import { getRoute } from '../../i18n/routes';
 import {
   getTranslations,
   getVisibleTranslations
@@ -12,13 +12,12 @@ interface Props {
   locale: Locale;
   alternatePath: string;
   onHomepage?: boolean;
-  currentPage?: 'services' | 'insights' | 'about' | 'contact';
+  currentPage?: 'services' | 'exercises' | 'insights' | 'about' | 'contact';
 }
 
 const {
   locale,
   alternatePath,
-  onHomepage = false,
   currentPage
 } = Astro.props;
 const t = getTranslations(locale);
@@ -26,22 +25,19 @@ const visible = getVisibleTranslations(locale);
 
 const links = [
   {
-    label: visible.site.nav.approach,
-    href: getHomeAnchor(locale, 'approach', onHomepage)
-  },
-  {
-    label: visible.site.nav.services,
+    label: locale === 'pl' ? 'Doradztwo' : 'Advisory',
     href: getRoute(locale, 'services'),
     current: currentPage === 'services'
+  },
+  {
+    label: locale === 'pl' ? 'Ćwiczenia' : 'Exercises',
+    href: getRoute(locale, 'exercises'),
+    current: currentPage === 'exercises'
   },
   {
     label: visible.site.nav.insights,
     href: getRoute(locale, 'insights'),
     current: currentPage === 'insights'
-  },
-  {
-    label: visible.site.nav.practice,
-    href: getHomeAnchor(locale, 'practice', onHomepage)
   },
   {
     label: visible.site.nav.experience,

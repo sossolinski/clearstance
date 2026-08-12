@@ -51,6 +51,19 @@ export async function getPublishedInsights(
   );
 }
 
+/** Return published, localized Insights in the editorial order supplied. */
+export async function getInsightsByTranslationKeys(
+  locale: Locale,
+  translationKeys: string[]
+): Promise<InsightEntry[]> {
+  const entries = await getPublishedInsights(locale);
+
+  return translationKeys.flatMap((key) => {
+    const entry = entries.find(({ data }) => data.translationKey === key);
+    return entry ? [entry] : [];
+  });
+}
+
 /**
  * Find a published translation pair by translationKey and opposite locale.
  */

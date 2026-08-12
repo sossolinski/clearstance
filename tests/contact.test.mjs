@@ -10,6 +10,7 @@ const baseFields = {
   name: 'Alex Example',
   email: 'alex@example.com',
   organisation: 'Example Organisation',
+  topic: 'executive-tabletop',
   message: 'We would like to discuss a crisis readiness exercise.',
   locale: 'en',
   source: 'https://clearstance.pl/en/contact',
@@ -165,7 +166,7 @@ test('accepts a valid submission with fixed safe email headers and plain text', 
   );
   assert.equal(
     harness.emails[0].subject,
-    'ClearStance — new website enquiry'
+    '[ClearStance] Executive Tabletop Exercise'
   );
   assert.deepEqual(harness.emails[0].replyTo, {
     email: 'alex@example.com',
@@ -173,10 +174,47 @@ test('accepts a valid submission with fixed safe email headers and plain text', 
   });
   assert.equal('html' in harness.emails[0], false);
   assert.match(harness.emails[0].text, /Language:\nEN/);
+  assert.match(harness.emails[0].text, /Topic:\nExecutive Tabletop Exercise \(executive-tabletop\)/);
   assert.match(
     harness.emails[0].text,
     /Timestamp:\n2026-07-23T20:00:00.000Z/
   );
+});
+
+test('accepts every allowed topic and derives a fixed localized subject', async () => {
+  const cases = [
+    ['en', 'general', '[ClearStance] General enquiry'],
+    ['en', 'advisory', '[ClearStance] Advisory'],
+    ['en', 'crisis-readiness-review', '[ClearStance] Crisis Readiness Review'],
+    ['pl', 'exercises', '[ClearStance] Ćwiczenia kryzysowe'],
+    ['pl', 'executive-tabletop', '[ClearStance] Executive Tabletop Exercise']
+  ];
+
+  for (const [locale, topic, subject] of cases) {
+    const harness = createHarness();
+    const response = await handleContactRequest(
+      createRequest({ locale, topic }),
+      harness.env,
+      harness.dependencies
+    );
+
+    assert.equal(response.status, 200);
+    assert.equal(harness.emails[0].subject, subject);
+  }
+});
+
+test('rejects a topic outside the server allowlist before verification', async () => {
+  const harness = createHarness();
+  const response = await handleContactRequest(
+    createRequest({ topic: 'custom-visitor-topic' }),
+    harness.env,
+    harness.dependencies
+  );
+
+  assert.equal(response.status, 422);
+  assert.equal((await readJson(response)).code, 'validation_failed');
+  assert.equal(harness.verificationCalls, 0);
+  assert.equal(harness.emails.length, 0);
 });
 
 test('accepts Cloudflare’s documented always-pass response only on a local request', async () => {

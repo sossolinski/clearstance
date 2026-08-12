@@ -2,13 +2,21 @@
 import type { Locale } from '../../i18n/routes';
 import { getRoute } from '../../i18n/routes';
 import { getVisibleTranslations } from '../../i18n/translations';
+import { getContactPathWithTopic, type ContactTopic } from '../../lib/contact-topics';
 
 interface Props {
   locale: Locale;
+  content?: { eyebrow?: string; title: string; text: string; cta: string };
+  topic?: ContactTopic;
 }
 
-const { locale } = Astro.props;
-const content = getVisibleTranslations(locale).home.contact;
+const { locale, content: suppliedContent, topic } = Astro.props;
+const fallback = getVisibleTranslations(locale).home.contact;
+const content = suppliedContent ?? fallback;
+const eyebrow = content.eyebrow ?? (locale === 'pl' ? 'Kontakt' : 'Contact');
+const contactHref = topic
+  ? getContactPathWithTopic(locale, topic)
+  : getRoute(locale, 'contact');
 ---
 
 <section
@@ -18,12 +26,12 @@ const content = getVisibleTranslations(locale).home.contact;
 >
   <div class="wrap contact-band-grid" data-reveal>
     <div>
-      <p class="eyebrow">{content.eyebrow}</p>
+      <p class="eyebrow">{eyebrow}</p>
       <h2 id="contact-band-title">{content.title}</h2>
     </div>
     <div class="contact-band-action">
       <p>{content.text}</p>
-      <a class="button button--dark" href={getRoute(locale, 'contact')}>
+      <a class="button button--dark" href={contactHref}>
         <span>{content.cta}</span>
         <span aria-hidden="true">↗</span>
       </a>

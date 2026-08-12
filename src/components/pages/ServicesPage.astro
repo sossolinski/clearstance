@@ -1,110 +1,70 @@
 ---
 import type { Locale } from '../../i18n/routes';
 import { getRoute } from '../../i18n/routes';
-import {
-  getTranslations,
-  getVisibleTranslations
-} from '../../i18n/translations';
-import { getServiceIconName } from '../../lib/service-icons';
+import { getCommercialContent } from '../../content/commercial';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getInsightsByTranslationKeys } from '../../lib/insights';
+import CommercialInsights from '../insights/CommercialInsights.astro';
 import ContactBand from '../sections/ContactBand.astro';
 import PageIntro from '../sections/PageIntro.astro';
 import Icon from '../ui/Icon.astro';
 
-interface Props {
-  locale: Locale;
-}
-
+interface Props { locale: Locale; }
 const { locale } = Astro.props;
-const t = getTranslations(locale);
-const content = getVisibleTranslations(locale).servicesPage;
+const content = getCommercialContent(locale);
+const page = content.advisory;
 const otherLocale = locale === 'pl' ? 'en' : 'pl';
+const capabilityIcons = ['network', 'message-text', 'community'] as const;
+const insights = await getInsightsByTranslationKeys(locale, ['crisis-situational-awareness', 'continuity-at-interfaces', 'first-hour-crisis-communication']);
+const schema = {
+  '@context': 'https://schema.org', '@type': 'Service', name: page.hero.title,
+  serviceType: locale === 'pl' ? 'Doradztwo w zakresie gotowości kryzysowej' : 'Crisis readiness advisory',
+  provider: { '@type': 'Organization', name: 'ClearStance' },
+  url: new URL(getRoute(locale, 'services'), Astro.site).toString(),
+  areaServed: { '@type': 'Country', name: 'Poland' }
+};
 ---
 
-<BaseLayout
-  locale={locale}
-  title={t.servicesPage.metaTitle}
-  description={t.servicesPage.metaDescription}
-  canonicalPath={getRoute(locale, 'services')}
-  alternatePath={getRoute(otherLocale, 'services')}
-  plPath={getRoute('pl', 'services')}
-  enPath={getRoute('en', 'services')}
-  xDefaultPath={getRoute('pl', 'services')}
-  currentPage="services"
->
+<BaseLayout locale={locale} title={page.meta.title} description={page.meta.description}
+  canonicalPath={getRoute(locale, 'services')} alternatePath={getRoute(otherLocale, 'services')}
+  plPath={getRoute('pl', 'services')} enPath={getRoute('en', 'services')} xDefaultPath={getRoute('pl', 'services')}
+  currentPage="services" structuredData={schema}>
   <main id="main-content">
-    <PageIntro
-      eyebrow={content.eyebrow}
-      title={content.title}
-      lead={content.lead}
-      desktopTitleLines={locale === 'pl'
-        ? ['Gotowość,', 'która działa', 'w\u00a0rzeczywistym', 'środowisku.']
-        : undefined}
-    />
+    <PageIntro eyebrow={page.hero.eyebrow} title={page.hero.title} lead={page.hero.lead} />
 
-    <section class="services-detail" aria-labelledby="services-detail-title">
-      <div class="wrap">
-        <div class="editorial-heading" data-reveal>
-          <h2 id="services-detail-title">{content.introTitle}</h2>
-          <p>{content.intro}</p>
-        </div>
-        <ol class="services-detail-list">
-          {
-            content.services.map((service, index) => (
-              <li data-reveal>
-                <div class="detail-marker">
-                  <Icon
-                    class="detail-icon"
-                    name={getServiceIconName(index)}
-                    size={40}
-                    decorative
-                  />
-                </div>
-                <div class="detail-copy">
-                  <h3 class:list={{ 'service-title--long': index === 3 }}>
-                    {service.title}
-                  </h3>
-                  <p>{service.summary}</p>
-                  {
-                    'note' in service && service.note && (
-                      <p class="service-scope-note">{service.note}</p>
-                    )
-                  }
-                </div>
-                <ul>
-                  {service.points.map((point) => <li>{point}</li>)}
-                </ul>
-              </li>
-            ))
-          }
-        </ol>
+    <section class="commercial-intro" aria-labelledby="advisory-intro-title"><div class="wrap commercial-intro-grid" data-reveal>
+      <div><p class="eyebrow">{locale === 'pl' ? 'Punkt wyjścia' : 'Starting point'}</p><h2 id="advisory-intro-title">{page.intro.title}</h2><p class="section-lead">{page.intro.text}</p></div>
+      <ul class="trigger-grid">{page.intro.triggers.map((item) => <li><h3>{item.title}</h3><p>{item.text}</p></li>)}</ul>
+    </div></section>
+
+    <section class="commercial-capability-detail" aria-labelledby="advisory-capabilities-title"><div class="wrap">
+      <div class="commercial-section-heading" data-reveal><p class="eyebrow">{page.capabilities.eyebrow}</p><h2 id="advisory-capabilities-title">{page.capabilities.title}</h2><p>{page.capabilities.intro}</p></div>
+      <ol class="capability-detail-list">{content.capabilities.map((capability, index) => <li id={capability.anchor} data-reveal>
+        <div class="capability-detail-heading"><Icon name={capabilityIcons[index]} size={38} decorative /><p>{String(index + 1).padStart(2, '0')}</p><h3>{capability.title}</h3><p>{capability.text}</p></div>
+        <div><h4>{locale === 'pl' ? 'Przykładowy zakres' : 'Example scope'}</h4><ul class="check-list">{capability.scope.map((item) => <li>{item}</li>)}</ul></div>
+        <div><h4>{locale === 'pl' ? 'Możliwe rezultaty' : 'Possible outcomes'}</h4><ul class="check-list">{capability.outputs.map((item) => <li>{item}</li>)}</ul></div>
+      </li>)}</ol>
+    </div></section>
+
+    <section class="product-module" id={locale === 'pl' ? 'przeglad-gotowosci' : 'readiness-review'} aria-labelledby="review-title"><div class="wrap" data-reveal>
+      <div class="product-module-hero"><div><p class="eyebrow eyebrow--light">{page.review.eyebrow}</p><h2 id="review-title">{page.review.title}</h2><p class="product-descriptor">{page.review.descriptor}</p></div><p>{page.review.lead}</p></div>
+      <div class="product-module-grid">
+        <article><h3>{page.review.triggerTitle}</h3><ul class="check-list check-list--light">{page.review.triggers.map((item) => <li>{item}</li>)}</ul></article>
+        <article><h3>{page.review.audienceTitle}</h3><p>{page.review.audience}</p><h3>{page.review.scopeTitle}</h3><ul class="check-list check-list--light">{page.review.scope.map((item) => <li>{item}</li>)}</ul></article>
       </div>
-    </section>
+      <div class="deliverable-split"><article><h3>{page.review.includesTitle}</h3><ul>{page.review.includes.map((item) => <li>{item}</li>)}</ul></article><article><h3>{page.review.receivesTitle}</h3><ul>{page.review.receives.map((item) => <li>{item}</li>)}</ul></article></div>
+      <div class="product-outcome"><div><h3>{page.review.outcomeTitle}</h3><p>{page.review.outcome}</p></div><div><h3>{page.review.nextTitle}</h3><p>{page.review.next}</p></div><a class="button button--ghost" href={`${getRoute(locale, 'contact')}?topic=crisis-readiness-review`}><span>{page.review.cta}</span><span aria-hidden="true">↗</span></a></div>
+    </div></section>
 
-    <section class="context-section" aria-labelledby="context-title">
-      <div class="wrap context-grid" data-reveal>
-        <div class="context-heading">
-          <h2 id="context-title">{content.closingTitle}</h2>
-        </div>
-        <div class="context-body">
-          <p class="context-copy">{content.closingText}</p>
-          <ul class="context-references">
-            {
-              content.closingReferences.map((reference) => (
-                <li>
-                  <strong class="context-reference-code">{reference.code}</strong>
-                  <span class="context-reference-separator" aria-hidden="true"> — </span>
-                  <span class="context-reference-description">
-                    {reference.description}
-                  </span>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </div>
-    </section>
+    <section class="focused-scope" aria-labelledby="cmt-title"><div class="wrap focused-scope-grid" data-reveal><div><p class="eyebrow">{page.cmt.eyebrow}</p><h2 id="cmt-title">{page.cmt.title}</h2><p>{page.cmt.text}</p></div><ul class="check-list">{page.cmt.points.map((item) => <li>{item}</li>)}</ul></div></section>
 
-    <ContactBand locale={locale} />
+    <section class="commercial-process" aria-labelledby="advisory-process-title"><div class="wrap">
+      <div class="commercial-section-heading" data-reveal><p class="eyebrow">{page.process.eyebrow}</p><h2 id="advisory-process-title">{page.process.title}</h2><p>{page.process.intro}</p></div>
+      <ol class="numbered-process" data-reveal>{page.process.items.map((item, index) => <li><span>{String(index + 1).padStart(2, '0')}</span><h3>{item.title}</h3><p>{item.text}</p></li>)}</ol>
+      <div class="outputs-panel" data-reveal><h3>{page.outputs.title}</h3><p>{page.outputs.intro}</p><ul class="check-list">{page.outputs.items.map((item) => <li>{item}</li>)}</ul><p class="scope-note">{page.outputs.note}</p></div>
+    </div></section>
+
+    {insights.length > 0 && <CommercialInsights locale={locale} entries={insights} eyebrow={page.insights.eyebrow} title={page.insights.title} copy={page.insights.copy} />}
+    <ContactBand locale={locale} content={page.contact} topic="advisory" />
   </main>
 </BaseLayout>

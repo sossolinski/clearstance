@@ -1,0 +1,64 @@
+---
+import type { Locale } from '../../i18n/routes';
+import { getRoute } from '../../i18n/routes';
+import { getCommercialContent } from '../../content/commercial';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getInsightsByTranslationKeys } from '../../lib/insights';
+import CommercialInsights from '../insights/CommercialInsights.astro';
+import ContactBand from '../sections/ContactBand.astro';
+import PageIntro from '../sections/PageIntro.astro';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const content = getCommercialContent(locale);
+const page = content.executive;
+const otherLocale = locale === 'pl' ? 'en' : 'pl';
+const insights = await getInsightsByTranslationKeys(locale, ['crisis-exercise-design', 'crisis-exercises-performance', 'crisis-situational-awareness']);
+const absolute = (path: string) => new URL(path, Astro.site).toString();
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'Service', name: 'Executive Tabletop Exercise', description: page.meta.description, serviceType: 'Executive Tabletop Exercise', provider: { '@type': 'Organization', name: 'ClearStance' }, url: absolute(getRoute(locale, 'executiveTabletop')), areaServed: { '@type': 'Country', name: 'Poland' } },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: locale === 'pl' ? 'Strona główna' : 'Home', item: absolute(getRoute(locale, 'home')) },
+    { '@type': 'ListItem', position: 2, name: locale === 'pl' ? 'Ćwiczenia kryzysowe' : 'Exercises', item: absolute(getRoute(locale, 'exercises')) },
+    { '@type': 'ListItem', position: 3, name: 'Executive Tabletop Exercise', item: absolute(getRoute(locale, 'executiveTabletop')) }
+  ] }
+];
+const hrefForRelated = (item: typeof page.related.links[number]) => `${getRoute(locale, item.route)}${item.hash ? `#${item.hash}` : ''}`;
+---
+
+<BaseLayout locale={locale} title={page.meta.title} description={page.meta.description}
+  canonicalPath={getRoute(locale, 'executiveTabletop')} alternatePath={getRoute(otherLocale, 'executiveTabletop')}
+  plPath={getRoute('pl', 'executiveTabletop')} enPath={getRoute('en', 'executiveTabletop')} xDefaultPath={getRoute('pl', 'executiveTabletop')}
+  currentPage="exercises" structuredData={schema}>
+  <main id="main-content" class="executive-page">
+    <PageIntro eyebrow={page.hero.eyebrow} title={page.hero.title} lead={page.hero.lead} />
+
+    <section class="exercise-snapshot" aria-labelledby="snapshot-title"><div class="wrap" data-reveal><h2 id="snapshot-title">{page.snapshot.title}</h2><dl>{page.snapshot.items.map((item) => <div><dt>{item.term}</dt><dd>{item.description}</dd></div>)}</dl></div></section>
+
+    <section class="executive-useful" aria-labelledby="useful-title"><div class="wrap">
+      <div class="commercial-section-heading" data-reveal><p class="eyebrow">{page.useful.eyebrow}</p><h2 id="useful-title">{page.useful.title}</h2><p>{page.useful.intro}</p></div>
+      <ul class="trigger-grid" data-reveal>{page.useful.items.map((item) => <li><h3>{item.title}</h3><p>{item.text}</p></li>)}</ul>
+      <div class="participation-panel" data-reveal><div><h3>{page.participation.title}</h3><p>{page.participation.text}</p></div><div><h4>{page.participation.coreTitle}</h4><ul class="check-list">{page.participation.core.map((item) => <li>{item}</li>)}</ul></div><div><h4>{page.participation.optionalTitle}</h4><ul class="check-list">{page.participation.optional.map((item) => <li>{item}</li>)}</ul></div></div>
+    </div></section>
+
+    <section class="observation-focus observation-focus--dark" aria-labelledby="executive-observation-title"><div class="wrap" data-reveal><div class="commercial-section-heading"><p class="eyebrow eyebrow--light">{page.observationAreas.eyebrow}</p><h2 id="executive-observation-title">{page.observationAreas.title}</h2><p>{page.observationAreas.intro}</p></div><ul class="focus-chip-list">{page.observationAreas.items.map((item) => <li>{item}</li>)}</ul></div></section>
+
+    <section class="scenario-design" aria-labelledby="design-title"><div class="wrap scenario-design-grid" data-reveal><div><p class="eyebrow">{page.design.eyebrow}</p><h2 id="design-title">{page.design.title}</h2></div><div>{page.design.paragraphs.map((text) => <p>{text}</p>)}<ol class="design-sequence">{page.design.sequence.map((item, index) => <li><span>{String(index + 1).padStart(2, '0')}</span>{item}</li>)}</ol></div></div></section>
+
+    <section class="methodology-section methodology-section--executive" aria-labelledby="executive-method-title"><div class="wrap"><div class="commercial-section-heading" data-reveal><p class="eyebrow">{page.methodology.eyebrow}</p><h2 id="executive-method-title">{page.methodology.title}</h2><p>{page.methodology.intro}</p></div><ol class="phase-list" data-reveal>{content.exercisePhases.map((phase, index) => <li><span>{String(index + 1).padStart(2, '0')}</span><h3>{phase.title}</h3><p>{phase.text}</p><p class="phase-output">{phase.output}</p></li>)}</ol></div></section>
+
+    <section class="session-section" aria-labelledby="session-title"><div class="wrap session-grid" data-reveal><div><h2 id="session-title">{page.session.title}</h2><p>{page.session.text}</p></div><ol>{page.session.items.map((item, index) => <li><span>{String(index + 1).padStart(2, '0')}</span>{item}</li>)}</ol></div></section>
+
+    <section class="observation-method" aria-labelledby="observation-method-title"><div class="wrap"><div class="commercial-section-heading" data-reveal><p class="eyebrow eyebrow--light">{page.observation.eyebrow}</p><h2 id="observation-method-title">{page.observation.title}</h2><p>{page.observation.text}</p></div><dl class="observation-example" data-reveal>{page.observation.labels.map((label, index) => <div><dt>{label}</dt><dd>{page.observation.example[index]}</dd></div>)}</dl></div></section>
+
+    <section class="executive-outputs" aria-labelledby="outputs-title"><div class="wrap" data-reveal><div class="commercial-section-heading"><p class="eyebrow">{page.outputs.eyebrow}</p><h2 id="outputs-title">{page.outputs.title}</h2><p>{page.outputs.intro}</p></div><div class="deliverable-split deliverable-split--outlined"><article><h3>{page.outputs.engagementTitle}</h3><ul>{page.outputs.engagement.map((item) => <li>{item}</li>)}</ul></article><article><h3>{page.outputs.clientTitle}</h3><ul>{page.outputs.client.map((item) => <li>{item}</li>)}</ul></article></div><p class="scope-note">{page.outputs.artefactsNote}</p></div></section>
+
+    <section class="aar-section" aria-labelledby="aar-title"><div class="wrap aar-grid" data-reveal><div><h2 id="aar-title">{page.aar.title}</h2><p>{page.aar.text}</p><p class="scope-note">{page.aar.note}</p></div><ul class="check-list">{page.aar.items.map((item) => <li>{item}</li>)}</ul></div></section>
+
+    <section class="preparation-section" aria-labelledby="preparation-title"><div class="wrap" data-reveal><h2 id="preparation-title">{page.preparation.title}</h2><div class="preparation-grid"><article><h3>{page.preparation.clientTitle}</h3><ul class="check-list">{page.preparation.client.map((item) => <li>{item}</li>)}</ul></article><article><h3>{page.preparation.scopeTitle}</h3><p>{page.preparation.scope}</p></article></div></div></section>
+
+    <nav class="related-scopes" aria-labelledby="related-scopes-title"><div class="wrap" data-reveal><p class="eyebrow">{page.related.eyebrow}</p><h2 id="related-scopes-title">{page.related.title}</h2><ul>{page.related.links.map((item) => <li><a href={hrefForRelated(item)}>{item.label}<span aria-hidden="true">→</span></a></li>)}</ul></div></nav>
+    {insights.length > 0 && <CommercialInsights locale={locale} entries={insights} eyebrow={page.insights.eyebrow} title={page.insights.title} copy={page.insights.copy} />}
+    <ContactBand locale={locale} content={page.contact} topic="executive-tabletop" />
+  </main>
+</BaseLayout>

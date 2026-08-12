@@ -1,0 +1,58 @@
+---
+import type { Locale } from '../../i18n/routes';
+import { getRoute } from '../../i18n/routes';
+import { getCommercialContent } from '../../content/commercial';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getInsightsByTranslationKeys } from '../../lib/insights';
+import CommercialInsights from '../insights/CommercialInsights.astro';
+import ContactBand from '../sections/ContactBand.astro';
+import PageIntro from '../sections/PageIntro.astro';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const content = getCommercialContent(locale);
+const page = content.exercises;
+const otherLocale = locale === 'pl' ? 'en' : 'pl';
+const insights = await getInsightsByTranslationKeys(locale, ['crisis-exercise-design', 'crisis-exercises-performance', 'crisis-situational-awareness']);
+const schema = {
+  '@context': 'https://schema.org', '@type': 'Service', name: page.hero.title,
+  serviceType: locale === 'pl' ? 'Projektowanie i prowadzenie ćwiczeń kryzysowych' : 'Crisis exercise design and facilitation',
+  provider: { '@type': 'Organization', name: 'ClearStance' },
+  url: new URL(getRoute(locale, 'exercises'), Astro.site).toString(), areaServed: { '@type': 'Country', name: 'Poland' }
+};
+---
+
+<BaseLayout locale={locale} title={page.meta.title} description={page.meta.description}
+  canonicalPath={getRoute(locale, 'exercises')} alternatePath={getRoute(otherLocale, 'exercises')}
+  plPath={getRoute('pl', 'exercises')} enPath={getRoute('en', 'exercises')} xDefaultPath={getRoute('pl', 'exercises')}
+  currentPage="exercises" structuredData={schema}>
+  <main id="main-content">
+    <PageIntro eyebrow={page.hero.eyebrow} title={page.hero.title} lead={page.hero.lead} />
+
+    <section class="exercise-intro" aria-labelledby="exercise-intro-title"><div class="wrap exercise-intro-grid" data-reveal>
+      <div><p class="eyebrow">{locale === 'pl' ? 'Założenie' : 'Principle'}</p><h2 id="exercise-intro-title">{page.intro.title}</h2></div><p class="section-lead">{page.intro.text}</p>
+    </div></section>
+
+    <section class="observation-focus" aria-labelledby="exercise-focus-title"><div class="wrap" data-reveal>
+      <div class="commercial-section-heading"><p class="eyebrow">{page.focus.eyebrow}</p><h2 id="exercise-focus-title">{page.focus.title}</h2><p>{page.focus.intro}</p></div>
+      <ul class="focus-chip-list">{page.focus.items.map((item) => <li>{item}</li>)}</ul>
+    </div></section>
+
+    <section class="exercise-formats" aria-labelledby="formats-title"><div class="wrap">
+      <div class="commercial-section-heading" data-reveal><p class="eyebrow eyebrow--light">{page.formats.eyebrow}</p><h2 id="formats-title">{page.formats.title}</h2><p>{page.formats.intro}</p></div>
+      <div class="format-grid" data-reveal>{page.formats.items.map((item, index) => <article class:list={['format-card', { 'format-card--featured': index === 0 }]} id={item.id}>
+        <span>{String(index + 1).padStart(2, '0')}</span><h3>{item.title}</h3><p>{item.text}</p>{item.link && <a class="text-link text-link--light" href={item.link}>{item.linkLabel} <span aria-hidden="true">→</span></a>}
+      </article>)}</div>
+    </div></section>
+
+    <section class="methodology-section" aria-labelledby="methodology-title"><div class="wrap">
+      <div class="commercial-section-heading" data-reveal><p class="eyebrow">{page.methodology.eyebrow}</p><h2 id="methodology-title">{page.methodology.title}</h2><p>{page.methodology.intro}</p></div>
+      <ol class="phase-list" data-reveal>{content.exercisePhases.map((phase, index) => <li><span>{String(index + 1).padStart(2, '0')}</span><h3>{phase.title}</h3><p>{phase.text}</p><p class="phase-output">{phase.output}</p></li>)}</ol>
+      <div class="inclusion-panel" data-reveal><h3>{page.inclusion.title}</h3><div class="deliverable-split deliverable-split--light"><article><h4>{page.inclusion.engagementTitle}</h4><ul>{page.inclusion.engagement.map((item) => <li>{item}</li>)}</ul></article><article><h4>{page.inclusion.clientTitle}</h4><ul>{page.inclusion.client.map((item) => <li>{item}</li>)}</ul></article></div><p class="scope-note">{page.inclusion.note}</p></div>
+    </div></section>
+
+    <section class="standard-note"><div class="wrap standard-note-grid" data-reveal><h2>{page.standard.title}</h2><p>{page.standard.text}</p></div></section>
+    {insights.length > 0 && <CommercialInsights locale={locale} entries={insights} eyebrow={page.insights.eyebrow} title={page.insights.title} copy={page.insights.copy} />}
+    <ContactBand locale={locale} content={page.contact} topic="exercises" />
+  </main>
+</BaseLayout>

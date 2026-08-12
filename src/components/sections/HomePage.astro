@@ -1,375 +1,105 @@
 ---
 import type { Locale } from '../../i18n/routes';
 import { getArticlePath, getRoute } from '../../i18n/routes';
-import {
-  getTranslations,
-  getVisibleTranslations
-} from '../../i18n/translations';
+import { getTranslations } from '../../i18n/translations';
 import { formatVisibleText } from '../../i18n/typography.js';
-import HomeInsightTeaser from '../insights/HomeInsightTeaser.astro';
+import { getCommercialContent } from '../../content/commercial';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getHomepageInsights } from '../../lib/insights';
-import { getServiceIconName } from '../../lib/service-icons';
+import CommercialInsights from '../insights/CommercialInsights.astro';
 import ContactBand from './ContactBand.astro';
 import Icon from '../ui/Icon.astro';
-import BrandStatement from './BrandStatement.astro';
 import ExperienceMedia from '../ui/ExperienceMedia.astro';
 
-interface Props {
-  locale: Locale;
-}
+interface Props { locale: Locale; }
 
 const { locale } = Astro.props;
 const t = getTranslations(locale);
-const visible = getVisibleTranslations(locale);
-const content = visible.home;
-const {
-  featured: featuredInsight,
-  entries: homepageInsights
-} = await getHomepageInsights(locale);
+const commercial = getCommercialContent(locale);
+const content = commercial.home;
+const { featured: featuredInsight, entries: homepageInsights } = await getHomepageInsights(locale);
 const otherLocale = locale === 'pl' ? 'en' : 'pl';
-const approachId = locale === 'pl' ? 'podejscie' : 'approach';
-const servicesId = locale === 'pl' ? 'oferta' : 'services';
-const readinessId = locale === 'pl' ? 'gotowosc' : 'readiness';
-const experienceId = locale === 'pl' ? 'doswiadczenie' : 'experience';
-const practiceId = locale === 'pl' ? 'praktyka' : 'practice';
+const ids = locale === 'pl'
+  ? { capabilities: 'kompetencje', ways: 'wspolpraca', engagements: 'zakresy', readiness: 'gotowosc', experience: 'doswiadczenie' }
+  : { capabilities: 'capabilities', ways: 'ways-of-working', engagements: 'engagements', readiness: 'readiness', experience: 'experience' };
+const capabilityIcons = ['network', 'message-text', 'community'] as const;
 const professionalServiceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'ClearStance',
-  url: new URL(getRoute(locale, 'home'), Astro.site).toString(),
-  email: t.site.email,
-  areaServed: {
-    '@type': 'Country',
-    name: locale === 'pl' ? 'Polska' : 'Poland'
-  },
-  knowsAbout: locale === 'pl'
-    ? [
-        'zarządzanie kryzysowe',
-        'ćwiczenia i facylitacja',
-        'komunikacja kryzysowa',
-        'wsparcie osób dotkniętych zdarzeniem i ich bliskich'
-      ]
-    : [
-        'crisis management',
-        'exercises and facilitation',
-        'crisis communication',
-        'affected people and family assistance'
-      ]
+  '@context': 'https://schema.org', '@type': 'ProfessionalService', name: 'ClearStance',
+  url: new URL(getRoute(locale, 'home'), Astro.site).toString(), email: t.site.email,
+  areaServed: { '@type': 'Country', name: locale === 'pl' ? 'Polska' : 'Poland' },
+  knowsAbout: commercial.capabilities.map(({ title }) => title)
 };
 ---
 
-<BaseLayout
-  locale={locale}
-  title={t.home.meta.title}
-  description={t.home.meta.description}
-  canonicalPath={getRoute(locale, 'home')}
-  alternatePath={getRoute(otherLocale, 'home')}
-  plPath={getRoute('pl', 'home')}
-  enPath={getRoute('en', 'home')}
-  xDefaultPath={getRoute('pl', 'home')}
-  onHomepage
-  structuredData={professionalServiceSchema}
->
+<BaseLayout locale={locale} title={content.meta.title} description={content.meta.description}
+  canonicalPath={getRoute(locale, 'home')} alternatePath={getRoute(otherLocale, 'home')}
+  plPath={getRoute('pl', 'home')} enPath={getRoute('en', 'home')} xDefaultPath={getRoute('pl', 'home')}
+  onHomepage structuredData={professionalServiceSchema}>
   <main id="main-content">
     <section class="hero" aria-labelledby="hero-title">
       <picture class="hero-media">
-        <source
-          media="(max-width: 760px)"
-          srcset="
-            /images/hero-lighthouse-horizon-mobile-640.avif 640w,
-            /images/hero-lighthouse-horizon-mobile-900.avif 900w
-          "
-          sizes="100vw"
-          width="1024"
-          height="1536"
-          type="image/avif"
-        />
-        <source
-          media="(min-width: 761px)"
-          srcset="
-            /images/hero-lighthouse-horizon-desktop-640.avif 640w,
-            /images/hero-lighthouse-horizon-desktop-960.avif 960w,
-            /images/hero-lighthouse-horizon-desktop-1440.avif 1440w,
-            /images/hero-lighthouse-horizon-desktop-1920.avif 1920w
-          "
-          sizes="100vw"
-          width="1671"
-          height="941"
-          type="image/avif"
-        />
-        <source
-          media="(max-width: 760px)"
-          srcset="
-            /images/hero-lighthouse-horizon-mobile-640.webp 640w,
-            /images/hero-lighthouse-horizon-mobile-900.webp 900w
-          "
-          sizes="100vw"
-          width="1024"
-          height="1536"
-          type="image/webp"
-        />
-        <source
-          media="(min-width: 761px)"
-          srcset="
-            /images/hero-lighthouse-horizon-desktop-640.webp 640w,
-            /images/hero-lighthouse-horizon-desktop-960.webp 960w,
-            /images/hero-lighthouse-horizon-desktop-1440.webp 1440w,
-            /images/hero-lighthouse-horizon-desktop-1920.webp 1920w
-          "
-          sizes="100vw"
-          width="1671"
-          height="941"
-          type="image/webp"
-        />
-        <img
-          src="/images/hero-lighthouse-horizon-desktop-master.png"
-          width="1671"
-          height="941"
-          alt={t.home.hero.imageAlt}
-          fetchpriority="high"
-        />
+        <source media="(max-width: 760px)" srcset="/images/hero-lighthouse-horizon-mobile-640.avif 640w, /images/hero-lighthouse-horizon-mobile-900.avif 900w" sizes="100vw" width="1024" height="1536" type="image/avif" />
+        <source media="(min-width: 761px)" srcset="/images/hero-lighthouse-horizon-desktop-640.avif 640w, /images/hero-lighthouse-horizon-desktop-960.avif 960w, /images/hero-lighthouse-horizon-desktop-1440.avif 1440w, /images/hero-lighthouse-horizon-desktop-1920.avif 1920w" sizes="100vw" width="1671" height="941" type="image/avif" />
+        <source media="(max-width: 760px)" srcset="/images/hero-lighthouse-horizon-mobile-640.webp 640w, /images/hero-lighthouse-horizon-mobile-900.webp 900w" sizes="100vw" width="1024" height="1536" type="image/webp" />
+        <source media="(min-width: 761px)" srcset="/images/hero-lighthouse-horizon-desktop-640.webp 640w, /images/hero-lighthouse-horizon-desktop-960.webp 960w, /images/hero-lighthouse-horizon-desktop-1440.webp 1440w, /images/hero-lighthouse-horizon-desktop-1920.webp 1920w" sizes="100vw" width="1671" height="941" type="image/webp" />
+        <img src="/images/hero-lighthouse-horizon-desktop-master.png" width="1671" height="941" alt={t.home.hero.imageAlt} fetchpriority="high" />
       </picture>
       <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="wrap hero-content">
-        <div class="hero-primary">
-          <p class="eyebrow eyebrow--light">{content.hero.eyebrow}</p>
-          <h1 id="hero-title">
-            {content.hero.title}
-            <span>{content.hero.titleAccent}</span>
-          </h1>
-          <p class="hero-copy">{content.hero.copy}</p>
-          <a class="button button--ghost" href={`#${approachId}`}>
-            <span>{content.hero.cta}</span>
-            <span aria-hidden="true">↓</span>
-          </a>
+      <div class="wrap hero-content"><div class="hero-primary">
+        <p class="eyebrow eyebrow--light">{content.hero.eyebrow}</p>
+        <h1 id="hero-title">{content.hero.title} <span>{content.hero.titleAccent}</span></h1>
+        <p class="hero-copy">{content.hero.copy}</p>
+        <div class="hero-actions">
+          <a class="button button--ghost" href={`#${ids.capabilities}`}><span>{content.hero.primaryCta}</span><span aria-hidden="true">↓</span></a>
+          <a class="hero-secondary-link" href={getRoute(locale, 'exercises')}>{content.hero.secondaryCta} <span aria-hidden="true">→</span></a>
         </div>
-      </div>
-      {
-        featuredInsight && (
-          <aside
-            class="hero-featured"
-            aria-labelledby="hero-featured-title"
-          >
-            <a
-              class="hero-featured-link"
-              href={getArticlePath(locale, featuredInsight.data.slug)}
-            >
-              <div class="wrap hero-featured-inner">
-                <p class="hero-featured-signature">ClearStance Insights</p>
-                <span class="hero-featured-divider" aria-hidden="true"></span>
-                <h2
-                  id="hero-featured-title"
-                  class="hero-featured-title"
-                >
-                  {formatVisibleText(featuredInsight.data.title, locale)}
-                </h2>
-                <span class="hero-featured-arrow" aria-hidden="true">→</span>
-              </div>
-            </a>
-          </aside>
-        )
-      }
+      </div></div>
+      {featuredInsight && <aside class="hero-featured" aria-labelledby="hero-featured-title">
+        <a class="hero-featured-link" href={getArticlePath(locale, featuredInsight.data.slug)}><div class="wrap hero-featured-inner">
+          <p class="hero-featured-signature">ClearStance Insights</p><span class="hero-featured-divider" aria-hidden="true"></span>
+          <h2 id="hero-featured-title" class="hero-featured-title">{formatVisibleText(featuredInsight.data.title, locale)}</h2><span class="hero-featured-arrow" aria-hidden="true">→</span>
+        </div></a>
+      </aside>}
     </section>
 
-    <section class="approach-section" id={approachId} aria-labelledby="approach-title">
-      <div class="wrap approach-grid" data-reveal>
-        <div>
-          <p class="eyebrow">{content.approach.eyebrow}</p>
-          <h2 id="approach-title">{content.approach.title}</h2>
-        </div>
-        <div>
-          <p class="section-lead">{content.approach.lead}</p>
-          <p class="section-copy">{content.approach.body}</p>
-          <ol class="principle-list">
-            {
-              content.approach.pillars.map((pillar) => (
-                <li>
-                  <h3>{pillar.title}</h3>
-                  <p>{pillar.text}</p>
-                </li>
-              ))
-            }
-          </ol>
-        </div>
-      </div>
-    </section>
+    <section class="services-section commercial-capabilities" id={ids.capabilities} aria-labelledby="capabilities-title"><div class="wrap">
+      <div class="services-heading" data-reveal><div><p class="eyebrow">{content.capabilities.eyebrow}</p><h2 id="capabilities-title">{content.capabilities.title}</h2></div><p>{content.capabilities.intro}</p></div>
+      <ul class="service-list" data-reveal>{commercial.capabilities.map((capability, index) => <li>
+        <Icon class="service-icon" name={capabilityIcons[index]} size={36} decorative />
+        <h3>{capability.title}</h3><div class="capability-row-copy"><p>{capability.text}</p><a class="text-link" href={`${getRoute(locale, 'services')}#${capability.anchor}`}>{locale === 'pl' ? 'Poznaj zakres' : 'Explore the scope'} <span aria-hidden="true">→</span></a></div>
+      </li>)}</ul>
+    </div></section>
 
-    <section class="services-section" id={servicesId} aria-labelledby="services-title">
-      <div class="wrap">
-        <div class="services-heading" data-reveal>
-          <div>
-            <p class="eyebrow">{content.services.eyebrow}</p>
-            <h2 id="services-title">{content.services.title}</h2>
-          </div>
-          <p>{content.services.intro}</p>
-        </div>
-        <ul class="service-list" data-reveal>
-          {
-            content.services.items.map((service, index) => (
-              <li>
-                <Icon
-                  class="service-icon"
-                  name={getServiceIconName(index)}
-                  size={36}
-                  decorative
-                />
-                <h3 class:list={{ 'service-title--long': index === 3 }}>
-                  {service.title}
-                </h3>
-                <p>{service.text}</p>
-              </li>
-            ))
-          }
-        </ul>
-        <a
-          class="services-cta-rail"
-          href={getRoute(locale, 'services')}
-          aria-label={content.services.link}
-          data-reveal
-        >
-          <span class="services-cta-label">{content.services.linkLabel}</span>
-          <span class="services-cta-text">{content.services.link}</span>
-          <span class="services-cta-arrow" aria-hidden="true">→</span>
-        </a>
-      </div>
-    </section>
+    <section class="ways-section" id={ids.ways} aria-labelledby="ways-title"><div class="wrap" data-reveal>
+      <div class="commercial-section-heading"><p class="eyebrow">{content.ways.eyebrow}</p><h2 id="ways-title">{content.ways.title}</h2><p>{content.ways.intro}</p></div>
+      <div class="ways-grid">{[
+        { ...content.ways.advisory, href: getRoute(locale, 'services'), icon: 'task-list' as const },
+        { ...content.ways.exercises, href: getRoute(locale, 'exercises'), icon: 'data-transfer-both' as const }
+      ].map((item) => <article class="way-card"><Icon name={item.icon} size={34} decorative /><h3>{item.title}</h3><p>{item.text}</p><a class="text-link" href={item.href}>{item.link} <span aria-hidden="true">→</span></a></article>)}</div>
+    </div></section>
 
-    <section class="readiness-section" id={readinessId} aria-labelledby="readiness-title">
-      <div class="wrap">
-        <div class="readiness-heading" data-reveal>
-          <div>
-            <p class="eyebrow eyebrow--teal">{content.readiness.eyebrow}</p>
-            <h2 id="readiness-title">{content.readiness.title}</h2>
-          </div>
-          <p class="readiness-quote">
-            {
-              content.readiness.quote.map((line, index) => (
-                <span class:list={{ accent: index === 2 }}>{line}</span>
-              ))
-            }
-          </p>
-        </div>
-        <ol class="readiness-steps" data-reveal>
-          {
-            content.readiness.items.map((item, index) => (
-              <li>
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </li>
-            ))
-          }
-        </ol>
-      </div>
-    </section>
+    <section class="engagements-section" id={ids.engagements} aria-labelledby="engagements-title"><div class="wrap" data-reveal>
+      <div class="commercial-section-heading"><p class="eyebrow eyebrow--light">{content.engagements.eyebrow}</p><h2 id="engagements-title">{content.engagements.title}</h2><p>{content.engagements.intro}</p></div>
+      <div class="engagement-grid">{[
+        { ...content.engagements.review, href: `${getRoute(locale, 'services')}#${locale === 'pl' ? 'przeglad-gotowosci' : 'readiness-review'}` },
+        { ...content.engagements.tabletop, href: getRoute(locale, 'executiveTabletop') }
+      ].map((item) => <article class="engagement-card"><p class="engagement-type">{item.type}</p><h3>{item.title}</h3><p>{item.text}</p><a class="text-link text-link--light" href={item.href}>{item.link} <span aria-hidden="true">→</span></a></article>)}</div>
+    </div></section>
 
-    <section class="experience-section" id={experienceId} aria-labelledby="experience-title">
-      <div class="wrap experience-layout" data-reveal>
-        <header class="experience-header">
-          <p class="eyebrow">{content.experience.eyebrow}</p>
-          <h2 id="experience-title">{content.experience.title}</h2>
-        </header>
-        <ExperienceMedia
-          surface="home"
-          maritimeAlt={t.home.experience.mediaAlt.maritime}
-          aviationAlt={t.home.experience.mediaAlt.aviation}
-        />
-        <div class="experience-body">
-          {content.experience.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-          <p class="experience-closing">{content.experience.closing}</p>
-          <dl class="experience-tracks">
-            {
-              content.experience.tracks.map((track, index) => (
-                <div>
-                  <dt>
-                    <Icon
-                      class="experience-domain-icon"
-                      name={index === 0 ? 'compass' : 'maps-arrow-diagonal'}
-                      size={22}
-                      decorative
-                    />
-                    <span>{track.title}</span>
-                  </dt>
-                  <dd>{track.text}</dd>
-                </div>
-              ))
-            }
-          </dl>
-          <a class="text-link" href={getRoute(locale, 'about')}>
-            {content.experience.link}
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </div>
-    </section>
+    <section class="readiness-approach-section" id={ids.readiness} aria-labelledby="readiness-title"><div class="wrap">
+      <div class="readiness-approach-heading" data-reveal><div><p class="eyebrow eyebrow--light">{content.readiness.eyebrow}</p><h2 id="readiness-title">{content.readiness.title}</h2></div><blockquote>{content.readiness.quote.map((line) => <span>{line}</span>)}</blockquote></div>
+      <ol class="readiness-stage-list" data-reveal>{content.readiness.stages.map((stage, index) => <li><span>{String(index + 1).padStart(2, '0')}</span><h3>{stage.title}</h3><p>{stage.text}</p></li>)}</ol>
+      <p class="readiness-note" data-reveal>{content.readiness.note}</p>
+      <div class="approach-panel" data-reveal><div><h3>{content.readiness.approachTitle}</h3><p>{content.readiness.approachLead}</p></div><ul>{content.readiness.principles.map((item) => <li><h4>{item.title}</h4><p>{item.text}</p></li>)}</ul></div>
+    </div></section>
 
-    <section class="practice-section" id={practiceId} aria-labelledby="practice-title">
-      <div class="wrap practice-grid" data-reveal>
-        <div>
-          <p class="eyebrow">{content.practice.eyebrow}</p>
-          <h2 id="practice-title">{content.practice.title}</h2>
-        </div>
-        <div class="practice-copy">
-          {content.practice.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-          <ul class="practice-list">
-            {
-              content.practice.items.map((item) => (
-                <li>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </div>
-    </section>
+    <section class="experience-section" id={ids.experience} aria-labelledby="experience-title"><div class="wrap experience-grid" data-reveal>
+      <div><p class="eyebrow">{content.experience.eyebrow}</p><h2 id="experience-title">{content.experience.title}</h2></div>
+      <ExperienceMedia surface="home" maritimeAlt={t.home.experience.mediaAlt.maritime} aviationAlt={t.home.experience.mediaAlt.aviation} />
+      <div class="experience-copy">{content.experience.paragraphs.map((paragraph) => <p>{paragraph}</p>)}<ul class="experience-tracks">{content.experience.tracks.map((track) => <li><strong>{track.title}</strong><span>{track.text}</span></li>)}</ul><p>{content.experience.closing}</p><a class="text-link" href={getRoute(locale, 'about')}>{content.experience.link} <span aria-hidden="true">↗</span></a></div>
+    </div></section>
 
-    <BrandStatement
-      locale={locale}
-      first={content.statement.first}
-      second={content.statement.second}
-    />
-
-    {
-      homepageInsights.length > 0 && (
-        <section
-          class="home-insights-section"
-          aria-labelledby="home-insights-title"
-        >
-          <div class="wrap">
-            <header class="home-insights-heading" data-reveal>
-              <div>
-                <p class="eyebrow">{content.insights.eyebrow}</p>
-                <h2 id="home-insights-title">{content.insights.title}</h2>
-                <p>{content.insights.copy}</p>
-              </div>
-              <a
-                class="text-link"
-                href={getRoute(locale, 'insights')}
-              >
-                {content.insights.all}
-                <span aria-hidden="true">→</span>
-              </a>
-            </header>
-            <ul class="home-insights-list" data-reveal>
-              {
-                homepageInsights.map((entry) => (
-                  <HomeInsightTeaser
-                    entry={entry}
-                    locale={locale}
-                    readLabel={visible.insightsPage.read}
-                    readingTimeUnit={visible.insightsPage.readingTimeUnit}
-                  />
-                ))
-              }
-            </ul>
-          </div>
-        </section>
-      )
-    }
-
-    <ContactBand locale={locale} />
+    {homepageInsights.length > 0 && <CommercialInsights locale={locale} entries={homepageInsights} eyebrow={content.insights.eyebrow} title={content.insights.title} copy={content.insights.copy} showAll />}
+    <ContactBand locale={locale} content={content.contact} />
   </main>
 </BaseLayout>
