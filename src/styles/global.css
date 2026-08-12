@@ -3915,8 +3915,7 @@ summary:focus-visible {
 .commercial-intro,
 .executive-useful,
 .scenario-design,
-.executive-outputs,
-.preparation-section {
+.executive-outputs {
   padding: 94px 0 102px;
 }
 
@@ -4126,14 +4125,6 @@ summary:focus-visible {
   line-height: 1.65;
 }
 
-.readiness-note {
-  max-width: 920px;
-  margin-top: 32px;
-  color: var(--text-secondary-paper-alt);
-  font-size: 13px;
-  line-height: 1.7;
-}
-
 .approach-panel {
   display: grid;
   grid-template-columns: 0.86fr 1.14fr;
@@ -4289,7 +4280,6 @@ summary:focus-visible {
 .scenario-design h2,
 .session-section h2,
 .aar-section h2,
-.preparation-section > .wrap > h2,
 .related-scopes h2 {
   margin-top: 12px;
   font-size: clamp(36px, 4vw, 54px);
@@ -4326,8 +4316,7 @@ summary:focus-visible {
 .focused-scope p,
 .scenario-design p,
 .session-section p,
-.aar-section p,
-.preparation-section p {
+.aar-section p {
   color: var(--text-secondary-paper-alt);
   font-size: 13.5px;
   line-height: 1.7;
@@ -4383,8 +4372,7 @@ summary:focus-visible {
 }
 
 .capability-detail-list h4,
-.participation-panel h4,
-.preparation-grid h3 {
+.participation-panel h4 {
   margin-bottom: 18px;
   color: var(--teal-deep);
   font-size: 11px;
@@ -4540,15 +4528,13 @@ summary:focus-visible {
   color: var(--text-secondary-paper-alt);
 }
 
-.outputs-panel,
-.inclusion-panel {
+.outputs-panel {
   margin-top: 58px;
   padding: 38px;
   border: 1px solid var(--line);
 }
 
-.outputs-panel > p,
-.inclusion-panel > p {
+.outputs-panel > p {
   color: var(--text-secondary-paper-alt);
   font-size: 13.5px;
   line-height: 1.7;
@@ -4634,13 +4620,30 @@ summary:focus-visible {
 }
 
 .inclusion-panel .deliverable-split--light {
-  margin: 28px 0;
-  background: var(--line);
+  gap: 0;
+  margin: 28px 0 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: transparent;
 }
 
-.deliverable-split--light article,
 .deliverable-split--outlined article {
   background: var(--paper);
+}
+
+.inclusion-panel {
+  margin-top: 58px;
+}
+
+.inclusion-panel .deliverable-split--light article {
+  padding: 30px 36px 34px 0;
+  background: transparent;
+}
+
+.inclusion-panel .deliverable-split--light article + article {
+  padding-right: 0;
+  padding-left: 36px;
+  border-left: 1px solid var(--line);
 }
 
 .exercise-snapshot {
@@ -4779,23 +4782,6 @@ summary:focus-visible {
 .aar-grid .check-list {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 13px 28px;
-}
-
-.preparation-section > .wrap > h2 {
-  margin-bottom: 44px;
-}
-
-.preparation-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 70px;
-  padding-top: 34px;
-  border-top: 1px solid var(--line);
-}
-
-.preparation-grid--single {
-  grid-template-columns: minmax(0, 1fr);
-  max-width: 760px;
 }
 
 .related-scopes ul {
@@ -4941,7 +4927,6 @@ summary:focus-visible {
   .format-grid,
   .deliverable-split,
   .product-module-grid,
-  .preparation-grid,
   .related-scopes ul,
   .experience-grid {
     grid-template-columns: 1fr;
@@ -4972,7 +4957,6 @@ summary:focus-visible {
   .observation-method,
   .executive-outputs,
   .aar-section,
-  .preparation-section,
   .related-scopes {
     padding-block: 68px 74px;
   }
@@ -5055,15 +5039,23 @@ summary:focus-visible {
   }
 
   .product-module-grid,
-  .product-outcome,
-  .preparation-grid {
+  .product-outcome {
     gap: 36px;
   }
 
   .deliverable-split article,
-  .outputs-panel,
-  .inclusion-panel {
+  .outputs-panel {
     padding: 26px;
+  }
+
+  .inclusion-panel .deliverable-split--light article,
+  .inclusion-panel .deliverable-split--light article + article {
+    padding: 26px 0;
+    border-left: 0;
+  }
+
+  .inclusion-panel .deliverable-split--light article + article {
+    border-top: 1px solid var(--line);
   }
 
   .exercise-snapshot {
@@ -5095,7 +5087,6 @@ summary:focus-visible {
   .scenario-design h2,
   .session-section h2,
   .aar-section h2,
-  .preparation-section > .wrap > h2,
   .related-scopes h2 {
     font-size: 36px;
   }
@@ -5103,8 +5094,7 @@ summary:focus-visible {
   .engagement-card,
   .format-card,
   .deliverable-split article,
-  .outputs-panel,
-  .inclusion-panel {
+  .outputs-panel {
     padding: 23px;
   }
 }

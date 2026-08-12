@@ -70,7 +70,6 @@ export const commercialEn: CommercialContent = {
         { title: 'Respond', text: 'The organisation applies its prepared model during a real incident.' },
         { title: 'Improve', text: 'Findings have owners, priorities and a point at which they will be tested again.' }
       ],
-      note: 'Advisory work supports understanding, preparation and improvement. Exercises connect the testing of readiness with improvement activity. Response remains an organisational capability used during a real incident.',
       approachTitle: 'Work grounded in the real operating model.',
       approachLead: 'The starting point is how the organisation actually works: its accountabilities, dependencies, constraints and decisions. The scope stays proportionate to the problem and leads to arrangements that can be used in a plan, operating model or later exercise.',
       principles: [
@@ -196,9 +195,6 @@ export const commercialEn: CommercialContent = {
       clientTitle: 'The organisation receives', client: ['an agreed Exercise Brief and objectives', 'an After Action Review', 'a prioritised improvement action register', 'other documents agreed within the project scope']
     },
     aar: { title: 'After Action Review', text: 'The hot debrief captures participants’ initial perspectives. Observation material is then analysed against the objectives and developed into an After Action Review.', items: ['observations linked to objectives', 'elements that supported effective performance', 'gaps and points that hindered the team', 'contributing factors supported by the material', 'the significance of each finding', 'recommendations and priorities', 'a proposed responsible function', 'an improvement action'] },
-    preparation: {
-      title: 'Scope and preparation.', clientTitle: 'The organisation provides', client: ['an exercise sponsor and coordinator', 'agreed objectives', 'selected plans and tools', 'confirmed participants and authority', 'agreed confidentiality and constraints']
-    },
     related: { eyebrow: 'Related scopes', title: 'Work before and after the exercise.', links: [{ label: 'Crisis Readiness Review', route: 'services', hash: 'readiness-review' }, { label: 'Advisory', route: 'services' }, { label: 'Other exercise formats', route: 'exercises' }] },
     insights: { eyebrow: 'Related insights', title: 'Writing on exercise value and design.', copy: 'Selected insights explore objectives, scenarios, decisions and observation.' },
     contact: { title: 'Let’s discuss the planned exercise.', text: 'The context, participant group and primary objective are enough to begin. The detailed scope can be agreed during an initial conversation.', cta: 'Discuss a planned exercise' }

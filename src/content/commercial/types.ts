@@ -54,7 +54,6 @@ export interface HomeCommercialContent {
     title: string;
     quote: string[];
     stages: CopyItem[];
-    note: string;
     approachTitle: string;
     approachLead: string;
     principles: CopyItem[];
@@ -176,11 +175,6 @@ export interface ExecutiveContent {
     client: string[];
   };
   aar: { title: string; text: string; items: string[] };
-  preparation: {
-    title: string;
-    clientTitle: string;
-    client: string[];
-  };
   related: { eyebrow: string; title: string; links: Array<{ label: string; route: 'services' | 'exercises'; hash?: string }> };
   insights: { eyebrow: string; title: string; copy: string };
   contact: { title: string; text: string; cta: string };

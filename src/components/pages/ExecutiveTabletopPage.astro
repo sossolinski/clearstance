@@ -55,8 +55,6 @@ const hrefForRelated = (item: typeof page.related.links[number]) => `${getRoute(
 
     <section class="aar-section" aria-labelledby="aar-title"><div class="wrap aar-grid" data-reveal><div><h2 id="aar-title">{page.aar.title}</h2><p>{page.aar.text}</p></div><ul class="check-list">{page.aar.items.map((item) => <li>{item}</li>)}</ul></div></section>
 
-    <section class="preparation-section" aria-labelledby="preparation-title"><div class="wrap" data-reveal><h2 id="preparation-title">{page.preparation.title}</h2><div class="preparation-grid preparation-grid--single"><article><h3>{page.preparation.clientTitle}</h3><ul class="check-list">{page.preparation.client.map((item) => <li>{item}</li>)}</ul></article></div></div></section>
-
     <nav class="related-scopes" aria-labelledby="related-scopes-title"><div class="wrap" data-reveal><p class="eyebrow">{page.related.eyebrow}</p><h2 id="related-scopes-title">{page.related.title}</h2><ul>{page.related.links.map((item) => <li><a href={hrefForRelated(item)}>{item.label}<span aria-hidden="true">→</span></a></li>)}</ul></div></nav>
     {insights.length > 0 && <CommercialInsights locale={locale} entries={insights} eyebrow={page.insights.eyebrow} title={page.insights.title} copy={page.insights.copy} />}
     <ContactBand locale={locale} content={page.contact} topic="executive-tabletop" />

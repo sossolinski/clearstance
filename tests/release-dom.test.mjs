@@ -36,12 +36,17 @@ test('homepage renders the accepted Release 1 section architecture in both langu
     assert.doesNotMatch(home, /ways-grid|way-card/u);
     assert.match(home, /Crisis Readiness Review/u);
     assert.match(home, /Executive Tabletop Exercise/u);
+    assert.equal(count(home, /<ol class="readiness-stage-list"/gu), 1);
+    assert.equal(count(home, /<ol class="readiness-stage-list"[\s\S]*?<\/ol>/gu), 1);
+    assert.doesNotMatch(home, /readiness-note/u);
     assert.doesNotMatch(home, /practice-section|BrandStatement/u);
   }
   assert.match(homePl, /Punkt wyjścia/u);
   assert.match(homePl, /Od czego możemy zacząć\./u);
   assert.match(homeEn, /A place to start/u);
   assert.match(homeEn, /Where we can begin\./u);
+  assert.doesNotMatch(homePl, /Doradztwo wspiera rozpoznanie/u);
+  assert.doesNotMatch(homeEn, /Advisory work supports understanding/u);
 });
 
 test('advisory separates engagement activity from client outcomes', () => {
@@ -63,6 +68,8 @@ test('exercise architecture keeps one flagship and three supporting formats', ()
     assert.match(exercises, /communication-simulation/u);
     assert.match(exercises, /affected-people-exercise/u);
     assert.match(exercises, /exercise-programme/u);
+    assert.match(exercises, /<div class="inclusion-panel"[^>]*><h3>[^<]+<\/h3><div class="deliverable-split deliverable-split--light"><article>/u);
+    assert.equal(count(exercises, /deliverable-split deliverable-split--light/gu), 1);
     assert.doesNotMatch(exercises, />\s*CMT Exercise\s*</u);
   }
 });
@@ -80,8 +87,12 @@ test('Executive Tabletop preserves observation logic and client-facing outcomes'
     assert.match(executive, /After Action Review/u);
     assert.match(executive, /<dl class="observation-example"/u);
     assert.match(executive, /deliverable-split deliverable-split--outlined/u);
+    assert.doesNotMatch(executive, /preparation-section|preparation-grid/u);
     assert.match(executive, /"@type":"BreadcrumbList"/u);
   }
+
+  assert.doesNotMatch(executivePl, /Zakres i przygotowanie|Po stronie organizacji|wskazanie sponsora i koordynatora/u);
+  assert.doesNotMatch(executiveEn, /Scope and preparation|The organisation provides|an exercise sponsor and coordinator/u);
 });
 
 test('commercial copy excludes removed editorial and technical language', () => {

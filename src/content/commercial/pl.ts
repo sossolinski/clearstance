@@ -151,7 +151,6 @@ export const commercialPl: CommercialContent = {
         { title: 'Reagowanie', text: 'Organizacja wykorzystuje przygotowany model podczas rzeczywistego zdarzenia.' },
         { title: 'Doskonalenie', text: 'Wnioski mają właścicieli, priorytety i termin ponownego sprawdzenia.' }
       ],
-      note: 'Doradztwo wspiera rozpoznanie, przygotowanie i doskonalenie. Ćwiczenia łączą sprawdzenie gotowości z działaniami poprawiającymi. Reagowanie pozostaje zdolnością organizacji wykorzystywaną podczas rzeczywistego zdarzenia.',
       approachTitle: 'Praca osadzona w rzeczywistym modelu działania.',
       approachLead: 'Punktem wyjścia jest rzeczywisty sposób działania organizacji: jej odpowiedzialności, zależności, ograniczenia i decyzje. Zakres pracy pozostaje proporcjonalny do problemu i prowadzi do ustaleń, które można zastosować w planie, modelu działania albo kolejnym ćwiczeniu.',
       principles: [
@@ -489,11 +488,6 @@ export const commercialPl: CommercialContent = {
       title: 'After Action Review',
       text: 'Hot debrief zbiera pierwsze perspektywy uczestników. Materiał obserwacyjny jest następnie analizowany w odniesieniu do celów i rozwijany w After Action Review.',
       items: ['obserwacje powiązane z celami', 'elementy wspierające skuteczne działanie', 'luki i punkty utrudniające pracę', 'czynniki wpływające, jeśli wynika to z materiału', 'znaczenie ustaleń', 'rekomendacje i priorytety', 'proponowana funkcja odpowiedzialna', 'działanie doskonalące']
-    },
-    preparation: {
-      title: 'Zakres i przygotowanie.',
-      clientTitle: 'Po stronie organizacji',
-      client: ['wskazanie sponsora i koordynatora', 'uzgodnienie celów', 'udostępnienie wybranych planów i narzędzi', 'potwierdzenie uczestników i uprawnień', 'uzgodnienie poufności i ograniczeń']
     },
     related: {
       eyebrow: 'Powiązane zakresy',

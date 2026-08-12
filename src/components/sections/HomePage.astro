@@ -89,7 +89,6 @@ const professionalServiceSchema = {
     <section class="readiness-approach-section" id={ids.readiness} aria-labelledby="readiness-title"><div class="wrap">
       <div class="readiness-approach-heading" data-reveal><div><p class="eyebrow eyebrow--light">{content.readiness.eyebrow}</p><h2 id="readiness-title">{content.readiness.title}</h2></div><blockquote>{content.readiness.quote.map((line) => <span>{line}</span>)}</blockquote></div>
       <ol class="readiness-stage-list" data-reveal>{content.readiness.stages.map((stage, index) => <li><span>{String(index + 1).padStart(2, '0')}</span><h3>{stage.title}</h3><p>{stage.text}</p></li>)}</ol>
-      <p class="readiness-note" data-reveal>{content.readiness.note}</p>
       <div class="approach-panel" data-reveal><div><h3>{content.readiness.approachTitle}</h3><p>{content.readiness.approachLead}</p></div><ul>{content.readiness.principles.map((item) => <li><h4>{item.title}</h4><p>{item.text}</p></li>)}</ul></div>
     </div></section>
 
