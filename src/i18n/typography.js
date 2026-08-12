@@ -8,7 +8,10 @@ const PROSE_CONTAINER_TYPES = new Set([
   'strong'
 ]);
 const NON_VISIBLE_COPY_KEYS = new Set([
+  'anchor',
+  'hash',
   'homeLabel',
+  'id',
   'imageAlt',
   'languageNavigation',
   'mainNavigation',
@@ -16,7 +19,8 @@ const NON_VISIBLE_COPY_KEYS = new Set([
   'metaDescription',
   'metaTitle',
   'menuClose',
-  'menuOpen'
+  'menuOpen',
+  'route'
 ]);
 const VOID_HTML_ELEMENTS = new Set([
   'area',

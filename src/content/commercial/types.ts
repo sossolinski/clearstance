@@ -114,7 +114,7 @@ export interface AdvisoryContent {
     points: string[];
   };
   process: { eyebrow: string; title: string; intro: string; items: CopyItem[] };
-  outputs: { title: string; intro: string; items: string[]; note: string };
+  outputs: { title: string; intro: string; items: string[] };
   insights: { eyebrow: string; title: string; copy: string };
   contact: { title: string; text: string; cta: string };
 }
@@ -137,9 +137,7 @@ export interface ExercisesContent {
     engagement: string[];
     clientTitle: string;
     client: string[];
-    note: string;
   };
-  standard: { title: string; text: string };
   insights: { eyebrow: string; title: string; copy: string };
   contact: { title: string; text: string; cta: string };
 }
@@ -176,15 +174,12 @@ export interface ExecutiveContent {
     engagement: string[];
     clientTitle: string;
     client: string[];
-    artefactsNote: string;
   };
-  aar: { title: string; text: string; items: string[]; note: string };
+  aar: { title: string; text: string; items: string[] };
   preparation: {
     title: string;
     clientTitle: string;
     client: string[];
-    scopeTitle: string;
-    scope: string;
   };
   related: { eyebrow: string; title: string; links: Array<{ label: string; route: 'services' | 'exercises'; hash?: string }> };
   insights: { eyebrow: string; title: string; copy: string };

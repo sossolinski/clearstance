@@ -30,7 +30,7 @@ const hrefForRelated = (item: typeof page.related.links[number]) => `${getRoute(
   canonicalPath={getRoute(locale, 'executiveTabletop')} alternatePath={getRoute(otherLocale, 'executiveTabletop')}
   plPath={getRoute('pl', 'executiveTabletop')} enPath={getRoute('en', 'executiveTabletop')} xDefaultPath={getRoute('pl', 'executiveTabletop')}
   currentPage="exercises" structuredData={schema}>
-  <main id="main-content" class="executive-page">
+  <main id="main-content" class="commercial-page executive-page">
     <PageIntro eyebrow={page.hero.eyebrow} title={page.hero.title} lead={page.hero.lead} />
 
     <section class="exercise-snapshot" aria-labelledby="snapshot-title"><div class="wrap" data-reveal><h2 id="snapshot-title">{page.snapshot.title}</h2><dl>{page.snapshot.items.map((item) => <div><dt>{item.term}</dt><dd>{item.description}</dd></div>)}</dl></div></section>
@@ -51,11 +51,11 @@ const hrefForRelated = (item: typeof page.related.links[number]) => `${getRoute(
 
     <section class="observation-method" aria-labelledby="observation-method-title"><div class="wrap"><div class="commercial-section-heading" data-reveal><p class="eyebrow eyebrow--light">{page.observation.eyebrow}</p><h2 id="observation-method-title">{page.observation.title}</h2><p>{page.observation.text}</p></div><dl class="observation-example" data-reveal>{page.observation.labels.map((label, index) => <div><dt>{label}</dt><dd>{page.observation.example[index]}</dd></div>)}</dl></div></section>
 
-    <section class="executive-outputs" aria-labelledby="outputs-title"><div class="wrap" data-reveal><div class="commercial-section-heading"><p class="eyebrow">{page.outputs.eyebrow}</p><h2 id="outputs-title">{page.outputs.title}</h2><p>{page.outputs.intro}</p></div><div class="deliverable-split deliverable-split--outlined"><article><h3>{page.outputs.engagementTitle}</h3><ul>{page.outputs.engagement.map((item) => <li>{item}</li>)}</ul></article><article><h3>{page.outputs.clientTitle}</h3><ul>{page.outputs.client.map((item) => <li>{item}</li>)}</ul></article></div><p class="scope-note">{page.outputs.artefactsNote}</p></div></section>
+    <section class="executive-outputs" aria-labelledby="outputs-title"><div class="wrap" data-reveal><div class="commercial-section-heading"><p class="eyebrow">{page.outputs.eyebrow}</p><h2 id="outputs-title">{page.outputs.title}</h2><p>{page.outputs.intro}</p></div><div class="deliverable-split deliverable-split--outlined"><article><h3>{page.outputs.engagementTitle}</h3><ul>{page.outputs.engagement.map((item) => <li>{item}</li>)}</ul></article><article><h3>{page.outputs.clientTitle}</h3><ul>{page.outputs.client.map((item) => <li>{item}</li>)}</ul></article></div></div></section>
 
-    <section class="aar-section" aria-labelledby="aar-title"><div class="wrap aar-grid" data-reveal><div><h2 id="aar-title">{page.aar.title}</h2><p>{page.aar.text}</p><p class="scope-note">{page.aar.note}</p></div><ul class="check-list">{page.aar.items.map((item) => <li>{item}</li>)}</ul></div></section>
+    <section class="aar-section" aria-labelledby="aar-title"><div class="wrap aar-grid" data-reveal><div><h2 id="aar-title">{page.aar.title}</h2><p>{page.aar.text}</p></div><ul class="check-list">{page.aar.items.map((item) => <li>{item}</li>)}</ul></div></section>
 
-    <section class="preparation-section" aria-labelledby="preparation-title"><div class="wrap" data-reveal><h2 id="preparation-title">{page.preparation.title}</h2><div class="preparation-grid"><article><h3>{page.preparation.clientTitle}</h3><ul class="check-list">{page.preparation.client.map((item) => <li>{item}</li>)}</ul></article><article><h3>{page.preparation.scopeTitle}</h3><p>{page.preparation.scope}</p></article></div></div></section>
+    <section class="preparation-section" aria-labelledby="preparation-title"><div class="wrap" data-reveal><h2 id="preparation-title">{page.preparation.title}</h2><div class="preparation-grid preparation-grid--single"><article><h3>{page.preparation.clientTitle}</h3><ul class="check-list">{page.preparation.client.map((item) => <li>{item}</li>)}</ul></article></div></div></section>
 
     <nav class="related-scopes" aria-labelledby="related-scopes-title"><div class="wrap" data-reveal><p class="eyebrow">{page.related.eyebrow}</p><h2 id="related-scopes-title">{page.related.title}</h2><ul>{page.related.links.map((item) => <li><a href={hrefForRelated(item)}>{item.label}<span aria-hidden="true">→</span></a></li>)}</ul></div></nav>
     {insights.length > 0 && <CommercialInsights locale={locale} entries={insights} eyebrow={page.insights.eyebrow} title={page.insights.title} copy={page.insights.copy} />}

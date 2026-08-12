@@ -29,7 +29,7 @@ const schema = {
   canonicalPath={getRoute(locale, 'services')} alternatePath={getRoute(otherLocale, 'services')}
   plPath={getRoute('pl', 'services')} enPath={getRoute('en', 'services')} xDefaultPath={getRoute('pl', 'services')}
   currentPage="services" structuredData={schema}>
-  <main id="main-content">
+  <main id="main-content" class="commercial-page">
     <PageIntro eyebrow={page.hero.eyebrow} title={page.hero.title} lead={page.hero.lead} />
 
     <section class="commercial-intro" aria-labelledby="advisory-intro-title"><div class="wrap commercial-intro-grid" data-reveal>
@@ -61,7 +61,7 @@ const schema = {
     <section class="commercial-process" aria-labelledby="advisory-process-title"><div class="wrap">
       <div class="commercial-section-heading" data-reveal><p class="eyebrow">{page.process.eyebrow}</p><h2 id="advisory-process-title">{page.process.title}</h2><p>{page.process.intro}</p></div>
       <ol class="numbered-process" data-reveal>{page.process.items.map((item, index) => <li><span>{String(index + 1).padStart(2, '0')}</span><h3>{item.title}</h3><p>{item.text}</p></li>)}</ol>
-      <div class="outputs-panel" data-reveal><h3>{page.outputs.title}</h3><p>{page.outputs.intro}</p><ul class="check-list">{page.outputs.items.map((item) => <li>{item}</li>)}</ul><p class="scope-note">{page.outputs.note}</p></div>
+      <div class="outputs-panel" data-reveal><h3>{page.outputs.title}</h3><p>{page.outputs.intro}</p><ul class="check-list">{page.outputs.items.map((item) => <li>{item}</li>)}</ul></div>
     </div></section>
 
     {insights.length > 0 && <CommercialInsights locale={locale} entries={insights} eyebrow={page.insights.eyebrow} title={page.insights.title} copy={page.insights.copy} />}

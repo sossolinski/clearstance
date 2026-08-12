@@ -67,7 +67,7 @@ test('exercise architecture keeps one flagship and three supporting formats', ()
   }
 });
 
-test('Executive Tabletop preserves observation logic and deliverable boundaries', () => {
+test('Executive Tabletop preserves observation logic and client-facing outcomes', () => {
   assert.match(executivePl, /<title>Executive Tabletop Exercise dla zarządu i CMT \| ClearStance<\/title>/u);
   assert.match(executiveEn, /<title>Executive Tabletop Exercise \| ClearStance<\/title>/u);
 
@@ -80,9 +80,55 @@ test('Executive Tabletop preserves observation logic and deliverable boundaries'
     assert.match(executive, /After Action Review/u);
     assert.match(executive, /<dl class="observation-example"/u);
     assert.match(executive, /deliverable-split deliverable-split--outlined/u);
-    assert.match(executive, /project artefacts|materiałami projektowymi/u);
     assert.match(executive, /"@type":"BreadcrumbList"/u);
   }
+});
+
+test('commercial copy excludes removed editorial and technical language', () => {
+  const commercialPages = [homePl, homeEn, advisoryPl, advisoryEn, exercisesPl, exercisesEn, executivePl, executiveEn];
+  const removedLanguage = [
+    /—/u,
+    /ClearStance nie sprzedaje certyfikacji/u,
+    /ClearStance does not sell certification/u,
+    /Metodyczne punkty odniesienia/u,
+    /Methodological reference points/u,
+    /ISO 22398|ISO 22361/u,
+    /Główny dokument scenariusza|scenario master/iu,
+    /Granice podstawowego formatu|Boundaries of the core format/iu,
+    /Role, dokumenty i narzędzia powstawały w różnym czasie i nie tworzą/iu,
+    /Roles, documents and tools were created at different times and do not yet form/iu,
+    /dokumenty istnieją, lecz ich praktyczna użyteczność nie jest jasna/iu,
+    /documents exist, but their practical usefulness is unclear/iu,
+    /Standardy wspierają metodę, a nie stanowią/iu,
+    /Standards support the method; they are not/iu
+  ];
+
+  for (const page of commercialPages) {
+    for (const pattern of removedLanguage) assert.doesNotMatch(page, pattern);
+  }
+
+  for (const productName of ['Crisis Readiness Review', 'Executive Tabletop Exercise', 'Exercise Brief', 'After Action Review', 'hot debrief']) {
+    assert.ok(commercialPages.some((page) => page.includes(productName)), `${productName} remains public`);
+  }
+});
+
+test('Polish commercial copy protects one-letter words without changing routes or ids', () => {
+  const polishPages = [homePl, advisoryPl, exercisesPl, executivePl];
+
+  for (const page of polishPages) {
+    const commercialMarkup = page.match(/<main id="main-content" class="commercial-page(?: executive-page)?">([\s\S]*?)<\/main>/u)?.[1] ?? '';
+    const visibleText = commercialMarkup
+      .replace(/<script\b[\s\S]*?<\/script>/giu, '')
+      .replace(/<style\b[\s\S]*?<\/style>/giu, '')
+      .replace(/<[^>]+>/gu, ' ')
+      .replace(/&nbsp;|&#160;/giu, '\u00a0');
+
+    assert.doesNotMatch(visibleText, /(?:^|\s)(?:a|i|o|u|w|z) (?=\S)/iu);
+  }
+
+  assert.match(advisoryPl, /id="przeglad-gotowosci"/u);
+  assert.match(exercisesPl, /id="executive-tabletop"/u);
+  assert.match(executivePl, /href="\/oferta\/#przeglad-gotowosci"/u);
 });
 
 test('contact exposes only allowed topics and supports runtime language preservation', () => {

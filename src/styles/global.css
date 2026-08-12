@@ -138,6 +138,20 @@ figcaption {
   overflow-wrap: break-word;
 }
 
+.commercial-page h1,
+.commercial-page h2,
+.commercial-page h3,
+.commercial-page h4 {
+  overflow-wrap: normal;
+  hyphens: none;
+  text-wrap: balance;
+  word-break: normal;
+}
+
+.commercial-page p {
+  text-wrap: pretty;
+}
+
 ol,
 ul {
   padding: 0;
@@ -4263,8 +4277,7 @@ summary:focus-visible {
 .focused-scope-grid,
 .scenario-design-grid,
 .session-grid,
-.aar-grid,
-.standard-note-grid {
+.aar-grid {
   display: grid;
   grid-template-columns: minmax(270px, 0.85fr) minmax(390px, 1.15fr);
   gap: 76px;
@@ -4277,7 +4290,6 @@ summary:focus-visible {
 .session-section h2,
 .aar-section h2,
 .preparation-section > .wrap > h2,
-.standard-note h2,
 .related-scopes h2 {
   margin-top: 12px;
   font-size: clamp(36px, 4vw, 54px);
@@ -4315,8 +4327,7 @@ summary:focus-visible {
 .scenario-design p,
 .session-section p,
 .aar-section p,
-.preparation-section p,
-.standard-note p {
+.preparation-section p {
   color: var(--text-secondary-paper-alt);
   font-size: 13.5px;
   line-height: 1.7;
@@ -4632,15 +4643,6 @@ summary:focus-visible {
   background: var(--paper);
 }
 
-.standard-note {
-  padding: 62px 0 68px;
-  background: #dfe2dc;
-}
-
-.standard-note h2 {
-  font-size: clamp(29px, 3vw, 40px);
-}
-
 .exercise-snapshot {
   padding: 0 0 78px;
   background: var(--ink);
@@ -4774,17 +4776,9 @@ summary:focus-visible {
   background: var(--line);
 }
 
-.executive-outputs > .wrap > .scope-note {
-  margin-top: 26px;
-}
-
 .aar-grid .check-list {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 13px 28px;
-}
-
-.aar-grid .scope-note {
-  margin-top: 28px;
 }
 
 .preparation-section > .wrap > h2 {
@@ -4797,6 +4791,11 @@ summary:focus-visible {
   gap: 70px;
   padding-top: 34px;
   border-top: 1px solid var(--line);
+}
+
+.preparation-grid--single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 760px;
 }
 
 .related-scopes ul {
@@ -4843,8 +4842,7 @@ summary:focus-visible {
   .focused-scope-grid,
   .scenario-design-grid,
   .session-grid,
-  .aar-grid,
-  .standard-note-grid {
+  .aar-grid {
     grid-template-columns: 1fr;
     gap: 28px;
   }

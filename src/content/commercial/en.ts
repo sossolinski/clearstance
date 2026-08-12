@@ -46,7 +46,7 @@ export const commercialEn: CommercialContent = {
       eyebrow: 'Boutique crisis readiness advisory',
       title: 'Clarity when',
       titleAccent: 'it matters most.',
-      copy: 'ClearStance helps organisations design and test how they manage serious incidents — from the crisis team operating model and communication to arrangements for affected people and their families.',
+      copy: 'ClearStance helps organisations design and test how they manage serious incidents, from the crisis team operating model and communication to arrangements for affected people and their families.',
       primaryCta: 'See how we can help',
       secondaryCta: 'Explore exercises'
     },
@@ -96,7 +96,7 @@ export const commercialEn: CommercialContent = {
     intro: {
       title: 'When advisory work is useful', text: 'The scope can cover the full crisis management model or a specific interface such as communication or affected-people support. The starting point is how the organisation actually works and the decisions that need to be made.',
       triggers: [
-        { title: 'The model developed in stages', text: 'Roles, documents and tools were created at different times and do not yet form a coherent way of working.' },
+        { title: 'The model developed in stages', text: 'Roles, documents and tools were created at different times. They now need to be brought into one coherent way of working.' },
         { title: 'The organisation has changed', text: 'A new structure, leadership team or set of responsibilities requires the crisis model to be realigned.' },
         { title: 'Group requirements need local translation', text: 'A local company needs an arrangement that meets group expectations and can be applied in practice.' },
         { title: 'An important exercise is planned', text: 'Roles, decisions or key response assumptions need to be clarified before the scenario is designed.' }
@@ -107,7 +107,7 @@ export const commercialEn: CommercialContent = {
       eyebrow: 'Crisis Readiness Review', title: 'A structured view of crisis readiness.', descriptor: 'Clearly scoped advisory review · executive report · prioritised actions',
       lead: 'A Crisis Readiness Review gives leadership a structured view of current arrangements and improvement priorities. It covers an agreed organisational scope, selected documents, interviews with key roles and a shared examination of how the model works.',
       triggerTitle: 'When to begin with a review',
-      triggers: ['documents exist, but their practical usefulness is unclear', 'roles, authority and escalation principles need to be realigned', 'a local organisation is implementing group requirements', 'an exercise, incident or organisational change left a dispersed set of actions', 'a credible baseline is needed before an important exercise'],
+      triggers: ['the practical usefulness of existing documents needs to be tested', 'roles, authority and escalation principles need to be realigned', 'a local organisation is implementing group requirements', 'an exercise, incident or organisational change left a dispersed set of actions', 'a credible baseline is needed before an important exercise'],
       audienceTitle: 'Sponsor and participants', audience: 'The review is usually sponsored by an executive, operations director or the person accountable for risk, resilience, BCM or crisis management. Selected role holders contribute their knowledge of the operating model.',
       scopeTitle: 'Assessment areas', scope: ['governance, mandate and activation', 'roles, responsibilities and decision rights', 'escalation, the shared situational picture and information flow', 'CMT rhythm, decisions and action tracking', 'interfaces with communication and people-support functions', 'plans, tools, exercises and improvement management'],
       includesTitle: 'The engagement includes', includes: ['agreeing the management question and review boundaries', 'reviewing selected documents and tools', 'interviews with people in key roles', 'a workshop to test the operating model and interfaces', 'analysis and an executive-level summary'],
@@ -121,18 +121,17 @@ export const commercialEn: CommercialContent = {
       points: ['mandate, membership and roles', 'decision rights and deputies', 'activation and escalation', 'meeting rhythm and shared situational picture', 'decisions, actions and record keeping', 'interfaces with communication and operational functions']
     },
     process: {
-      eyebrow: 'How we work', title: 'From the question to useful arrangements.', intro: 'Each scope reflects the problem, while the working method remains clear and grounded in real organisational evidence.',
+      eyebrow: 'How we work', title: 'From the question to useful arrangements.', intro: 'The work responds to a specific problem and draws on documents, tools and the experience of people in key roles.',
       items: [
         { title: 'Frame the question and scope', text: 'We identify the decision, problem or model that needs to be assessed or designed.' },
         { title: 'Gather the material', text: 'We review agreed documents, tools and the perspectives of people in key roles.' },
         { title: 'Work through the model', text: 'Together we test accountabilities, information, decisions, constraints and interfaces.' },
-        { title: 'Agree the outcomes', text: 'We structure findings, intended changes and next actions for leadership and accountable owners.' }
+        { title: 'Agree the outcomes', text: 'We structure findings, intended changes and next steps for leadership and the people responsible for delivery.' }
       ]
     },
     outputs: {
       title: 'What remains after the engagement', intro: 'The set of outcomes depends on the agreed scope. It may include:',
-      items: ['executive findings and priorities', 'an operating model and role descriptions', 'activation, escalation and information-flow principles', 'role cards, checklists and decision tools', 'an improvement action plan'],
-      note: 'ClearStance does not sell certification. Relevant standards may provide a reference point for the quality and completeness of an arrangement.'
+      items: ['executive findings and priorities', 'an operating model and role descriptions', 'activation, escalation and information-flow principles', 'role cards, checklists and decision tools', 'an improvement action plan']
     },
     insights: { eyebrow: 'Related insights', title: 'Writing on organisational readiness.', copy: 'Selected insights explore issues that often emerge in reviews and work on the CMT operating model.' },
     contact: { title: 'Let’s discuss what the organisation needs.', text: 'A short description of the current model, issue or planned change is enough to frame an initial conversation.', cta: 'Discuss your organisation’s needs' }
@@ -157,10 +156,8 @@ export const commercialEn: CommercialContent = {
     methodology: { eyebrow: 'Method', title: 'From framing to improvement action.', intro: 'Four phases structure the project, clarify responsibilities and maintain the connection between objectives, observation and later action.' },
     inclusion: {
       title: 'Engagement scope and outcomes', engagementTitle: 'The engagement includes', engagement: ['agreeing the scope and objectives', 'exercise and scenario design', 'participant information', 'facilitation and exercise control', 'observation', 'hot debrief', 'an executive summary'],
-      clientTitle: 'The organisation receives', client: ['an agreed Exercise Brief and objectives', 'an After Action Review', 'a prioritised improvement action register', 'other documents agreed within the project scope'],
-      note: 'The scenario master, detailed inject sequence, control instructions, simulation scripts and raw observation forms remain project artefacts unless the parties agree otherwise.'
+      clientTitle: 'The organisation receives', client: ['an agreed Exercise Brief and objectives', 'an After Action Review', 'a prioritised improvement action register', 'other documents agreed within the project scope']
     },
-    standard: { title: 'Methodological reference points', text: 'The project may draw on relevant elements of ISO 22398 for planning, running and improving exercises and ISO 22361 for strategic crisis management. Standards support the method; they are not a separate product or certification.' },
     insights: { eyebrow: 'Related insights', title: 'Writing on exercise design and observation.', copy: 'Selected insights explore objectives, decisions, scenarios and how teams work during an exercise.' },
     contact: { title: 'Let’s discuss the planned exercise.', text: 'The context, participant group and the main area the organisation wants to test are enough to begin.', cta: 'Discuss a planned exercise' }
   },
@@ -189,20 +186,18 @@ export const commercialEn: CommercialContent = {
     methodology: { eyebrow: 'Project flow', title: 'From framing to improvement action.', intro: 'Four phases maintain the connection between the exercise objectives, design, observation and the outcomes provided to the organisation.' },
     session: { title: 'How the session works.', text: 'Information is released in a controlled sequence. The facilitator maintains the conditions and pace; participants determine the course of action. Decisions, questions and material changes are recorded for later analysis.', items: ['participant briefing', 'introduction of the initial situation', 'successive information and decision moments', 'facilitated team work', 'recording decisions and actions', 'hot debrief'] },
     observation: {
-      eyebrow: 'Observation method', title: 'Observation grounded in agreed objectives.', text: 'Observers record events and what they mean for team performance. This example shows the structure of the method without exposing the full internal form.',
+      eyebrow: 'Observation method', title: 'Observation grounded in agreed objectives.', text: 'Observers record events and what they mean for team performance. This example shows how observations connect to the exercise objectives.',
       labels: ['What happened', 'When', 'Based on what information', 'Roles involved', 'Effect on decisions or coordination'],
       example: ['The issue was escalated after the impact on people was confirmed.', 'Following the second situation update.', 'An operations report and an unconfirmed signal from a partner.', 'CMT leader, operations, communication.', 'The team agreed the priority but did not assign ownership of the next update.']
     },
     outputs: {
       eyebrow: 'Scope and outcomes', title: 'What the engagement includes and what the organisation receives.', intro: 'The delivery of the session, design work and final documents serve different purposes. The scope is agreed before the project begins.',
       engagementTitle: 'The engagement includes', engagement: ['agreeing the scope and objectives', 'exercise design', 'participant information', 'facilitation', 'observation', 'hot debrief', 'an executive summary'],
-      clientTitle: 'The organisation receives', client: ['an agreed Exercise Brief and objectives', 'an After Action Review', 'a prioritised improvement action register', 'other documents agreed within the project scope'],
-      artefactsNote: 'The scenario master, detailed inject sequence, control instructions, simulation scripts and raw observation forms are project artefacts. Their release requires a separate agreement.'
+      clientTitle: 'The organisation receives', client: ['an agreed Exercise Brief and objectives', 'an After Action Review', 'a prioritised improvement action register', 'other documents agreed within the project scope']
     },
-    aar: { title: 'After Action Review', text: 'The hot debrief captures participants’ initial perspectives. Observation material is then analysed against the objectives and developed into an After Action Review.', items: ['observations linked to objectives', 'elements that supported effective performance', 'gaps and points that hindered the team', 'contributing factors where the material supports them', 'the significance of each finding', 'recommendations and priorities', 'a proposed accountable function', 'an improvement action'], note: 'The organisation confirms owners and dates. An optional action workshop can help agree these and plan when the improvements will be tested again.' },
+    aar: { title: 'After Action Review', text: 'The hot debrief captures participants’ initial perspectives. Observation material is then analysed against the objectives and developed into an After Action Review.', items: ['observations linked to objectives', 'elements that supported effective performance', 'gaps and points that hindered the team', 'contributing factors supported by the material', 'the significance of each finding', 'recommendations and priorities', 'a proposed responsible function', 'an improvement action'] },
     preparation: {
-      title: 'Scope and preparation.', clientTitle: 'The organisation provides', client: ['an exercise sponsor and coordinator', 'agreed objectives', 'selected plans and tools', 'confirmed participants and authority', 'agreed confidentiality and constraints'],
-      scopeTitle: 'Boundaries of the core format', scope: 'The core product is a strategic, facilitated decision session. Exercises involving physical deployment, technical system tests, emergency services or a full media simulation require separate objectives, resources and planning.'
+      title: 'Scope and preparation.', clientTitle: 'The organisation provides', client: ['an exercise sponsor and coordinator', 'agreed objectives', 'selected plans and tools', 'confirmed participants and authority', 'agreed confidentiality and constraints']
     },
     related: { eyebrow: 'Related scopes', title: 'Work before and after the exercise.', links: [{ label: 'Crisis Readiness Review', route: 'services', hash: 'readiness-review' }, { label: 'Advisory', route: 'services' }, { label: 'Other exercise formats', route: 'exercises' }] },
     insights: { eyebrow: 'Related insights', title: 'Writing on exercise value and design.', copy: 'Selected insights explore objectives, scenarios, decisions and observation.' },

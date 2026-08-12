@@ -26,7 +26,7 @@ const schema = {
   canonicalPath={getRoute(locale, 'exercises')} alternatePath={getRoute(otherLocale, 'exercises')}
   plPath={getRoute('pl', 'exercises')} enPath={getRoute('en', 'exercises')} xDefaultPath={getRoute('pl', 'exercises')}
   currentPage="exercises" structuredData={schema}>
-  <main id="main-content">
+  <main id="main-content" class="commercial-page">
     <PageIntro eyebrow={page.hero.eyebrow} title={page.hero.title} lead={page.hero.lead} />
 
     <section class="exercise-intro" aria-labelledby="exercise-intro-title"><div class="wrap exercise-intro-grid" data-reveal>
@@ -48,10 +48,9 @@ const schema = {
     <section class="methodology-section" aria-labelledby="methodology-title"><div class="wrap">
       <div class="commercial-section-heading" data-reveal><p class="eyebrow">{page.methodology.eyebrow}</p><h2 id="methodology-title">{page.methodology.title}</h2><p>{page.methodology.intro}</p></div>
       <ol class="phase-list" data-reveal>{content.exercisePhases.map((phase, index) => <li><span>{String(index + 1).padStart(2, '0')}</span><h3>{phase.title}</h3><p>{phase.text}</p><p class="phase-output">{phase.output}</p></li>)}</ol>
-      <div class="inclusion-panel" data-reveal><h3>{page.inclusion.title}</h3><div class="deliverable-split deliverable-split--light"><article><h4>{page.inclusion.engagementTitle}</h4><ul>{page.inclusion.engagement.map((item) => <li>{item}</li>)}</ul></article><article><h4>{page.inclusion.clientTitle}</h4><ul>{page.inclusion.client.map((item) => <li>{item}</li>)}</ul></article></div><p class="scope-note">{page.inclusion.note}</p></div>
+      <div class="inclusion-panel" data-reveal><h3>{page.inclusion.title}</h3><div class="deliverable-split deliverable-split--light"><article><h4>{page.inclusion.engagementTitle}</h4><ul>{page.inclusion.engagement.map((item) => <li>{item}</li>)}</ul></article><article><h4>{page.inclusion.clientTitle}</h4><ul>{page.inclusion.client.map((item) => <li>{item}</li>)}</ul></article></div></div>
     </div></section>
 
-    <section class="standard-note"><div class="wrap standard-note-grid" data-reveal><h2>{page.standard.title}</h2><p>{page.standard.text}</p></div></section>
     {insights.length > 0 && <CommercialInsights locale={locale} entries={insights} eyebrow={page.insights.eyebrow} title={page.insights.title} copy={page.insights.copy} />}
     <ContactBand locale={locale} content={page.contact} topic="exercises" />
   </main>

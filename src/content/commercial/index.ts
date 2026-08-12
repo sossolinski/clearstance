@@ -1,10 +1,11 @@
 import type { Locale } from '../../i18n/routes';
+import { protectPolishVisibleCopy } from '../../i18n/typography.js';
 import { commercialEn } from './en';
 import { commercialPl } from './pl';
 import type { CommercialContent } from './types';
 
 const content: Record<Locale, CommercialContent> = {
-  pl: commercialPl,
+  pl: protectPolishVisibleCopy(commercialPl),
   en: commercialEn
 };
 

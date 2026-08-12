@@ -99,7 +99,7 @@ export const commercialPl: CommercialContent = {
       eyebrow: 'Boutique crisis readiness advisory',
       title: 'Clarity when',
       titleAccent: 'it matters most.',
-      copy: 'ClearStance pomaga organizacjom projektować i sprawdzać sposób zarządzania poważnymi zdarzeniami — od modelu pracy zespołu kryzysowego i komunikacji po rozwiązania wspierające osoby dotknięte zdarzeniem i ich bliskich.',
+      copy: 'ClearStance pomaga organizacjom projektować i sprawdzać sposób zarządzania poważnymi zdarzeniami: od modelu pracy zespołu kryzysowego i komunikacji po rozwiązania wspierające osoby dotknięte zdarzeniem i ich bliskich.',
       primaryCta: 'Zobacz, jak możemy pomóc',
       secondaryCta: 'Poznaj ćwiczenia'
     },
@@ -199,7 +199,7 @@ export const commercialPl: CommercialContent = {
       title: 'Kiedy doradztwo jest potrzebne',
       text: 'Zakres może dotyczyć całego modelu zarządzania kryzysowego albo konkretnego punktu współpracy, takiego jak komunikacja czy wsparcie osób dotkniętych zdarzeniem. Punktem wyjścia jest rzeczywisty sposób działania organizacji oraz decyzje, które muszą zostać podjęte.',
       triggers: [
-        { title: 'Model rozwijał się etapami', text: 'Role, dokumenty i narzędzia powstawały w różnym czasie i nie tworzą jeszcze spójnego sposobu działania.' },
+        { title: 'Model rozwijał się etapami', text: 'Role, dokumenty i narzędzia powstawały w różnym czasie. Teraz wymagają uporządkowania w jeden sposób działania.' },
         { title: 'Zmieniła się organizacja', text: 'Nowa struktura, kierownictwo lub zakres odpowiedzialności wymagają ponownego uzgodnienia modelu kryzysowego.' },
         { title: 'Wymagania grupowe potrzebują lokalnego przełożenia', text: 'Polska spółka potrzebuje rozwiązania zgodnego z oczekiwaniami grupy i możliwego do zastosowania lokalnie.' },
         { title: 'Planowane jest ważne ćwiczenie', text: 'Przed scenariuszem trzeba uporządkować role, decyzje lub najważniejsze założenia sposobu reagowania.' }
@@ -217,7 +217,7 @@ export const commercialPl: CommercialContent = {
       lead: 'Crisis Readiness Review daje kierownictwu uporządkowany obraz obecnych rozwiązań i priorytetów poprawy. Obejmuje uzgodniony zakres organizacyjny, wybrane dokumenty, rozmowy z kluczowymi rolami oraz wspólną analizę sposobu działania.',
       triggerTitle: 'Kiedy warto rozpocząć przegląd',
       triggers: [
-        'dokumenty istnieją, lecz ich praktyczna użyteczność nie jest jasna',
+        'praktyczna użyteczność dokumentów wymaga sprawdzenia',
         'role, uprawnienia i zasady eskalacji wymagają ponownego uzgodnienia',
         'lokalna organizacja wdraża wymagania grupowe',
         'ćwiczenie, zdarzenie lub zmiana organizacyjna pozostawiły rozproszone działania',
@@ -272,12 +272,12 @@ export const commercialPl: CommercialContent = {
     process: {
       eyebrow: 'Sposób współpracy',
       title: 'Od pytania do użytecznych ustaleń.',
-      intro: 'Każdy zakres jest dostosowany do problemu, ale sposób pracy pozostaje przejrzysty i oparty na rzeczywistych dowodach organizacyjnych.',
+      intro: 'Sposób pracy odpowiada konkretnemu problemowi i opiera się na dokumentach, narzędziach oraz doświadczeniu osób pełniących kluczowe role.',
       items: [
         { title: 'Ustalenie pytania i zakresu', text: 'Określamy decyzję, problem lub model, który wymaga oceny albo zaprojektowania.' },
         { title: 'Zebranie materiału', text: 'Analizujemy uzgodnione dokumenty, narzędzia i perspektywy osób pełniących kluczowe role.' },
         { title: 'Praca nad modelem', text: 'Wspólnie sprawdzamy odpowiedzialności, informacje, decyzje, ograniczenia i punkty współpracy.' },
-        { title: 'Uzgodnienie rezultatów', text: 'Porządkujemy wnioski, oczekiwane zmiany i kolejne działania w formie odpowiedniej dla kierownictwa i właścicieli.' }
+        { title: 'Uzgodnienie rezultatów', text: 'Porządkujemy wnioski, oczekiwane zmiany i kolejne kroki w formie odpowiedniej dla kierownictwa i osób odpowiedzialnych za ich realizację.' }
       ]
     },
     outputs: {
@@ -289,8 +289,7 @@ export const commercialPl: CommercialContent = {
         'zasady aktywacji, eskalacji i przepływu informacji',
         'role cards, checklisty i narzędzia decyzyjne',
         'plan działań doskonalących'
-      ],
-      note: 'ClearStance nie sprzedaje certyfikacji. Odpowiednie standardy mogą stanowić punkt odniesienia dla jakości i kompletności rozwiązania.'
+      ]
     },
     insights: {
       eyebrow: 'Powiązane publikacje',
@@ -384,12 +383,7 @@ export const commercialPl: CommercialContent = {
         'After Action Review',
         'priorytetowy rejestr działań doskonalących',
         'inne dokumenty uzgodnione w zakresie projektu'
-      ],
-      note: 'Główny dokument scenariusza, szczegółowa sekwencja informacji wejściowych, instrukcje kontroli, skrypty symulacji i surowe formularze obserwacyjne pozostają materiałami projektowymi, o ile strony nie uzgodnią inaczej.'
-    },
-    standard: {
-      title: 'Metodyczne punkty odniesienia',
-      text: 'Projekt może korzystać z odpowiednich elementów ISO 22398 dotyczących planowania, prowadzenia i doskonalenia ćwiczeń oraz ISO 22361 w zakresie strategicznego zarządzania kryzysowego. Standardy wspierają metodę, a nie stanowią osobnego produktu ani certyfikacji.'
+      ]
     },
     insights: {
       eyebrow: 'Powiązane publikacje',
@@ -478,7 +472,7 @@ export const commercialPl: CommercialContent = {
     observation: {
       eyebrow: 'Metoda obserwacji',
       title: 'Obserwacja oparta na uzgodnionych celach.',
-      text: 'Obserwatorzy zapisują zdarzenia i ich znaczenie dla działania zespołu. Przykład pokazuje strukturę metody bez ujawniania pełnego wewnętrznego formularza.',
+      text: 'Obserwatorzy zapisują zdarzenia i ich znaczenie dla działania zespołu. Przykład pokazuje sposób łączenia obserwacji z celami ćwiczenia.',
       labels: ['Co się wydarzyło', 'Kiedy', 'Na podstawie jakiej informacji', 'Zaangażowane role', 'Wpływ na decyzje lub koordynację'],
       example: ['Eskalacja została podniesiona po potwierdzeniu wpływu na ludzi.', 'Po drugiej aktualizacji sytuacji.', 'Raport operacyjny i niepotwierdzony sygnał od partnera.', 'Lider CMT, operacje, komunikacja.', 'Zespół uzgodnił priorytet, ale nie przypisał właściciela kolejnej aktualizacji.']
     },
@@ -489,21 +483,17 @@ export const commercialPl: CommercialContent = {
       engagementTitle: 'Współpraca obejmuje',
       engagement: ['ustalenie zakresu i celów', 'projekt ćwiczenia', 'przygotowanie informacji dla uczestników', 'facylitację', 'obserwację', 'hot debrief', 'podsumowanie dla kierownictwa'],
       clientTitle: 'Organizacja otrzymuje',
-      client: ['uzgodniony Exercise Brief i cele', 'After Action Review', 'priorytetowy rejestr działań doskonalących', 'inne dokumenty uzgodnione w zakresie projektu'],
-      artefactsNote: 'Główny dokument scenariusza, szczegółowa sekwencja informacji wejściowych, instrukcje dla kontroli, skrypty symulacji i surowe formularze obserwacyjne są materiałami projektowymi. Ich przekazanie wymaga odrębnego uzgodnienia.'
+      client: ['uzgodniony Exercise Brief i cele', 'After Action Review', 'priorytetowy rejestr działań doskonalących', 'inne dokumenty uzgodnione w zakresie projektu']
     },
     aar: {
       title: 'After Action Review',
-      text: 'Hot debrief rejestruje pierwsze perspektywy uczestników. Następnie materiał obserwacyjny jest analizowany w odniesieniu do celów i rozwijany w After Action Review.',
-      items: ['obserwacje powiązane z celami', 'elementy wspierające skuteczne działanie', 'luki i punkty utrudniające pracę', 'czynniki wpływające, jeśli pozwala na to materiał', 'znaczenie ustaleń', 'rekomendacje i priorytety', 'proponowana funkcja właścicielska', 'działanie doskonalące'],
-      note: 'Właścicieli i terminy potwierdza organizacja. Opcjonalny warsztat działań może pomóc w ich uzgodnieniu i zaplanowaniu ponownego sprawdzenia.'
+      text: 'Hot debrief zbiera pierwsze perspektywy uczestników. Materiał obserwacyjny jest następnie analizowany w odniesieniu do celów i rozwijany w After Action Review.',
+      items: ['obserwacje powiązane z celami', 'elementy wspierające skuteczne działanie', 'luki i punkty utrudniające pracę', 'czynniki wpływające, jeśli wynika to z materiału', 'znaczenie ustaleń', 'rekomendacje i priorytety', 'proponowana funkcja odpowiedzialna', 'działanie doskonalące']
     },
     preparation: {
       title: 'Zakres i przygotowanie.',
       clientTitle: 'Po stronie organizacji',
-      client: ['wskazanie sponsora i koordynatora', 'uzgodnienie celów', 'udostępnienie wybranych planów i narzędzi', 'potwierdzenie uczestników i uprawnień', 'uzgodnienie poufności i ograniczeń'],
-      scopeTitle: 'Granice podstawowego formatu',
-      scope: 'Podstawowy produkt obejmuje strategiczną, facylitowaną sesję decyzyjną. Ćwiczenia z fizycznym rozwinięciem zasobów, testami systemów technicznych, udziałem służb albo pełną symulacją medialną wymagają osobnych celów, zasobów i planowania.'
+      client: ['wskazanie sponsora i koordynatora', 'uzgodnienie celów', 'udostępnienie wybranych planów i narzędzi', 'potwierdzenie uczestników i uprawnień', 'uzgodnienie poufności i ograniczeń']
     },
     related: {
       eyebrow: 'Powiązane zakresy',
