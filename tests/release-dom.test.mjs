@@ -20,6 +20,11 @@ const [homePl, homeEn, advisoryPl, advisoryEn, exercisesPl, exercisesEn, executi
   readDist('/cwiczenia-kryzysowe/executive-tabletop/index.html'), readDist('/en/exercises/executive-tabletop/index.html'),
   readDist('/kontakt/index.html'), readDist('/en/contact/index.html')
 ]);
+const [page404, globalCss, contactPageSource] = await Promise.all([
+  readDist('/404.html'),
+  readFile(new URL('../src/styles/global.css', import.meta.url), 'utf8'),
+  readFile(new URL('../src/components/pages/ContactPage.astro', import.meta.url), 'utf8')
+]);
 
 test('homepage renders the accepted Release 1 section architecture in both languages', () => {
   for (const home of [homePl, homeEn]) {
@@ -42,7 +47,9 @@ test('homepage renders the accepted Release 1 section architecture in both langu
     assert.doesNotMatch(home, /practice-section|BrandStatement/u);
   }
   assert.match(homePl, /Punkt wyjścia/u);
+  assert.match(homePl, /Doradztwo w\sgotowości kryzysowej/u);
   assert.match(homePl, /Od czego możemy zacząć\./u);
+  assert.match(homeEn, /Boutique crisis readiness advisory/u);
   assert.match(homeEn, /A place to start/u);
   assert.match(homeEn, /Where we can begin\./u);
   assert.doesNotMatch(homePl, /Doradztwo wspiera rozpoznanie/u);
@@ -71,7 +78,10 @@ test('exercise architecture keeps one flagship and three supporting formats', ()
     assert.match(exercises, /<div class="inclusion-panel"[^>]*><h3>[^<]+<\/h3><div class="deliverable-split deliverable-split--light"><article>/u);
     assert.equal(count(exercises, /deliverable-split deliverable-split--light/gu), 1);
     assert.doesNotMatch(exercises, />\s*CMT Exercise\s*</u);
+    assert.doesNotMatch(exercises, /inne dokumenty uzgodnione w zakresie projektu|other documents agreed within the project scope/iu);
   }
+  assert.match(exercisesPl, /Exercise Brief: uzgodnione cele, zakres i\szałożenia ćwiczenia/u);
+  assert.match(exercisesEn, /Exercise Brief: agreed exercise objectives, scope and assumptions/u);
 });
 
 test('Executive Tabletop preserves observation logic and client-facing outcomes', () => {
@@ -90,6 +100,20 @@ test('Executive Tabletop preserves observation logic and client-facing outcomes'
     assert.doesNotMatch(executive, /preparation-section|preparation-grid/u);
     assert.match(executive, /"@type":"BreadcrumbList"/u);
   }
+
+  assert.match(executivePl, /href="\/kontakt\/\?topic=executive-tabletop"[^>]*>Omów planowane ćwiczenie/u);
+  assert.match(executiveEn, /href="\/en\/contact\/\?topic=executive-tabletop"[^>]*>Discuss a planned exercise/u);
+  for (const executive of [executivePl, executiveEn]) {
+    const participation = executive.indexOf('participation-panel');
+    const contextualCta = executive.indexOf('executive-contextual-cta');
+    const observation = executive.indexOf('observation-focus observation-focus--dark');
+    assert.ok(participation < contextualCta && contextualCta < observation, 'contextual CTA should close the use-cases section');
+  }
+  assert.match(executivePl, /Facylitowane ćwiczenie tabletop/u);
+  assert.doesNotMatch(executivePl, /Realizacja sesji, praca projektowa i dokumenty końcowe/u);
+  assert.doesNotMatch(executiveEn, /The delivery of the session, design work and final documents/u);
+  assert.match(executivePl, /Exercise Brief: uzgodnione cele, zakres i\szałożenia ćwiczenia/u);
+  assert.match(executiveEn, /Exercise Brief: agreed exercise objectives, scope and assumptions/u);
 
   assert.doesNotMatch(executivePl, /Zakres i przygotowanie|Po stronie organizacji|wskazanie sponsora i koordynatora/u);
   assert.doesNotMatch(executiveEn, /Scope and preparation|The organisation provides|an exercise sponsor and coordinator/u);
@@ -153,6 +177,12 @@ test('contact exposes only allowed topics and supports runtime language preserva
   }
 });
 
+test('final polish protects public headings and uses the accepted 404 title', () => {
+  assert.match(globalCss, /h1,\s*h2,\s*h3,\s*h4\s*\{\s*overflow-wrap: normal;\s*hyphens: none;\s*text-wrap: balance;\s*word-break: normal;/u);
+  assert.match(page404, /<title>404 \| Strona nie istnieje \| ClearStance<\/title>/u);
+  assert.match(contactPageSource, /target\.searchParams\.set\('topic', topic\)/u);
+});
+
 test('canonical, hreflang, sitemap and service structured data cover new routes', async () => {
   assert.match(executivePl, /rel="canonical" href="https:\/\/clearstance\.pl\/cwiczenia-kryzysowe\/executive-tabletop\/"/u);
   assert.match(executivePl, /hreflang="en" href="https:\/\/clearstance\.pl\/en\/exercises\/executive-tabletop\/"/u);
@@ -178,6 +208,10 @@ test('production output is indexable and contains only production URLs', async (
     const html = await readFile(file, 'utf8');
     const isPublicPage = !file.pathname.endsWith('/404.html') && !file.pathname.includes('/admin/');
     assert.doesNotMatch(html, /(?:workers\.dev|localhost|127\.0\.0\.1|\/Users\/sebastian\/)/iu, `preview-only value in ${file.pathname}`);
+    assert.doesNotMatch(html, /—/u, `em dash in public HTML ${file.pathname}`);
+    if (!file.pathname.includes('/admin/')) {
+      assert.equal(count(html, /<h1(?:\s|>)/gu), 1, `one H1 in ${file.pathname}`);
+    }
     if (isPublicPage) {
       assert.doesNotMatch(html, /<meta[^>]+name="robots"[^>]+noindex/iu, `no noindex directive in ${file.pathname}`);
       assert.match(html, /<link rel="canonical" href="https:\/\/clearstance\.pl\//u, `production canonical in ${file.pathname}`);

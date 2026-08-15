@@ -2,6 +2,7 @@
 import type { Locale } from '../../i18n/routes';
 import { getRoute } from '../../i18n/routes';
 import { getCommercialContent } from '../../content/commercial';
+import { getContactPathWithTopic } from '../../lib/contact-topics';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getInsightsByTranslationKeys } from '../../lib/insights';
 import CommercialInsights from '../insights/CommercialInsights.astro';
@@ -39,6 +40,7 @@ const hrefForRelated = (item: typeof page.related.links[number]) => `${getRoute(
       <div class="commercial-section-heading" data-reveal><p class="eyebrow">{page.useful.eyebrow}</p><h2 id="useful-title">{page.useful.title}</h2><p>{page.useful.intro}</p></div>
       <ul class="trigger-grid" data-reveal>{page.useful.items.map((item) => <li><h3>{item.title}</h3><p>{item.text}</p></li>)}</ul>
       <div class="participation-panel" data-reveal><div><h3>{page.participation.title}</h3><p>{page.participation.text}</p></div><div><h4>{page.participation.coreTitle}</h4><ul class="check-list">{page.participation.core.map((item) => <li>{item}</li>)}</ul></div><div><h4>{page.participation.optionalTitle}</h4><ul class="check-list">{page.participation.optional.map((item) => <li>{item}</li>)}</ul></div></div>
+      <a class="text-link executive-contextual-cta" href={getContactPathWithTopic(locale, 'executive-tabletop')} data-reveal>{page.contact.cta}<span aria-hidden="true">↗</span></a>
     </div></section>
 
     <section class="observation-focus observation-focus--dark" aria-labelledby="executive-observation-title"><div class="wrap" data-reveal><div class="commercial-section-heading"><p class="eyebrow eyebrow--light">{page.observationAreas.eyebrow}</p><h2 id="executive-observation-title">{page.observationAreas.title}</h2><p>{page.observationAreas.intro}</p></div><ul class="focus-chip-list">{page.observationAreas.items.map((item) => <li>{item}</li>)}</ul></div></section>
@@ -51,7 +53,7 @@ const hrefForRelated = (item: typeof page.related.links[number]) => `${getRoute(
 
     <section class="observation-method" aria-labelledby="observation-method-title"><div class="wrap"><div class="commercial-section-heading" data-reveal><p class="eyebrow eyebrow--light">{page.observation.eyebrow}</p><h2 id="observation-method-title">{page.observation.title}</h2><p>{page.observation.text}</p></div><dl class="observation-example" data-reveal>{page.observation.labels.map((label, index) => <div><dt>{label}</dt><dd>{page.observation.example[index]}</dd></div>)}</dl></div></section>
 
-    <section class="executive-outputs" aria-labelledby="outputs-title"><div class="wrap" data-reveal><div class="commercial-section-heading"><p class="eyebrow">{page.outputs.eyebrow}</p><h2 id="outputs-title">{page.outputs.title}</h2><p>{page.outputs.intro}</p></div><div class="deliverable-split deliverable-split--outlined"><article><h3>{page.outputs.engagementTitle}</h3><ul>{page.outputs.engagement.map((item) => <li>{item}</li>)}</ul></article><article><h3>{page.outputs.clientTitle}</h3><ul>{page.outputs.client.map((item) => <li>{item}</li>)}</ul></article></div></div></section>
+    <section class="executive-outputs" aria-labelledby="outputs-title"><div class="wrap" data-reveal><div class="commercial-section-heading"><p class="eyebrow">{page.outputs.eyebrow}</p><h2 id="outputs-title">{page.outputs.title}</h2></div><div class="deliverable-split deliverable-split--outlined"><article><h3>{page.outputs.engagementTitle}</h3><ul>{page.outputs.engagement.map((item) => <li>{item}</li>)}</ul></article><article><h3>{page.outputs.clientTitle}</h3><ul>{page.outputs.client.map((item) => <li>{item}</li>)}</ul></article></div></div></section>
 
     <section class="aar-section" aria-labelledby="aar-title"><div class="wrap aar-grid" data-reveal><div><h2 id="aar-title">{page.aar.title}</h2><p>{page.aar.text}</p></div><ul class="check-list">{page.aar.items.map((item) => <li>{item}</li>)}</ul></div></section>
 

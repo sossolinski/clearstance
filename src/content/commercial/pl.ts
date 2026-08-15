@@ -65,7 +65,7 @@ const exercisePhases: CommercialContent['exercisePhases'] = [
     id: 'frame',
     title: 'Ustalenie ram',
     text: 'Ustalamy kontekst, cele, uczestników, granice zakresu i pytania, na które ćwiczenie ma dostarczyć odpowiedzi.',
-    output: 'Uzgodniony Exercise Brief, cele i zakres.'
+    output: 'Uzgodnione cele, zakres i założenia ćwiczenia.'
   },
   {
     id: 'design',
@@ -96,7 +96,7 @@ export const commercialPl: CommercialContent = {
       description: 'ClearStance wspiera organizacje w projektowaniu i sprawdzaniu struktur, decyzji, komunikacji oraz wsparcia ludzi podczas poważnych zdarzeń.'
     },
     hero: {
-      eyebrow: 'Boutique crisis readiness advisory',
+      eyebrow: 'Doradztwo w gotowości kryzysowej',
       title: 'Clarity when',
       titleAccent: 'it matters most.',
       copy: 'ClearStance pomaga organizacjom projektować i sprawdzać sposób zarządzania poważnymi zdarzeniami: od modelu pracy zespołu kryzysowego i komunikacji po rozwiązania wspierające osoby dotknięte zdarzeniem i ich bliskich.',
@@ -378,10 +378,9 @@ export const commercialPl: CommercialContent = {
       ],
       clientTitle: 'Organizacja otrzymuje',
       client: [
-        'uzgodniony Exercise Brief i cele',
+        'Exercise Brief: uzgodnione cele, zakres i założenia ćwiczenia',
         'After Action Review',
-        'priorytetowy rejestr działań doskonalących',
-        'inne dokumenty uzgodnione w zakresie projektu'
+        'priorytetowy rejestr działań doskonalących'
       ]
     },
     insights: {
@@ -408,7 +407,7 @@ export const commercialPl: CommercialContent = {
     snapshot: {
       title: 'Ćwiczenie w skrócie',
       items: [
-        { term: 'Format', description: 'Facylitowane tabletop exercise' },
+        { term: 'Format', description: 'Facylitowane ćwiczenie tabletop' },
         { term: 'Uczestnicy', description: 'Kadra zarządzająca, CMT lub obie grupy' },
         { term: 'Koncentracja', description: 'Decyzje, koordynacja i informacja' },
         { term: 'Rezultaty', description: 'AAR i priorytetowe działania' },
@@ -478,11 +477,10 @@ export const commercialPl: CommercialContent = {
     outputs: {
       eyebrow: 'Zakres i rezultaty',
       title: 'Co obejmuje współpraca i co otrzymuje organizacja.',
-      intro: 'Realizacja sesji, praca projektowa i dokumenty końcowe pełnią różne funkcje. Zakres jest uzgadniany przed rozpoczęciem projektu.',
       engagementTitle: 'Współpraca obejmuje',
       engagement: ['ustalenie zakresu i celów', 'projekt ćwiczenia', 'przygotowanie informacji dla uczestników', 'facylitację', 'obserwację', 'hot debrief', 'podsumowanie dla kierownictwa'],
       clientTitle: 'Organizacja otrzymuje',
-      client: ['uzgodniony Exercise Brief i cele', 'After Action Review', 'priorytetowy rejestr działań doskonalących', 'inne dokumenty uzgodnione w zakresie projektu']
+      client: ['Exercise Brief: uzgodnione cele, zakres i założenia ćwiczenia', 'After Action Review', 'priorytetowy rejestr działań doskonalących', 'inne dokumenty uzgodnione w zakresie projektu']
     },
     aar: {
       title: 'After Action Review',

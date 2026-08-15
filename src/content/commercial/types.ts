@@ -168,7 +168,6 @@ export interface ExecutiveContent {
   outputs: {
     eyebrow: string;
     title: string;
-    intro: string;
     engagementTitle: string;
     engagement: string[];
     clientTitle: string;

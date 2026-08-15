@@ -28,7 +28,7 @@ const capabilities: CommercialContent['capabilities'] = [
 ];
 
 const exercisePhases: CommercialContent['exercisePhases'] = [
-  { id: 'frame', title: 'Frame', text: 'We agree the context, objectives, participants, boundaries and the questions the exercise should answer.', output: 'An agreed Exercise Brief, objectives and scope.' },
+  { id: 'frame', title: 'Frame', text: 'We agree the context, objectives, participants, boundaries and the questions the exercise should answer.', output: 'Agreed exercise objectives, scope and assumptions.' },
   { id: 'design', title: 'Design', text: 'We build the scenario logic, decision moments, inputs, control arrangements and observation framework.', output: 'An exercise plan, participant information and agreed assumptions.' },
   { id: 'exercise', title: 'Exercise', text: 'We brief participants, facilitate the session, control its progress and capture observations against the agreed objectives.', output: 'The session, hot debrief and structured observation material.' },
   { id: 'improve', title: 'Improve', text: 'We bring observations together in an After Action Review and help define priority actions and how they will be retested.', output: 'An After Action Review and prioritised improvement register.' }
@@ -155,7 +155,7 @@ export const commercialEn: CommercialContent = {
     methodology: { eyebrow: 'Method', title: 'From framing to improvement action.', intro: 'Four phases structure the project, clarify responsibilities and maintain the connection between objectives, observation and later action.' },
     inclusion: {
       title: 'Engagement scope and outcomes', engagementTitle: 'The engagement includes', engagement: ['agreeing the scope and objectives', 'exercise and scenario design', 'participant information', 'facilitation and exercise control', 'observation', 'hot debrief', 'an executive summary'],
-      clientTitle: 'The organisation receives', client: ['an agreed Exercise Brief and objectives', 'an After Action Review', 'a prioritised improvement action register', 'other documents agreed within the project scope']
+      clientTitle: 'The organisation receives', client: ['Exercise Brief: agreed exercise objectives, scope and assumptions', 'an After Action Review', 'a prioritised improvement action register']
     },
     insights: { eyebrow: 'Related insights', title: 'Writing on exercise design and observation.', copy: 'Selected insights explore objectives, decisions, scenarios and how teams work during an exercise.' },
     contact: { title: 'Let’s discuss the planned exercise.', text: 'The context, participant group and the main area the organisation wants to test are enough to begin.', cta: 'Discuss a planned exercise' }
@@ -190,9 +190,9 @@ export const commercialEn: CommercialContent = {
       example: ['The issue was escalated after the impact on people was confirmed.', 'Following the second situation update.', 'An operations report and an unconfirmed signal from a partner.', 'CMT leader, operations, communication.', 'The team agreed the priority but did not assign ownership of the next update.']
     },
     outputs: {
-      eyebrow: 'Scope and outcomes', title: 'What the engagement includes and what the organisation receives.', intro: 'The delivery of the session, design work and final documents serve different purposes. The scope is agreed before the project begins.',
+      eyebrow: 'Scope and outcomes', title: 'What the engagement includes and what the organisation receives.',
       engagementTitle: 'The engagement includes', engagement: ['agreeing the scope and objectives', 'exercise design', 'participant information', 'facilitation', 'observation', 'hot debrief', 'an executive summary'],
-      clientTitle: 'The organisation receives', client: ['an agreed Exercise Brief and objectives', 'an After Action Review', 'a prioritised improvement action register', 'other documents agreed within the project scope']
+      clientTitle: 'The organisation receives', client: ['Exercise Brief: agreed exercise objectives, scope and assumptions', 'an After Action Review', 'a prioritised improvement action register', 'other documents agreed within the project scope']
     },
     aar: { title: 'After Action Review', text: 'The hot debrief captures participants’ initial perspectives. Observation material is then analysed against the objectives and developed into an After Action Review.', items: ['observations linked to objectives', 'elements that supported effective performance', 'gaps and points that hindered the team', 'contributing factors supported by the material', 'the significance of each finding', 'recommendations and priorities', 'a proposed responsible function', 'an improvement action'] },
     related: { eyebrow: 'Related scopes', title: 'Work before and after the exercise.', links: [{ label: 'Crisis Readiness Review', route: 'services', hash: 'readiness-review' }, { label: 'Advisory', route: 'services' }, { label: 'Other exercise formats', route: 'exercises' }] },
