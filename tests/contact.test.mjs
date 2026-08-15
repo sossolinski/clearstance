@@ -1,6 +1,10 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { handleContactRequest } from '../worker/contact.ts';
+import {
+  getContactTopicLabel,
+  resolveContactTopic
+} from '../src/lib/contact-topics.ts';
 
 const PRODUCTION_URL = 'https://clearstance.pl/api/contact';
 const LOCAL_URL = 'http://127.0.0.1:8787/api/contact';
@@ -185,7 +189,9 @@ test('accepts every allowed topic and derives a fixed localized subject', async 
   const cases = [
     ['en', 'general', '[ClearStance] General enquiry'],
     ['en', 'advisory', '[ClearStance] Advisory'],
+    ['en', 'crisis-management', '[ClearStance] Crisis Management'],
     ['en', 'crisis-readiness-review', '[ClearStance] Crisis Readiness Review'],
+    ['pl', 'crisis-management', '[ClearStance] Zarządzanie kryzysowe'],
     ['pl', 'exercises', '[ClearStance] Ćwiczenia kryzysowe'],
     ['pl', 'executive-tabletop', '[ClearStance] Executive Tabletop Exercise']
   ];
@@ -201,6 +207,13 @@ test('accepts every allowed topic and derives a fixed localized subject', async 
     assert.equal(response.status, 200);
     assert.equal(harness.emails[0].subject, subject);
   }
+});
+
+test('resolves the Crisis Management topic in both languages and preserves the existing invalid-topic fallback', () => {
+  assert.equal(getContactTopicLabel('pl', 'crisis-management'), 'Zarządzanie kryzysowe');
+  assert.equal(getContactTopicLabel('en', 'crisis-management'), 'Crisis Management');
+  assert.equal(resolveContactTopic('crisis-management'), 'crisis-management');
+  assert.equal(resolveContactTopic('unsupported-topic'), 'general');
 });
 
 test('rejects a topic outside the server allowlist before verification', async () => {

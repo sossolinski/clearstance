@@ -184,6 +184,143 @@ export const commercialPl: CommercialContent = {
       cta: 'Omów potrzeby organizacji'
     }
   },
+  crisisManagement: {
+    meta: {
+      title: 'Zarządzanie kryzysowe dla organizacji | ClearStance',
+      description: 'Doradztwo w projektowaniu i rozwijaniu modelu zarządzania kryzysowego: CMT, aktywacja, eskalacja, informacje, decyzje i współpraca funkcji.'
+    },
+    hero: {
+      eyebrow: 'Zarządzanie kryzysowe',
+      title: 'Model działania, który porządkuje decyzje podczas kryzysu.',
+      lead: 'ClearStance pomaga organizacjom projektować i rozwijać sposób pracy zespołu zarządzania kryzysowego. Zakres może obejmować mandat i skład CMT, aktywację, eskalację, wspólny obraz sytuacji, przepływ informacji, decyzje oraz współpracę z funkcjami operacyjnymi, komunikacją i zespołami wspierającymi ludzi.',
+      cta: 'Omów potrzeby organizacji'
+    },
+    situations: {
+      eyebrow: 'Typowe sytuacje',
+      title: 'Sygnały, że sposób działania wymaga ponownego uzgodnienia.',
+      intro: 'Potrzeba zmiany często pojawia się po reorganizacji, ważnym ćwiczeniu, rzeczywistym zdarzeniu albo wdrożeniu nowych wymagań grupowych. Wspólnym punktem jest potrzeba połączenia formalnych ustaleń z praktyką podejmowania decyzji.',
+      items: [
+        {
+          title: 'Role są opisane, a decyzje nadal skupiają się w kilku osobach',
+          text: 'Praktyczne uprawnienia, zastępstwa i odpowiedzialność za kolejne działania wymagają doprecyzowania.'
+        },
+        {
+          title: 'Zmieniła się struktura organizacji',
+          text: 'Nowe funkcje, linie raportowania lub odpowiedzialności tworzą inne punkty współpracy i eskalacji.'
+        },
+        {
+          title: 'CMT pracuje na wielu wersjach sytuacji',
+          text: 'Aktualizacje napływają z różnych źródeł, a zespół potrzebuje wspólnego sposobu oceny informacji i wskazywania decyzji.'
+        },
+        {
+          title: 'Ćwiczenie lub zdarzenie pozostawiło rozproszone działania',
+          text: 'Wnioski dotyczą kilku dokumentów, zespołów i narzędzi. Potrzebny jest jeden uporządkowany model dalszej pracy.'
+        }
+      ]
+    },
+    model: {
+      eyebrow: 'Obszary pracy',
+      title: 'Elementy, które tworzą spójny sposób działania.',
+      intro: 'Model zarządzania kryzysowego łączy strukturę, informację i decyzje. Każdy element powinien odpowiadać rzeczywistemu sposobowi działania organizacji oraz charakterowi zdarzeń, które mogą wymagać zaangażowania kierownictwa.',
+      items: [
+        {
+          title: 'Mandat, skład i role',
+          text: 'Cel CMT, zakres jego odpowiedzialności, stały skład, role wspierające oraz relacja z zarządem i strukturami operacyjnymi.'
+        },
+        {
+          title: 'Aktywacja i eskalacja',
+          text: 'Kryteria uruchomienia zespołu, poziomy reakcji, progi eskalacji, sposób powiadamiania oraz zasady przechodzenia pomiędzy poziomami zarządzania.'
+        },
+        {
+          title: 'Wspólny obraz sytuacji',
+          text: 'Uzgodniony zestaw informacji potrzebnych do oceny wpływu zdarzenia, priorytetów organizacji, założeń i obszarów wymagających decyzji.'
+        },
+        {
+          title: 'Rytm pracy i decyzje',
+          text: 'Częstotliwość odpraw, struktura agendy, przygotowanie aktualizacji, wykorzystanie uprawnień decyzyjnych i sposób przekazywania decyzji do realizacji.'
+        },
+        {
+          title: 'Działania i dokumentowanie',
+          text: 'Rejestrowanie decyzji, przypisywanie właścicieli, terminy aktualizacji oraz utrzymanie obrazu działań prowadzonych pomiędzy odprawami.'
+        },
+        {
+          title: 'Punkty współpracy',
+          text: 'Przepływ informacji i odpowiedzialności pomiędzy CMT, operacjami, BCM, komunikacją, HR, bezpieczeństwem i funkcjami wspierającymi osoby dotknięte zdarzeniem.'
+        }
+      ]
+    },
+    interfaces: {
+      eyebrow: 'Interfejsy organizacyjne',
+      title: 'CMT łączy decyzje strategiczne z pracą całej organizacji.',
+      intro: 'Skuteczność modelu zależy od jakości połączeń pomiędzy zespołem zarządzania kryzysowego a funkcjami, które dostarczają informacji i wykonują działania.',
+      items: [
+        {
+          id: 'operations',
+          title: 'Operacje i ciągłość działania',
+          text: 'CMT potrzebuje wiarygodnego obrazu wpływu zdarzenia, dostępnych opcji, zależności oraz przewidywanych konsekwencji decyzji.'
+        },
+        {
+          id: 'communication',
+          title: 'Komunikacja kryzysowa',
+          text: 'Zespół komunikacji potrzebuje aktualnego obrazu sytuacji, uzgodnionych priorytetów i sprawnej ścieżki zatwierdzania kolejnych komunikatów.'
+        },
+        {
+          id: 'affected-people',
+          title: 'Wsparcie osób dotkniętych zdarzeniem',
+          text: 'Decyzje dotyczące ludzi wymagają połączenia informacji operacyjnych, potrzeb praktycznych, komunikacji z bliskimi oraz współpracy z partnerami zewnętrznymi.'
+        }
+      ],
+      link: 'Poznaj obszar'
+    },
+    routes: {
+      eyebrow: 'Punkt wyjścia',
+      title: 'Zakres pracy wynika z pytania organizacji.',
+      items: [
+        {
+          id: 'readiness-review',
+          title: 'Crisis Readiness Review',
+          text: 'Przegląd daje kierownictwu uporządkowany obraz obecnych rozwiązań i priorytetów poprawy. Może stanowić punkt wyjścia przed szerszą zmianą modelu lub ważnym ćwiczeniem.',
+          link: 'Poznaj Crisis Readiness Review'
+        },
+        {
+          id: 'cmt-model',
+          title: 'Model działania CMT',
+          text: 'Ukierunkowana praca nad mandatem, rolami, aktywacją, rytmem odpraw, informacją, decyzjami i narzędziami wspierającymi zespół.',
+          link: 'Poznaj zakres pracy nad modelem CMT'
+        },
+        {
+          id: 'executive-tabletop',
+          title: 'Executive Tabletop Exercise',
+          text: 'Facylitowana sesja pozwala sprawdzić sposób działania CMT i kierownictwa w rozwijającej się sytuacji wymagającej priorytetów, decyzji i koordynacji.',
+          link: 'Poznaj Executive Tabletop Exercise'
+        }
+      ]
+    },
+    outcomes: {
+      eyebrow: 'Po projekcie',
+      title: 'Rezultaty, które porządkują dalsze działanie.',
+      intro: 'Praca może prowadzić do uzgodnionego modelu zarządzania kryzysowego oraz narzędzi wspierających jego wykorzystanie.',
+      items: [
+        'mandat, skład i model działania CMT',
+        'opis ról, odpowiedzialności i uprawnień decyzyjnych',
+        'zasady aktywacji, eskalacji i zastępstw',
+        'rytm odpraw oraz struktura wspólnego obrazu sytuacji',
+        'sposób rejestrowania decyzji i śledzenia działań',
+        'zasady współpracy z funkcjami operacyjnymi, komunikacją i wsparciem ludzi',
+        'priorytetowy plan dalszych zmian i ćwiczeń'
+      ]
+    },
+    insights: {
+      eyebrow: 'Powiązane publikacje',
+      title: 'Decyzje, informacja i punkty współpracy.',
+      copy: 'Wybrane publikacje rozwijają dwa problemy szczególnie ważne dla pracy CMT: utrzymanie wspólnego obrazu sytuacji oraz działanie na styku odpowiedzialności.'
+    },
+    contact: {
+      title: 'Omówmy potrzeby organizacji.',
+      text: 'Krótki opis obecnego modelu, planowanej zmiany albo problemu ujawnionego podczas ćwiczenia wystarczy, aby przygotować pierwszą rozmowę.',
+      cta: 'Omów potrzeby organizacji'
+    }
+  },
   advisory: {
     meta: {
       title: 'Doradztwo w zarządzaniu kryzysowym | ClearStance',

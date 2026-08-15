@@ -40,7 +40,7 @@ const schema = {
     <section class="commercial-capability-detail" aria-labelledby="advisory-capabilities-title"><div class="wrap">
       <div class="commercial-section-heading" data-reveal><p class="eyebrow">{page.capabilities.eyebrow}</p><h2 id="advisory-capabilities-title">{page.capabilities.title}</h2><p>{page.capabilities.intro}</p></div>
       <ol class="capability-detail-list">{content.capabilities.map((capability, index) => <li id={capability.anchor} data-reveal>
-        <div class="capability-detail-heading"><Icon name={capabilityIcons[index]} size={38} decorative /><p>{String(index + 1).padStart(2, '0')}</p><h3>{capability.title}</h3><p>{capability.text}</p></div>
+        <div class="capability-detail-heading"><Icon name={capabilityIcons[index]} size={38} decorative /><p>{String(index + 1).padStart(2, '0')}</p><h3>{capability.title}</h3><p>{capability.text}</p>{capability.id === 'crisis-management' && <a class="text-link capability-detail-link" href={getRoute(locale, 'crisisManagement')}>{locale === 'pl' ? 'Poznaj obszar' : 'Explore the capability'} <span aria-hidden="true">→</span></a>}</div>
         <div><h4>{locale === 'pl' ? 'Przykładowy zakres' : 'Example scope'}</h4><ul class="check-list">{capability.scope.map((item) => <li>{item}</li>)}</ul></div>
         <div><h4>{locale === 'pl' ? 'Możliwe rezultaty' : 'Possible outcomes'}</h4><ul class="check-list">{capability.outputs.map((item) => <li>{item}</li>)}</ul></div>
       </li>)}</ol>
@@ -56,7 +56,7 @@ const schema = {
       <div class="product-outcome"><div><h3>{page.review.outcomeTitle}</h3><p>{page.review.outcome}</p></div><div><h3>{page.review.nextTitle}</h3><p>{page.review.next}</p></div><a class="button button--ghost" href={`${getRoute(locale, 'contact')}?topic=crisis-readiness-review`}><span>{page.review.cta}</span><span aria-hidden="true">↗</span></a></div>
     </div></section>
 
-    <section class="focused-scope" aria-labelledby="cmt-title"><div class="wrap focused-scope-grid" data-reveal><div><p class="eyebrow">{page.cmt.eyebrow}</p><h2 id="cmt-title">{page.cmt.title}</h2><p>{page.cmt.text}</p></div><ul class="check-list">{page.cmt.points.map((item) => <li>{item}</li>)}</ul></div></section>
+    <section class="focused-scope" id={locale === 'pl' ? 'model-dzialania-cmt' : 'cmt-operating-model'} aria-labelledby="cmt-title"><div class="wrap focused-scope-grid" data-reveal><div><p class="eyebrow">{page.cmt.eyebrow}</p><h2 id="cmt-title">{page.cmt.title}</h2><p>{page.cmt.text}</p></div><ul class="check-list">{page.cmt.points.map((item) => <li>{item}</li>)}</ul></div></section>
 
     <section class="commercial-process" aria-labelledby="advisory-process-title"><div class="wrap">
       <div class="commercial-section-heading" data-reveal><p class="eyebrow">{page.process.eyebrow}</p><h2 id="advisory-process-title">{page.process.title}</h2><p>{page.process.intro}</p></div>

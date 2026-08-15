@@ -1454,6 +1454,12 @@ summary:focus-visible {
   line-height: 1.55;
 }
 
+.page-intro-action {
+  display: grid;
+  justify-items: start;
+  gap: 28px;
+}
+
 .page-intro-line {
   position: absolute;
   right: 0;
@@ -4350,7 +4356,7 @@ summary:focus-visible {
   margin-bottom: 9px;
 }
 
-.capability-detail-heading > p:last-child {
+.capability-detail-heading > p:last-of-type {
   margin-top: 15px;
   color: var(--text-secondary-paper-alt);
   font-family: var(--body);
@@ -4358,6 +4364,10 @@ summary:focus-visible {
   letter-spacing: 0;
   line-height: 1.7;
   text-transform: none;
+}
+
+.capability-detail-link {
+  margin-top: 22px;
 }
 
 .capability-detail-list h3 {
@@ -4806,6 +4816,218 @@ summary:focus-visible {
   font-weight: 540;
 }
 
+/* Release 2: Crisis Management capability */
+
+.capability-situations,
+.capability-model,
+.capability-interfaces,
+.capability-routes,
+.capability-outcomes {
+  padding: 96px 0 104px;
+}
+
+.capability-situations,
+.capability-interfaces,
+.capability-outcomes {
+  background: var(--paper);
+}
+
+.capability-model {
+  background: var(--paper-2);
+}
+
+.capability-situation-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.capability-situation-list li {
+  min-width: 0;
+  padding: 30px 34px 34px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.capability-situation-list li:nth-child(even) {
+  padding-right: 0;
+  padding-left: 34px;
+  border-left: 1px solid var(--line);
+}
+
+.capability-situation-list span,
+.capability-model-list span,
+.capability-route-list > li > span {
+  display: block;
+  color: var(--teal-deep);
+  font-family: var(--mono);
+  font-size: var(--type-utility-sm);
+  letter-spacing: 0.12em;
+  line-height: var(--type-utility-line);
+}
+
+.capability-situation-list h3 {
+  max-width: 590px;
+  margin: 24px 0 12px;
+  font-family: var(--display);
+  font-size: clamp(22px, 2vw, 29px);
+  font-weight: 520;
+  letter-spacing: -0.025em;
+  line-height: 1.16;
+}
+
+.capability-situation-list p,
+.capability-model-list p,
+.capability-interface-list p,
+.capability-route-list p {
+  color: var(--text-secondary-paper-alt);
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+.capability-model-list {
+  border-bottom: 1px solid var(--line);
+  list-style: none;
+}
+
+.capability-model-list li {
+  display: grid;
+  grid-template-columns: 70px minmax(220px, 0.7fr) minmax(360px, 1.3fr);
+  gap: 30px;
+  align-items: start;
+  padding: 30px 0 32px;
+  border-top: 1px solid var(--line);
+}
+
+.capability-model-list h3 {
+  font-family: var(--display);
+  font-size: clamp(21px, 2vw, 28px);
+  font-weight: 520;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.capability-model-list p {
+  max-width: 680px;
+}
+
+.capability-editorial-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.82fr) minmax(430px, 1.18fr);
+  gap: clamp(56px, 7vw, 106px);
+}
+
+.capability-editorial-grid h2 {
+  margin-top: 12px;
+  font-size: clamp(38px, 4.2vw, 58px);
+  line-height: 1.05;
+}
+
+.capability-editorial-grid .section-lead {
+  max-width: 570px;
+  margin-top: 25px;
+  color: var(--text-secondary-paper-alt);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.capability-interface-list,
+.capability-outcome-list {
+  border-bottom: 1px solid var(--line);
+  list-style: none;
+}
+
+.capability-interface-list li {
+  padding: 27px 0 30px;
+  border-top: 1px solid var(--line);
+}
+
+.capability-interface-list h3 {
+  margin-bottom: 10px;
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 520;
+  line-height: 1.18;
+}
+
+.capability-interface-list .text-link {
+  margin-top: 17px;
+}
+
+.capability-routes {
+  --focus-ring: var(--focus-on-dark);
+  color: var(--white);
+  background: var(--ink);
+}
+
+.capability-route-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line-light);
+  border-bottom: 1px solid var(--line-light);
+  list-style: none;
+}
+
+.capability-route-list li {
+  display: flex;
+  min-width: 0;
+  min-height: 345px;
+  flex-direction: column;
+  padding: 31px 32px 34px;
+  border-right: 1px solid var(--line-light);
+}
+
+.capability-route-list li:first-child {
+  padding-left: 0;
+}
+
+.capability-route-list li:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.capability-route-list > li > span {
+  color: var(--teal);
+}
+
+.capability-route-list h3 {
+  margin: 42px 0 16px;
+  font-family: var(--display);
+  font-size: clamp(25px, 2.4vw, 34px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+.capability-route-list p {
+  margin-bottom: 28px;
+  color: var(--text-secondary-dark);
+}
+
+.capability-route-list .text-link {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.capability-outcome-list li {
+  position: relative;
+  padding: 18px 0 19px 24px;
+  border-top: 1px solid var(--line);
+  color: var(--text-secondary-paper-alt);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.capability-outcome-list li::before {
+  position: absolute;
+  top: 1.8em;
+  left: 0;
+  width: 7px;
+  height: 1px;
+  background: var(--teal-deep);
+  content: "";
+}
+
 @media (max-width: 1080px) {
   .capability-detail-list > li {
     grid-template-columns: 1fr 0.9fr 0.9fr;
@@ -4919,6 +5141,16 @@ summary:focus-visible {
   .participation-panel > div:first-child {
     grid-column: 1 / -1;
   }
+
+  .capability-model-list li {
+    grid-template-columns: 50px minmax(210px, 0.8fr) minmax(280px, 1.2fr);
+    gap: 22px;
+  }
+
+  .capability-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
 }
 
 @media (max-width: 760px) {
@@ -4958,6 +5190,14 @@ summary:focus-visible {
   .executive-outputs,
   .aar-section,
   .related-scopes {
+    padding-block: 68px 74px;
+  }
+
+  .capability-situations,
+  .capability-model,
+  .capability-interfaces,
+  .capability-routes,
+  .capability-outcomes {
     padding-block: 68px 74px;
   }
 
@@ -5069,6 +5309,48 @@ summary:focus-visible {
 
   .observation-example > div {
     padding: 22px;
+  }
+
+  .capability-situation-list,
+  .capability-route-list {
+    grid-template-columns: 1fr;
+  }
+
+  .capability-situation-list li,
+  .capability-situation-list li:nth-child(even) {
+    padding: 26px 0 29px;
+    border-left: 0;
+  }
+
+  .capability-model-list li {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 12px 18px;
+    padding: 26px 0 29px;
+  }
+
+  .capability-model-list p {
+    grid-column: 2;
+  }
+
+  .capability-route-list li,
+  .capability-route-list li:first-child,
+  .capability-route-list li:last-child {
+    min-height: 0;
+    padding: 28px 0 31px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line-light);
+  }
+
+  .capability-route-list li:last-child {
+    border-bottom: 0;
+  }
+
+  .capability-route-list h3 {
+    margin-top: 26px;
+  }
+
+  .capability-route-list .text-link {
+    margin-top: 4px;
   }
 }
 

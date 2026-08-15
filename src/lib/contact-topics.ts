@@ -3,6 +3,7 @@ import type { Locale } from '../i18n/routes';
 export const CONTACT_TOPICS = [
   'general',
   'advisory',
+  'crisis-management',
   'crisis-readiness-review',
   'exercises',
   'executive-tabletop'
@@ -24,6 +25,7 @@ const labels: Record<Locale, Record<ContactTopic, string>> = {
   pl: {
     general: 'Zapytanie ogólne',
     advisory: 'Doradztwo',
+    'crisis-management': 'Zarządzanie kryzysowe',
     'crisis-readiness-review': 'Crisis Readiness Review',
     exercises: 'Ćwiczenia kryzysowe',
     'executive-tabletop': 'Executive Tabletop Exercise'
@@ -31,6 +33,7 @@ const labels: Record<Locale, Record<ContactTopic, string>> = {
   en: {
     general: 'General enquiry',
     advisory: 'Advisory',
+    'crisis-management': 'Crisis Management',
     'crisis-readiness-review': 'Crisis Readiness Review',
     exercises: 'Crisis exercises',
     'executive-tabletop': 'Executive Tabletop Exercise'

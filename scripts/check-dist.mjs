@@ -10,6 +10,12 @@ const errors = [];
 const routeCases = [
   { route: '/', file: 'index.html', lang: 'pl', alternate: '/en/' },
   { route: '/oferta/', file: 'oferta/index.html', lang: 'pl', alternate: '/en/services/' },
+  {
+    route: '/oferta/zarzadzanie-kryzysowe/',
+    file: 'oferta/zarzadzanie-kryzysowe/index.html',
+    lang: 'pl',
+    alternate: '/en/services/crisis-management/'
+  },
   { route: '/o-clearstance/', file: 'o-clearstance/index.html', lang: 'pl', alternate: '/en/about/' },
   { route: '/insights/', file: 'insights/index.html', lang: 'pl', alternate: '/en/insights/' },
   {
@@ -21,6 +27,12 @@ const routeCases = [
   { route: '/kontakt/', file: 'kontakt/index.html', lang: 'pl', alternate: '/en/contact/' },
   { route: '/en/', file: 'en/index.html', lang: 'en', alternate: '/' },
   { route: '/en/services/', file: 'en/services/index.html', lang: 'en', alternate: '/oferta/' },
+  {
+    route: '/en/services/crisis-management/',
+    file: 'en/services/crisis-management/index.html',
+    lang: 'en',
+    alternate: '/oferta/zarzadzanie-kryzysowe/'
+  },
   { route: '/en/about/', file: 'en/about/index.html', lang: 'en', alternate: '/o-clearstance/' },
   { route: '/en/insights/', file: 'en/insights/index.html', lang: 'en', alternate: '/insights/' },
   {

@@ -6,6 +6,7 @@ interface Props {
   titleId?: string;
   variant?: 'default' | 'about';
   desktopTitleLines?: readonly string[];
+  action?: { label: string; href: string };
 }
 
 const {
@@ -14,7 +15,8 @@ const {
   lead,
   titleId = 'page-title',
   variant = 'default',
-  desktopTitleLines
+  desktopTitleLines,
+  action
 } = Astro.props;
 ---
 
@@ -38,7 +40,19 @@ const {
         )
       }
     </div>
-    <p class="page-intro-lead">{lead}</p>
+    {
+      action ? (
+        <div class="page-intro-action">
+          <p class="page-intro-lead">{lead}</p>
+          <a class="button button--ghost" href={action.href}>
+            <span>{action.label}</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      ) : (
+        <p class="page-intro-lead">{lead}</p>
+      )
+    }
   </div>
   <div class="page-intro-line" aria-hidden="true"></div>
 </section>

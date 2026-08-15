@@ -11,6 +11,7 @@ export const prerender = true;
 const staticPages: PageKey[] = [
   'home',
   'services',
+  'crisisManagement',
   'exercises',
   'executiveTabletop',
   'insights',

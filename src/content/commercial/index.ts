@@ -17,6 +17,7 @@ export type {
   AdvisoryContent,
   CapabilityContent,
   CommercialContent,
+  CrisisManagementContent,
   ExecutiveContent,
   ExercisePhase,
   ExercisesContent,

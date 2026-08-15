@@ -14,8 +14,9 @@ const collectHtmlFiles = async (directory) => {
   return files.flat();
 };
 
-const [homePl, homeEn, advisoryPl, advisoryEn, exercisesPl, exercisesEn, executivePl, executiveEn, contactPl, contactEn] = await Promise.all([
+const [homePl, homeEn, advisoryPl, advisoryEn, crisisManagementPl, crisisManagementEn, exercisesPl, exercisesEn, executivePl, executiveEn, contactPl, contactEn] = await Promise.all([
   readDist('/index.html'), readDist('/en/index.html'), readDist('/oferta/index.html'), readDist('/en/services/index.html'),
+  readDist('/oferta/zarzadzanie-kryzysowe/index.html'), readDist('/en/services/crisis-management/index.html'),
   readDist('/cwiczenia-kryzysowe/index.html'), readDist('/en/exercises/index.html'),
   readDist('/cwiczenia-kryzysowe/executive-tabletop/index.html'), readDist('/en/exercises/executive-tabletop/index.html'),
   readDist('/kontakt/index.html'), readDist('/en/contact/index.html')
@@ -65,6 +66,78 @@ test('advisory separates engagement activity from client outcomes', () => {
   assert.match(advisoryEn, /id="readiness-review"/u);
   assert.equal(count(advisoryPl, /class="capability-detail-heading"/gu), 3);
   assert.equal(count(advisoryEn, /class="capability-detail-heading"/gu), 3);
+  assert.match(advisoryPl, /id="model-dzialania-cmt"/u);
+  assert.match(advisoryEn, /id="cmt-operating-model"/u);
+  assert.match(advisoryPl, /href="\/oferta\/zarzadzanie-kryzysowe\/"[^>]*>Poznaj obszar/u);
+  assert.match(advisoryEn, /href="\/en\/services\/crisis-management\/"[^>]*>Explore the capability/u);
+});
+
+test('Crisis Management capability renders the approved bilingual buyer journey', () => {
+  const cases = [
+    {
+      html: crisisManagementPl,
+      h1: 'Model działania, który porządkuje decyzje podczas kryzysu.',
+      canonical: 'https://clearstance.pl/oferta/zarzadzanie-kryzysowe/',
+      alternate: 'https://clearstance.pl/en/services/crisis-management/',
+      contact: '/kontakt/?topic=crisis-management',
+      review: '/oferta/#przeglad-gotowosci',
+      cmt: '/oferta/#model-dzialania-cmt',
+      tabletop: '/cwiczenia-kryzysowe/executive-tabletop/',
+      insightOne: '/insights/kiedy-zespol-kryzysowy-traci-obraz-sytuacji/',
+      insightTwo: '/insights/plany-ciaglosci-zawodza-na-styku-odpowiedzialnosci/'
+    },
+    {
+      html: crisisManagementEn,
+      h1: 'A crisis management model that supports decisions and coordinated action.',
+      canonical: 'https://clearstance.pl/en/services/crisis-management/',
+      alternate: 'https://clearstance.pl/oferta/zarzadzanie-kryzysowe/',
+      contact: '/en/contact/?topic=crisis-management',
+      review: '/en/services/#readiness-review',
+      cmt: '/en/services/#cmt-operating-model',
+      tabletop: '/en/exercises/executive-tabletop/',
+      insightOne: '/en/insights/when-crisis-teams-lose-situational-awareness/',
+      insightTwo: '/en/insights/business-continuity-fails-at-the-interfaces/'
+    }
+  ];
+
+  const order = [
+    'page-intro',
+    'capability-situations',
+    'capability-model',
+    'capability-interfaces',
+    'capability-routes',
+    'capability-outcomes',
+    'commercial-insights',
+    'contact-band'
+  ];
+
+  for (const item of cases) {
+    let previous = -1;
+    for (const className of order) {
+      const position = item.html.indexOf(className);
+      assert.ok(position > previous, `${className} should follow the previous capability section`);
+      previous = position;
+    }
+
+    assert.equal(count(item.html, /<h1(?:\s|>)/gu), 1);
+    assert.ok(item.html.includes(`<h1 id="page-title">${item.h1}</h1>`));
+    assert.ok(item.html.includes(`rel="canonical" href="${item.canonical}"`));
+    assert.ok(item.html.includes(`hreflang="${item.html === crisisManagementPl ? 'en' : 'pl'}" href="${item.alternate}"`));
+    assert.ok(item.html.includes(`href="${item.contact}"`));
+    assert.ok(item.html.includes(`href="${item.review}"`));
+    assert.ok(item.html.includes(`href="${item.cmt}"`));
+    assert.ok(item.html.includes(`href="${item.tabletop}"`));
+    assert.ok(item.html.includes(`href="${item.insightOne}"`));
+    assert.ok(item.html.includes(`href="${item.insightTwo}"`));
+    assert.equal(count(item.html, /class="capability-situation-list"/gu), 1);
+    assert.equal(count(item.html, /class="capability-model-list"/gu), 1);
+    assert.equal(count(item.html, /class="capability-route-list"/gu), 1);
+    assert.match(item.html, /"@type":"Service"/u);
+    assert.match(item.html, /"@type":"BreadcrumbList"/u);
+  }
+
+  assert.match(homePl, /href="\/oferta\/zarzadzanie-kryzysowe\/"[^>]*>Poznaj zakres/u);
+  assert.match(homeEn, /href="\/en\/services\/crisis-management\/"[^>]*>Explore the scope/u);
 });
 
 test('exercise architecture keeps one flagship and three supporting formats', () => {
@@ -120,7 +193,7 @@ test('Executive Tabletop preserves observation logic and client-facing outcomes'
 });
 
 test('commercial copy excludes removed editorial and technical language', () => {
-  const commercialPages = [homePl, homeEn, advisoryPl, advisoryEn, exercisesPl, exercisesEn, executivePl, executiveEn];
+  const commercialPages = [homePl, homeEn, advisoryPl, advisoryEn, crisisManagementPl, crisisManagementEn, exercisesPl, exercisesEn, executivePl, executiveEn];
   const removedLanguage = [
     /—/u,
     /ClearStance nie sprzedaje certyfikacji/u,
@@ -148,10 +221,10 @@ test('commercial copy excludes removed editorial and technical language', () => 
 });
 
 test('Polish commercial copy protects one-letter words without changing routes or ids', () => {
-  const polishPages = [homePl, advisoryPl, exercisesPl, executivePl];
+  const polishPages = [homePl, advisoryPl, crisisManagementPl, exercisesPl, executivePl];
 
   for (const page of polishPages) {
-    const commercialMarkup = page.match(/<main id="main-content" class="commercial-page(?: executive-page)?">([\s\S]*?)<\/main>/u)?.[1] ?? '';
+    const commercialMarkup = page.match(/<main id="main-content" class="commercial-page(?: capability-page crisis-management-page| executive-page)?">([\s\S]*?)<\/main>/u)?.[1] ?? '';
     const visibleText = commercialMarkup
       .replace(/<script\b[\s\S]*?<\/script>/giu, '')
       .replace(/<style\b[\s\S]*?<\/style>/giu, '')
@@ -167,14 +240,16 @@ test('Polish commercial copy protects one-letter words without changing routes o
 });
 
 test('contact exposes only allowed topics and supports runtime language preservation', () => {
-  const topicValues = ['general', 'advisory', 'crisis-readiness-review', 'exercises', 'executive-tabletop'];
+  const topicValues = ['general', 'advisory', 'crisis-management', 'crisis-readiness-review', 'exercises', 'executive-tabletop'];
   for (const contact of [contactPl, contactEn]) {
     assert.match(contact, /name="topic"[^>]+data-contact-topic/u);
     assert.equal(count(contact, /<option value=/gu), topicValues.length);
     for (const topic of topicValues) assert.match(contact, new RegExp(`<option value="${topic}"`, 'u'));
-    assert.match(contact, /data-contact-topics="general,advisory,crisis-readiness-review,exercises,executive-tabletop"/u);
+    assert.match(contact, /data-contact-topics="general,advisory,crisis-management,crisis-readiness-review,exercises,executive-tabletop"/u);
     assert.match(contact, /data-language-switch/u);
   }
+  assert.match(contactPl, /<option value="crisis-management">Zarządzanie kryzysowe<\/option>/u);
+  assert.match(contactEn, /<option value="crisis-management">Crisis Management<\/option>/u);
 });
 
 test('final polish protects public headings and uses the accepted 404 title', () => {
@@ -189,7 +264,7 @@ test('canonical, hreflang, sitemap and service structured data cover new routes'
   assert.match(exercisesEn, /"@type":"Service"/u);
 
   const sitemap = await readDist('/sitemap.xml');
-  for (const path of ['/cwiczenia-kryzysowe/', '/cwiczenia-kryzysowe/executive-tabletop/', '/en/exercises/', '/en/exercises/executive-tabletop/']) {
+  for (const path of ['/oferta/zarzadzanie-kryzysowe/', '/en/services/crisis-management/', '/cwiczenia-kryzysowe/', '/cwiczenia-kryzysowe/executive-tabletop/', '/en/exercises/', '/en/exercises/executive-tabletop/']) {
     assert.ok(sitemap.includes(`https://clearstance.pl${path}`));
   }
 });

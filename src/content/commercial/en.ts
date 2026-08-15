@@ -89,6 +89,143 @@ export const commercialEn: CommercialContent = {
     insights: { eyebrow: 'Insights', title: 'ClearStance Insights', copy: 'Writing on organisational readiness, team performance, exercises and decisions made with incomplete information.', all: 'View all insights' },
     contact: { eyebrow: 'Contact', title: 'Let’s discuss what the organisation needs.', text: 'We can start with a planned exercise, a readiness review or a specific area that needs to be clarified.', cta: 'Discuss your organisation’s needs' }
   },
+  crisisManagement: {
+    meta: {
+      title: 'Crisis management operating models | ClearStance',
+      description: 'Advisory on CMT operating models, activation, escalation, situational awareness, decisions, action tracking and organisational interfaces.'
+    },
+    hero: {
+      eyebrow: 'Crisis management',
+      title: 'A crisis management model that supports decisions and coordinated action.',
+      lead: 'ClearStance helps organisations design and strengthen how the crisis management team operates. The work can cover the CMT mandate and membership, activation, escalation, the common operating picture, information flow, decisions and the interfaces with operations, communications and affected-people functions.',
+      cta: 'Discuss your organisation’s needs'
+    },
+    situations: {
+      eyebrow: 'Typical situations',
+      title: 'Signs that the operating model needs to be realigned.',
+      intro: 'The need for change often follows a reorganisation, an important exercise, a real incident or new group requirements. In each case, formal arrangements need to connect with how decisions are made in practice.',
+      items: [
+        {
+          title: 'Roles are documented, but decisions still depend on a few people',
+          text: 'Practical authority, deputies and accountability for follow-up actions need to be clarified.'
+        },
+        {
+          title: 'The organisation’s structure has changed',
+          text: 'New functions, reporting lines or accountabilities create different interfaces and escalation paths.'
+        },
+        {
+          title: 'The CMT is working from different versions of the situation',
+          text: 'Updates arrive from several sources, and the team needs a shared way to assess information and identify the decisions required.'
+        },
+        {
+          title: 'An exercise or incident has left actions dispersed',
+          text: 'Findings span several documents, teams and tools. A single, structured model is needed to guide the next stage of work.'
+        }
+      ]
+    },
+    model: {
+      eyebrow: 'Areas of work',
+      title: 'The elements of a coherent operating model.',
+      intro: 'A crisis management model brings structure, information and decisions together. Each element should reflect how the organisation actually works and the incidents that may require leadership involvement.',
+      items: [
+        {
+          title: 'Mandate, membership and roles',
+          text: 'The CMT purpose, remit, standing membership, supporting roles and relationship with leadership and operational structures.'
+        },
+        {
+          title: 'Activation and escalation',
+          text: 'Activation criteria, response levels, escalation thresholds, notification arrangements and the principles for moving between levels of management.'
+        },
+        {
+          title: 'Common operating picture',
+          text: 'An agreed set of information used to assess incident impact, organisational priorities, assumptions and the areas that require decisions.'
+        },
+        {
+          title: 'Operating rhythm and decisions',
+          text: 'Meeting frequency, agenda structure, preparation of updates, use of decision authority and the way decisions are passed into action.'
+        },
+        {
+          title: 'Actions and record keeping',
+          text: 'Recording decisions, assigning owners, setting update times and maintaining a view of work in progress between meetings.'
+        },
+        {
+          title: 'Organisational interfaces',
+          text: 'The flow of information and accountability between the CMT, operations, BCM, communications, HR, security and functions supporting people affected by the incident.'
+        }
+      ]
+    },
+    interfaces: {
+      eyebrow: 'Organisational interfaces',
+      title: 'The CMT connects strategic decisions with work across the organisation.',
+      intro: 'The model depends on effective links between the crisis management team and the functions that provide information and carry out actions.',
+      items: [
+        {
+          id: 'operations',
+          title: 'Operations and business continuity',
+          text: 'The CMT needs a reliable picture of incident impact, available options, dependencies and the likely consequences of decisions.'
+        },
+        {
+          id: 'communication',
+          title: 'Crisis communications',
+          text: 'The communications team needs a current situational picture, agreed priorities and an effective route for approving successive messages.'
+        },
+        {
+          id: 'affected-people',
+          title: 'Affected-people support',
+          text: 'Decisions about people require operational information, practical needs, communication with families and coordination with external partners to be brought together.'
+        }
+      ],
+      link: 'Explore the scope'
+    },
+    routes: {
+      eyebrow: 'A place to start',
+      title: 'The scope of work follows the organisation’s question.',
+      items: [
+        {
+          id: 'readiness-review',
+          title: 'Crisis Readiness Review',
+          text: 'The review gives leadership a structured view of current arrangements and improvement priorities. It can provide the starting point for a wider change to the operating model or an important exercise.',
+          link: 'Explore Crisis Readiness Review'
+        },
+        {
+          id: 'cmt-model',
+          title: 'CMT operating model',
+          text: 'Focused work on the mandate, roles, activation, meeting rhythm, information, decisions and the tools that support the team.',
+          link: 'Explore the CMT operating model'
+        },
+        {
+          id: 'executive-tabletop',
+          title: 'Executive Tabletop Exercise',
+          text: 'A facilitated session tests how the CMT and leadership work through an evolving situation that requires priorities, decisions and coordination.',
+          link: 'Explore Executive Tabletop Exercise'
+        }
+      ]
+    },
+    outcomes: {
+      eyebrow: 'After the engagement',
+      title: 'Outcomes that support the next stage of work.',
+      intro: 'The work can lead to an agreed crisis management operating model and practical tools that support its use.',
+      items: [
+        'the CMT mandate, membership and operating model',
+        'descriptions of roles, responsibilities and decision authority',
+        'activation, escalation and deputy arrangements',
+        'the meeting rhythm and structure of the common operating picture',
+        'a method for recording decisions and tracking actions',
+        'principles for working with operations, communications and people-support functions',
+        'a prioritised plan for further changes and exercises'
+      ]
+    },
+    insights: {
+      eyebrow: 'Related insights',
+      title: 'Decisions, information and organisational interfaces.',
+      copy: 'Selected insights examine two issues that matter particularly to CMT work: maintaining a common operating picture and working across organisational responsibilities.'
+    },
+    contact: {
+      title: 'Let’s discuss what the organisation needs.',
+      text: 'A short description of the current model, a planned change or an issue revealed by an exercise is enough to frame an initial conversation.',
+      cta: 'Discuss your organisation’s needs'
+    }
+  },
   advisory: {
     meta: { title: 'Crisis management advisory | ClearStance', description: 'Advisory for organisations developing their crisis management operating model, communication and affected-people arrangements.' },
     hero: { eyebrow: 'Advisory', title: 'Advisory for organisations preparing for serious incidents.', lead: 'ClearStance assesses and designs structures, roles, escalation principles, information flow and tools that support an organisation during a crisis.' },

@@ -80,6 +80,28 @@ export interface HomeCommercialContent {
   };
 }
 
+export interface CrisisManagementContent {
+  meta: CommercialMeta;
+  hero: { eyebrow: string; title: string; lead: string; cta: string };
+  situations: { eyebrow: string; title: string; intro: string; items: CopyItem[] };
+  model: { eyebrow: string; title: string; intro: string; items: CopyItem[] };
+  interfaces: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    items: Array<CopyItem & { id: 'operations' | 'communication' | 'affected-people' }>;
+    link: string;
+  };
+  routes: {
+    eyebrow: string;
+    title: string;
+    items: Array<CopyItem & { id: 'readiness-review' | 'cmt-model' | 'executive-tabletop'; link: string }>;
+  };
+  outcomes: { eyebrow: string; title: string; intro: string; items: string[] };
+  insights: { eyebrow: string; title: string; copy: string };
+  contact: { title: string; text: string; cta: string };
+}
+
 export interface AdvisoryContent {
   meta: CommercialMeta;
   hero: { eyebrow: string; title: string; lead: string };
@@ -183,6 +205,7 @@ export interface CommercialContent {
   capabilities: CapabilityContent[];
   exercisePhases: ExercisePhase[];
   home: HomeCommercialContent;
+  crisisManagement: CrisisManagementContent;
   advisory: AdvisoryContent;
   exercises: ExercisesContent;
   executive: ExecutiveContent;
