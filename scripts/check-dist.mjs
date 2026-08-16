@@ -22,6 +22,12 @@ const routeCases = [
     lang: 'pl',
     alternate: '/en/services/crisis-communication-preparedness/'
   },
+  {
+    route: '/oferta/wsparcie-osob-i-rodzin/',
+    file: 'oferta/wsparcie-osob-i-rodzin/index.html',
+    lang: 'pl',
+    alternate: '/en/services/affected-people-family-assistance/'
+  },
   { route: '/o-clearstance/', file: 'o-clearstance/index.html', lang: 'pl', alternate: '/en/about/' },
   { route: '/insights/', file: 'insights/index.html', lang: 'pl', alternate: '/en/insights/' },
   {
@@ -44,6 +50,12 @@ const routeCases = [
     file: 'en/services/crisis-communication-preparedness/index.html',
     lang: 'en',
     alternate: '/oferta/komunikacja-kryzysowa/'
+  },
+  {
+    route: '/en/services/affected-people-family-assistance/',
+    file: 'en/services/affected-people-family-assistance/index.html',
+    lang: 'en',
+    alternate: '/oferta/wsparcie-osob-i-rodzin/'
   },
   { route: '/en/about/', file: 'en/about/index.html', lang: 'en', alternate: '/o-clearstance/' },
   { route: '/en/insights/', file: 'en/insights/index.html', lang: 'en', alternate: '/insights/' },

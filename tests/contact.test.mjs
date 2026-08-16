@@ -191,9 +191,11 @@ test('accepts every allowed topic and derives a fixed localized subject', async 
     ['en', 'advisory', '[ClearStance] Advisory'],
     ['en', 'crisis-management', '[ClearStance] Crisis Management'],
     ['en', 'crisis-communication', '[ClearStance] Crisis Communication Preparedness'],
+    ['en', 'affected-people', '[ClearStance] Affected People & Family Assistance'],
     ['en', 'crisis-readiness-review', '[ClearStance] Crisis Readiness Review'],
     ['pl', 'crisis-management', '[ClearStance] Zarządzanie kryzysowe'],
     ['pl', 'crisis-communication', '[ClearStance] Przygotowanie do komunikacji kryzysowej'],
+    ['pl', 'affected-people', '[ClearStance] Wsparcie osób dotkniętych zdarzeniem'],
     ['pl', 'exercises', '[ClearStance] Ćwiczenia kryzysowe'],
     ['pl', 'executive-tabletop', '[ClearStance] Executive Tabletop Exercise']
   ];
@@ -222,6 +224,12 @@ test('resolves the Crisis Communication topic in both languages', () => {
   assert.equal(getContactTopicLabel('pl', 'crisis-communication'), 'Przygotowanie do komunikacji kryzysowej');
   assert.equal(getContactTopicLabel('en', 'crisis-communication'), 'Crisis Communication Preparedness');
   assert.equal(resolveContactTopic('crisis-communication'), 'crisis-communication');
+});
+
+test('resolves the Affected People topic in both languages', () => {
+  assert.equal(getContactTopicLabel('pl', 'affected-people'), 'Wsparcie osób dotkniętych zdarzeniem');
+  assert.equal(getContactTopicLabel('en', 'affected-people'), 'Affected People & Family Assistance');
+  assert.equal(resolveContactTopic('affected-people'), 'affected-people');
 });
 
 test('rejects a topic outside the server allowlist before verification', async () => {

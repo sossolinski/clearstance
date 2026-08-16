@@ -12,44 +12,35 @@ import PageIntro from '../sections/PageIntro.astro';
 interface Props { locale: Locale; }
 
 const { locale } = Astro.props;
-const page = getCommercialContent(locale).crisisManagement;
+const page = getCommercialContent(locale).affectedPeople;
 const otherLocale = locale === 'pl' ? 'en' : 'pl';
 const insights = await getInsightsByTranslationKeys(locale, [
-  'crisis-situational-awareness',
-  'continuity-at-interfaces'
+  'continuity-at-interfaces',
+  'first-hour-crisis-communication'
 ]);
 const absolute = (path: string) => new URL(path, Astro.site).toString();
-const interfaceHref = (id: typeof page.interfaces.items[number]['id']) => {
-  if (id === 'communication') {
-    return getRoute(locale, 'crisisCommunication');
-  }
-
-  if (id === 'affected-people') {
-    return getRoute(locale, 'affectedPeople');
-  }
-
+const responsibilityHref = (id: typeof page.responsibilities.items[number]['id']) => {
+  if (id === 'cmt') return getRoute(locale, 'crisisManagement');
+  if (id === 'communication') return getRoute(locale, 'crisisCommunication');
   return undefined;
 };
-const routeHref = (id: typeof page.routes.items[number]['id']) => {
-  if (id === 'readiness-review') {
-    return `${getRoute(locale, 'services')}#${locale === 'pl' ? 'przeglad-gotowosci' : 'readiness-review'}`;
-  }
-
-  if (id === 'cmt-model') {
-    return `${getRoute(locale, 'services')}#${locale === 'pl' ? 'model-dzialania-cmt' : 'cmt-operating-model'}`;
-  }
-
-  return getRoute(locale, 'executiveTabletop');
-};
+const responsibilityLink = (id: typeof page.responsibilities.items[number]['id']) =>
+  id === 'cmt'
+    ? page.responsibilities.crisisManagementLink
+    : page.responsibilities.crisisCommunicationLink;
+const routeHref = (id: typeof page.routes.items[number]['id']) =>
+  id === 'advisory'
+    ? `${getRoute(locale, 'services')}#${locale === 'pl' ? 'wsparcie-osob-i-rodzin' : 'affected-people'}`
+    : `${getRoute(locale, 'exercises')}#affected-people-exercise`;
 const schema = [
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: page.hero.eyebrow,
     description: page.meta.description,
-    serviceType: locale === 'pl' ? 'Doradztwo w zarządzaniu kryzysowym' : 'Crisis management advisory',
+    serviceType: locale === 'pl' ? 'Wsparcie osób dotkniętych zdarzeniem' : 'Affected people and family assistance',
     provider: { '@type': 'Organization', name: 'ClearStance' },
-    url: absolute(getRoute(locale, 'crisisManagement')),
+    url: absolute(getRoute(locale, 'affectedPeople')),
     areaServed: { '@type': 'Country', name: 'Poland' }
   },
   {
@@ -58,7 +49,7 @@ const schema = [
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: locale === 'pl' ? 'Strona główna' : 'Home', item: absolute(getRoute(locale, 'home')) },
       { '@type': 'ListItem', position: 2, name: locale === 'pl' ? 'Doradztwo' : 'Advisory', item: absolute(getRoute(locale, 'services')) },
-      { '@type': 'ListItem', position: 3, name: page.hero.eyebrow, item: absolute(getRoute(locale, 'crisisManagement')) }
+      { '@type': 'ListItem', position: 3, name: page.hero.eyebrow, item: absolute(getRoute(locale, 'affectedPeople')) }
     ]
   }
 ];
@@ -68,30 +59,27 @@ const schema = [
   locale={locale}
   title={page.meta.title}
   description={page.meta.description}
-  canonicalPath={getRoute(locale, 'crisisManagement')}
-  alternatePath={getRoute(otherLocale, 'crisisManagement')}
-  plPath={getRoute('pl', 'crisisManagement')}
-  enPath={getRoute('en', 'crisisManagement')}
-  xDefaultPath={getRoute('pl', 'crisisManagement')}
+  canonicalPath={getRoute(locale, 'affectedPeople')}
+  alternatePath={getRoute(otherLocale, 'affectedPeople')}
+  plPath={getRoute('pl', 'affectedPeople')}
+  enPath={getRoute('en', 'affectedPeople')}
+  xDefaultPath={getRoute('pl', 'affectedPeople')}
   currentPage="services"
   structuredData={schema}
 >
-  <main id="main-content" class="commercial-page capability-page crisis-management-page">
+  <main id="main-content" class="commercial-page capability-page affected-people-page">
     <PageIntro
       eyebrow={page.hero.eyebrow}
       title={page.hero.title}
       lead={page.hero.lead}
-      action={{
-        label: page.hero.cta,
-        href: getContactPathWithTopic(locale, 'crisis-management')
-      }}
+      action={{ label: page.hero.cta, href: getContactPathWithTopic(locale, 'affected-people') }}
     />
 
-    <section class="capability-situations" aria-labelledby="capability-situations-title">
+    <section class="capability-situations" aria-labelledby="people-situations-title">
       <div class="wrap">
         <div class="commercial-section-heading" data-reveal>
           <p class="eyebrow">{page.situations.eyebrow}</p>
-          <h2 id="capability-situations-title">{page.situations.title}</h2>
+          <h2 id="people-situations-title">{page.situations.title}</h2>
           <p>{page.situations.intro}</p>
         </div>
         <ol class="capability-situation-list" data-reveal>
@@ -106,15 +94,14 @@ const schema = [
       </div>
     </section>
 
-    <section class="capability-model" aria-labelledby="capability-model-title">
+    <section class="capability-people-flow" aria-labelledby="people-flow-title">
       <div class="wrap">
         <div class="commercial-section-heading" data-reveal>
-          <p class="eyebrow">{page.model.eyebrow}</p>
-          <h2 id="capability-model-title">{page.model.title}</h2>
-          <p>{page.model.intro}</p>
+          <p class="eyebrow">{page.supportFlow.eyebrow}</p>
+          <h2 id="people-flow-title">{page.supportFlow.title}</h2>
         </div>
-        <ol class="capability-model-list" data-reveal>
-          {page.model.items.map((item, index) => (
+        <ol class="people-support-flow" data-reveal>
+          {page.supportFlow.items.map((item, index) => (
             <li>
               <span>{String(index + 1).padStart(2, '0')}</span>
               <h3>{item.title}</h3>
@@ -125,23 +112,22 @@ const schema = [
       </div>
     </section>
 
-    <section class="capability-interfaces" aria-labelledby="capability-interfaces-title">
+    <section class="responsibility-network" aria-labelledby="responsibility-network-title">
       <div class="wrap capability-editorial-grid">
         <div data-reveal>
-          <p class="eyebrow">{page.interfaces.eyebrow}</p>
-          <h2 id="capability-interfaces-title">{page.interfaces.title}</h2>
-          <p class="section-lead">{page.interfaces.intro}</p>
+          <p class="eyebrow">{page.responsibilities.eyebrow}</p>
+          <h2 id="responsibility-network-title">{page.responsibilities.title}</h2>
         </div>
-        <ul class="capability-interface-list" data-reveal>
-          {page.interfaces.items.map((item) => {
-            const href = interfaceHref(item.id);
+        <ul class="responsibility-network-list" data-reveal>
+          {page.responsibilities.items.map((item) => {
+            const href = responsibilityHref(item.id);
             return (
               <li>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
                 {href && (
                   <a class="text-link" href={href}>
-                    {page.interfaces.link} <span aria-hidden="true">→</span>
+                    {responsibilityLink(item.id)} <span aria-hidden="true">→</span>
                   </a>
                 )}
               </li>
@@ -151,13 +137,13 @@ const schema = [
       </div>
     </section>
 
-    <section class="capability-routes" aria-labelledby="capability-routes-title">
+    <section class="capability-routes" aria-labelledby="people-routes-title">
       <div class="wrap">
         <div class="commercial-section-heading" data-reveal>
           <p class="eyebrow eyebrow--light">{page.routes.eyebrow}</p>
-          <h2 id="capability-routes-title">{page.routes.title}</h2>
+          <h2 id="people-routes-title">{page.routes.title}</h2>
         </div>
-        <ol class="capability-route-list" data-reveal>
+        <ol class="capability-route-list capability-route-list--two" data-reveal>
           {page.routes.items.map((item, index) => (
             <li>
               <span>{String(index + 1).padStart(2, '0')}</span>
@@ -172,12 +158,11 @@ const schema = [
       </div>
     </section>
 
-    <section class="capability-outcomes" aria-labelledby="capability-outcomes-title">
+    <section class="capability-outcomes" aria-labelledby="people-outcomes-title">
       <div class="wrap capability-editorial-grid">
         <div data-reveal>
           <p class="eyebrow">{page.outcomes.eyebrow}</p>
-          <h2 id="capability-outcomes-title">{page.outcomes.title}</h2>
-          <p class="section-lead">{page.outcomes.intro}</p>
+          <h2 id="people-outcomes-title">{page.outcomes.title}</h2>
         </div>
         <ul class="capability-outcome-list" data-reveal>
           {page.outcomes.items.map((item) => <li>{item}</li>)}
@@ -194,6 +179,6 @@ const schema = [
         copy={page.insights.copy}
       />
     )}
-    <ContactBand locale={locale} content={page.contact} topic="crisis-management" />
+    <ContactBand locale={locale} content={page.contact} topic="affected-people" />
   </main>
 </BaseLayout>

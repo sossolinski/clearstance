@@ -5,6 +5,7 @@ export const CONTACT_TOPICS = [
   'advisory',
   'crisis-management',
   'crisis-communication',
+  'affected-people',
   'crisis-readiness-review',
   'exercises',
   'executive-tabletop'
@@ -28,6 +29,7 @@ const labels: Record<Locale, Record<ContactTopic, string>> = {
     advisory: 'Doradztwo',
     'crisis-management': 'Zarządzanie kryzysowe',
     'crisis-communication': 'Przygotowanie do komunikacji kryzysowej',
+    'affected-people': 'Wsparcie osób dotkniętych zdarzeniem',
     'crisis-readiness-review': 'Crisis Readiness Review',
     exercises: 'Ćwiczenia kryzysowe',
     'executive-tabletop': 'Executive Tabletop Exercise'
@@ -37,6 +39,7 @@ const labels: Record<Locale, Record<ContactTopic, string>> = {
     advisory: 'Advisory',
     'crisis-management': 'Crisis Management',
     'crisis-communication': 'Crisis Communication Preparedness',
+    'affected-people': 'Affected People & Family Assistance',
     'crisis-readiness-review': 'Crisis Readiness Review',
     exercises: 'Crisis exercises',
     'executive-tabletop': 'Executive Tabletop Exercise'

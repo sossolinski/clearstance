@@ -14,10 +14,11 @@ const collectHtmlFiles = async (directory) => {
   return files.flat();
 };
 
-const [homePl, homeEn, advisoryPl, advisoryEn, crisisManagementPl, crisisManagementEn, crisisCommunicationPl, crisisCommunicationEn, exercisesPl, exercisesEn, executivePl, executiveEn, contactPl, contactEn] = await Promise.all([
+const [homePl, homeEn, advisoryPl, advisoryEn, crisisManagementPl, crisisManagementEn, crisisCommunicationPl, crisisCommunicationEn, affectedPeoplePl, affectedPeopleEn, exercisesPl, exercisesEn, executivePl, executiveEn, contactPl, contactEn] = await Promise.all([
   readDist('/index.html'), readDist('/en/index.html'), readDist('/oferta/index.html'), readDist('/en/services/index.html'),
   readDist('/oferta/zarzadzanie-kryzysowe/index.html'), readDist('/en/services/crisis-management/index.html'),
   readDist('/oferta/komunikacja-kryzysowa/index.html'), readDist('/en/services/crisis-communication-preparedness/index.html'),
+  readDist('/oferta/wsparcie-osob-i-rodzin/index.html'), readDist('/en/services/affected-people-family-assistance/index.html'),
   readDist('/cwiczenia-kryzysowe/index.html'), readDist('/en/exercises/index.html'),
   readDist('/cwiczenia-kryzysowe/executive-tabletop/index.html'), readDist('/en/exercises/executive-tabletop/index.html'),
   readDist('/kontakt/index.html'), readDist('/en/contact/index.html')
@@ -210,6 +211,79 @@ test('Crisis Communication capability renders the approved bilingual buyer journ
   assert.match(crisisManagementEn, /href="\/en\/services\/crisis-communication-preparedness\/"[^>]*>Explore the scope/u);
 });
 
+test('Affected People capability renders the approved bilingual buyer journey', () => {
+  const cases = [
+    {
+      html: affectedPeoplePl,
+      h1: 'Organizacyjne przygotowanie do wsparcia ludzi po poważnym zdarzeniu.',
+      canonical: 'https://clearstance.pl/oferta/wsparcie-osob-i-rodzin/',
+      alternate: 'https://clearstance.pl/en/services/affected-people-family-assistance/',
+      hreflang: 'en',
+      contact: '/kontakt/?topic=affected-people',
+      advisory: '/oferta/#wsparcie-osob-i-rodzin',
+      exercise: '/cwiczenia-kryzysowe/#affected-people-exercise',
+      crisisManagement: '/oferta/zarzadzanie-kryzysowe/',
+      crisisCommunication: '/oferta/komunikacja-kryzysowa/',
+      insightOne: '/insights/plany-ciaglosci-zawodza-na-styku-odpowiedzialnosci/',
+      insightTwo: '/insights/pierwsza-godzina-komunikacji-kryzysowej/'
+    },
+    {
+      html: affectedPeopleEn,
+      h1: 'Organisational readiness to support people after a serious incident.',
+      canonical: 'https://clearstance.pl/en/services/affected-people-family-assistance/',
+      alternate: 'https://clearstance.pl/oferta/wsparcie-osob-i-rodzin/',
+      hreflang: 'pl',
+      contact: '/en/contact/?topic=affected-people',
+      advisory: '/en/services/#affected-people',
+      exercise: '/en/exercises/#affected-people-exercise',
+      crisisManagement: '/en/services/crisis-management/',
+      crisisCommunication: '/en/services/crisis-communication-preparedness/',
+      insightOne: '/en/insights/business-continuity-fails-at-the-interfaces/',
+      insightTwo: '/en/insights/the-first-hour-of-crisis-communication/'
+    }
+  ];
+  const order = [
+    'page-intro',
+    'capability-situations',
+    'capability-people-flow',
+    'responsibility-network',
+    'capability-routes',
+    'capability-outcomes',
+    'commercial-insights',
+    'contact-band'
+  ];
+
+  for (const item of cases) {
+    let previous = -1;
+    for (const className of order) {
+      const position = item.html.indexOf(className);
+      assert.ok(position > previous, `${className} should follow the previous affected-people section`);
+      previous = position;
+    }
+    assert.equal(count(item.html, /<h1(?:\s|>)/gu), 1);
+    assert.ok(item.html.includes(`<h1 id="page-title">${item.h1}</h1>`));
+    assert.ok(item.html.includes(`rel="canonical" href="${item.canonical}"`));
+    assert.ok(item.html.includes(`hreflang="${item.hreflang}" href="${item.alternate}"`));
+    for (const href of [item.contact, item.advisory, item.exercise, item.crisisManagement, item.crisisCommunication, item.insightOne, item.insightTwo]) {
+      assert.ok(item.html.includes(`href="${href}"`), `${href} should be linked`);
+    }
+    const flow = item.html.match(/<ol class="people-support-flow"[\s\S]*?<\/ol>/u)?.[0] ?? '';
+    const network = item.html.match(/<ul class="responsibility-network-list"[\s\S]*?<\/ul>/u)?.[0] ?? '';
+    assert.equal(count(flow, /<li>/gu), 5);
+    assert.equal(count(network, /<li>/gu), 4);
+    assert.equal(count(item.html, /class="capability-route-list capability-route-list--two"/gu), 1);
+    assert.match(item.html, /"@type":"Service"/u);
+    assert.match(item.html, /"@type":"BreadcrumbList"/u);
+  }
+
+  assert.match(homePl, /href="\/oferta\/wsparcie-osob-i-rodzin\/"[^>]*>Poznaj zakres/u);
+  assert.match(homeEn, /href="\/en\/services\/affected-people-family-assistance\/"[^>]*>Explore the scope/u);
+  assert.match(advisoryPl, /href="\/oferta\/wsparcie-osob-i-rodzin\/"[^>]*>Poznaj obszar/u);
+  assert.match(advisoryEn, /href="\/en\/services\/affected-people-family-assistance\/"[^>]*>Explore the capability/u);
+  assert.match(crisisManagementPl, /href="\/oferta\/wsparcie-osob-i-rodzin\/"[^>]*>Poznaj obszar/u);
+  assert.match(crisisManagementEn, /href="\/en\/services\/affected-people-family-assistance\/"[^>]*>Explore the scope/u);
+});
+
 test('exercise architecture keeps one flagship and three supporting formats', () => {
   for (const exercises of [exercisesPl, exercisesEn]) {
     assert.equal(count(exercises, /class="format-card(?: format-card--featured)?"/gu), 4);
@@ -263,7 +337,7 @@ test('Executive Tabletop preserves observation logic and client-facing outcomes'
 });
 
 test('commercial copy excludes removed editorial and technical language', () => {
-  const commercialPages = [homePl, homeEn, advisoryPl, advisoryEn, crisisManagementPl, crisisManagementEn, crisisCommunicationPl, crisisCommunicationEn, exercisesPl, exercisesEn, executivePl, executiveEn];
+  const commercialPages = [homePl, homeEn, advisoryPl, advisoryEn, crisisManagementPl, crisisManagementEn, crisisCommunicationPl, crisisCommunicationEn, affectedPeoplePl, affectedPeopleEn, exercisesPl, exercisesEn, executivePl, executiveEn];
   const removedLanguage = [
     /—/u,
     /ClearStance nie sprzedaje certyfikacji/u,
@@ -291,10 +365,10 @@ test('commercial copy excludes removed editorial and technical language', () => 
 });
 
 test('Polish commercial copy protects one-letter words without changing routes or ids', () => {
-  const polishPages = [homePl, advisoryPl, crisisManagementPl, crisisCommunicationPl, exercisesPl, executivePl];
+  const polishPages = [homePl, advisoryPl, crisisManagementPl, crisisCommunicationPl, affectedPeoplePl, exercisesPl, executivePl];
 
   for (const page of polishPages) {
-    const commercialMarkup = page.match(/<main id="main-content" class="commercial-page(?: capability-page (?:crisis-management|crisis-communication)-page| executive-page)?">([\s\S]*?)<\/main>/u)?.[1] ?? '';
+    const commercialMarkup = page.match(/<main id="main-content" class="commercial-page(?: capability-page (?:crisis-management|crisis-communication|affected-people)-page| executive-page)?">([\s\S]*?)<\/main>/u)?.[1] ?? '';
     const visibleText = commercialMarkup
       .replace(/<script\b[\s\S]*?<\/script>/giu, '')
       .replace(/<style\b[\s\S]*?<\/style>/giu, '')
@@ -310,18 +384,20 @@ test('Polish commercial copy protects one-letter words without changing routes o
 });
 
 test('contact exposes only allowed topics and supports runtime language preservation', () => {
-  const topicValues = ['general', 'advisory', 'crisis-management', 'crisis-communication', 'crisis-readiness-review', 'exercises', 'executive-tabletop'];
+  const topicValues = ['general', 'advisory', 'crisis-management', 'crisis-communication', 'affected-people', 'crisis-readiness-review', 'exercises', 'executive-tabletop'];
   for (const contact of [contactPl, contactEn]) {
     assert.match(contact, /name="topic"[^>]+data-contact-topic/u);
     assert.equal(count(contact, /<option value=/gu), topicValues.length);
     for (const topic of topicValues) assert.match(contact, new RegExp(`<option value="${topic}"`, 'u'));
-    assert.match(contact, /data-contact-topics="general,advisory,crisis-management,crisis-communication,crisis-readiness-review,exercises,executive-tabletop"/u);
+    assert.match(contact, /data-contact-topics="general,advisory,crisis-management,crisis-communication,affected-people,crisis-readiness-review,exercises,executive-tabletop"/u);
     assert.match(contact, /data-language-switch/u);
   }
   assert.match(contactPl, /<option value="crisis-management">Zarządzanie kryzysowe<\/option>/u);
   assert.match(contactEn, /<option value="crisis-management">Crisis Management<\/option>/u);
   assert.match(contactPl, /<option value="crisis-communication">Przygotowanie do komunikacji kryzysowej<\/option>/u);
   assert.match(contactEn, /<option value="crisis-communication">Crisis Communication Preparedness<\/option>/u);
+  assert.match(contactPl, /<option value="affected-people">Wsparcie osób dotkniętych zdarzeniem<\/option>/u);
+  assert.match(contactEn, /<option value="affected-people">Affected People &amp; Family Assistance<\/option>/u);
 });
 
 test('final polish protects public headings and uses the accepted 404 title', () => {
@@ -336,7 +412,7 @@ test('canonical, hreflang, sitemap and service structured data cover new routes'
   assert.match(exercisesEn, /"@type":"Service"/u);
 
   const sitemap = await readDist('/sitemap.xml');
-  for (const path of ['/oferta/zarzadzanie-kryzysowe/', '/en/services/crisis-management/', '/oferta/komunikacja-kryzysowa/', '/en/services/crisis-communication-preparedness/', '/cwiczenia-kryzysowe/', '/cwiczenia-kryzysowe/executive-tabletop/', '/en/exercises/', '/en/exercises/executive-tabletop/']) {
+  for (const path of ['/oferta/zarzadzanie-kryzysowe/', '/en/services/crisis-management/', '/oferta/komunikacja-kryzysowa/', '/en/services/crisis-communication-preparedness/', '/oferta/wsparcie-osob-i-rodzin/', '/en/services/affected-people-family-assistance/', '/cwiczenia-kryzysowe/', '/cwiczenia-kryzysowe/executive-tabletop/', '/en/exercises/', '/en/exercises/executive-tabletop/']) {
     assert.ok(sitemap.includes(`https://clearstance.pl${path}`));
   }
 });

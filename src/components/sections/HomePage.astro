@@ -26,6 +26,7 @@ const capabilityIcons = ['network', 'message-text', 'community'] as const;
 const capabilityHref = (id: typeof commercial.capabilities[number]['id'], anchor: string) => {
   if (id === 'crisis-management') return getRoute(locale, 'crisisManagement');
   if (id === 'crisis-communication') return getRoute(locale, 'crisisCommunication');
+  if (id === 'affected-people') return getRoute(locale, 'affectedPeople');
   return `${getRoute(locale, 'services')}#${anchor}`;
 };
 const professionalServiceSchema = {

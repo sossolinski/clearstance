@@ -13,6 +13,7 @@ const staticPages: PageKey[] = [
   'services',
   'crisisManagement',
   'crisisCommunication',
+  'affectedPeople',
   'exercises',
   'executiveTabletop',
   'insights',

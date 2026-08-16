@@ -18,6 +18,7 @@ const capabilityIcons = ['network', 'message-text', 'community'] as const;
 const capabilityPage = (id: typeof content.capabilities[number]['id']) => {
   if (id === 'crisis-management') return 'crisisManagement';
   if (id === 'crisis-communication') return 'crisisCommunication';
+  if (id === 'affected-people') return 'affectedPeople';
   return undefined;
 };
 const insights = await getInsightsByTranslationKeys(locale, ['crisis-situational-awareness', 'continuity-at-interfaces', 'first-hour-crisis-communication']);

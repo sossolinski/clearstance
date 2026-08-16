@@ -434,6 +434,138 @@ export const commercialPl: CommercialContent = {
       cta: 'Omów przygotowanie komunikacji kryzysowej'
     }
   },
+  affectedPeople: {
+    meta: {
+      title: 'Wsparcie osób dotkniętych zdarzeniem | ClearStance',
+      description: 'Projektowanie organizacyjnych rozwiązań wspierających osoby dotknięte zdarzeniem, ich bliskich i zespoły odpowiedzialne za reakcję.'
+    },
+    hero: {
+      eyebrow: 'Wsparcie osób dotkniętych zdarzeniem i ich bliskich',
+      title: 'Organizacyjne przygotowanie do wsparcia ludzi po poważnym zdarzeniu.',
+      lead: 'ClearStance projektuje struktury, role, przepływ informacji i praktyczne rozwiązania potrzebne do wsparcia osób bezpośrednio dotkniętych zdarzeniem, ich bliskich oraz personelu zaangażowanego w reakcję. Model jest dopasowany do odpowiedzialności organizacji, jej lokalizacji, partnerów i charakteru możliwych zdarzeń.',
+      cta: 'Omów przygotowanie organizacji'
+    },
+    situations: {
+      eyebrow: 'Typowe sytuacje',
+      title: 'Wsparcie ludzi angażuje wiele funkcji jednocześnie.',
+      intro: 'Poważne zdarzenie może uruchomić potrzebę rejestracji informacji, kontaktu z bliskimi, organizacji miejsc wsparcia, pomocy praktycznej i współpracy z partnerami zewnętrznymi. Jasny model pozwala połączyć te działania z decyzjami CMT.',
+      items: [
+        {
+          title: 'Zdarzenie może dotknąć większej liczby osób',
+          text: 'Działalność organizacji obejmuje transport, obiekt, wydarzenie, podróż, zakład przemysłowy albo usługę, w której potrzebna może być skoordynowana reakcja wobec ludzi.'
+        },
+        {
+          title: 'Odpowiedzialności są rozproszone pomiędzy kilka funkcji',
+          text: 'Operacje, HR, komunikacja, bezpieczeństwo, obsługa klienta i partnerzy posiadają części potrzebnych informacji i zasobów.'
+        },
+        {
+          title: 'Informacje o osobach wymagają wspólnego sposobu działania',
+          text: 'Rejestracja, aktualizacja, dostęp i przekazywanie informacji potrzebują uzgodnionych ról, źródeł oraz zasad współpracy.'
+        },
+        {
+          title: 'Zmieniła się działalność lub sieć partnerów',
+          text: 'Nowa lokalizacja, trasa, obiekt, dostawca lub model operacyjny wpływa na sposób organizacji wsparcia i kontaktu z bliskimi.'
+        }
+      ]
+    },
+    supportFlow: {
+      eyebrow: 'Model działania',
+      title: 'Gotowy model prowadzi od pierwszej informacji do skoordynowanej pomocy.',
+      items: [
+        {
+          title: 'Aktywacja',
+          text: 'Kryteria uruchomienia zespołu, wskazanie osoby odpowiedzialnej, powiązanie z CMT oraz powiadomienie funkcji i partnerów potrzebnych w pierwszej fazie.'
+        },
+        {
+          title: 'Informacja o osobach',
+          text: 'Zbieranie, weryfikowanie i aktualizowanie informacji o osobach dotkniętych zdarzeniem oraz utrzymanie jednego uzgodnionego obrazu dostępnego dla odpowiedzialnych ról.'
+        },
+        {
+          title: 'Kontakt z bliskimi',
+          text: 'Organizacja kanałów kontaktu, przyjmowanie zapytań, przekazywanie potwierdzonych informacji i utrzymanie rytmu kolejnych aktualizacji.'
+        },
+        {
+          title: 'Wsparcie praktyczne',
+          text: 'Przygotowanie punktów przyjęcia, infolinii, informacji na miejscu, transportu, zakwaterowania lub innych rozwiązań właściwych dla charakteru działalności i zdarzenia.'
+        },
+        {
+          title: 'Koordynacja',
+          text: 'Współpraca z władzami, służbami, operatorami miejsc, dostawcami, partnerami podróży i innymi podmiotami uczestniczącymi w reakcji.'
+        }
+      ]
+    },
+    responsibilities: {
+      eyebrow: 'Punkty współpracy',
+      title: 'Wsparcie ludzi wymaga jasno połączonych ról.',
+      items: [
+        {
+          id: 'cmt',
+          title: 'CMT i kierownictwo',
+          text: 'Ustalają priorytety, uruchamiają zasoby, podejmują decyzje przekraczające uprawnienia zespołów operacyjnych i utrzymują obraz całego zdarzenia.'
+        },
+        {
+          id: 'operations',
+          title: 'Operacje i zespoły obsługi',
+          text: 'Dostarczają informacji o zdarzeniu, osobach, miejscach i praktycznych możliwościach udzielenia wsparcia.'
+        },
+        {
+          id: 'communication',
+          title: 'Komunikacja i HR',
+          text: 'Koordynują informacje dla pracowników, osób dotkniętych zdarzeniem, ich bliskich oraz szerszych grup interesariuszy.'
+        },
+        {
+          id: 'partners',
+          title: 'Partnerzy zewnętrzni',
+          text: 'Wnoszą zasoby, informacje i możliwości działania wynikające z lokalizacji, rodzaju zdarzenia i odpowiedzialności poszczególnych podmiotów.'
+        }
+      ],
+      crisisManagementLink: 'Zarządzanie kryzysowe',
+      crisisCommunicationLink: 'Przygotowanie do komunikacji kryzysowej'
+    },
+    routes: {
+      eyebrow: 'Przygotowanie i sprawdzenie',
+      title: 'Model można zaprojektować, rozwinąć i przećwiczyć.',
+      items: [
+        {
+          id: 'advisory',
+          title: 'Ukierunkowane doradztwo',
+          text: 'Praca może objąć struktury, role, aktywację, informację o osobach, kontakt z bliskimi, punkty wsparcia, współpracę z partnerami oraz potrzebne narzędzia.',
+          link: 'Poznaj Doradztwo'
+        },
+        {
+          id: 'affected-people-exercise',
+          title: 'Ćwiczenie wsparcia osób dotkniętych zdarzeniem',
+          text: 'Ćwiczenie sprawdza aktywację, przepływ informacji, kontakt, praktyczną organizację wsparcia i współpracę pomiędzy odpowiedzialnymi funkcjami.',
+          link: 'Poznaj format ćwiczenia'
+        }
+      ]
+    },
+    outcomes: {
+      eyebrow: 'Po projekcie',
+      title: 'Rozwiązania, które łączą odpowiedzialność z praktycznym działaniem.',
+      items: [
+        'model organizacyjny i zasady aktywacji',
+        'role oraz punkty współpracy z CMT i komunikacją',
+        'sposób rejestrowania i aktualizowania informacji o osobach',
+        'zasady kontaktu z bliskimi i obsługi zapytań',
+        'koncepcja punktów wsparcia, infolinii lub innych właściwych rozwiązań',
+        'role cards, checklisty i narzędzia wspierające zespoły',
+        'mapa współpracy z partnerami zewnętrznymi',
+        'priorytety ćwiczeń i dalszego przygotowania'
+      ]
+    },
+    insights: {
+      eyebrow: 'Powiązane publikacje',
+      title: 'Informacja i odpowiedzialność na styku zespołów.',
+      copy: 'Istniejące materiały pokazują problemy związane z przekazywaniem odpowiedzialności oraz utrzymaniem spójnej informacji pod presją czasu.'
+    },
+    contact: {
+      eyebrow: 'Kontakt',
+      title: 'Omówmy przygotowanie organizacji.',
+      text: 'Pierwsza rozmowa może dotyczyć rodzaju działalności, możliwych zdarzeń, obecnych odpowiedzialności oraz elementu modelu, który wymaga uporządkowania lub sprawdzenia.',
+      cta: 'Omów przygotowanie organizacji'
+    }
+  },
   advisory: {
     meta: {
       title: 'Doradztwo w zarządzaniu kryzysowym | ClearStance',

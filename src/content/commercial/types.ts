@@ -117,6 +117,28 @@ export interface CrisisCommunicationContent {
   contact: { eyebrow: string; title: string; text: string; cta: string };
 }
 
+export interface AffectedPeopleContent {
+  meta: CommercialMeta;
+  hero: { eyebrow: string; title: string; lead: string; cta: string };
+  situations: { eyebrow: string; title: string; intro: string; items: CopyItem[] };
+  supportFlow: { eyebrow: string; title: string; items: CopyItem[] };
+  responsibilities: {
+    eyebrow: string;
+    title: string;
+    items: Array<CopyItem & { id: 'cmt' | 'operations' | 'communication' | 'partners' }>;
+    crisisManagementLink: string;
+    crisisCommunicationLink: string;
+  };
+  routes: {
+    eyebrow: string;
+    title: string;
+    items: Array<CopyItem & { id: 'advisory' | 'affected-people-exercise'; link: string }>;
+  };
+  outcomes: { eyebrow: string; title: string; items: string[] };
+  insights: { eyebrow: string; title: string; copy: string };
+  contact: { eyebrow: string; title: string; text: string; cta: string };
+}
+
 export interface AdvisoryContent {
   meta: CommercialMeta;
   hero: { eyebrow: string; title: string; lead: string };
@@ -222,6 +244,7 @@ export interface CommercialContent {
   home: HomeCommercialContent;
   crisisManagement: CrisisManagementContent;
   crisisCommunication: CrisisCommunicationContent;
+  affectedPeople: AffectedPeopleContent;
   advisory: AdvisoryContent;
   exercises: ExercisesContent;
   executive: ExecutiveContent;

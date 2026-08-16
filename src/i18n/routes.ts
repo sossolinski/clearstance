@@ -4,6 +4,7 @@ export type PageKey =
   | 'services'
   | 'crisisManagement'
   | 'crisisCommunication'
+  | 'affectedPeople'
   | 'exercises'
   | 'executiveTabletop'
   | 'insights'
@@ -17,6 +18,7 @@ export const routes: Record<Locale, Record<PageKey, string>> = {
     services: '/oferta/',
     crisisManagement: '/oferta/zarzadzanie-kryzysowe/',
     crisisCommunication: '/oferta/komunikacja-kryzysowa/',
+    affectedPeople: '/oferta/wsparcie-osob-i-rodzin/',
     exercises: '/cwiczenia-kryzysowe/',
     executiveTabletop: '/cwiczenia-kryzysowe/executive-tabletop/',
     insights: '/insights/',
@@ -29,6 +31,7 @@ export const routes: Record<Locale, Record<PageKey, string>> = {
     services: '/en/services/',
     crisisManagement: '/en/services/crisis-management/',
     crisisCommunication: '/en/services/crisis-communication-preparedness/',
+    affectedPeople: '/en/services/affected-people-family-assistance/',
     exercises: '/en/exercises/',
     executiveTabletop: '/en/exercises/executive-tabletop/',
     insights: '/en/insights/',

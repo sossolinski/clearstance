@@ -339,6 +339,138 @@ export const commercialEn: CommercialContent = {
       cta: 'Discuss crisis communication preparedness'
     }
   },
+  affectedPeople: {
+    meta: {
+      title: 'Affected people and family assistance | ClearStance',
+      description: 'Organisational arrangements for supporting affected people, families and the teams responsible for information, contact and practical assistance.'
+    },
+    hero: {
+      eyebrow: 'Affected people and family assistance',
+      title: 'Organisational readiness to support people after a serious incident.',
+      lead: 'ClearStance designs the structures, roles, information flows and practical arrangements needed to support people directly affected by an incident, their families and the personnel involved in the response. The model reflects the organisation’s responsibilities, locations, partners and credible incident context.',
+      cta: 'Discuss organisational preparedness'
+    },
+    situations: {
+      eyebrow: 'Typical situations',
+      title: 'Supporting people involves several functions at the same time.',
+      intro: 'A serious incident may create the need to record information, contact families, organise support locations, provide practical assistance and work with external partners. A clear model connects these activities with CMT decisions.',
+      items: [
+        {
+          title: 'An incident could affect a larger number of people',
+          text: 'The organisation operates transport, a venue, an event, travel, an industrial site or a service where people may require a coordinated response.'
+        },
+        {
+          title: 'Responsibilities are distributed across several functions',
+          text: 'Operations, HR, communications, security, customer care and partners each hold part of the information and resources required.'
+        },
+        {
+          title: 'People information needs a shared way of working',
+          text: 'Recording, updating, accessing and sharing information require agreed roles, sources and principles for cooperation.'
+        },
+        {
+          title: 'The operation or partner network has changed',
+          text: 'A new location, route, venue, supplier or operating model affects how support and contact with families should be organised.'
+        }
+      ]
+    },
+    supportFlow: {
+      eyebrow: 'Operating model',
+      title: 'A prepared model leads from the first information to coordinated assistance.',
+      items: [
+        {
+          title: 'Activation',
+          text: 'Criteria for activating the team, naming the accountable person, connecting with the CMT and notifying the functions and partners needed in the first phase.'
+        },
+        {
+          title: 'People information',
+          text: 'Gathering, verifying and updating information about people affected by the incident, while maintaining one agreed picture for the responsible roles.'
+        },
+        {
+          title: 'Contact with families',
+          text: 'Organising contact channels, receiving enquiries, sharing confirmed information and maintaining a rhythm for subsequent updates.'
+        },
+        {
+          title: 'Practical assistance',
+          text: 'Preparing reception points, helplines, information at the location, transport, accommodation or other arrangements suited to the operation and incident.'
+        },
+        {
+          title: 'Coordination',
+          text: 'Working with authorities, responders, venue operators, suppliers, travel partners and other organisations involved in the response.'
+        }
+      ]
+    },
+    responsibilities: {
+      eyebrow: 'Interfaces',
+      title: 'Supporting people requires clearly connected roles.',
+      items: [
+        {
+          id: 'cmt',
+          title: 'CMT and leadership',
+          text: 'They set priorities, release resources, make decisions beyond operational teams’ authority and maintain a view of the incident as a whole.'
+        },
+        {
+          id: 'operations',
+          title: 'Operations and service teams',
+          text: 'They provide information about the incident, people, locations and the practical options available for support.'
+        },
+        {
+          id: 'communication',
+          title: 'Communications and HR',
+          text: 'They coordinate information for employees, people affected by the incident, their families and wider stakeholder groups.'
+        },
+        {
+          id: 'partners',
+          title: 'External partners',
+          text: 'They contribute resources, information and practical capabilities shaped by the location, type of incident and each organisation’s responsibilities.'
+        }
+      ],
+      crisisManagementLink: 'Crisis management',
+      crisisCommunicationLink: 'Crisis communication preparedness'
+    },
+    routes: {
+      eyebrow: 'Prepare and test',
+      title: 'The model can be designed, developed and exercised.',
+      items: [
+        {
+          id: 'advisory',
+          title: 'Focused advisory',
+          text: 'The work can cover structures, roles, activation, people information, contact with families, support locations, partner coordination and the tools required.',
+          link: 'Explore Advisory'
+        },
+        {
+          id: 'affected-people-exercise',
+          title: 'Affected People Exercise',
+          text: 'The exercise tests activation, information flow, contact, the practical organisation of support and cooperation between the responsible functions.',
+          link: 'Explore the exercise format'
+        }
+      ]
+    },
+    outcomes: {
+      eyebrow: 'After the engagement',
+      title: 'Arrangements that connect accountability with practical action.',
+      items: [
+        'an organisational model and activation principles',
+        'roles and interfaces with the CMT and communications',
+        'a method for recording and updating people information',
+        'principles for family contact and handling enquiries',
+        'a concept for support locations, helplines or other appropriate arrangements',
+        'role cards, checklists and tools that support teams',
+        'a map of cooperation with external partners',
+        'priorities for exercises and further preparation'
+      ]
+    },
+    insights: {
+      eyebrow: 'Related insights',
+      title: 'Information and responsibility across organisational boundaries.',
+      copy: 'Current articles provide useful context on handovers, shared responsibility and maintaining consistent information under time pressure.'
+    },
+    contact: {
+      eyebrow: 'Contact',
+      title: 'Let’s discuss organisational preparedness.',
+      text: 'An initial conversation can begin with the organisation’s operating context, credible incidents, current responsibilities and the part of the model that needs to be developed or tested.',
+      cta: 'Discuss organisational preparedness'
+    }
+  },
   advisory: {
     meta: { title: 'Crisis management advisory | ClearStance', description: 'Advisory for organisations developing their crisis management operating model, communication and affected-people arrangements.' },
     hero: { eyebrow: 'Advisory', title: 'Advisory for organisations preparing for serious incidents.', lead: 'ClearStance assesses and designs structures, roles, escalation principles, information flow and tools that support an organisation during a crisis.' },
