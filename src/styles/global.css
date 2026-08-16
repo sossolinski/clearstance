@@ -4820,6 +4820,7 @@ summary:focus-visible {
 
 .capability-situations,
 .capability-model,
+.capability-first-hours,
 .capability-interfaces,
 .capability-routes,
 .capability-outcomes {
@@ -4833,6 +4834,10 @@ summary:focus-visible {
 }
 
 .capability-model {
+  background: var(--paper-2);
+}
+
+.capability-first-hours {
   background: var(--paper-2);
 }
 
@@ -4857,6 +4862,7 @@ summary:focus-visible {
 
 .capability-situation-list span,
 .capability-model-list span,
+.first-hour-sequence > li > span,
 .capability-route-list > li > span {
   display: block;
   color: var(--teal-deep);
@@ -4878,6 +4884,7 @@ summary:focus-visible {
 
 .capability-situation-list p,
 .capability-model-list p,
+.first-hour-sequence p,
 .capability-interface-list p,
 .capability-route-list p {
   color: var(--text-secondary-paper-alt);
@@ -4909,6 +4916,52 @@ summary:focus-visible {
 
 .capability-model-list p {
   max-width: 680px;
+}
+
+.first-hour-sequence {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.first-hour-sequence li {
+  position: relative;
+  min-width: 0;
+  padding: 30px 32px 34px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.first-hour-sequence li:nth-child(3n + 1) {
+  padding-left: 0;
+}
+
+.first-hour-sequence li:nth-child(3n) {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.first-hour-sequence li:not(:nth-child(3n))::after {
+  position: absolute;
+  top: 27px;
+  right: -10px;
+  z-index: 1;
+  padding: 0 4px;
+  color: var(--teal-deep);
+  background: var(--paper-2);
+  content: "→";
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+.first-hour-sequence h3 {
+  margin: 26px 0 12px;
+  font-family: var(--display);
+  font-size: clamp(21px, 2vw, 28px);
+  font-weight: 520;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
 }
 
 .capability-editorial-grid {
@@ -5151,6 +5204,45 @@ summary:focus-visible {
     grid-template-columns: 1fr;
     gap: 44px;
   }
+
+  .first-hour-sequence {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .first-hour-sequence li,
+  .first-hour-sequence li:nth-child(3n + 1),
+  .first-hour-sequence li:nth-child(3n) {
+    padding: 28px;
+    border-right: 0;
+  }
+
+  .first-hour-sequence li:nth-child(odd) {
+    padding-left: 0;
+    border-right: 1px solid var(--line);
+  }
+
+  .first-hour-sequence li:nth-child(even) {
+    padding-right: 0;
+  }
+
+  .first-hour-sequence li::after,
+  .first-hour-sequence li:not(:nth-child(3n))::after {
+    content: none;
+  }
+
+  .first-hour-sequence li:nth-child(odd)::after {
+    position: absolute;
+    top: 27px;
+    right: -10px;
+    z-index: 1;
+    display: block;
+    padding: 0 4px;
+    color: var(--teal-deep);
+    background: var(--paper-2);
+    content: "→";
+    font-family: var(--mono);
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 760px) {
@@ -5195,6 +5287,7 @@ summary:focus-visible {
 
   .capability-situations,
   .capability-model,
+  .capability-first-hours,
   .capability-interfaces,
   .capability-routes,
   .capability-outcomes {
@@ -5312,6 +5405,7 @@ summary:focus-visible {
   }
 
   .capability-situation-list,
+  .first-hour-sequence,
   .capability-route-list {
     grid-template-columns: 1fr;
   }
@@ -5320,6 +5414,19 @@ summary:focus-visible {
   .capability-situation-list li:nth-child(even) {
     padding: 26px 0 29px;
     border-left: 0;
+  }
+
+  .first-hour-sequence li,
+  .first-hour-sequence li:nth-child(odd),
+  .first-hour-sequence li:nth-child(even),
+  .first-hour-sequence li:nth-child(3n + 1),
+  .first-hour-sequence li:nth-child(3n) {
+    padding: 26px 0 29px;
+    border-right: 0;
+  }
+
+  .first-hour-sequence li:nth-child(odd)::after {
+    content: none;
   }
 
   .capability-model-list li {

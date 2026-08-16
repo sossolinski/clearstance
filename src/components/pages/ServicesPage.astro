@@ -15,6 +15,11 @@ const content = getCommercialContent(locale);
 const page = content.advisory;
 const otherLocale = locale === 'pl' ? 'en' : 'pl';
 const capabilityIcons = ['network', 'message-text', 'community'] as const;
+const capabilityPage = (id: typeof content.capabilities[number]['id']) => {
+  if (id === 'crisis-management') return 'crisisManagement';
+  if (id === 'crisis-communication') return 'crisisCommunication';
+  return undefined;
+};
 const insights = await getInsightsByTranslationKeys(locale, ['crisis-situational-awareness', 'continuity-at-interfaces', 'first-hour-crisis-communication']);
 const schema = {
   '@context': 'https://schema.org', '@type': 'Service', name: page.hero.title,
@@ -40,7 +45,7 @@ const schema = {
     <section class="commercial-capability-detail" aria-labelledby="advisory-capabilities-title"><div class="wrap">
       <div class="commercial-section-heading" data-reveal><p class="eyebrow">{page.capabilities.eyebrow}</p><h2 id="advisory-capabilities-title">{page.capabilities.title}</h2><p>{page.capabilities.intro}</p></div>
       <ol class="capability-detail-list">{content.capabilities.map((capability, index) => <li id={capability.anchor} data-reveal>
-        <div class="capability-detail-heading"><Icon name={capabilityIcons[index]} size={38} decorative /><p>{String(index + 1).padStart(2, '0')}</p><h3>{capability.title}</h3><p>{capability.text}</p>{capability.id === 'crisis-management' && <a class="text-link capability-detail-link" href={getRoute(locale, 'crisisManagement')}>{locale === 'pl' ? 'Poznaj obszar' : 'Explore the capability'} <span aria-hidden="true">→</span></a>}</div>
+        <div class="capability-detail-heading"><Icon name={capabilityIcons[index]} size={38} decorative /><p>{String(index + 1).padStart(2, '0')}</p><h3>{capability.title}</h3><p>{capability.text}</p>{capabilityPage(capability.id) && <a class="text-link capability-detail-link" href={getRoute(locale, capabilityPage(capability.id)!)}>{locale === 'pl' ? 'Poznaj obszar' : 'Explore the capability'} <span aria-hidden="true">→</span></a>}</div>
         <div><h4>{locale === 'pl' ? 'Przykładowy zakres' : 'Example scope'}</h4><ul class="check-list">{capability.scope.map((item) => <li>{item}</li>)}</ul></div>
         <div><h4>{locale === 'pl' ? 'Możliwe rezultaty' : 'Possible outcomes'}</h4><ul class="check-list">{capability.outputs.map((item) => <li>{item}</li>)}</ul></div>
       </li>)}</ol>

@@ -321,6 +321,119 @@ export const commercialPl: CommercialContent = {
       cta: 'Omów potrzeby organizacji'
     }
   },
+  crisisCommunication: {
+    meta: {
+      title: 'Przygotowanie do komunikacji kryzysowej | ClearStance',
+      description: 'Przygotowanie organizacji do komunikacji kryzysowej: role, zatwierdzanie, potrzeby interesariuszy, pierwsze komunikaty i rytm aktualizacji.'
+    },
+    hero: {
+      eyebrow: 'Przygotowanie do komunikacji kryzysowej',
+      title: 'Gotowość komunikacyjna na pierwsze godziny zdarzenia.',
+      lead: 'ClearStance pomaga organizacjom uzgodnić role, przepływ informacji, ścieżki zatwierdzania i narzędzia potrzebne pod presją czasu. Praca łączy komunikację z modelem działania CMT oraz decyzjami dotyczącymi interesariuszy, pierwszych komunikatów i kolejnych aktualizacji.',
+      cta: 'Omów przygotowanie komunikacji kryzysowej'
+    },
+    situations: {
+      eyebrow: 'Typowe sytuacje',
+      title: 'Presja informacyjna ujawnia jakość wcześniejszych ustaleń.',
+      intro: 'Pierwsze pytania pojawiają się zwykle przed pełnym potwierdzeniem faktów. Organizacja potrzebuje wtedy jasnego sposobu zbierania informacji, podejmowania decyzji i utrzymania spójności kolejnych komunikatów.',
+      items: [
+        {
+          title: 'Zatwierdzenie wymaga wielu kolejnych uzgodnień',
+          text: 'Osoby odpowiedzialne za treść, decyzję i publikację potrzebują wspólnej ścieżki działania oraz ustalonych zastępstw.'
+        },
+        {
+          title: 'CMT i komunikacja pracują na różnych aktualizacjach',
+          text: 'Różne źródła i tempo przekazywania informacji utrudniają utrzymanie jednego obrazu sytuacji.'
+        },
+        {
+          title: 'Centrala i lokalne zespoły mają nakładające się role',
+          text: 'Potrzebne są zasady dotyczące właściciela komunikatu, lokalnego dostosowania treści i kolejności publikacji.'
+        },
+        {
+          title: 'Przygotowane materiały nie mają ustalonego sposobu użycia',
+          text: 'Holding statements, listy interesariuszy i szablony wymagają właścicieli, kryteriów uruchomienia oraz zasad aktualizacji.'
+        }
+      ]
+    },
+    firstHours: {
+      eyebrow: 'Pierwsze godziny',
+      title: 'Przygotowany proces łączy informację, decyzję i kolejną aktualizację.',
+      items: [
+        {
+          title: 'Aktywacja i role',
+          text: 'Kryteria uruchomienia zespołu komunikacji, relacja z CMT, dostępność kluczowych osób i zasady zastępstw.'
+        },
+        {
+          title: 'Obraz sytuacji',
+          text: 'Sposób pozyskiwania potwierdzonych informacji, oznaczania założeń i przekazywania zmian istotnych dla interesariuszy.'
+        },
+        {
+          title: 'Decyzja i zatwierdzanie',
+          text: 'Uprawnienia do zatwierdzania pierwszego komunikatu, kolejnych aktualizacji, kanałów i informacji wymagających dodatkowej weryfikacji.'
+        },
+        {
+          title: 'Potrzeby interesariuszy',
+          text: 'Priorytetowe grupy, ich pytania, dostępne kanały oraz kolejność przekazywania informacji wewnątrz i na zewnątrz organizacji.'
+        },
+        {
+          title: 'Pierwsze komunikaty',
+          text: 'Holding statements, potwierdzenie zdarzenia, komunikaty dla pracowników i materiały wspierające spójne odpowiedzi.'
+        },
+        {
+          title: 'Monitoring i rytm aktualizacji',
+          text: 'Obserwacja zmian, pytań i reakcji interesariuszy oraz ustalony sposób przygotowania kolejnej aktualizacji dla CMT i zespołu komunikacji.'
+        }
+      ]
+    },
+    routes: {
+      eyebrow: 'Sposób pracy',
+      title: 'Przygotowanie można rozwinąć doradczo i sprawdzić w ćwiczeniu.',
+      items: [
+        {
+          id: 'advisory',
+          title: 'Ukierunkowane doradztwo',
+          text: 'Przegląd lub projekt ról, procesu zatwierdzania, przepływu informacji, potrzeb interesariuszy i narzędzi pierwszej godziny.',
+          link: 'Poznaj Doradztwo'
+        },
+        {
+          id: 'communication-simulation',
+          title: 'Symulacja komunikacji kryzysowej',
+          text: 'Ćwiczenie koncentruje się na zatwierdzaniu, potrzebach informacyjnych, pierwszych komunikatach i współpracy z CMT.',
+          link: 'Poznaj symulację komunikacji kryzysowej'
+        },
+        {
+          id: 'executive-tabletop',
+          title: 'Executive Tabletop Exercise',
+          text: 'Format jest właściwy, gdy komunikacja stanowi jeden z kluczowych interfejsów decyzji podejmowanych przez kierownictwo lub CMT.',
+          link: 'Poznaj Executive Tabletop Exercise'
+        }
+      ]
+    },
+    outcomes: {
+      eyebrow: 'Po projekcie',
+      title: 'Ustalenia i narzędzia gotowe do użycia.',
+      items: [
+        'role komunikacyjne i zasady aktywacji',
+        'ścieżki zatwierdzania oraz zastępstwa',
+        'mapa potrzeb informacyjnych interesariuszy',
+        'zasady współpracy pomiędzy CMT i komunikacją',
+        'holding statements, szablony i materiały pierwszej godziny',
+        'sposób monitorowania oraz przygotowania kolejnych aktualizacji',
+        'priorytety dalszego przygotowania i ćwiczeń'
+      ]
+    },
+    insights: {
+      eyebrow: 'Powiązane publikacje',
+      title: 'Pierwsza godzina i wspólny obraz sytuacji.',
+      copy: 'Publikacje pokazują, jak presja czasu, niepełne informacje i uprawnienia decyzyjne wpływają na jakość komunikacji.'
+    },
+    contact: {
+      eyebrow: 'Kontakt',
+      title: 'Omówmy przygotowanie komunikacji kryzysowej.',
+      text: 'Wystarczy opisać obecny proces, planowaną zmianę albo sytuację, w której role i zatwierdzanie wymagają uporządkowania.',
+      cta: 'Omów przygotowanie komunikacji kryzysowej'
+    }
+  },
   advisory: {
     meta: {
       title: 'Doradztwo w zarządzaniu kryzysowym | ClearStance',

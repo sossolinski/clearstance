@@ -190,8 +190,10 @@ test('accepts every allowed topic and derives a fixed localized subject', async 
     ['en', 'general', '[ClearStance] General enquiry'],
     ['en', 'advisory', '[ClearStance] Advisory'],
     ['en', 'crisis-management', '[ClearStance] Crisis Management'],
+    ['en', 'crisis-communication', '[ClearStance] Crisis Communication Preparedness'],
     ['en', 'crisis-readiness-review', '[ClearStance] Crisis Readiness Review'],
     ['pl', 'crisis-management', '[ClearStance] Zarządzanie kryzysowe'],
+    ['pl', 'crisis-communication', '[ClearStance] Przygotowanie do komunikacji kryzysowej'],
     ['pl', 'exercises', '[ClearStance] Ćwiczenia kryzysowe'],
     ['pl', 'executive-tabletop', '[ClearStance] Executive Tabletop Exercise']
   ];
@@ -214,6 +216,12 @@ test('resolves the Crisis Management topic in both languages and preserves the e
   assert.equal(getContactTopicLabel('en', 'crisis-management'), 'Crisis Management');
   assert.equal(resolveContactTopic('crisis-management'), 'crisis-management');
   assert.equal(resolveContactTopic('unsupported-topic'), 'general');
+});
+
+test('resolves the Crisis Communication topic in both languages', () => {
+  assert.equal(getContactTopicLabel('pl', 'crisis-communication'), 'Przygotowanie do komunikacji kryzysowej');
+  assert.equal(getContactTopicLabel('en', 'crisis-communication'), 'Crisis Communication Preparedness');
+  assert.equal(resolveContactTopic('crisis-communication'), 'crisis-communication');
 });
 
 test('rejects a topic outside the server allowlist before verification', async () => {

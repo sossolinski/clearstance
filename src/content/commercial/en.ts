@@ -226,6 +226,119 @@ export const commercialEn: CommercialContent = {
       cta: 'Discuss your organisation’s needs'
     }
   },
+  crisisCommunication: {
+    meta: {
+      title: 'Crisis communication preparedness | ClearStance',
+      description: 'Organisational preparation for crisis communication, including roles, approval paths, stakeholder needs, initial messages and update rhythms.'
+    },
+    hero: {
+      eyebrow: 'Crisis communication preparedness',
+      title: 'Communication readiness for the first hours of an incident.',
+      lead: 'ClearStance helps organisations agree the roles, information flows, approval paths and tools required under time pressure. The work connects communications with the CMT operating model and with the decisions needed for initial messages, priority stakeholders and subsequent updates.',
+      cta: 'Discuss crisis communication preparedness'
+    },
+    situations: {
+      eyebrow: 'Typical situations',
+      title: 'Information pressure reveals the quality of earlier arrangements.',
+      intro: 'The first questions usually arrive before the facts have been fully confirmed. The organisation then needs a clear way to gather information, make decisions and maintain consistency across successive messages.',
+      items: [
+        {
+          title: 'Approval requires several successive consultations',
+          text: 'The people responsible for content, the decision and publication need a shared route for action and agreed deputies.'
+        },
+        {
+          title: 'The CMT and communications are working from different updates',
+          text: 'Different sources and the pace of information flow make it difficult to maintain a single situational picture.'
+        },
+        {
+          title: 'Group and local teams have overlapping roles',
+          text: 'The organisation needs clear ownership of each message, principles for local adaptation and an agreed publication sequence.'
+        },
+        {
+          title: 'Prepared materials do not have an agreed method of use',
+          text: 'Holding statements, stakeholder lists and templates need owners, activation criteria and principles for keeping them current.'
+        }
+      ]
+    },
+    firstHours: {
+      eyebrow: 'The first hours',
+      title: 'A prepared process connects information, decisions and the next update.',
+      items: [
+        {
+          title: 'Activation and roles',
+          text: 'Criteria for activating the communications team, its relationship with the CMT, availability of key people and deputy arrangements.'
+        },
+        {
+          title: 'Situation picture',
+          text: 'A method for gathering confirmed information, marking assumptions and sharing changes that matter to stakeholders.'
+        },
+        {
+          title: 'Decisions and approval',
+          text: 'Authority to approve the initial message, later updates, channels and information that requires further verification.'
+        },
+        {
+          title: 'Stakeholder needs',
+          text: 'Priority groups, their questions, available channels and the sequence for sharing information inside and outside the organisation.'
+        },
+        {
+          title: 'Initial messages',
+          text: 'Holding statements, incident acknowledgement, employee messages and materials that support consistent responses.'
+        },
+        {
+          title: 'Monitoring and update rhythm',
+          text: 'Monitoring changes, questions and stakeholder reactions, with an agreed method for preparing the next update for the CMT and communications team.'
+        }
+      ]
+    },
+    routes: {
+      eyebrow: 'Ways of working',
+      title: 'Preparedness can be developed through advisory work and tested in an exercise.',
+      items: [
+        {
+          id: 'advisory',
+          title: 'Focused advisory',
+          text: 'A review or design engagement covering roles, approval, information flow, stakeholder needs and first-hour tools.',
+          link: 'Explore Advisory'
+        },
+        {
+          id: 'communication-simulation',
+          title: 'Crisis communication simulation',
+          text: 'An exercise focused on approval, information needs, initial messages and cooperation with the CMT.',
+          link: 'Explore the crisis communication simulation'
+        },
+        {
+          id: 'executive-tabletop',
+          title: 'Executive Tabletop Exercise',
+          text: 'This format is appropriate when communication is one of the key interfaces for decisions made by leadership or the CMT.',
+          link: 'Explore Executive Tabletop Exercise'
+        }
+      ]
+    },
+    outcomes: {
+      eyebrow: 'After the engagement',
+      title: 'Agreed arrangements and tools ready for use.',
+      items: [
+        'communication roles and activation principles',
+        'approval paths and deputy arrangements',
+        'a map of stakeholder information needs',
+        'principles for cooperation between the CMT and communications',
+        'holding statements, templates and first-hour materials',
+        'a method for monitoring and preparing subsequent updates',
+        'priorities for further preparation and exercises'
+      ]
+    },
+    insights: {
+      eyebrow: 'Related insights',
+      title: 'The first hour and the shared situation picture.',
+      copy: 'These articles explore how time pressure, incomplete information and decision authority shape communication quality.'
+    },
+    contact: {
+      eyebrow: 'Contact',
+      title: 'Let’s discuss crisis communication preparedness.',
+      text: 'A short description of the current process, a planned change or a situation in which roles and approval need clarification is enough to begin.',
+      cta: 'Discuss crisis communication preparedness'
+    }
+  },
   advisory: {
     meta: { title: 'Crisis management advisory | ClearStance', description: 'Advisory for organisations developing their crisis management operating model, communication and affected-people arrangements.' },
     hero: { eyebrow: 'Advisory', title: 'Advisory for organisations preparing for serious incidents.', lead: 'ClearStance assesses and designs structures, roles, escalation principles, information flow and tools that support an organisation during a crisis.' },

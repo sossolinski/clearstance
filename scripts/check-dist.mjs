@@ -16,6 +16,12 @@ const routeCases = [
     lang: 'pl',
     alternate: '/en/services/crisis-management/'
   },
+  {
+    route: '/oferta/komunikacja-kryzysowa/',
+    file: 'oferta/komunikacja-kryzysowa/index.html',
+    lang: 'pl',
+    alternate: '/en/services/crisis-communication-preparedness/'
+  },
   { route: '/o-clearstance/', file: 'o-clearstance/index.html', lang: 'pl', alternate: '/en/about/' },
   { route: '/insights/', file: 'insights/index.html', lang: 'pl', alternate: '/en/insights/' },
   {
@@ -32,6 +38,12 @@ const routeCases = [
     file: 'en/services/crisis-management/index.html',
     lang: 'en',
     alternate: '/oferta/zarzadzanie-kryzysowe/'
+  },
+  {
+    route: '/en/services/crisis-communication-preparedness/',
+    file: 'en/services/crisis-communication-preparedness/index.html',
+    lang: 'en',
+    alternate: '/oferta/komunikacja-kryzysowa/'
   },
   { route: '/en/about/', file: 'en/about/index.html', lang: 'en', alternate: '/o-clearstance/' },
   { route: '/en/insights/', file: 'en/insights/index.html', lang: 'en', alternate: '/insights/' },

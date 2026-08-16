@@ -23,6 +23,11 @@ const ids = locale === 'pl'
   ? { capabilities: 'kompetencje', ways: 'wspolpraca', engagements: 'zakresy', readiness: 'gotowosc', experience: 'doswiadczenie' }
   : { capabilities: 'capabilities', ways: 'ways-of-working', engagements: 'engagements', readiness: 'readiness', experience: 'experience' };
 const capabilityIcons = ['network', 'message-text', 'community'] as const;
+const capabilityHref = (id: typeof commercial.capabilities[number]['id'], anchor: string) => {
+  if (id === 'crisis-management') return getRoute(locale, 'crisisManagement');
+  if (id === 'crisis-communication') return getRoute(locale, 'crisisCommunication');
+  return `${getRoute(locale, 'services')}#${anchor}`;
+};
 const professionalServiceSchema = {
   '@context': 'https://schema.org', '@type': 'ProfessionalService', name: 'ClearStance',
   url: new URL(getRoute(locale, 'home'), Astro.site).toString(), email: t.site.email,
@@ -66,7 +71,7 @@ const professionalServiceSchema = {
       <div class="services-heading" data-reveal><div><p class="eyebrow">{content.capabilities.eyebrow}</p><h2 id="capabilities-title">{content.capabilities.title}</h2></div><p>{content.capabilities.intro}</p></div>
       <ul class="service-list" data-reveal>{commercial.capabilities.map((capability, index) => <li>
         <Icon class="service-icon" name={capabilityIcons[index]} size={36} decorative />
-        <h3>{capability.title}</h3><div class="capability-row-copy"><p>{capability.text}</p><a class="text-link" href={capability.id === 'crisis-management' ? getRoute(locale, 'crisisManagement') : `${getRoute(locale, 'services')}#${capability.anchor}`}>{locale === 'pl' ? 'Poznaj zakres' : 'Explore the scope'} <span aria-hidden="true">→</span></a></div>
+        <h3>{capability.title}</h3><div class="capability-row-copy"><p>{capability.text}</p><a class="text-link" href={capabilityHref(capability.id, capability.anchor)}>{locale === 'pl' ? 'Poznaj zakres' : 'Explore the scope'} <span aria-hidden="true">→</span></a></div>
       </li>)}</ul>
     </div></section>
 

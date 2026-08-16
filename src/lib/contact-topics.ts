@@ -4,6 +4,7 @@ export const CONTACT_TOPICS = [
   'general',
   'advisory',
   'crisis-management',
+  'crisis-communication',
   'crisis-readiness-review',
   'exercises',
   'executive-tabletop'
@@ -26,6 +27,7 @@ const labels: Record<Locale, Record<ContactTopic, string>> = {
     general: 'Zapytanie ogólne',
     advisory: 'Doradztwo',
     'crisis-management': 'Zarządzanie kryzysowe',
+    'crisis-communication': 'Przygotowanie do komunikacji kryzysowej',
     'crisis-readiness-review': 'Crisis Readiness Review',
     exercises: 'Ćwiczenia kryzysowe',
     'executive-tabletop': 'Executive Tabletop Exercise'
@@ -34,6 +36,7 @@ const labels: Record<Locale, Record<ContactTopic, string>> = {
     general: 'General enquiry',
     advisory: 'Advisory',
     'crisis-management': 'Crisis Management',
+    'crisis-communication': 'Crisis Communication Preparedness',
     'crisis-readiness-review': 'Crisis Readiness Review',
     exercises: 'Crisis exercises',
     'executive-tabletop': 'Executive Tabletop Exercise'
