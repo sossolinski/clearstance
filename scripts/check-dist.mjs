@@ -2,9 +2,10 @@ import { createHash } from 'node:crypto';
 import { access, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
+import { resolveSiteOrigin } from './site-origin.mjs';
 
 const dist = path.resolve('dist');
-const origin = 'https://clearstance.pl';
+const origin = resolveSiteOrigin();
 const errors = [];
 
 const routeCases = [
@@ -329,18 +330,31 @@ const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/gu)]
 
 for (const location of sitemapLocations) {
   const url = new URL(location);
+  if (url.origin !== origin) {
+    report(`sitemap.xml uses an unexpected origin: ${location}`);
+  }
   if (url.pathname !== '/' && !url.pathname.endsWith('/')) {
     report(`sitemap.xml uses a non-final public URL: ${location}`);
   }
 }
 
+const robots = await readFile(path.join(dist, 'robots.txt'), 'utf8');
+const expectedSitemap = new URL('/sitemap.xml', origin).toString();
+
+if (!robots.includes(`Sitemap: ${expectedSitemap}`)) {
+  report(`robots.txt does not reference ${expectedSitemap}.`);
+}
+
 for (const rssFile of ['rss.xml', 'en/rss.xml']) {
   const rss = await readFile(path.join(dist, rssFile), 'utf8');
-  const publicLinks = [...rss.matchAll(/<(?:link|guid)[^>]*>(https:\/\/clearstance\.pl[^<]+)<\/(?:link|guid)>/gu)]
+  const publicLinks = [...rss.matchAll(/<(?:link|guid)[^>]*>(https:\/\/[^<]+)<\/(?:link|guid)>/gu)]
     .map((match) => match[1]);
 
   for (const publicLink of publicLinks) {
     const url = new URL(publicLink);
+    if (url.origin !== origin) {
+      report(`${rssFile} uses an unexpected origin: ${publicLink}`);
+    }
     if (url.pathname !== '/' && !url.pathname.endsWith('/')) {
       report(`${rssFile} uses a non-final page URL: ${publicLink}`);
     }

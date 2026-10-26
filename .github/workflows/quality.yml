@@ -47,6 +47,9 @@ jobs:
       - name: Test contact UI and JSON-LD
         run: npm run test:frontend
 
+      - name: Test domain migration controls
+        run: npm run test:domain
+
       - name: Test content and CMS contract
         run: npm run test:content
 
@@ -61,6 +64,9 @@ jobs:
 
       - name: Test generated dist
         run: npm run test:dist
+
+      - name: Test clearstance.eu build readiness
+        run: npm run test:domain-build
 
       - name: Check Worker bundle
         run: npm run check:worker

@@ -13,12 +13,12 @@ small Cloudflare Worker and does not store ClearStance content.
 1. Deploy the official `sveltia/sveltia-cms-auth` repository to a dedicated
    Cloudflare Worker.
 2. Register a GitHub OAuth App:
-   - Homepage URL: `https://clearstance.pl/admin/`
+   - Homepage URL: `https://clearstance.eu/admin/` after the approved cutover;
    - Authorization callback URL: `<AUTH_WORKER_URL>/callback`
 3. Add these variables to the authenticator Worker:
    - `GITHUB_CLIENT_ID`: the OAuth App client ID;
    - `GITHUB_CLIENT_SECRET`: the OAuth App client secret, encrypted;
-   - `ALLOWED_DOMAINS`: `clearstance.pl`.
+   - `ALLOWED_DOMAINS`: `clearstance.pl,clearstance.eu` during the transition.
 4. Replace the two explicit markers in `public/admin/config.yml`:
    - `REPLACE_WITH_GITHUB_OWNER`;
    - `https://REPLACE_WITH_AUTH_WORKER.workers.dev`.

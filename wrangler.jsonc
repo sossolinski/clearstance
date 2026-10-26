@@ -17,8 +17,11 @@
     }
   ],
   "vars": {
-    "TURNSTILE_EXPECTED_HOSTNAME": "clearstance.pl",
-    "CONTACT_FROM_EMAIL": "website@clearstance.pl"
+    "TURNSTILE_EXPECTED_HOSTNAMES": "clearstance.pl,clearstance.eu",
+    "CONTACT_FROM_EMAIL": "website@clearstance.pl",
+    "PRIMARY_SITE_ORIGIN": "https://clearstance.eu",
+    "WWW_REDIRECT_ENABLED": "false",
+    "LEGACY_DOMAIN_REDIRECT_ENABLED": "false"
   },
   "secrets": {
     "required": [

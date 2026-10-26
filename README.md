@@ -130,6 +130,7 @@ src/
 │   ├── kontakt.astro
 │   ├── o-clearstance.astro
 │   ├── oferta.astro
+│   ├── robots.txt.ts
 │   └── sitemap.xml.ts
 ├── styles/
 │   └── global.css
@@ -140,7 +141,6 @@ public/
 ├── favicon/
 ├── images/
 ├── social/
-├── robots.txt
 └── site.webmanifest
 
 worker/
@@ -351,7 +351,7 @@ The shared base layout provides:
 - ProfessionalService data on the homepage;
 - Article data for published Insights only.
 
-`src/pages/sitemap.xml.ts` generates a static bilingual sitemap. It includes published Insights, excludes drafts, and adds alternates only when a real translated entry exists. `public/robots.txt` points to the sitemap.
+`src/pages/sitemap.xml.ts` generates a static bilingual sitemap. It includes published Insights, excludes drafts, and adds alternates only when a real translated entry exists. `src/pages/robots.txt.ts` generates the matching canonical sitemap URL for the selected build origin.
 
 ## Privacy and client-side storage
 
@@ -407,14 +407,20 @@ Worker runtime configuration:
 | `PUBLIC_TURNSTILE_SITE_KEY` | Astro build | Workers Build variable | No |
 | `TURNSTILE_SECRET_KEY` | Worker runtime | Secret | Yes |
 | `CONTACT_DESTINATION_EMAIL` | Worker runtime | Secret | Yes |
-| `TURNSTILE_EXPECTED_HOSTNAME` | Worker runtime | Regular variable in `wrangler.jsonc` | No |
+| `TURNSTILE_EXPECTED_HOSTNAMES` | Worker runtime | Regular variable in `wrangler.jsonc` | No |
 | `CONTACT_FROM_EMAIL` | Worker runtime | Regular variable in `wrangler.jsonc` | No |
+| `PRIMARY_SITE_ORIGIN` | Worker runtime | Regular variable in `wrangler.jsonc` | No |
+| `WWW_REDIRECT_ENABLED` | Worker runtime | Regular variable in `wrangler.jsonc` | No |
+| `LEGACY_DOMAIN_REDIRECT_ENABLED` | Worker runtime | Regular variable in `wrangler.jsonc` | No |
 
 The committed runtime values are:
 
 ```text
-TURNSTILE_EXPECTED_HOSTNAME=clearstance.pl
+TURNSTILE_EXPECTED_HOSTNAMES=clearstance.pl,clearstance.eu
 CONTACT_FROM_EMAIL=website@clearstance.pl
+PRIMARY_SITE_ORIGIN=https://clearstance.eu
+WWW_REDIRECT_ENABLED=false
+LEGACY_DOMAIN_REDIRECT_ENABLED=false
 ```
 
 The secret values are never build variables and must not be placed in
@@ -425,10 +431,9 @@ The secret values are never build variables and must not be placed in
 
 1. In the Cloudflare dashboard, open **Turnstile** and select **Add widget**.
 2. Use widget name **ClearStance contact**.
-3. Add the hostname `clearstance.pl`. Do not add `www.clearstance.pl` unless the
-   website is actually served from that hostname. A root hostname currently
-   authorises its subdomains, so no wildcard or “any hostname” setting is
-   needed.
+3. Keep `clearstance.pl` authorized. Add `clearstance.eu` immediately before the
+   approved domain cutover. Do not use a wildcard or “any hostname” setting.
+   `www.clearstance.eu` is redirect-only and does not need to render the form.
 4. Select **Managed** mode and leave Pre-clearance disabled.
 5. Create the widget and copy the Site Key and Secret Key.
 6. In **Workers & Pages → clearstance → Settings → Build**, add
@@ -585,7 +590,7 @@ Configuration lifecycle:
 - Changing `PUBLIC_TURNSTILE_SITE_KEY` requires a new Astro build and deploy.
 - Adding or changing a runtime secret in **Variables & Secrets** requires
   selecting **Deploy**, which creates and activates a new Worker version.
-- Changing `TURNSTILE_EXPECTED_HOSTNAME`, `CONTACT_FROM_EMAIL`, the `EMAIL`
+- Changing `TURNSTILE_EXPECTED_HOSTNAMES`, `CONTACT_FROM_EMAIL`, the `EMAIL`
   binding, or Worker code requires committing the `wrangler.jsonc`/code change
   and deploying it.
 - Creating or editing the zone rate-limit rule takes effect when the rule is
@@ -609,7 +614,7 @@ For the recommended Workers Free architecture, use this order:
    `CONTACT_DESTINATION_EMAIL`; never place it in a build variable,
    `wrangler.jsonc`, source, logs, or public documentation.
 7. Confirm the deployed regular variables are
-   `TURNSTILE_EXPECTED_HOSTNAME=clearstance.pl` and
+   `TURNSTILE_EXPECTED_HOSTNAMES=clearstance.pl,clearstance.eu` and
    `CONTACT_FROM_EMAIL=website@clearstance.pl`.
 8. Confirm the `EMAIL` binding is deployed with the
    `website@clearstance.pl` sender allowlist.
@@ -636,8 +641,8 @@ exposing the destination.
 
 Production preflight:
 
-1. Confirm the Turnstile widget is Managed and restricted to
-   `clearstance.pl`.
+1. Confirm the Turnstile widget is Managed and restricted to `clearstance.pl`;
+   add `clearstance.eu` only in the approved migration window.
 2. Confirm a fresh build contains the production
    `PUBLIC_TURNSTILE_SITE_KEY`, not a documented dummy key.
 3. Confirm `TURNSTILE_SECRET_KEY` and `CONTACT_DESTINATION_EMAIL` exist as
@@ -668,13 +673,22 @@ npm run deploy:cloudflare
 
 This repository is prepared for Cloudflare but is not deployed automatically by this setup task. The earlier OpenAI/App Garden target is not used.
 
-The canonical production origin is configured as:
+The safe default canonical origin is:
 
 ```text
 https://clearstance.pl
 ```
 
-Change the `site` value in `astro.config.mjs` if the canonical domain changes.
+An approved migration build uses:
+
+```bash
+CLEARSTANCE_SITE_ORIGIN=https://clearstance.eu npm run build
+```
+
+The build accepts only `https://clearstance.pl` and `https://clearstance.eu`.
+The `.eu` value changes canonical, hreflang, Open Graph, sitemap, robots and RSS
+URLs together. It does not alter DNS, deploy the Worker or enable either
+redirect flag.
 
 ## Privacy launch TODO
 
