@@ -21,7 +21,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 22.12.0
+          node-version: 22.19.0
           cache: npm
 
       - name: Use exact npm version
