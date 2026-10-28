@@ -8,7 +8,7 @@
     "binding": "ASSETS",
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page",
-    "run_worker_first": ["/api/*"]
+    "run_worker_first": true
   },
   "send_email": [
     {
@@ -17,8 +17,11 @@
     }
   ],
   "vars": {
-    "TURNSTILE_EXPECTED_HOSTNAME": "clearstance.pl",
-    "CONTACT_FROM_EMAIL": "website@clearstance.pl"
+    "TURNSTILE_EXPECTED_HOSTNAMES": "clearstance.pl,clearstance.eu",
+    "CONTACT_FROM_EMAIL": "website@clearstance.pl",
+    "PRIMARY_SITE_ORIGIN": "https://clearstance.eu",
+    "WWW_REDIRECT_ENABLED": "false",
+    "LEGACY_DOMAIN_REDIRECT_ENABLED": "false"
   },
   "secrets": {
     "required": [

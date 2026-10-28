@@ -97,7 +97,7 @@ function createHarness(
     },
     env: {
       TURNSTILE_SECRET_KEY: 'production-like-test-secret',
-      TURNSTILE_EXPECTED_HOSTNAME: 'clearstance.pl',
+      TURNSTILE_EXPECTED_HOSTNAMES: 'clearstance.pl,clearstance.eu',
       CONTACT_DESTINATION_EMAIL: 'verified-destination@example.com',
       CONTACT_FROM_EMAIL: 'website@clearstance.pl',
       EMAIL: {
@@ -301,6 +301,57 @@ test('rejects a production verification with the wrong action', async () => {
 
   assert.equal(response.status, 400);
   assert.equal((await readJson(response)).code, 'verification_failed');
+  assert.equal(harness.emails.length, 0);
+});
+
+test('accepts the target clearstance.eu hostname during migration', async () => {
+  const harness = createHarness({
+    success: true,
+    action: 'contact',
+    hostname: 'clearstance.eu'
+  });
+  const response = await handleContactRequest(
+    createRequest({}, { url: 'https://clearstance.eu/api/contact' }),
+    harness.env,
+    harness.dependencies
+  );
+
+  assert.equal(response.status, 200);
+  assert.deepEqual(await readJson(response), { ok: true });
+  assert.equal(harness.emails.length, 1);
+});
+
+test('preserves the legacy single-hostname configuration as a safe fallback', async () => {
+  const harness = createHarness();
+  const legacyEnv = {
+    ...harness.env,
+    TURNSTILE_EXPECTED_HOSTNAMES: undefined,
+    TURNSTILE_EXPECTED_HOSTNAME: 'clearstance.pl'
+  };
+
+  const response = await handleContactRequest(
+    createRequest(),
+    legacyEnv,
+    harness.dependencies
+  );
+
+  assert.equal(response.status, 200);
+  assert.equal(harness.emails.length, 1);
+});
+
+test('fails closed when any configured Turnstile hostname is not exact', async () => {
+  const harness = createHarness();
+  harness.env.TURNSTILE_EXPECTED_HOSTNAMES =
+    'clearstance.pl,*.clearstance.eu';
+
+  const response = await handleContactRequest(
+    createRequest(),
+    harness.env,
+    harness.dependencies
+  );
+
+  assert.equal(response.status, 503);
+  assert.equal(harness.verificationCalls, 0);
   assert.equal(harness.emails.length, 0);
 });
 
@@ -562,7 +613,7 @@ test('rejects a failed Turnstile verification without sending email', async () =
 
 test('fails safely when production hostname or runtime configuration is missing', async () => {
   for (const missing of [
-    'TURNSTILE_EXPECTED_HOSTNAME',
+    'TURNSTILE_EXPECTED_HOSTNAMES',
     'TURNSTILE_SECRET_KEY',
     'CONTACT_DESTINATION_EMAIL',
     'CONTACT_FROM_EMAIL',

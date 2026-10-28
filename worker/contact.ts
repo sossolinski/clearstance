@@ -57,6 +57,7 @@ interface EmailBinding {
 export interface ContactEnv {
   EMAIL?: EmailBinding;
   TURNSTILE_SECRET_KEY?: string;
+  TURNSTILE_EXPECTED_HOSTNAMES?: string;
   TURNSTILE_EXPECTED_HOSTNAME?: string;
   CONTACT_DESTINATION_EMAIL?: string;
   CONTACT_FROM_EMAIL?: string;
@@ -287,16 +288,31 @@ function readConfiguredEmail(value: string | undefined) {
   return sanitised;
 }
 
-function readExpectedHostname(value: string | undefined) {
-  const hostname = value?.trim().toLowerCase() ?? '';
-  return HOSTNAME_PATTERN.test(hostname) ? hostname : null;
+function readExpectedHostnames(value: string | undefined) {
+  if (!value || value !== value.trim()) {
+    return null;
+  }
+
+  const hostnames = value
+    .split(',')
+    .map((hostname) => hostname.trim().toLowerCase())
+    .filter(Boolean);
+
+  if (
+    hostnames.length === 0 ||
+    hostnames.some((hostname) => !HOSTNAME_PATTERN.test(hostname))
+  ) {
+    return null;
+  }
+
+  return new Set(hostnames);
 }
 
 async function verifyTurnstile(
   submission: ContactSubmission,
   request: Request,
   secret: string,
-  expectedHostname: string | null,
+  expectedHostnames: Set<string> | null,
   testMode: boolean,
   dependencies: ContactDependencies
 ) {
@@ -339,8 +355,11 @@ async function verifyTurnstile(
     }
 
     const result = parsed as TurnstileResult;
+    const responseHostname = result.hostname?.toLowerCase();
     const hostnameMatches =
-      testMode || result.hostname?.toLowerCase() === expectedHostname;
+      testMode ||
+      (responseHostname !== undefined &&
+        expectedHostnames?.has(responseHostname) === true);
     const actionMatches = testMode || result.action === 'contact';
     const isValid =
       result.success === true &&
@@ -374,7 +393,7 @@ export function buildNotification(
   const topicLabel = getContactTopicLabel(submission.locale, submission.topic);
 
   return [
-    'New enquiry from clearstance.pl',
+    'New enquiry from the ClearStance website',
     '',
     'Name:',
     submission.name,
@@ -472,8 +491,8 @@ export async function handleContactRequest(
 
   const turnstileSecret = env.TURNSTILE_SECRET_KEY?.trim() ?? '';
   const testMode = isLocalTurnstileTestMode(request, turnstileSecret);
-  const expectedHostname = readExpectedHostname(
-    env.TURNSTILE_EXPECTED_HOSTNAME
+  const expectedHostnames = readExpectedHostnames(
+    env.TURNSTILE_EXPECTED_HOSTNAMES || env.TURNSTILE_EXPECTED_HOSTNAME
   );
   const destinationEmail = readConfiguredEmail(
     env.CONTACT_DESTINATION_EMAIL
@@ -482,7 +501,7 @@ export async function handleContactRequest(
 
   if (
     !turnstileSecret ||
-    (!testMode && !expectedHostname) ||
+    (!testMode && !expectedHostnames) ||
     !destinationEmail ||
     !fromEmail ||
     !env.EMAIL
@@ -500,7 +519,7 @@ export async function handleContactRequest(
     validation.submission,
     request,
     turnstileSecret,
-    expectedHostname,
+    expectedHostnames,
     testMode,
     dependencies
   );
