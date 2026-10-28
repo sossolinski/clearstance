@@ -6,20 +6,22 @@ The implementation is based on the approved ClearStance v10 homepage reference. 
 
 ## Technology
 
-- Astro 7 with static output
+- Astro 7.3.3 with static output
 - TypeScript in strict mode
 - Tailwind CSS 4 through its Vite plugin
 - Astro Content Collections
 - Markdown for Insights
 - Sveltia CMS as an optional Git-based editorial interface
-- A Cloudflare Worker for the contact endpoint, with static assets for the site
+- A Cloudflare Worker for routing and the contact endpoint, with static assets
+  for the site, bundled with Wrangler 4.154.0
+- Sharp 0.35.5 for the build-time image pipeline
 - A small amount of framework-free JavaScript for navigation, progressive reveal effects, and contact-form enhancement
 
 There is no database, proprietary CMS, frontend framework, form SaaS, CRM, or paid application dependency. Insight content remains in Git. Form submissions are delivered by email and are not stored.
 
 ## Requirements
 
-- Node.js 22.12 or newer
+- Node.js 22.19.0 or newer
 - npm 10.9.8 (pinned in `package.json`)
 
 ## Local development
@@ -439,15 +441,16 @@ The secret values are never build variables and must not be placed in
 6. In **Workers & Pages → clearstance → Settings → Build**, add
    `PUBLIC_TURNSTILE_SITE_KEY` as a build variable containing the Site Key.
 7. In **Workers & Pages → clearstance → Settings → Variables & Secrets**, add
-   `TURNSTILE_SECRET_KEY` as a Secret containing the Secret Key, then deploy
-   that runtime configuration.
+   `TURNSTILE_SECRET_KEY` as a Secret containing the Secret Key. Releasing that
+   runtime configuration is a separate explicitly approved activation.
 8. Trigger a fresh production build after setting the Site Key. Astro reads
    this value during the build; changing it without rebuilding leaves the
    generated form disabled.
 
-The production Worker requires `success === true`, hostname
-`clearstance.pl`, and action `contact`. Tokens are single-use, expire after five
-minutes, and are reset after every submission attempt that reaches the Worker.
+The production Worker requires `success === true`, an exact hostname of either
+`clearstance.pl` or `clearstance.eu`, and action `contact`. Wildcards and other
+hostnames are rejected. Tokens are single-use, expire after five minutes, and
+are reset after every submission attempt that reaches the Worker.
 Cloudflare’s documented dummy keys are accepted only when the request itself is
 served from a local hostname. They cannot bypass production hostname/action
 checks.
@@ -570,29 +573,42 @@ starts.
 ## Cloudflare production deployment
 
 The target is Cloudflare Workers with Static Assets. Astro produces static HTML
-in `dist/`; `wrangler.jsonc` uses `assets.run_worker_first` for `/api/*` and
-serves all other routes through the static asset binding.
+in `dist/`; `wrangler.jsonc` sets `assets.run_worker_first` to `true`, so every
+request reaches the Worker before static asset routing. The Worker evaluates
+the disabled-by-default migration redirect gates, isolates `/api/*`, and then
+serves normal page and asset requests through the `ASSETS` binding.
 
 Workers Builds must use:
 
 ```text
 Production branch: main
-Build command: npm run build
-Deploy command: npm run deploy:cloudflare
+Build command: npm install --include=optional && npm run build
+Production build deploy command: npx wrangler versions upload
+Non-production branch builds: disabled
 ```
 
 In **Workers & Pages → clearstance → Settings → Builds**, confirm the existing
-GitHub repository and these commands. The Worker name must match the
-`clearstance` name in `wrangler.jsonc`.
+GitHub repository, the single trigger restricted to `main`, and these commands.
+Workers Previews and non-production branch builds remain disabled. The Worker
+name must match the `clearstance` name in `wrangler.jsonc`.
+
+`wrangler versions upload` uploads a new inactive Worker version and does not
+assign production traffic to it. An ordinary push or merge to `main` may
+therefore build and upload a version, but it does not activate that version.
+Production activation is a separate release operation requiring explicit owner
+approval and verification of the exact version and traffic allocation.
 
 Configuration lifecycle:
 
-- Changing `PUBLIC_TURNSTILE_SITE_KEY` requires a new Astro build and deploy.
+- Changing `PUBLIC_TURNSTILE_SITE_KEY` requires a new Astro build and inactive
+  version upload; activation remains a separate approved release operation.
 - Adding or changing a runtime secret in **Variables & Secrets** requires
-  selecting **Deploy**, which creates and activates a new Worker version.
+  selecting **Deploy**, which creates and activates a new Worker version. Treat
+  this as an explicitly approved production activation, not routine setup.
 - Changing `TURNSTILE_EXPECTED_HOSTNAMES`, `CONTACT_FROM_EMAIL`, the `EMAIL`
   binding, or Worker code requires committing the `wrangler.jsonc`/code change
-  and deploying it.
+  to `main`, uploading the resulting inactive version, and separately approving
+  any production activation.
 - Creating or editing the zone rate-limit rule takes effect when the rule is
   deployed and does not require a site rebuild.
 
@@ -600,14 +616,16 @@ Configuration lifecycle:
 
 For the recommended Workers Free architecture, use this order:
 
-1. Push and deploy the amended Phase 4 commit.
+1. Merge the reviewed commit to `main`. Workers Builds may build it and upload
+   an inactive version; inspect that exact version before any separately
+   approved activation.
 2. Create the production Turnstile widget named **ClearStance contact**, using
    Managed mode, hostname `clearstance.pl`, action `contact`, and Pre-clearance
    off.
-3. Add the build variable `PUBLIC_TURNSTILE_SITE_KEY`, then rebuild and deploy
-   the Astro site.
-4. Add `TURNSTILE_SECRET_KEY` as an encrypted Worker runtime secret and deploy
-   the resulting Worker version.
+3. Add the build variable `PUBLIC_TURNSTILE_SITE_KEY`, then run the approved
+   `main` build to upload a new inactive version. Do not activate it implicitly.
+4. Add `TURNSTILE_SECRET_KEY` as an encrypted Worker runtime secret. Any release
+   of the resulting Worker version requires separate explicit approval.
 5. Add and verify the private Gmail address under **Compute → Email Service →
    Email Routing → Destination Addresses**.
 6. Add that exact address as the encrypted Worker secret
@@ -647,8 +665,9 @@ Production preflight:
    `PUBLIC_TURNSTILE_SITE_KEY`, not a documented dummy key.
 3. Confirm `TURNSTILE_SECRET_KEY` and `CONTACT_DESTINATION_EMAIL` exist as
    runtime secrets.
-4. Confirm the committed hostname, sender, sender allowlist, `EMAIL` binding,
-   and Worker-first `/api/*` routing are present in the active deployment.
+4. Confirm the committed hostnames, sender, sender allowlist, `EMAIL` binding,
+   and Worker-first routing for all requests are present in the candidate
+   version before activation.
 5. For the Free architecture, confirm `clearstance.pl` is an active Email
    Routing domain and the private destination is verified. If the deliberate
    OVH-to-Cloudflare mail transition has not happened, the Free form delivery
@@ -664,14 +683,21 @@ Production preflight:
 9. Confirm a request without a Turnstile token and a malformed form request are
    rejected without email delivery. Do not load-test production.
 
-For a manual production build and deploy:
+For local production-build and Worker-bundle verification without upload:
 
 ```bash
 npm run build
-npm run deploy:cloudflare
+npm run check:worker
 ```
 
-This repository is prepared for Cloudflare but is not deployed automatically by this setup task. The earlier OpenAI/App Garden target is not used.
+The `npm run deploy:cloudflare` script invokes `wrangler deploy`, which can
+create and activate a production deployment. It is not the approved routine
+release path and may be used only during an explicitly authorized production
+operation. Do not substitute it for the configured `versions upload` command.
+
+Workers Builds automatically processes approved changes on `main` and uploads
+an inactive version. It does not automatically activate production traffic.
+The earlier OpenAI/App Garden target is not used.
 
 The safe default canonical origin is:
 
