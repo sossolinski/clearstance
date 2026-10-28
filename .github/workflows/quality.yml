@@ -56,6 +56,9 @@ jobs:
       - name: Build static site
         run: npm run build
 
+      - name: Test domain redirects through the local Workers runtime
+        run: npm run test:domain-runtime
+
       - name: Test production DOM hierarchy
         run: npm run test:release-dom
 

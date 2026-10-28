@@ -70,10 +70,11 @@ function migrationRedirect(request: Request, env: Env) {
     return null;
   }
 
-  return Response.redirect(
-    new URL(`${url.pathname}${url.search}`, primaryOrigin),
-    308
-  );
+  const destination = new URL(primaryOrigin);
+  destination.pathname = url.pathname;
+  destination.search = url.search;
+
+  return Response.redirect(destination, 308);
 }
 
 export default {

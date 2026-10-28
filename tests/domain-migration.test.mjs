@@ -62,6 +62,21 @@ test('redirects www.clearstance.eu to the apex with path and query intact when a
   assert.deepEqual(harness.assetRequests, []);
 });
 
+test('keeps double-slash paths on the approved apex instead of creating an open redirect', async () => {
+  const harness = createEnv({ WWW_REDIRECT_ENABLED: 'true' });
+  const response = await worker.fetch(
+    new Request('https://www.clearstance.eu//example.com/path?q=1'),
+    harness.env
+  );
+
+  assert.equal(response.status, 308);
+  assert.equal(
+    response.headers.get('Location'),
+    'https://clearstance.eu//example.com/path?q=1'
+  );
+  assert.deepEqual(harness.assetRequests, []);
+});
+
 test('keeps the future clearstance.pl redirect independently disabled', async () => {
   const harness = createEnv({ WWW_REDIRECT_ENABLED: 'true' });
   const response = await worker.fetch(
@@ -123,6 +138,7 @@ test('keeps repository redirects disabled and CI deployment-free', async () => {
 
   assert.equal(wrangler.vars.WWW_REDIRECT_ENABLED, 'false');
   assert.equal(wrangler.vars.LEGACY_DOMAIN_REDIRECT_ENABLED, 'false');
+  assert.equal(wrangler.assets.run_worker_first, true);
   assert.doesNotMatch(workflowSource, /deploy:cloudflare|wrangler deploy/u);
   assert.match(packageJson.scripts['check:worker'], /--dry-run/u);
 });
